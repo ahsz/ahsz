@@ -1,12 +1,12 @@
 #cim {
     text-align: center;
     color: red;
-	position:absolute;
 	margin-left: 50;
+	font-size:30px;
 }
 
 #menu {
-	margin-top:100px;
+	margin-top:50px;
 	position:absolute;
 	width: 12em;
 	border-right: 1px solid #000;
