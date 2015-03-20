@@ -2,12 +2,26 @@
 <html>
 <head>
 	<meta charset="UTF-8">  </meta>
-<title>Title of the document</title>
+<title>Kezdőlap</title>
 </head>
 
 <body>
 	<div style="margin-left:200">
-	Kezdőlap
+	<!-- csak akkor jelenik meg, ha még nem választott csapatot a felhasználó-->
+	Válassz csapatot!
+
+	<p>
+		<select name="formCsapat">
+		  <option value="BitCowboyok">BitCowboyok</option>
+		  <option value="ExceptionVadászok">ExceptionVadászok</option>
+		  <option value="BeerNotFound">BeerNotFound</option>
+		  <option value="Batman">Batman</option>
+		  <option value="MyAssQL">MyAssQL</option>
+		</select>
+		<input type="submit" name="Submit" value="Kiválaszt" />
+		<!-- TODO: Ha választott már csapatot a diák akkor többet ne lássa ezt a legördülő menüt -->
+	</p>
+
 	</div>
 </body>
 
