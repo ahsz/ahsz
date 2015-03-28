@@ -2,27 +2,126 @@
 <html>
 <head>
 	<meta charset="UTF-8">  </meta>
-<title>Kezdőlap</title>
+	<title>Kezdőlap</title>
+
+	<style>
+		#select_team {
+			margin-left: 200px;
+			text-indent: 50px;
+		}
+
+		#selected_team {
+			margin-left: 200px;
+			text-indent: 50px;
+			visibility: hidden;
+		}
+		
+		
+		#main_page {
+		
+		}
+		
+		#subpage_title {
+			text-align: center;
+			font-size: 200%;
+		}
+		
+		div.description p {
+			text-indent: 50px;
+			padding-left: 30px;
+		}
+		
+		p {
+		}
+		
+	</style>
+	
+	<script>
+	function your_team()	{
+		var teamname = document.getElementById("options").value
+//		document.getElementById("team_name").innerHTML = teamname;
+//		document.getElementById("selected_team").style.visibility = "visible";
+		
+//		document.getElementById("options").disabled = true;
+//		document.getElementById("select_team").style.visibility = "hidden";
+		
+		var parent = document.getElementById("main_page");
+		var oldchild = document.getElementById("select_team");
+		var para = document.createElement("p");
+		var node = document.createTextNode("Az általad választott csapat: " + teamname);
+		para.appendChild(node);
+		parent.insertBefore(para,oldchild);
+		
+		
+		parent.removeChild(oldchild);
+		
+		
+		}
+
+	
+	</script>
+
+
 </head>
 
 <body style="background-color:lightgreen">
-	<div style="margin-left:200">
-	<!-- csak akkor jelenik meg, ha még nem választott csapatot a felhasználó-->
-	Válassz csapatot!
+	
+	<div id="main_page">
+		<p id="subpage_title"> <b>Kezdőlap</b>	</p> 
 
-	<p>
-		<select name="formCsapat">
-		  <option value="BitCowboyok">BitCowboyok</option>
-		  <option value="ExceptionVadászok">ExceptionVadászok</option>
-		  <option value="BeerNotFound">BeerNotFound</option>
-		  <option value="Batman">Batman</option>
-		  <option value="MyAssQL">MyAssQL</option>
-		</select>
-		<input type="submit" name="Submit" value="Kiválaszt" />
-		<!-- TODO: Ha választott már csapatot a diák akkor többet ne lássa ezt a legördülő menüt -->
-	</p>
+	
+	
+		<div id="select_team">
+		<!-- csak akkor jelenik meg, ha még nem választott csapatot a felhasználó-->
+		Válassz csapatot!
+		
+		<p>
+			<select name="formCsapat" id="options">
+			  <option value="BitCowboyok">BitCowboyok</option>
+			  <option value="ExceptionVadászok">ExceptionVadászok</option>
+			  <option value="BeerNotFound">BeerNotFound</option>
+			  <option value="Batman">Batman</option>
+			  <option value="MyAssQL">MyAssQL</option>
+			</select>
+			<input type="submit" name="Submit" value="Kiválaszt" onclick="your_team()" />
+			<!-- TODO: Ha választott már csapatot a diák akkor többet ne lássa ezt a legördülő menüt -->
+		</p>
 
+		</div>
+		
+		<div id="selected_team">
+		Az általad választott csapat:
+		<span id="team_name"> tesztszöveg  </span>
+		
+			
+		</div>
+		
+		
+		<div class="description">
+		<p>  Ez az Agilis csapat oldala!
+			<br/>Reméljük mindenki elégedett lesz a munkánkkal! :D
+			</br>
+			</br>
+			<b>PRÓBÁLJÁTOK KI A CSAPATVÁLASZTÁST, KATTINTSATOK A GOMBRA, ÉS NÉZÉTEK MEG HOGY ÍGY JÓ LESZ-E :) </b>
+			</p>
+		<p>  A csapattagok:
+		<br/>Tuba
+		</br>Dodi
+		</br>Husi
+		</br>Kerémi
+		</br>Kónya
+		<br>SzMarci
+		</br>Lali
+		</p>
+		<p>  Ide még kérülhet bármilyen  egyéb szöveg:
+			<br/>A második sor már úgysem lesz behúzva itt sem! :)</p>
+		</div>
+	
 	</div>
+	
+	
+	
+	
 </body>
 
 </html>
