@@ -2,13 +2,74 @@
 <html>
 <head>
 	<meta charset="UTF-8">  </meta>
-<title>Munka státusz</title>
-<style media="screen" type="text/css">
+	<title>Munka státusz</title>
+	<style media="screen" type="text/css">
 
-textarea {
-    resize: none;
-}
-</style>
+	textarea {
+		resize: none;
+	}
+	</style>
+	<script type="text/javascript" src='https://www.google.com/jsapi?autoload={"modules":[{"name":"visualization","version":"1.1","packages":["calendar"]}]}'></script>
+	<script type="text/javascript">
+		google.setOnLoadCallback(drawChart);
+		// TODO bekérni ezt az URL-t a csapattól
+		var gitUrl = 'https://api.github.com/repos/ahsz/ahsz/';
+			
+		/**
+		 * Git API válaszán keresztül a projekt alapinfóinak lekérdezése
+		 */
+		function gitRoot(response) {
+			var meta = response.meta;
+			var data = response.data;
+
+			// Az összes commitról kell részletesebb adat is, amiket a következő
+			// kóddal kérjük le
+			for(i = 0; i < data.length; i++) {
+				var script = document.createElement('script');
+				script.src = gitUrl + 'commits/' + data[i].sha + '?callback=gitChild';
+				document.getElementsByTagName('head')[0].appendChild(script);  
+			}
+		}
+		
+		/**
+		 * Git API válaszán keresztül a commitok részleteinek bányászása.
+		 *  Kell a módosított sorok száma miatt.
+		 */
+		 function gitChild(response) {			
+			var data = response.data;
+			var stats = data.stats;
+			var date = new Date(data.commit.committer.date);
+			var increased = stats.additions - stats.deletions;
+			
+			dataTable.addRows([[date,increased]]);
+			// Itt lehetne optimalizálni, hogy ne rajzolja ki 66x a chartot
+			// Esetleg vmi event, ha lefutott az összes commit-info begyűjtésdrawChart();
+			console.log(dataTable);
+		}
+
+		
+		var dataTable = new google.visualization.DataTable();
+		dataTable.addColumn({ type: 'date', id: 'Date' });
+		dataTable.addColumn({ type: 'number', id: 'Sorok' });
+
+		var script = document.createElement('script');  
+		script.src = gitUrl + 'commits?callback=gitRoot';
+		document.getElementsByTagName('head')[0].appendChild(script);
+
+		/**
+		 * Google calendar chart kirajzoltatás
+		 */
+		function drawChart() {
+			var chart = new google.visualization.Calendar(document.getElementById('calendar_basic'));
+			var options = {
+			 title: "Kódsorok számának növekedése",
+			 height: 350,
+			};
+
+			chart.draw(dataTable, options);
+		}
+	</script>
+	
 </head>
 
 <body>
@@ -19,7 +80,7 @@ textarea {
 	<h1>Munka státusz</h1>
 	</div>
 	<!-- jenkinsből valahogy ki kell nyerni a commitnaplókat meg a chartokat -->
-	<img src="chart_sample.png" alt="Chart1" style="width:200px;height:228px">
+	<div id="calendar_basic" style="width: 1000px; height: 350px;"></div>
 	<img src="chart_sample.png" alt="Chart2" style="width:200px;height:228px">
 	<img src="chart_sample.png" alt="Chart3" style="width:200px;height:228px">
 	</br>
