@@ -17,14 +17,14 @@
 		}
 		Else
 		{
-			$result=mysqli_query($con,"INSERT INTO USER (NEPTUN, NEV, TYPE, PASSWORD, TEAM_ID, DATE_CRT) VALUES ('$neptun','$name',1,'$pass',1,'$date')");
+			$res=mysqli_query($con,"INSERT INTO USER (NEPTUN, NEV, TYPE, PASSWORD, TEAM_ID, DATE_CRT) VALUES ('$neptun','$name',1,'$pass',1,'$date')");
 			If($res)
 			{
 				Echo "Record successfully inserted";
 			}
 			Else
 			{
-				Echo "ERROR";
+				Echo "ERROR volt megint";
 			}
 		}
 	}
