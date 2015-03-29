@@ -5,10 +5,10 @@
 
 	If($_POST["submit"])
 	{
-		$name = $_POST["name"]
-		$neptun = $_POST["neptun"]
-		$email = $_POST["email"]
-		$pass = $_POST["password"]
+		$name = $_POST["name"];
+		$neptun = $_POST["neptun"];
+		$email = $_POST["email"];
+		$pass = $_POST["password"];
 		$date=date('Y-m-d H:i:s');
 		
 		If($name=="" || $neptun=="" || $email=="" || $pass=="")
