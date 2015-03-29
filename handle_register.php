@@ -21,6 +21,7 @@
 			If($res)
 			{
 				Echo "Record successfully inserted";
+				Echo '<a href="frame.html">'. Kezdőlap . '</a>';
 			}
 			Else
 			{
