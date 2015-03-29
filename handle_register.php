@@ -24,7 +24,7 @@
 			}
 			Else
 			{
-				Echo "ERROR volt megint";
+				Echo "ERROR volt megint: " . mysqli_error($res);
 			}
 		}
 	}
