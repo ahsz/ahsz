@@ -21,7 +21,7 @@ textarea {
 	session_start(); 
 	require "config.php";
 	
-	$result=mysqli_query($con,"SELECT DATE_CRT, NAME, MESSAGE FROM MSG_BOARD");
+	$result=mysqli_query($con,"SELECT DATE_CRT, NEPTUN, MESSAGE FROM MSG_BOARD");
 	
 	if(!$result)
 	{
@@ -30,7 +30,7 @@ textarea {
 		
 	while($row=mysqli_fetch_assoc($result))
 	{
-		echo $row['DATE_CRT']." ".$row['NAME']." :".$row['MESSAGE']."\n";
+		echo $row['DATE_CRT']." ".$row['NEPTUN']." :".$row['MESSAGE']."\n";
 	}	
 
 	?>
