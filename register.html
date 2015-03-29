@@ -33,12 +33,12 @@ border:#666666 solid 1px;
 
 <div style="margin:30px">
 
-<form method="POST" name="register" id="register" action="?register=true">
-<label>Név</label><br/> <input type="text" name="fname" size="20"><br/>
-<label>Neptun</label><br/> <input type="text" name="lname" size="20"><br/>
+<form method="POST" name="register" id="register" action="handle_register.php">
+<label>Név</label><br/> <input type="text" name="name" size="20"><br/>
+<label>Neptun</label><br/> <input type="text" name="neptun" size="20"><br/>
 <label>Email</label><br/> <input type="text" name="email" size="20"><br/>
 <label>Jelszó</label><br/> <input type="password" name="password" size="20"><br/><br/>
-<input type="submit" value="Submit" name="submit">
+<input type="submit" value="submit" name="submit">
 </form>
 
 <div style="font-size:11px; color:#cc0000; margin-top:10px"><?php echo $error; ?></div>

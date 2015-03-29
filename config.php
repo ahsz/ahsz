@@ -11,6 +11,4 @@
 		die("Can not connect to Server.");
 	}
 	
-	
-	mysqli_close($con);
 ?>
