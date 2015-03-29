@@ -3,14 +3,10 @@
 	session_start(); 
 	require "config.php";
 	
-	if($_POST["login"]) {
+	if($_POST["login"])
+	{
 		$user  = $_POST['username']; 
 		$pass  = $_POST['password']; 
-		
-		$user = stripslashes($user);
-		$pass = stripslashes($pass);
-		$user = mysqli_real_escape_string($user);
-		$pass = mysqli_real_escape_string($pass);
 		
 		if($user == "" || $pass == "") 
 		{ 
