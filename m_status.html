@@ -12,6 +12,7 @@
 	<script type="text/javascript" src='https://www.google.com/jsapi?autoload={"modules":[{"name":"visualization","version":"1.1","packages":["corechart"]}]}'></script>
 	<script type="text/javascript">
 		google.setOnLoadCallback(drawChart);
+		// TODO bekért linket a DB-ből ideilleszteni
 		var gitUrl = 'https://api.github.com/repos/ahsz/ahsz/';
 			
 		/**
@@ -96,10 +97,7 @@
 	<div style="margin-left:200">
 	<h1>Munka státusz</h1>
 	</div>
-	<!-- jenkinsből valahogy ki kell nyerni a commitnaplókat meg a chartokat -->
 	<div id="chart_basic" style="width: 1000px; height: 350px;"></div>
-	<img src="chart_sample.png" alt="Chart2" style="width:200px;height:228px">
-	<img src="chart_sample.png" alt="Chart3" style="width:200px;height:228px">
 	</br>
 	</br>
 	<textarea readonly name="message" rows="10" cols="83">
