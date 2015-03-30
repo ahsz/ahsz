@@ -35,8 +35,8 @@ textarea {
 
 	?>
 	</textarea>
-	<form method="get" action="msgboard.php">
-	<textarea name="message" rows="2" cols="74">
+	<form form id="form" name="form" method="post" action="msgboard.php">
+	<textarea id="postmessage" name="postmessage" rows="2" cols="74">
 	</textarea>
 	<input type="submit" name="submit" value="Küldés" />
 	</form>

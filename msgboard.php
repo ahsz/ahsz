@@ -2,14 +2,14 @@
 	session_start(); 
 	require "config.php";
 	
-	if (isset($_GET['message'])) {
+	if (isset($_POST['postmessage'])) {
 		$user=$_SESSION['username'];
 		$team_id=1;
-		$message=$_GET['message'];
-		$date=date('Y-m-d',time());
+		$message=$_POST['postmessage'];
+		$date=date('Y-m-d h:i:s',time());
 		
-		$sql="INSERT INTO MSG_BOARD( NEPTUN, MESSAGE, DATE_CRT) VALUES('$user','$message','$date')";
-		$res=mysqli_query(con$,$sql);	
+		$sql="INSERT INTO MSG_BOARD (TEAM_ID, NEPTUN, MESSAGE, DATE_CRT) VALUES(1,'$user','$message','$date')";
+		$res=mysqli_query($con,$sql);	
 		
 		If(!$res)
 		{	
@@ -17,7 +17,7 @@
 		}
 		Else
 		{
-			header("location:uzenetek.php");
+			header("Location: uzenetek.php");
 		}
 	}	
 ?>
