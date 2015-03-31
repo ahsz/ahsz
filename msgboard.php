@@ -8,7 +8,7 @@
 		$message=$_POST['postmessage'];
 		$date=date('Y-m-d h:i:s',time());
 		
-		$sql="INSERT INTO MSG_BOARD (TEAM_ID, NEPTUN, MESSAGE, DATE_CRT) VALUES(1,'$user','$message','$date')";
+		$sql="INSERT INTO MSG_BOARD (TEAM_ID, NEPTUN, MESSAGE, DATE_CRT) VALUES(1,'$user','$message',sysdate())";
 		$res=mysqli_query($con,$sql);	
 		
 		If(!$res)
