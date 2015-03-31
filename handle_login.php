@@ -12,17 +12,19 @@
 		{ 
 			echo "Kerlek toltsd ki a mezoket!"; 
 		} 
+		else
+		{
+			$result=mysqli_query($con,"SELECT * FROM USER WHERE NEPTUN='$user' and PASSWORD='$pass'");
+			$count=mysqli_num_rows($result);
 		
-		$result=mysqli_query($con,"SELECT * FROM USER WHERE NEPTUN='$user' and PASSWORD='$pass'");
-		$count=mysqli_num_rows($result);
-		
-		if($count==1){
-			$_SESSION['username'] = $user;
-			header("location:success.php");
+			if($count==1){
+				$_SESSION['username'] = $user;
+				header("location:success.php");
+			}
+			 else{ 
+				echo "Nem letezo neptun kod vagy rossz jelszo!"; 
+			} 
 		}
-		 else{ 
-			echo "Nem letezo neptun kod vagy rossz jelszo!"; 
-		} 
 	}
 	
 	if($_POST["register"]) {
