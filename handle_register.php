@@ -13,15 +13,15 @@
 		
 		If($name=="" || $neptun=="" || $email=="" || $pass=="")
 		{
-			Echo "please fill the empty field.";
+			Echo "Kerlek toltsd ki az uresen maradt mezoket!";
 		}
 		Else
 		{
 			$res=mysqli_query($con,"INSERT INTO USER (NEPTUN, NAME, TYPE, PASSWORD, TEAM_ID, DATE_CRT) VALUES ('$neptun','$name',1,'$pass',1,'$date')");
 			If($res)
 			{
-				Echo "Record successfully inserted";
-				Echo '<a href="frame.html">'. Kezdőlap . '</a>';
+				Echo "Sikeres regisztracio! ";
+				Echo '<a href="frame.html">'. Kezdolap . '</a>';
 			}
 			Else
 			{
