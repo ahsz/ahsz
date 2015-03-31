@@ -21,16 +21,16 @@ textarea {
 	session_start(); 
 	require "config.php";
 	
-	$result=mysqli_query($con,"SELECT DATE_CRT, NEPTUN, MESSAGE FROM MSG_BOARD");
+	$result=mysqli_query($con,"SELECT M.DATE_CRT, U.NAME, M.MESSAGE FROM MSG_BOARD M, USER U WHERE U.NEPTUN=M.NEPTUN");
 	
 	if(!$result)
 	{
 		echo "ERROR :" . mysqli_error($con);
 	}
-		
+	echo "\n";	
 	while($row=mysqli_fetch_assoc($result))
 	{
-		echo $row['DATE_CRT']." ".$row['NEPTUN']." :".$row['MESSAGE']."\n";
+		echo $row['M.DATE_CRT']." ".$row['U.NAME']." :".$row['M.MESSAGE']."\n";
 	}	
 
 	?>
