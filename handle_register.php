@@ -21,7 +21,7 @@
 			If($res)
 			{
 				Echo "Sikeres regisztracio! ";
-				Echo '<a href="frame.html">'. Kezdolap . '</a>';
+				Echo '<a href="index.html">'. Belepes . '</a>';
 			}
 			Else
 			{
