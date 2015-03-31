@@ -4,12 +4,12 @@ session_start();
 
 if(isset($_SESSION['username']))
 { 
-   echo "Hello ".$_SESSION['username'].", you are logged in."; 
+   echo "Hello ".$_SESSION['username'].", sikeres bejelentkezés!."; 
    echo '<a href="frame.html">'. Kezdőlap . '</a>';
 } 
 
 else{ 
-   echo "Please log in"; 
+   echo "Kérlek jelentkezz be!"; 
 } 
 
 ?> 
