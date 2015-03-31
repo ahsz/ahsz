@@ -30,7 +30,7 @@ textarea {
 	echo "\n";	
 	while($row=mysqli_fetch_assoc($result))
 	{
-		echo $row['M.DATE_CRT']." ".$row['U.NAME']." :".$row['M.MESSAGE']."\n";
+		echo $row['DATE_CRT']." ".$row['NAME']." :".$row['MESSAGE']."\n";
 	}	
 
 	?>
