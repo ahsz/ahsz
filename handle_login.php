@@ -10,7 +10,7 @@
 		
 		if($user == "" || $pass == "") 
 		{ 
-			echo "Irj be valamit!!!"; 
+			echo "Kerlek toltsd ki a mezoket!"; 
 		} 
 		
 		$result=mysqli_query($con,"SELECT * FROM USER WHERE NEPTUN='$user' and PASSWORD='$pass'");
@@ -21,7 +21,7 @@
 			header("location:success.php");
 		}
 		 else{ 
-			echo "ERROR"; 
+			echo "Nem letezo neptun kod vagy rossz jelszo!"; 
 		} 
 	}
 	
