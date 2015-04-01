@@ -13,20 +13,34 @@
 </thead><tbody>
 <tr>
 	<td>open</td>
-	<td>file:///C:/Users/Andris/Documents/GitHub/agilis/ahsz/uzenetek.html</td>
+	<td>/testsite/frame.html</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>link=Üzenetek</td>
+	<td></td>
+</tr>
+<tr>
+	<td>selectFrame</td>
+	<td>kezdolap_frame</td>
 	<td></td>
 </tr>
 <tr>
 	<td>type</td>
-	<td>xpath=(//textarea[@name='message'])[2]</td>
-	<td>Teszt</td>
+	<td>id=postmessage</td>
+	<td>	Test üzenet</td>
 </tr>
 <tr>
-	<td>click</td>
-	<td>name=Submit</td>
+	<td>clickAndWait</td>
+	<td>name=submit</td>
 	<td></td>
 </tr>
-
+<tr>
+	<td>assertText</td>
+	<td>name=message</td>
+	<td>*test : Test üzenet*</td>
+</tr>
 </tbody></table>
 </body>
 </html>

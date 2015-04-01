@@ -13,25 +13,39 @@
 </thead><tbody>
 <tr>
 	<td>open</td>
-	<td>file:///C:/Users/Andris/Documents/GitHub/agilis/ahsz/kezdolap.html</td>
+	<td>/testsite/frame.html</td>
+	<td></td>
+</tr>
+<tr>
+	<td>selectFrame</td>
+	<td>kezdolap_frame</td>
 	<td></td>
 </tr>
 <tr>
 	<td>select</td>
-	<td>name=formCsapat</td>
+	<td>id=options</td>
 	<td>label=ExceptionVadászok</td>
-</tr>
-<tr>
-	<td>select</td>
-	<td>name=formCsapat</td>
-	<td>label=BeerNotFound</td>
 </tr>
 <tr>
 	<td>click</td>
 	<td>name=Submit</td>
 	<td></td>
 </tr>
-
+<tr>
+	<td>assertText</td>
+	<td>//div[@id='main_page']/p[2]</td>
+	<td>Az általad választott csapat: ExceptionVadászok</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>css=div.description &gt; p</td>
+	<td>Ez az Agilis csapat oldala! <br /> <br />Reméljük mindenki elégedett lesz a munkánkkal! :)</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>//div[@id='main_page']/div[2]/p[2]</td>
+	<td>A csapattagok: <br />Tuba <br />Dodi <br />Husi <br />Kerémi <br />Kónya <br />SzMarci <br />Lali</td>
+</tr>
 </tbody></table>
 </body>
 </html>

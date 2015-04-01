@@ -3,13 +3,13 @@
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
 <head profile="http://selenium-ide.openqa.org/profiles/test-case">
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
-<link rel="selenium.base" href="file:///C:/Users/Andris/Documents/GitHub/agilis/ahsz/register.html?register=true" />
-<title>feltoltes</title>
+<link rel="selenium.base" href="http://agiliscsapat1.sch.bme.hu:40080/" />
+<title>profil_change_pwd</title>
 </head>
 <body>
 <table cellpadding="1" cellspacing="1" border="1">
 <thead>
-<tr><td rowspan="1" colspan="3">feltoltes</td></tr>
+<tr><td rowspan="1" colspan="3">profil_change_pwd</td></tr>
 </thead><tbody>
 <tr>
 	<td>open</td>
@@ -18,7 +18,7 @@
 </tr>
 <tr>
 	<td>click</td>
-	<td>link=Feltöltés</td>
+	<td>link=Profil</td>
 	<td></td>
 </tr>
 <tr>
@@ -28,19 +28,50 @@
 </tr>
 <tr>
 	<td>type</td>
-	<td>id=fileToUpload</td>
-	<td>C:\Users\Andris\Desktop\upload.txt</td>
+	<td>id=old_pass</td>
+	<td>test</td>
 </tr>
 <tr>
-	<td>clickAndWait</td>
-	<td>name=submit</td>
+	<td>type</td>
+	<td>id=new_pass</td>
+	<td>newtest</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=new_pass2</td>
+	<td>newtest</td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=modify</td>
 	<td></td>
 </tr>
 <tr>
-	<td>assertNotText</td>
-	<td>css=h1</td>
-	<td>Not Found</td>
+	<td></td>
+	<td></td>
+	<td></td>
 </tr>
+<tr>
+	<td>type</td>
+	<td>id=old_pass</td>
+	<td>newtest</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=new_pass</td>
+	<td>test</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=new_pass2</td>
+	<td>test</td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=modify</td>
+	<td></td>
+</tr>
+
 </tbody></table>
 </body>
 </html>

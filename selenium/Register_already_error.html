@@ -4,24 +4,53 @@
 <head profile="http://selenium-ide.openqa.org/profiles/test-case">
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
 <link rel="selenium.base" href="file:///C:/Users/Andris/Documents/GitHub/agilis/ahsz/register.html?register=true" />
-<title>profil</title>
+<title>Register</title>
 </head>
 <body>
 <table cellpadding="1" cellspacing="1" border="1">
 <thead>
-<tr><td rowspan="1" colspan="3">profil</td></tr>
+<tr><td rowspan="1" colspan="3">Register</td></tr>
 </thead><tbody>
 <tr>
 	<td>open</td>
-	<td>file:///C:/Users/Andris/Documents/GitHub/agilis/ahsz/profil.html</td>
+	<td>/testsite/</td>
+	<td></td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>name=register</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>name=name</td>
+	<td>Tester1</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>name=neptun</td>
+	<td>TESTER</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>name=email</td>
+	<td>test@bestagile.hu</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>name=password</td>
+	<td>tester</td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>name=submit</td>
 	<td></td>
 </tr>
 <tr>
 	<td>assertText</td>
-	<td>//div</td>
-	<td>Profil</td>
+	<td>css=html</td>
+	<td>ERROR volt megint: Duplicate entry 'TESTER' for key 'PRIMARY'</td>
 </tr>
-
 </tbody></table>
 </body>
 </html>

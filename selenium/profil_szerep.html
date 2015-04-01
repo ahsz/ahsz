@@ -4,41 +4,41 @@
 <head profile="http://selenium-ide.openqa.org/profiles/test-case">
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
 <link rel="selenium.base" href="file:///C:/Users/Andris/Documents/GitHub/agilis/ahsz/register.html?register=true" />
-<title>index_login</title>
+<title>profil</title>
 </head>
 <body>
 <table cellpadding="1" cellspacing="1" border="1">
 <thead>
-<tr><td rowspan="1" colspan="3">index_login</td></tr>
+<tr><td rowspan="1" colspan="3">profil</td></tr>
 </thead><tbody>
 <tr>
 	<td>open</td>
-	<td>/testsite/</td>
+	<td>/testsite/frame.html</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>link=Profil</td>
+	<td></td>
+</tr>
+<tr>
+	<td>selectFrame</td>
+	<td>kezdolap_frame</td>
 	<td></td>
 </tr>
 <tr>
 	<td>type</td>
-	<td>name=username</td>
-	<td>test</td>
+	<td>id=role</td>
+	<td>Tester</td>
 </tr>
 <tr>
 	<td>type</td>
-	<td>name=password</td>
-	<td>test</td>
+	<td>id=mail</td>
+	<td>tester@bestagile.com</td>
 </tr>
 <tr>
-	<td>clickAndWait</td>
-	<td>name=login</td>
-	<td></td>
-</tr>
-<tr>
-	<td>assertText</td>
-	<td>css=html</td>
-	<td>Szia test, sikeres bejelentkezes!Kezdolap</td>
-</tr>
-<tr>
-	<td>clickAndWait</td>
-	<td>link=Kezdolap</td>
+	<td>click</td>
+	<td>id=modify</td>
 	<td></td>
 </tr>
 </tbody></table>

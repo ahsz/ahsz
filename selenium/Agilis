@@ -8,15 +8,18 @@
 <body>
 <table id="suiteTable" cellpadding="1" cellspacing="1" border="1" class="selenium"><tbody>
 <tr><td><b>Test Suite</b></td></tr>
-<tr><td><a href="feltoltes.html">feltoltes</a></td></tr>
-<tr><td><a href="frame_katt.html">frame_katt</a></td></tr>
 <tr><td><a href="index_login.html">index_login</a></td></tr>
-<tr><td><a href="index_reg.html">index_reg</a></td></tr>
-<tr><td><a href="Register.html">Register</a></td></tr>
 <tr><td><a href="kezdolap.html">kezdolap</a></td></tr>
-<tr><td><a href="m_status.html">m_status</a></td></tr>
-<tr><td><a href="profil.html">profil</a></td></tr>
+<tr><td><a href="profil_szerep.html">profil_szerep</a></td></tr>
+<tr><td><a href="profil_change_pwd.html">profil_change_pwd</a></td></tr>
 <tr><td><a href="uzenetek.html">uzenetek</a></td></tr>
+<tr><td><a href="ertekeles_tanari.html">ertekeles_tanari</a></td></tr>
+<tr><td><a href="ertekeles_diak.html">ertekeles_diak</a></td></tr>
+<tr><td><a href="ertekeles_rolad.html">ertekeles_rolad</a></td></tr>
+<tr><td><a href="csapat_statusz.html">csapat_statusz</a></td></tr>
+<tr><td><a href="munka_statusz.html">munka_statusz</a></td></tr>
+<tr><td><a href="feltoltes.html">feltoltes</a></td></tr>
+<tr><td><a href="Register_already_error.html">Register_already_error</a></td></tr>
 </tbody></table>
 </body>
 </html>
