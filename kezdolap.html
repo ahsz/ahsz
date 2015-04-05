@@ -34,11 +34,61 @@
 		p {
 		}
 		
+		#create_team {
+			margin-left: 200px;
+			text-indent: 50px;
+		}
+
+
+		
 	</style>
 	
 	<script>
+	var has_team = false;
+	
+	
+	window.onload = function () {
+	//	document.getElementById("Create").disabled = "true";
+		document.getElementById("create_team").style.visibility = "hidden";
+		
+	//	document.getElementById("Submit").disabled = "true";
+	document.getElementById("select_team").style.visibility = "hidden";
+		
+		
+		}
+		
+	function show_teams () {
+		//document.getElementById("Submit").disabled = "false";
+		document.getElementById("select_team").style.visibility = "visible";
+		}
+		
+	function show_create () {
+		//document.getElementById("Create").disabled = "false";
+		document.getElementById("create_team").style.visibility = "visible";
+		}
+	
+	function new_team() {
+			document.getElementById("Create").disabled = "false";
+			document.getElementById("create_team").style.visibility = "visible";
+			var teamname = document.getElementById("my_team").value;
+			alert(teamname);
+			
+		var parent = document.getElementById("main_page");
+		var oldchild = document.getElementById("create_team");
+		var para = document.createElement("p");
+		var node = document.createTextNode("Az általad létrehozott csapat: " + teamname);
+		para.appendChild(node);
+		parent.insertBefore(para,oldchild);	
+		parent.removeChild(oldchild);
+			
+			
+		//	document.getElementById("Create").disabled = "false";
+			
+		}
+	
+	
 	function your_team()	{
-		var teamname = document.getElementById("options").value
+		var teamname = document.getElementById("options").value;
 //		document.getElementById("team_name").innerHTML = teamname;
 //		document.getElementById("selected_team").style.visibility = "visible";
 		
@@ -50,9 +100,7 @@
 		var para = document.createElement("p");
 		var node = document.createTextNode("Az általad választott csapat: " + teamname);
 		para.appendChild(node);
-		parent.insertBefore(para,oldchild);
-		
-		
+		parent.insertBefore(para,oldchild);	
 		parent.removeChild(oldchild);
 		
 		
@@ -69,7 +117,12 @@
 	<div id="main_page">
 		<p id="subpage_title"> <b>Kezdőlap</b>	</p> 
 
+	<div id="decision">
+	<input type="submit" id="join" value="Új csapat létrehozása!" onclick="show_create()" />
+	<input type="submit" id="join" value="Csapathoz csatlakozok!" onclick="show_teams()" />
 	
+	
+	</div>
 	
 		<div id="select_team">
 		<!-- csak akkor jelenik meg, ha még nem választott csapatot a felhasználó-->
@@ -83,11 +136,30 @@
 			  <option value="Batman">Batman</option>
 			  <option value="MyAssQL">MyAssQL</option>
 			</select>
-			<input type="submit" name="Submit" value="Kiválaszt" onclick="your_team()" />
+			<input type="submit" id="Submit" value="Kiválaszt" onclick="your_team()" />
+			<input type="submit" id="Cancel2" value="Mégsem" onclick="location.reload()" />
 			<!-- TODO: Ha választott már csapatot a diák akkor többet ne lássa ezt a legördülő menüt -->
 		</p>
 
 		</div>
+		
+		<div id="create_team">
+		<!-- csak akkor jelenik meg, ha még nem választott csapatot a felhasználó-->
+		
+		
+		<p>
+			
+			<input type="textfield" id="my_team"></input>
+			<input type="submit" id="Create" value="Létrehoz" onclick="new_team()" />
+			<input type="submit" id="Cancel1" value="Mégsem" onclick="location.reload()" />
+			<!-- TODO: Ha választott már csapatot a diák akkor többet ne lássa ezt a legördülő menüt -->
+		</p>
+
+		</div>
+		
+		
+		
+		
 		
 		<div id="selected_team">
 		Az általad választott csapat:
