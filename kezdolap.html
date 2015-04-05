@@ -44,7 +44,7 @@
 	</style>
 	
 	<script>
-	var has_team = false;
+	var clicked = false;
 	
 	
 	window.onload = function () {
@@ -59,19 +59,30 @@
 		
 	function show_teams () {
 		//document.getElementById("Submit").disabled = "false";
-		document.getElementById("select_team").style.visibility = "visible";
+			
+		if (clicked == false){
+			document.getElementById("select_team").style.visibility = "visible";
+			clicked = true;
+			document.getElementById("decision").style.visibility = "hidden";
+			}
+		
 		}
 		
 	function show_create () {
 		//document.getElementById("Create").disabled = "false";
-		document.getElementById("create_team").style.visibility = "visible";
-		}
-	
-	function new_team() {
-			document.getElementById("Create").disabled = "false";
+				if (clicked == false){
 			document.getElementById("create_team").style.visibility = "visible";
-			var teamname = document.getElementById("my_team").value;
-			alert(teamname);
+			clicked = true;
+			document.getElementById("decision").style.visibility = "hidden";
+			}
+	}
+	function new_team() {
+
+		
+		document.getElementById("Create").disabled = "false";
+		document.getElementById("create_team").style.visibility = "visible";
+		var teamname = document.getElementById("my_team").value;
+		alert(teamname);
 			
 		var parent = document.getElementById("main_page");
 		var oldchild = document.getElementById("create_team");
