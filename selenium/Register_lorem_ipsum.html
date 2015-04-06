@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head profile="http://selenium-ide.openqa.org/profiles/test-case">
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<link rel="selenium.base" href="http://agiliscsapat1.sch.bme.hu:40080/" />
+<title>Register_lorem_ipsum</title>
+</head>
+<body>
+<table cellpadding="1" cellspacing="1" border="1">
+<thead>
+<tr><td rowspan="1" colspan="3">Register_lorem_ipsum</td></tr>
+</thead><tbody>
+<tr>
+	<td>open</td>
+	<td>/testsite/</td>
+	<td></td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>name=register</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>name=name</td>
+	<td>Lorem ipsum dolor sit amet, dolore mandamus vituperata eu duo, vel ad elit elitr utinam, per similique elaboraret an. Ad mel euismod omittam, duo no ferri integre. Mea tamquam delicata urbanitas in, sit meliore laboramus conceptam et, comprehensam concludaturque his ex. Mutat atqui id sed, paulo petentium argumentum no eum, est oratio ridens at. Lorem summo aliquando vel et, cu diam homero adolescens duo.</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>name=neptun</td>
+	<td>Lorem ipsum dolor sit amet, dolore mandamus vituperata eu duo, vel ad elit elitr utinam, per similique elaboraret an. Ad mel euismod omittam, duo no ferri integre. Mea tamquam delicata urbanitas in, sit meliore laboramus conceptam et, comprehensam concludaturque his ex. Mutat atqui id sed, paulo petentium argumentum no eum, est oratio ridens at. Lorem summo aliquando vel et, cu diam homero adolescens duo.</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>name=email</td>
+	<td>Lorem ipsum dolor sit amet, dolore mandamus vituperata eu duo, vel ad elit elitr utinam, per similique elaboraret an. Ad mel euismod omittam, duo no ferri integre. Mea tamquam delicata urbanitas in, sit meliore laboramus conceptam et, comprehensam concludaturque his ex. Mutat atqui id sed, paulo petentium argumentum no eum, est oratio ridens at. Lorem summo aliquando vel et, cu diam homero adolescens duo.</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>name=password</td>
+	<td>Lorem ipsum dolor sit amet, dolore mandamus vituperata eu duo, vel ad elit elitr utinam, per similique elaboraret an. Ad mel euismod omittam, duo no ferri integre. Mea tamquam delicata urbanitas in, sit meliore laboramus conceptam et, comprehensam concludaturque his ex. Mutat atqui id sed, paulo petentium argumentum no eum, est oratio ridens at. Lorem summo aliquando vel et, cu diam homero adolescens duo.</td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>name=submit</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>css=html</td>
+	<td>*ERROR*</td>
+</tr>
+<tr>
+	<td>assertNotText</td>
+	<td>css=html</td>
+	<td>*Duplicate entry*</td>
+</tr>
+
+</tbody></table>
+</body>
+</html>
