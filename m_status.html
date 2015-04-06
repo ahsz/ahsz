@@ -4,7 +4,9 @@
 	<meta charset="UTF-8">  </meta>
 	<title>Munka státusz</title>
 	<style media="screen" type="text/css">
-
+	<!--[if gte IE 9 ]><link rel="stylesheet" type="text/css" href="cs_status.css" media="screen"><![endif]-->
+	<!--[if !IE]>--><link rel="stylesheet" type="text/css" href="cs_status.css" media="screen"><!--<![endif]-->
+	
 	textarea {
 		resize: none;
 	}
@@ -101,8 +103,39 @@
 	</br>
 	</br>
 	<textarea readonly name="message" rows="10" cols="83">
-	03.16. 15:23 - commit napló bejegyzés 1.2
-	03.18. 12:15 - commit napló bejegyzés 1.1
+	<ol class="tree">
+		<li>
+			<label for="date_1">2015.04.06.</label> <input type="checkbox" id="date_1" /> 
+			<ol>
+				<li>
+					<label for="commit_1">Commit 1</label> <input type="checkbox" id="commit_1" 
+
+/> 
+					<ol>
+						<li class="file"><a>person_name</a></li>
+						<li class="file"><a>date</a></li>
+						<li class="file"><a>modified_rows</a></li>
+					</ol>
+				</li>
+			</ol>
+		</li>
+
+		<li>
+			<label for="date_2">2015.04.07.</label> <input type="checkbox" id="date_2" /> 
+			<ol>
+				<li>
+					<label for="commit_2">Commit 2</label> <input type="checkbox" id="commit_2" 
+
+/> 
+					<ol>
+						<li class="file"><a>person_name</a></li>
+						<li class="file"><a>date</a></li>
+						<li class="file"><a>modified_rows</a></li>
+					</ol>
+				</li>
+			</ol>
+		</li>
+	</ol>
 	</textarea>
 	
 </body>
