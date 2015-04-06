@@ -88,6 +88,14 @@
 
 			chart.draw(dataTable, options);
 		}
+		
+		
+		
+		function SetDate(){
+			var begin = document.getElementById("begin_date").value;
+			var end = document.getElementById("end_date").value; 
+			alert(begin + "-tól, " + end + "-ig");
+			}
 
 	</script>
 	
@@ -98,6 +106,13 @@
 
 
 	<div style="margin-left:200">
+	
+	Kezdő Dátum:
+    <input type="date" id="begin_date" value="2015-01-01">
+
+	Végső Dátum:
+    <input type="date" id="end_date" value="2015-01-01">
+	<input type="submit" id="submit_end" value="kiválaszt" onclick="SetDate()"/><br><br>
 	<h1>Munka státusz</h1>
 	</div>
 	<div id="chart_basic" style="width: 1000px; height: 350px;"></div>
