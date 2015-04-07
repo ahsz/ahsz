@@ -1,9 +1,5 @@
 <!DOCTYPE html>
-<?php
-	session_start(); 
-	require "config.php";
-	$sql = mysqli_query($con, "SELECT T.NAME FROM TEAM T, USER U WHERE T.ID=U.TEAM_ID AND U.NEPTUN='$user' and U.PASSWORD='$pass'");
-?>
+
 
 <html>
 <head>
@@ -76,7 +72,10 @@
 	
 		<div class="user_info" >
 			Csapatod: 
-			<?php 
+			<?php
+				session_start(); 
+				require "config.php";
+				$sql = mysqli_query($con, "SELECT T.NAME FROM TEAM T, USER U WHERE T.ID=U.TEAM_ID AND U.NEPTUN='$user' and U.PASSWORD='$pass'");
 				echo $_SESSION['NAME']; 
 			?>
 		</div>
