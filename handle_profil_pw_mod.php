@@ -1,8 +1,7 @@
 <?php
-  session_start();  
-  require "config.php"; 
+	session_start();  
+	require "config.php"; 
 
-	
 	if (isset($_POST['old_pw']) || isset($_POST['new_pw1']) || isset($_POST['new_pw2'])) {
 		$user=$_SESSION['username'];
 		$old_pw=$_SESSION['PASSWORD'];
@@ -18,14 +17,11 @@
 			$sql="UPDATE USER SET PASSWORD='$new_pw1_p', DATE_MOD=sysdate() WHERE NEPTUN='$user'";
 			$res=mysqli_query($con,$sql);	
 		
-		If(!$res)
-		{	
+		if(!$res) {	
 			Echo "ERROR: " . mysqli_error($con);
-			exit();
-		}
-		Else
+		} else
 		{
 			header("Location: profil.php");
-			exit();
 		}
 	}
+?>
