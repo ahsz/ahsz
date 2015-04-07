@@ -90,8 +90,12 @@
 			      success:function(data){
 						var status = document.getElementById("team_name");
 						if (data=="OK"){
-							status.innerHTML = "Sikeres módosítás";
+							status.innerHTML = "Sikeresen létrehoztad a csapatot!";
 							}
+						else{
+							status.innerHTML = "A csapatot nem sikerült létrehozni!";
+							}
+							
 						document.getElementById("selected_team").style.visibility="visible";
 						
                               },
