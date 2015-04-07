@@ -56,9 +56,7 @@
 						echo "E-mail címed: ";
 				?>
 			</div>
-			<textarea name="email" rows="1" cols="30">
 
-			</textarea>
 			<div class="user_info">
 				<?php
 						echo "Csapatod neve: . $row['T_NAME']; ";
