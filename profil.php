@@ -4,17 +4,6 @@
 	<meta charset="UTF-8">  </meta>
 	<title>Profil</title>
 	<style media="screen" type="text/css">
-	
-	#page_name {
-		font-size:150%;
-		margin-top : 100px;
-		margin-left : 200px	
-	}
-	
-	div.user_info {
-		margin-top : 15px;
-
-	}
 	textarea {
     		resize: none;
 	}
@@ -23,16 +12,9 @@
 
 <body style="background-color:PaleTurquoise">
 
-	<div id="page_name"> 
-		<b>Profil:</b> 
-	</div>
+	<b>Profil:</b> 
 
-	<div id="profile">
-	
-		<div class="user_info">
-			Csapatod:
-		</div>
-		<textarea readonly name="message" rows="1" cols="30">
+	Csapatod:
 		<?php
 	
 			session_start(); 
@@ -46,8 +28,6 @@
 				echo "ERROR :" . mysqli_error($con);
 			}
 		?>
-		</textarea>
-	</div>
 
 </body>
 
