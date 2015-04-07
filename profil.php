@@ -53,11 +53,9 @@
 				?>
 			</div> <div class="user_info">
 				<?php
-						echo "E-mail címed: ";
+						echo "E-mail címed: " . $row['EMAIL'];
 				?>
-			</div>
-
-			<div class="user_info">
+			</div> <div class="user_info">
 				<?php
 						echo "Csapatod neve: . $row['T_NAME']; ";
 				?>
