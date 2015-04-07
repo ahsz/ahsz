@@ -55,12 +55,13 @@
 				<?php
 						echo "E-mail címed: ";
 				?>
-				<textarea name="email" rows="1" cols="30">
+			</div>
+			<textarea name="email" rows="1" cols="30">
 				<?php
 						echo $row['EMAIL'];
 				?>
-				</textarea>
-			</div> <div class="user_info">
+			</textarea>
+			<div class="user_info">
 				<?php
 						echo "Csapatod neve: . $row['T_NAME']; ";
 				?>
