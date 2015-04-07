@@ -2,12 +2,26 @@
 	session_start();  
 	require "config.php"; 
 
-	if (isset($_POST['old_pw']) || isset($_POST['new_pw1']) || isset($_POST['new_pw2'])) {
+	if (isset($_POST['old_pw']) && isset($_POST['new_pw1']) && isset($_POST['new_pw2'])) {
 		$user=$_SESSION['username'];
 		$old_pw=$_SESSION['PASSWORD'];
 		$old_pw_p=$_POST['old_pw'];
 		$new_pw1_p=$_POST['new_pw1'];
 		$new_pw2_p=$_POST['new_pw2'];
+		
+		if($old_pw_p==null) { 
+			echo "Üresen hagytad a régi jelszó mezőt!"; 
+			exit(); 
+		} 
+		if ($new_pw1_p==null) {
+			echo "Üresen hagytad az új jelszó mezőt!";
+			exit();
+		}
+		if ($new_pw2_p==null) {
+			echo "Üresen hagytad az új jelszó mégegyszer mezőt!"
+			exit();
+		}
+
 		
 		if(strcmp($old_pw,$old_pw_p)!=0){
 			echo "Nem egyezzik a régi jelszó!";
