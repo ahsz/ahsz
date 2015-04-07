@@ -15,8 +15,7 @@ textarea {
 	<div style="margin-left:200">
 	<h1>Üzenetek</h1>
 	</div>
-	<textarea readonly name="message" rows="40" cols="80">
-	<?php
+	<textarea readonly name="message" rows="40" cols="80"><?php
 	
 	session_start(); 
 	require "config.php";
@@ -33,11 +32,9 @@ textarea {
 	echo $row['DATE_CRT']." ".$row['NAME'].": ".$row['MESSAGE']."\n";
 	}	
 
-	?>
-	</textarea>
+	?></textarea>
 	<form form id="form" name="form" method="post" action="msgboard.php">
-	<textarea id="postmessage" name="postmessage" rows="2" cols="74">
-	</textarea>
+	<textarea id="postmessage" name="postmessage" rows="2" cols="74"></textarea>
 	<input type="submit" name="submit" value="Küldés" />
 	</form>
 	
