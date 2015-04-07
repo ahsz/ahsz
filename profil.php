@@ -4,9 +4,7 @@
 	<meta charset="UTF-8">  </meta>
 	<title>Profil</title>
 	<style media="screen" type="text/css">
-	textarea {
-    		resize: none;
-	}
+
 	</style>
 </head>
 
@@ -15,19 +13,19 @@
 	<b>Profil:</b> 
 
 	Csapatod:
-		<?php
+	<?php
 	
-			session_start(); 
-			require "config.php";
-			$sql="SELECT T.NAME FROM TEAM T, USER U WHERE T.ID=U.TEAM_ID AND U.NEPTUN='$user' and U.PASSWORD='$pass'";
-			$result = $con->query($sql);
+		session_start(); 
+		require "config.php";
+		$sql="SELECT T.NAME FROM TEAM T, USER U WHERE T.ID=U.TEAM_ID AND U.NEPTUN='$user' and U.PASSWORD='$pass'";
+		$result = $con->query($sql);
 			
-			if($result->num_rows>0) {
-				echo . $row['NAME'].;
-			} else {
-				echo "ERROR :" . mysqli_error($con);
-			}
-		?>
+		if($result->num_rows>0) {
+			echo . $row['NAME'].;
+		} else {
+			echo "ERROR :" . mysqli_error($con);
+		}
+	?>
 
 </body>
 
