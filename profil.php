@@ -52,7 +52,7 @@
 						echo "Neptun kódod: " . $row['NEPTUN'];
 				?>
 			</div> <div class="user_info">
-				<form form id="form" name="form" method="post" action="email_mod.php">
+				<form form id="form" name="form" method="post" action="handle_email_mod.php">
 				<?php
 						echo "E-mail címed: ";
 				?>
