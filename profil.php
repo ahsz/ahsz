@@ -21,6 +21,7 @@
 		$result=mysqli_query($con,"SELECT NAME FROM USER WHERE NEPTUN='$neptunkod'");
 			
 		if($result->num_rows>0) {
+			$row=mysqli_fetch_assoc($result);
 			echo "Csapatod: " . $row['NAME'];
 		} else {
 			echo "ERROR :" . mysqli_error($con);
