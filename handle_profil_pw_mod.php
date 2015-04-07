@@ -9,9 +9,9 @@
 		$new_pw1_p=$_POST['new_pw1'];
 		$new_pw2_p=$_POST['new_pw2'];
 		
-		if($old_pw <> $old_pw_p){
+		if(strcmp($old_pw,$old_pw_p)!=0){
 			echo "Nem egyezzik a régi jelszó!";
-		} else if ($new_pw1_p <> $new_pw2_p) {
+		} else if (strcmp($new_pw1_p,$new_pw2_p)!=0) {
 			echo "Nem egyezzik a két új jelszó!";
 		} else {
 			$sql="UPDATE USER SET PASSWORD='$new_pw1_p', DATE_MOD=sysdate() WHERE NEPTUN='$user'";
