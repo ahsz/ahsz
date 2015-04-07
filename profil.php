@@ -56,7 +56,7 @@
 						echo "E-mail címed: ";
 				?>
 			</div> 
-			<textarea name="message" rows="1" cols="30">
+			<textarea name="message" rows="0" cols="30">
 				<?php
 						echo $row['EMAIL'];
 				?>
