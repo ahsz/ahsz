@@ -77,7 +77,7 @@
 			</div><br><br>
 			<div class="user_info"><b>Jelszó módosítás</b></div>
 			<div class="user_info">
-				<form form id="form" name="form" method="post" action="handle_profil_mod.php>
+				<form form id="form" name="form" method="post" action="handle_profil_mod.php">
 					Régi jelszavad: <textarea id="old_pw" name="old_pw" rows="1" cols="30"></textarea></br>
 					Új jelszavad: <textarea id="new_pw1" name="new_pw1" rows="1" cols="30"></textarea></br>
 					Új jelszavad mégegyszer: <textarea id="new_pw2" name="new_pw2" rows="1" cols="30"></textarea></br>
