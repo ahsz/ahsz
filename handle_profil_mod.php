@@ -26,9 +26,7 @@
 		$new_pw1_p=$_POST['new_pw1'];
 		$new_pw2_p=$_POST['new_pw2'];
 		
-		echo $user . $old_pw . $old_pw_p . $new_pw1_p . $new_pw2_p;
-		
-		/*if($old_pw != $old_pw_p){
+		if($old_pw != $old_pw_p){
 			echo "Nem egyezzik a régi jelszó!";
 		} else if ($new_pw1_p != $new_pw2_p) {
 			echo "Nem egyezzik a két új jelszó!";
@@ -43,6 +41,6 @@
 		Else
 		{
 			header("Location: profil.php");
-		}*/
+		}
 	}
 ?>
