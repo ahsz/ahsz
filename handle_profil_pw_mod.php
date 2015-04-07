@@ -26,17 +26,20 @@
 		
 		if(strcmp($old_pw,$old_pw_p)!=0){
 			echo "Nem egyezzik a régi jelszó!";
+			exit();
 		} else if (strcmp($new_pw1_p,$new_pw2_p)!=0) {
 			echo "Nem egyezzik a két új jelszó!";
-		}/* else {
-			$sql="UPDATE USER SET PASSWORD='$new_pw1_p', DATE_MOD=sysdate() WHERE NEPTUN='$user'";
-			$res=mysqli_query($con,$sql);	
+			exit();
+		}
+		
+		$sql="UPDATE USER SET PASSWORD='$new_pw1_p', DATE_MOD=sysdate() WHERE NEPTUN='$user'";
+		$res=mysqli_query($con,$sql);	
 		
 		if(!$res) {	
-			Echo "ERROR: " . mysqli_error($con);
+			echo "ERROR: " . mysqli_error($con);
 		} else
 		{
 			header("Location: profil.php");
-		}*/
+		}
 	}
 ?>
