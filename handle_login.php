@@ -14,11 +14,12 @@
 		} 
 		else
 		{
-			$result=mysqli_query($con,"SELECT * FROM USER WHERE NEPTUN='$user' and PASSWORD='$pass'");
+			$result=mysqli_query($con,"SELECT * FROM USER LEFT JOIN ROLE ON USER.ROLE_ID = ROLE.ID WHERE NEPTUN='$user' and PASSWORD='$pass'");
 			$count=mysqli_num_rows($result);
 		
 			if($count==1){
-				$_SESSION['username'] = $user;
+				$_SESSION = mysqli_fetch_assoc($result);
+				$_SESSION['username'] = $_SESSION['neptun'];
 				header("location:success.php");
 			}
 			 else{ 
