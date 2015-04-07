@@ -72,13 +72,22 @@
 	
 		<div class="user_info" >
 			Csapatod: 
-			<?php
-				session_start(); 
-				require "config.php";
-				$sql = mysqli_query($con, "SELECT T.NAME FROM TEAM T, USER U WHERE T.ID=U.TEAM_ID AND U.NEPTUN='$user' and U.PASSWORD='$pass'");
-				echo $_SESSION['NAME']; 
-			?>
 		</div>
+		<textarea readonly name="message" rows="40" cols="80">
+		<?php
+	
+			session_start(); 
+			require "config.php";
+			$sql=mysqli_query($con,"SELECT T.NAME FROM TEAM T, USER U WHERE T.ID=U.TEAM_ID AND U.NEPTUN='$user' and U.PASSWORD='$pass'");
+			
+			if(!$sql)
+			{
+				echo "ERROR :" . mysqli_error($con);
+			}
+			echo $row['NAME'];
+		?>
+		</textarea>
+
 		<div class="user_info">
 			Szerepkör: 
 			<input id="role" type="text"></input>
