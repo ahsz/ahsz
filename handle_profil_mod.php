@@ -12,14 +12,16 @@
 		If(!$res)
 		{	
 			Echo "ERROR: " . mysqli_error($con);
+			exit();
 		}
 		Else
 		{
 			header("Location: profil.php");
+			exit();
 		}
 	}
 	
-	/*if (isset($_POST['old_pw']) || isset($_POST['new_pw1']) || isset($_POST['new_pw2'])) {
+	if (isset($_POST['old_pw']) || isset($_POST['new_pw1']) || isset($_POST['new_pw2'])) {
 		$user=$_SESSION['username'];
 		$old_pw=$_SESSION['PASSWORD'];
 		$old_pw_p=$_POST['old_pw'];
@@ -37,10 +39,12 @@
 		If(!$res)
 		{	
 			Echo "ERROR: " . mysqli_error($con);
+			exit();
 		}
 		Else
 		{
 			header("Location: profil.php");
+			exit();
 		}
-	}*/
+	}
 ?>
