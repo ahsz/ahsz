@@ -21,7 +21,7 @@
 	//require "config.php";
 	//$s = mysqli_query($con,"SELECT role.name FROM role, user WHERE user.neptun='$user' and user.password='$pass'" and user.role_id=role.id);
 	echo $_SESSION['neptun'];
-	if($_SESSION['ROLENAME'] == "Scrum Master") {
+	if($_SESSION['ROLENAME'] == 'Scrum Master') {
 		echo "<b>OK</b>";
 		?>
 		<i>Ez egy html kód.</i>
