@@ -37,7 +37,7 @@
 					require "config.php";
 					
 					$neptun_kod=$_SESSION['NEPTUN'];
-					$result=mysqli_query($con,"SELECT U.NAME AS U_NAME, U.NEPTUN, U.EMAIL, TEAM.NAME AS T_NAME, ROLE.NAME AS R_NAME FROM USER U, TEAM T, ROLE R WHERE U.NEPTUN='$neptun_kod' AND T.ID=U.TEAM_ID AND R.ID=U.ROLE_ID");
+					$result=mysqli_query($con,"SELECT U.NAME AS U_NAME, U.NEPTUN, U.EMAIL, T.NAME AS T_NAME, R.NAME AS R_NAME FROM USER U, TEAM T, ROLE R WHERE U.NEPTUN='$neptun_kod' AND T.ID=U.TEAM_ID AND R.ID=U.ROLE_ID");
 				
 					if($result->num_rows>0){
 						$row=mysqli_fetch_assoc($result);
