@@ -58,7 +58,7 @@
 				?>
 				
 					<textarea id="email_mod" name="email_mod" rows="1" cols="30"><?php
-						echo "\n" . $row['EMAIL'];
+						echo $row['EMAIL'];
 				?></textarea>
 					<input type="submit" name="submit" value="Módosítás" />
 				</form>
