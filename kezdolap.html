@@ -88,8 +88,12 @@
                               url:"handle_new_team.php",
                               data:"team="+teamname,
 			      success:function(data){
-				  alert(data);
-                              }
+				  alert();
+                              },
+				error: function (jqXHR, textStatus, errorThrown)
+						{
+							alert("hiba");
+						}
                           });
 			
 		var parent = document.getElementById("main_page");
