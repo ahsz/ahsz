@@ -57,9 +57,7 @@
 				?>
 			</div>
 			<textarea name="email" rows="1" cols="30">
-				<?php
-						echo $row['EMAIL'];
-				?>
+
 			</textarea>
 			<div class="user_info">
 				<?php
