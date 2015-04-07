@@ -2,6 +2,7 @@
 <html>
 <head>
 	<meta charset="UTF-8">  </meta>
+	<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
 	<title>Kezdőlap</title>
 
 	<style>
@@ -82,7 +83,11 @@
 		document.getElementById("Create").disabled = "false";
 		document.getElementById("create_team").style.visibility = "visible";
 		var teamname = document.getElementById("my_team").value;
-		alert(teamname);
+		$.ajax({
+                              type:"post",
+                              url:"handle_new_team.php",
+                              data:"team="+teamname;
+                          });
 			
 		var parent = document.getElementById("main_page");
 		var oldchild = document.getElementById("create_team");
@@ -178,6 +183,7 @@
 		
 			
 		</div>
+		
 		
 		
 		<div class="description">
