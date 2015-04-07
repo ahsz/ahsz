@@ -46,11 +46,21 @@
 			</div> <div class="user_info">
 				<?php
 						echo "Neptun kódod: " . $row['NEPTUN'];
-						
+				?>
+			</div> <div class="user_info">
+				<?php
+						echo "E-mail címed: " . $row['EMAIL'];
+				?>
+			</div> <div class="user_info">
+				<?php
+						echo "Csapatod neve: " . $row['T_NAME'];
+				?>
+			</div> <div class="user_info">
+				<?php
+						echo "Szerepköröd: " . $row['R_NAME'];
 					} else {
 						echo "ERROR :" . mysqli_error($con);
 					}
-
 				?>
 			</div>
 		</div>
