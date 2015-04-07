@@ -85,10 +85,15 @@
 		var teamname = document.getElementById("my_team").value;
 		$.ajax({
                               type:"post",
-                              url:"handle_new_tea.php",
+                              url:"handle_new_team.php",
                               data:"team="+teamname,
 			      success:function(data){
-							alert(data);
+						var status = document.getElementById("team_name");
+						if (data=="OK"){
+							status.value = "Sikeres módosítás";
+							}
+						document.getElementById("selected_team").style.visibility="visible";
+						
                               },
 				error: function (jqXHR, textStatus, errorThrown)
 						{
@@ -185,7 +190,6 @@
 		
 		
 		<div id="selected_team">
-		Az általad választott csapat:
 		<span id="team_name"> tesztszöveg  </span>
 		
 			
