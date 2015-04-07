@@ -12,7 +12,7 @@
 
 	<b>Profil:</b> 
 
-	Csapatod:
+	<br>
 	<?php
 	
 		session_start(); 
@@ -21,7 +21,7 @@
 		$result=mysqli_query($con,"SELECT NAME FROM USER WHERE NEPTUN='$neptunkod'");
 			
 		if($result->num_rows>0) {
-			echo $row['NAME'];
+			echo "Csapatod: " . $row['NAME'];
 		} else {
 			echo "ERROR :" . mysqli_error($con);
 		}
