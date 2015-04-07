@@ -26,20 +26,35 @@
 
 <body style="background-color:PaleTurquoise">
 
-	<div id="page_name"> <b>Profil:</b> </div>
+	<div id="page_name"> <b>Profil</b> </div>
 
 		<div id="profile">
 			<div class="user_info" >
 				<?php
 	
 					session_start(); 
-					$role_id=$_SESSION['ID'];
 					require "config.php";
-					$result=mysqli_query($con,"SELECT NAME FROM ROLE WHERE ID='$role_id'");
+					
+					$team_id=$_SESSION['TEAM_ID'];
+					$result=mysqli_query($con,"SELECT NAME FROM TEAM WHERE ID='$team_id'");
+			
+					if($result->num_rows>0){
+						$row=mysqli_fetch_assoc($result);
+						echo "Csapatod: " . $row['ID'];
+					} else {
+						echo "ERROR :" . mysqli_error($con);
+					}
+
+				?>
+				<br>
+				<?php
+
+					$role_id=$_SESSION['ID'];
+					result=mysqli_query($con,"SELECT NAME FROM ROLE WHERE ID='$role_id'");
 			
 					if($result->num_rows>0) {
 						$row=mysqli_fetch_assoc($result);
-						echo "Csapatod: " . $row['NAME'];
+						echo "Szerepköröd: " . $row['NAME'];
 					} else {
 						echo "ERROR :" . mysqli_error($con);
 					}
