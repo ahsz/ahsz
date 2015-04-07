@@ -55,12 +55,15 @@
 				<?php
 						echo "E-mail címed: ";
 				?>
-			
-				<textarea name="message" rows="1" cols="30">
+				<form form id="form" name="form" method="post" action="email_mod.php">
+					<textarea id="email_mod" name="email_mod" rows="1" cols="30">
 				<?php
 						echo $row['EMAIL'];
 				?>
-				</textarea>
+					</textarea>
+					<input type="submit" name="submit" value="Módosítás" />
+				</form>
+				
 			</div> 	<div class="user_info">
 				<?php
 						echo "Csapatod neve: " . $row['T_NAME'];
