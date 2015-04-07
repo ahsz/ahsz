@@ -16,8 +16,9 @@
 	<?php
 	
 		session_start(); 
+		$neptunkod=$_SESSION['username'];
 		require "config.php";
-		$result=mysqli_query($con,"SELECT T.NAME FROM TEAM T, USER U WHERE T.ID=U.TEAM_ID AND U.NEPTUN='$_SESSION['username']'");
+		$result=mysqli_query($con,"SELECT NAME FROM USER WHERE NEPTUN='$neptunkod'");
 			
 		if($result->num_rows>0) {
 			echo $row['NAME'];
