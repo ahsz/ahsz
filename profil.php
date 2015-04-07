@@ -29,35 +29,28 @@
 	<div id="page_name"> <b>Profil</b> </div>
 
 		<div id="profile">
-			<div class="user_info" >
+			<!-- Név --> 
+			
+			<div class="user_info">
 				<?php
-	
 					session_start(); 
 					require "config.php";
 					
-					$team_id=$_SESSION['TEAM_ID'];
-					$result=mysqli_query($con,"SELECT NAME FROM TEAM WHERE ID='$team_id'");
-			
+					$neptun_kod=$_SESSION['NEPTUN'];
+					$result=mysqli_query($con,"SELECT U.NAME AS U_NAME, U.NEPTUN, U.EMAIL, TEAM.NAME AS T_NAME, ROLE.NAME AS R_NAME FROM USER U, TEAM T, ROLE R WHERE U.NEPTUN='$neptun_kod' AND T.ID=U.TEAM_ID AND R.ID=U.ROLE_ID");
+				
 					if($result->num_rows>0){
 						$row=mysqli_fetch_assoc($result);
-						echo "Csapatod: " . $row['NAME'];
-					} else {
-						echo "ERROR :" . mysqli_error($con);
-					}
-
+						echo "Neved: " . $row['U_NAME'];
 				?>
-				<br>
+			</div> <div class="user_info">
 				<?php
-
-					$role_id=$_SESSION['ID'];
-					$result=mysqli_query($con,"SELECT NAME FROM ROLE WHERE ID='$role_id'");
-			
-					if($result->num_rows>0) {
-						$row=mysqli_fetch_assoc($result);
-						echo "Szerepköröd: " . $row['NAME'];
+						echo "Neptun kódod: " . $row['NEPTUN'];
+						
 					} else {
 						echo "ERROR :" . mysqli_error($con);
 					}
+
 				?>
 			</div>
 		</div>
