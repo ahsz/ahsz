@@ -17,13 +17,12 @@
 	
 		session_start(); 
 		require "config.php";
-		$sql="SELECT T.NAME FROM TEAM T, USER U WHERE T.ID=U.TEAM_ID AND U.NEPTUN='$user' and U.PASSWORD='$pass'";
-		$result = $con->query($sql);
+		$result=mysqli_query($con,"SELECT T.NAME FROM TEAM T, USER U WHERE T.ID=U.TEAM_ID AND U.NEPTUN='$user'");
 			
 		if($result->num_rows>0) {
 			echo $row['NAME'];
 		} else {
-			echo "ERROR :" . mysqli_error($con);
+			echo "ERROR :" . mysqli_error($con) . $_SESSION['NAME'];
 		}
 	?>
 
