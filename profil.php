@@ -53,9 +53,15 @@
 				?>
 			</div> <div class="user_info">
 				<?php
-						echo "E-mail címed: " . $row['EMAIL'];
+						echo "E-mail címed: ";
 				?>
-			</div> <div class="user_info">
+			</div> 
+			<textarea name="message" rows="1" cols="30">
+				<?php
+						echo $row['EMAIL'];
+				?>
+			</textarea>
+			<div class="user_info">
 				<?php
 						echo "Csapatod neve: " . $row['T_NAME'];
 				?>
