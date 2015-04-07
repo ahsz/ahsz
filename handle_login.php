@@ -19,7 +19,7 @@
 		
 			if($count==1){
 				$_SESSION = mysqli_fetch_assoc($result);
-				$_SESSION['username'] = $_SESSION['neptun'];
+				$_SESSION['username'] = $user;
 				header("location:success.php");
 			}
 			 else{ 
