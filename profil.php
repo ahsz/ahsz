@@ -57,7 +57,7 @@
 				?>
 			</div> <div class="user_info">
 				<?php
-						echo "Csapatod neve: . $row['T_NAME']; ";
+						echo "Csapatod neve: " . $row['T_NAME'];
 				?>
 			</div> <div class="user_info">
 				<?php
