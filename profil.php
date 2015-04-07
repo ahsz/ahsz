@@ -16,7 +16,7 @@
 	<?php
 	
 		session_start(); 
-		$neptunkod=$_SESSION['username'];
+		$neptunkod=$_SESSION['NEPTUN'];
 		require "config.php";
 		$result=mysqli_query($con,"SELECT NAME FROM USER WHERE NEPTUN='$neptunkod'");
 			
