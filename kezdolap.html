@@ -86,7 +86,9 @@
 		$.ajax({
                               type:"post",
                               url:"handle_new_team.php",
-                              data:"team="+teamname;
+                              data:"team="+teamname,
+			      success:function(data){
+                              }
                           });
 			
 		var parent = document.getElementById("main_page");
@@ -184,8 +186,7 @@
 			
 		</div>
 		
-		
-		
+			
 		<div class="description">
 		<p>  Ez az Agilis csapat oldala!
 			</br>
