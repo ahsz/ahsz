@@ -5,23 +5,24 @@
 	if (isset($_POST['old_pw']) && isset($_POST['new_pw1']) && isset($_POST['new_pw2'])) {
 		$user=$_SESSION['username'];
 		$old_pw=$_SESSION['PASSWORD'];
-		$old_pw_p=$_POST['old_pw'];
-		$new_pw1_p=$_POST['new_pw1'];
-		$new_pw2_p=$_POST['new_pw2'];
-		
+
 		if($old_pw_p==null) { 
 			echo "Üresen hagytad a régi jelszó mezőt!"; 
 			exit(); 
 		} 
+		$old_pw_p=$_POST['old_pw'];
+		
 		if ($new_pw1_p==null) {
 			echo "Üresen hagytad az új jelszó mezőt!";
 			exit();
 		}
+		$new_pw1_p=$_POST['new_pw1'];
+		
 		if ($new_pw2_p==null) {
-			echo "Üresen hagytad az új jelszó mégegyszer mezőt!"
+			echo "Üresen hagytad az új jelszó mégegyszer mezőt!";
 			exit();
 		}
-
+	/*	$new_pw2_p=$_POST['new_pw2'];
 		
 		if(strcmp($old_pw,$old_pw_p)!=0){
 			echo "Nem egyezzik a régi jelszó!";
@@ -36,6 +37,6 @@
 		} else
 		{
 			header("Location: profil.php");
-		}
+		}*/
 	}
 ?>
