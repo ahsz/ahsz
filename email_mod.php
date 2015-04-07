@@ -6,7 +6,7 @@
 		$user=$_SESSION['username'];
 		$email=$_POST['email_mod'];
 		
-		$sql="UPDATE USER SET EMAIL='$email', DATE_MOD=sysdate()";
+		$sql="UPDATE USER SET EMAIL='$email', DATE_MOD=sysdate() WHERE NEPTUN='$user'";
 		$res=mysqli_query($con,$sql);	
 		
 		If(!$res)
