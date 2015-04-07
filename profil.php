@@ -73,7 +73,7 @@
 		<div class="user_info" >
 			Csapatod: 
 		</div>
-		<textarea readonly name="message" rows="40" cols="80">
+		<textarea readonly name="message" rows="1 cols="30">
 		<?php
 	
 			session_start(); 
