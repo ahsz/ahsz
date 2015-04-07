@@ -40,7 +40,7 @@
 			
 					if($result->num_rows>0){
 						$row=mysqli_fetch_assoc($result);
-						echo "Csapatod: " . $row['ID'];
+						echo "Csapatod: " . $row['NAME'];
 					} else {
 						echo "ERROR :" . mysqli_error($con);
 					}
@@ -50,7 +50,7 @@
 				<?php
 
 					$role_id=$_SESSION['ID'];
-					result=mysqli_query($con,"SELECT NAME FROM ROLE WHERE ID='$role_id'");
+					$result=mysqli_query($con,"SELECT NAME FROM ROLE WHERE ID='$role_id'");
 			
 					if($result->num_rows>0) {
 						$row=mysqli_fetch_assoc($result);
