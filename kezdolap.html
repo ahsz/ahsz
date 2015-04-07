@@ -46,6 +46,7 @@
 	
 	<script>
 	var clicked = false;
+	var parent = document.getElementById("main_page");
 	
 	
 	window.onload = function () {
@@ -103,11 +104,24 @@
                               },
 				error: function (jqXHR, textStatus, errorThrown)
 						{
-							alert("hiba");
+							var status = document.getElementById("team_name");
+							status.innerHTML = "<b>Hiba a kapcsolatban!</b>";
+							status.style.color = "red";
+							
+							
+						document.getElementById("selected_team").style.visibility="visible";
 						}
+				
+				var child1 = document.getElementById("decision");
+				var child2 = document.getElementById("select_team");
+				var child3 = document.getElementById("create_team");
+				parent.removeChild(child1);
+				parent.removeChild(child2);
+				parent.removeChild(child3);
+				
                           });
 			
-		var parent = document.getElementById("main_page");
+
 		var oldchild = document.getElementById("create_team");
 		var para = document.createElement("p");
 		var node = document.createTextNode("Az általad létrehozott csapat: " + teamname);
@@ -152,8 +166,8 @@
 		<p id="subpage_title"> <b>Kezdőlap</b>	</p> 
 
 	<div id="decision">
-	<input type="submit" id="join" value="Új csapat létrehozása!" onclick="show_create()" />
-	<input type="submit" id="join" value="Csapathoz csatlakozok!" onclick="show_teams()" />
+	<input type="submit" id="join1" value="Új csapat létrehozása!" onclick="show_create()" />
+	<input type="submit" id="join2" value="Csapathoz csatlakozok!" onclick="show_teams()" />
 	
 	
 	</div>
