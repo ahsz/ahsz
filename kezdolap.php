@@ -186,11 +186,26 @@
 		
 		<p>
 			<select name="formCsapat" id="options">
-			  <option value="BitCowboyok">BitCowboyok</option>
-			  <option value="ExceptionVadászok">ExceptionVadászok</option>
-			  <option value="BeerNotFound">BeerNotFound</option>
-			  <option value="Batman">Batman</option>
-			  <option value="MyAssQL">MyAssQL</option>
+			   <?php
+	
+			  session_start(); 
+			  require "config.php";
+	
+			  $result=mysqli_query($con,"SELECT NAME FROM TEAM");
+
+			  if(!$result)
+			  {
+				echo "ERROR :" . mysqli_error($con);
+			  }
+				
+			  while($row=mysqli_fetch_assoc($result))
+			  {
+			  ?>
+			  <option value="<? echo $row['NAME']; ?>"><? echo $row['NAME']; ?></option>
+			  <?php
+			  }
+			  ?>
+
 			</select>
 			<input type="submit" id="Submit" value="Kiválaszt" onclick="your_team()" />
 			<input type="submit" id="Cancel2" value="Mégsem" onclick="location.reload()" />
