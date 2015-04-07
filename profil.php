@@ -70,23 +70,22 @@
 
 	<div id="profile">
 	
-		<div class="user_info" >
-			Csapatod: 
-		</div>
-		<textarea readonly name="message" rows="1 cols="30">
+		<div class="user_info">
 		<?php
 	
 			session_start(); 
 			require "config.php";
-			$sql=mysqli_query($con,"SELECT T.NAME FROM TEAM T, USER U WHERE T.ID=U.TEAM_ID AND U.NEPTUN='$user' and U.PASSWORD='$pass'");
+			$sql="SELECT T.NAME FROM TEAM T, USER U WHERE T.ID=U.TEAM_ID AND U.NEPTUN='$user' and U.PASSWORD='$pass'";
+			$result = $con->query($sql);
 			
-			if(!$sql)
-			{
+			if($result->num_rows>0) {
+				echo "Csapatod: ". $row['NAME'].;
+			} else {
 				echo "ERROR :" . mysqli_error($con);
 			}
-			echo $row['NAME'];
 		?>
-		</textarea>
+		</div>
+
 
 		<div class="user_info">
 			Szerepkör: 
