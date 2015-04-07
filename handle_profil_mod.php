@@ -1,5 +1,5 @@
 <?php
-  session_start(); 
+	session_start(); 
 	require "config.php";
 	
 	if (isset($_POST['email_mod'])) {
@@ -19,7 +19,7 @@
 		}
 	}
 	
-	if (isset($_POST['old_pw']) || isset($_POST['new_pw1']) || isset($_POST['new_pw2'])) {
+	/*if (isset($_POST['old_pw']) || isset($_POST['new_pw1']) || isset($_POST['new_pw2'])) {
 		$user=$_SESSION['username'];
 		$old_pw=$_SESSION['PASSWORD'];
 		$old_pw_p=$_POST['old_pw'];
@@ -42,5 +42,5 @@
 		{
 			header("Location: profil.php");
 		}
-	}
+	}*/
 ?>
