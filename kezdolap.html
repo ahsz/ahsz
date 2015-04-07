@@ -46,7 +46,7 @@
 	
 	<script>
 	var clicked = false;
-	var parent = document.getElementById("main_page");
+
 	
 	
 	window.onload = function () {
@@ -112,22 +112,26 @@
 						document.getElementById("selected_team").style.visibility="visible";
 						}
 				
-				var child1 = document.getElementById("decision");
+				/*var child1 = document.getElementById("decision");
 				var child2 = document.getElementById("select_team");
 				var child3 = document.getElementById("create_team");
 				parent.removeChild(child1);
 				parent.removeChild(child2);
-				parent.removeChild(child3);
+				parent.removeChild(child3);*/
 				
                           });
 			
-
-		var oldchild = document.getElementById("create_team");
+		var parent = document.getElementById("main_page");
+		var child1 = document.getElementById("decision");
+		var child2 = document.getElementById("select_team");
+		var child3 = document.getElementById("create_team");
 		var para = document.createElement("p");
 		var node = document.createTextNode("Az általad létrehozott csapat: " + teamname);
 		para.appendChild(node);
-		parent.insertBefore(para,oldchild);	
-		parent.removeChild(oldchild);
+		parent.insertBefore(para,child3);	
+		parent.removeChild(child1);
+		parent.removeChild(child2);
+		parent.removeChild(child3);
 			
 			
 		//	document.getElementById("Create").disabled = "false";
@@ -144,12 +148,16 @@
 //		document.getElementById("select_team").style.visibility = "hidden";
 		
 		var parent = document.getElementById("main_page");
-		var oldchild = document.getElementById("select_team");
+		var child1 = document.getElementById("decision");
+		var child2 = document.getElementById("select_team");
+		var child3 = document.getElementById("create_team");
 		var para = document.createElement("p");
 		var node = document.createTextNode("Az általad választott csapat: " + teamname);
 		para.appendChild(node);
-		parent.insertBefore(para,oldchild);	
-		parent.removeChild(oldchild);
+		parent.insertBefore(para,child3);	
+		parent.removeChild(child1);
+		parent.removeChild(child2);
+		parent.removeChild(child3);
 		
 		
 		}
