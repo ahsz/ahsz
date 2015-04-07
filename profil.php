@@ -21,6 +21,10 @@
 		margin-top : 15px;
 	}
 	
+	textarea {
+    		resize: none;
+	}
+	
 	</style>
 </head>
 
@@ -49,11 +53,16 @@
 				?>
 			</div> <div class="user_info">
 				<?php
-						echo "E-mail címed: " . $row['EMAIL'];
+						echo "E-mail címed: ";
 				?>
+				<textarea name="email" rows="1" cols="30">
+				<?php
+						echo $row['EMAIL'];
+				?>
+				</textarea>
 			</div> <div class="user_info">
 				<?php
-						echo "Csapatod neve: " . $row['T_NAME'];
+						echo "Csapatod neve: . $row['T_NAME']; ";
 				?>
 			</div> <div class="user_info">
 				<?php
