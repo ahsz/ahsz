@@ -21,7 +21,7 @@
 		$result = $con->query($sql);
 			
 		if($result->num_rows>0) {
-			echo . $row['NAME'].;
+			echo $row['NAME'];
 		} else {
 			echo "ERROR :" . mysqli_error($con);
 		}
