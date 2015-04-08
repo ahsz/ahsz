@@ -16,6 +16,8 @@
 			echo mysqli_error($con);
 			exit();
 		}
+
+		$teamid=mysqli_insert_id($con);
 		
 		$result2=mysqli_query($con,"SELECT ID FROM ROLE WHERE NAME = 'Scrum Master'");
 		$count=mysqli_num_rows($result2);
@@ -29,7 +31,7 @@
 		$row = mysqli_fetch_assoc($result2);
 		$id = $row['ID'];
 		
-		$result3=mysqli_query($con,"UPDATE USER SET ROLE_ID=$id WHERE NEPTUN = '$user'");
+		$result3=mysqli_query($con,"UPDATE USER SET ROLE_ID=$id, TEAM_ID=$teamid WHERE NEPTUN = '$user'");
 		
 		if(!$result3){
 			mysql_query("ROLLBACK");
@@ -40,6 +42,7 @@
 		mysql_query("COMMIT");
 
 		$_SESSION['ROLE_ID'] = $id;
+		$_SESSION['TEAM_ID'] = $teamid;
 		
 		echo "OK";		
 ?>
