@@ -77,7 +77,7 @@
 						echo "E-mail címed: ";
 				?>
 						</td><td>
-							<textarea id="email_mod" name="email_mod" rows="1" cols="50"><?php
+							<textarea id="email_mod" name="email_mod" rows="2" cols="30"><?php
 						echo $row['EMAIL'];
 				?></textarea>
 						</td><td>
