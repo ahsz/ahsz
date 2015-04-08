@@ -65,23 +65,22 @@
 				?>
 					</td></tr>
 				</div>
-			</table>
+					
 				<div class="user_info">
 					<form form id="form" name="form" method="post" action="handle_profil_mod.php">
-						<table style="width:100%">
-							<tr><td>
+						<tr><td>
 				<?php
 						echo "E-mail címed: ";
 				?>
-							</td><td>
-								<textarea id="email_mod" name="email_mod" rows="1" cols="30"><?php
+						</td><td>
+							<textarea id="email_mod" name="email_mod" rows="1" cols="30"><?php
 						echo $row['EMAIL'];
 				?></textarea>
-							</td><td>
+						</td><td>
 								<input type="submit" name="submit" value="Módosítás" />
-							</td></tr>
-						</table>
+						</td></tr>
 					</form>
+			</table>
 				</div>
 				<div class="user_info">
 				<?php
