@@ -107,17 +107,31 @@
 				?>
 					</td></tr>
 				</div>
+				<br><br>
+				<div class="user_info"><b>Jelszó módosítás</b></div>
+				<div class="user_info">
+					<form form id="form2" name="form2" method="post" action="handle_profil_mod.php">
+						<tr><td>
+							Régi jelszavad:
+						</td><td>
+							<textarea id="old_pw" name="old_pw" rows="1" cols="30"></textarea>
+						</td></tr>
+						<tr><td>
+							Új jelszavad:
+						</td><td>
+							<textarea id="new_pw1" name="new_pw1" rows="1" cols="30"></textarea>
+						</td></tr>
+						<tr><td>
+							Új jelszavad mégegyszer:
+						</td><td>
+							<textarea id="new_pw2" name="new_pw2" rows="1" cols="30"></textarea>
+						</td><tr>
+						<tr><td/><td>
+							<input type="submit" name="submit2" value="Módosítás"/>
+						</td></tr>
+					</form>
+				</div>
 			</table>
-			<br><br>
-			<div class="user_info"><b>Jelszó módosítás</b></div>
-			<div class="user_info">
-				<form form id="form2" name="form2" method="post" action="handle_profil_mod.php">
-					Régi jelszavad: <textarea id="old_pw" name="old_pw" rows="1" cols="30"></textarea></br>
-					Új jelszavad: <textarea id="new_pw1" name="new_pw1" rows="1" cols="30"></textarea></br>
-					Új jelszavad mégegyszer: <textarea id="new_pw2" name="new_pw2" rows="1" cols="30"></textarea></br>
-					<input type="submit" name="submit2" value="Módosítás" />
-				</form>
-			</div>
 		</div>
 	</div>
 </body>
