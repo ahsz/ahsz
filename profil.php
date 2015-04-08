@@ -55,35 +55,34 @@
 					</td></tr>
 				</div>
 				<div class="user_info">
-					<td><tr>
+					<tr><td>
 				<?php
 						echo "Neptun kódod: ";
 				?>
-					</tr><tr>
+					</td><td>
 				<?php 
 						echo  $row['NEPTUN'];
 				?>
 					</td></tr>
 				</div>
+			</table>
 				<div class="user_info">
-					<td><tr>
-						<form form id="form" name="form" method="post" action="handle_profil_mod.php">
+					<form form id="form" name="form" method="post" action="handle_profil_mod.php">
+						<table style="width:100%">
+							<tr><td>
 				<?php
 						echo "E-mail címed: ";
 				?>
-					</tr><tr>
-							<textarea id="email_mod" name="email_mod" rows="1" cols="30">
-				<?php
+							</td><td>
+								<textarea id="email_mod" name="email_mod" rows="1" cols="30"><?php
 						echo $row['EMAIL'];
-				?>
-							</textarea>
-					</tr><tr>
-					<input type="submit" name="submit" value="Módosítás" />
-				</form>
-					</tr></td>
-				
+				?></textarea>
+							</td><td>
+								<input type="submit" name="submit" value="Módosítás" />
+							</td></tr>
+						</table>
+					</form>
 				</div>
-			</table> 
 				<div class="user_info">
 				<?php
 						echo "Csapatod neve: " . $row['T_NAME'];
