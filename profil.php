@@ -36,7 +36,7 @@
 			<!-- Név --> 
 			<table style="width:100%">
 				<div class="user_info">
-				<tr><td>
+					<tr><td>
 				<?php
 					session_start(); 
 					require "config.php";
@@ -48,28 +48,43 @@
 						$row=mysqli_fetch_assoc($result);
 						echo "Neved: "; 
 				?>
-				</td><td>
+					</td><td>
 				<?php
 						echo $row['U_NAME'];
 				?>
-				</td></tr>
-			</div></table><div class="user_info">
+					</td></tr>
+				</div>
+				<div class="user_info">
+					<td><tr>
 				<?php
-						echo "Neptun kódod: " . $row['NEPTUN'];
+						echo "Neptun kódod: ";
 				?>
-			</div> <div class="user_info">
-				<form form id="form" name="form" method="post" action="handle_profil_mod.php">
+					</tr><tr>
+				<?php 
+						echo  $row['NEPTUN'];
+				?>
+					</td></tr>
+				</div>
+				<div class="user_info">
+					<td><tr>
+						<form form id="form" name="form" method="post" action="handle_profil_mod.php">
 				<?php
 						echo "E-mail címed: ";
 				?>
-				
-					<textarea id="email_mod" name="email_mod" rows="1" cols="30"><?php
+					</tr><tr>
+							<textarea id="email_mod" name="email_mod" rows="1" cols="30">
+				<?php
 						echo $row['EMAIL'];
-				?></textarea>
+				?>
+							</textarea>
+					</tr><tr>
 					<input type="submit" name="submit" value="Módosítás" />
 				</form>
+					</tr></td>
 				
-			</div> 	<div class="user_info">
+				</div>
+			</table> 
+				<div class="user_info">
 				<?php
 						echo "Csapatod neve: " . $row['T_NAME'];
 				?>
