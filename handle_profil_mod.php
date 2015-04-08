@@ -8,7 +8,8 @@
 		
 		if($email==null)
 		{
-			echo "Üresen hagytad az e-mail mezőt!";
+			echo "Üresen hagytad az e-mail mezőt! ";
+			echo '<a href="profil.php">'. Vissza . '</a>';
 			exit();
 		}
 		
@@ -17,12 +18,15 @@
 		
 		if(!$res)
 		{	
-			Echo "ERROR: " . mysqli_error($con);
+			echo "HIBA: " . mysqli_error($con);
+			echo '<a href="profil.php">'. Vissza . '</a>';
 			exit();
 		}
 		else
 		{
-			header("Location: profil.php");
+			//header("Location: profil.php");
+			echo "Sikeres e-mail cím módosítás!";
+			echo '<a href="profil.php">'. Vissza . '</a>';
 			exit();
 		}
 	}
