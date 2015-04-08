@@ -65,7 +65,6 @@
 				?>
 					</td></tr>
 				</div>
-					
 				<div class="user_info">
 					<form form id="form" name="form" method="post" action="handle_profil_mod.php">
 						<tr><td>
@@ -80,20 +79,36 @@
 								<input type="submit" name="submit" value="Módosítás" />
 						</td></tr>
 					</form>
-			</table>
 				</div>
 				<div class="user_info">
+					<tr><td>
 				<?php
-						echo "Csapatod neve: " . $row['T_NAME'];
+						echo "Csapatod neve: "; 
 				?>
-			</div> <div class="user_info">
+					</td><td>
+				<?php 
+						echo $row['T_NAME']; 
+				?>
+					</td></tr>	
+				</div> 
+				<div class="user_info">
+					<tr><td>
 				<?php
-						echo "Szerepköröd: " . $row['R_NAME'];
+						echo "Szerepköröd: ";
+				?>
+					</td><td>
+				<?php
+						echo $row['R_NAME'];
 					} else {
-						echo "ERROR :" . mysqli_error($con);
+						echo "HIBA: " . mysqli_error($con);
+						echo '<a href="profil.php">'. Vissza . '</a>'; 
+						exit(); 
 					}
 				?>
-			</div><br><br>
+					</td></tr>
+				</div>
+			</table>
+			<br><br>
 			<div class="user_info"><b>Jelszó módosítás</b></div>
 			<div class="user_info">
 				<form form id="form2" name="form2" method="post" action="handle_profil_mod.php">
