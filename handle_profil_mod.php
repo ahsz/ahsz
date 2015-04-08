@@ -8,7 +8,7 @@
 		
 		if($email==null)
 		{
-			echo "Üresen hagytad az e-mail mezőt! ";
+			echo "Üresen hagytad az e-mail cím mezőt! ";
 			echo '<a href="profil.php">'. Vissza . '</a>';
 			exit();
 		}
@@ -18,14 +18,13 @@
 		
 		if(!$res)
 		{	
-			echo "HIBA: " . mysqli_error($con);
+			echo "HIBA: " . mysqli_error($con) . " ";
 			echo '<a href="profil.php">'. Vissza . '</a>';
 			exit();
 		}
 		else
 		{
-			//header("Location: profil.php");
-			echo "Sikeres e-mail cím módosítás!";
+			echo "Sikeres e-mail cím módosítás! ";
 			echo '<a href="profil.php">'. Vissza . '</a>';
 			exit();
 		}
@@ -37,28 +36,33 @@
 		$old_pw=$_SESSION['PASSWORD'];
 
 		if($_POST['old_pw']==null) { 
-			echo "Üresen hagytad a régi jelszó mezőt!"; 
+			echo "Üresen hagytad a régi jelszó mezőt! "; 
+			echo '<a href="profil.php">'. Vissza . '</a>';
 			exit(); 
 		} 
 		$old_pw_p=$_POST['old_pw'];
 		
 		if ($_POST['new_pw1']==null) {
-			echo "Üresen hagytad az új jelszó mezőt!";
+			echo "Üresen hagytad az új jelszó mezőt! ";
+			echo '<a href="profil.php">'. Vissza . '</a>';
 			exit();
 		}
 		$new_pw1_p=$_POST['new_pw1'];
 		
 		if ($_POST['new_pw2']==null) {
-			echo "Üresen hagytad az új jelszó mégegyszer mezőt!";
+			echo "Üresen hagytad az új jelszó mégegyszer mezőt! ";
+			echo '<a href="profil.php">'. Vissza . '</a>';
 			exit();
 		}
 		$new_pw2_p=$_POST['new_pw2'];
 		
 		if(strcmp($old_pw,$old_pw_p)!=0){
-			echo "Nem egyezzik a régi jelszó!";
+			echo "Nem egyezzik a régi jelszó! ";
+			echo '<a href="profil.php">'. Vissza . '</a>';
 			exit();
 		} else if (strcmp($new_pw1_p,$new_pw2_p)!=0) {
-			echo "Nem egyezzik a két új jelszó!";
+			echo "Nem egyezzik a két új jelszó! ";
+			echo '<a href="profil.php">'. Vissza . '</a>';
 			exit();
 		}
 		
@@ -66,10 +70,12 @@
 		$res=mysqli_query($con,$sql);	
 		
 		if(!$res) {	
-			echo "ERROR: " . mysqli_error($con);
+			echo "HIBA: " . mysqli_error($con) . " ";
+			echo '<a href="profil.php">'. Vissza . '</a>';
 			exit();
 		} else {
-			header("Location: profil.php");
+			echo "Sikeres jelszó módosítás! ";
+			echo '<a href="profil.php">'. Vissza . '</a>';
 			exit();
 		}
 	}
