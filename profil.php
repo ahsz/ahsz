@@ -37,6 +37,11 @@
 			<table style="width:75%">
 				<div class="user_info">
 					<tr><td>
+						<b>Adatok</b>
+					</td></tr>
+				</div>
+				<div class="user_info">
+					<tr><td>
 				<?php
 					session_start(); 
 					require "config.php";
@@ -107,7 +112,7 @@
 				?>
 					</td></tr>
 				</div>
-				<tr/><tr/>
+				<tr><td><br><br></td></tr>
 				<div class="user_info">
 					<tr><td>
 						<b>Jelszó módosítás</b>
