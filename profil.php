@@ -34,7 +34,7 @@
 
 		<div id="profile">
 			<!-- Név --> 
-			<table style="width:100%">
+			<table style="width:50%">
 				<div class="user_info">
 					<tr><td>
 				<?php
