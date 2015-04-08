@@ -107,8 +107,12 @@
 				?>
 					</td></tr>
 				</div>
-				<br><br>
-				<div class="user_info"><b>Jelszó módosítás</b></div>
+				<tr/><tr/>
+				<div class="user_info">
+					<tr><td>
+						<b>Jelszó módosítás</b>
+					</td></tr>
+				</div>
 				<div class="user_info">
 					<form form id="form2" name="form2" method="post" action="handle_profil_mod.php">
 						<tr><td>
