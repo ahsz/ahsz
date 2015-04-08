@@ -30,6 +30,7 @@
 			echo mysqli_error($con);
 			exit();
 		}
+		$_SESSION['ROLE_ID'] = $id;
 		
 		echo "OK";		
 ?>
