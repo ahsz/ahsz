@@ -34,8 +34,9 @@
 
 		<div id="profile">
 			<!-- Név --> 
-			
-			<div class="user_info">
+			<table style="width:100%">
+				<div class="user_info">
+				<tr><td>
 				<?php
 					session_start(); 
 					require "config.php";
@@ -45,9 +46,14 @@
 				
 					if($result->num_rows>0){
 						$row=mysqli_fetch_assoc($result);
-						echo "Neved: " . $row['U_NAME'];
+						echo "Neved: "; 
 				?>
-			</div> <div class="user_info">
+				</td><td>
+				<?php
+						echo $row['U_NAME'];
+				?>
+				</td></tr>
+			</div></table><div class="user_info">
 				<?php
 						echo "Neptun kódod: " . $row['NEPTUN'];
 				?>
