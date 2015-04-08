@@ -34,7 +34,7 @@
 
 		<div id="profile">
 			<!-- Név --> 
-			<table style="width:50%">
+			<table style="width:75%">
 				<div class="user_info">
 					<tr><td>
 				<?php
@@ -72,7 +72,7 @@
 						echo "E-mail címed: ";
 				?>
 						</td><td>
-							<textarea id="email_mod" name="email_mod" cols="50"><?php
+							<textarea id="email_mod" name="email_mod" rows="1" cols="50"><?php
 						echo $row['EMAIL'];
 				?></textarea>
 						</td><td>
@@ -114,17 +114,17 @@
 						<tr><td>
 							Régi jelszavad:
 						</td><td>
-							<textarea id="old_pw" name="old_pw" cols="30"></textarea>
+							<textarea id="old_pw" name="old_pw" rows="1" cols="30"></textarea>
 						</td></tr>
 						<tr><td>
 							Új jelszavad:
 						</td><td>
-							<textarea id="new_pw1" name="new_pw1" cols="30"></textarea>
+							<textarea id="new_pw1" name="new_pw1" rows="1" cols="30"></textarea>
 						</td></tr>
 						<tr><td>
 							Új jelszavad mégegyszer:
 						</td><td>
-							<textarea id="new_pw2" name="new_pw2" cols="30"></textarea>
+							<textarea id="new_pw2" name="new_pw2" rows="1" cols="30"></textarea>
 						</td><tr>
 						<tr><td/><td>
 							<input type="submit" name="submit2" value="Módosítás"/>
