@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <?php
 	session_start(); 
-	//require "config.php";
+	require "config.php";
 	//$s = mysqli_query($con,"SELECT role.name FROM role, user WHERE user.neptun='$user' and user.password='$pass'" and user.role_id=role.id);
 	
 	?>
@@ -39,7 +39,7 @@
 			?>
 			<?php echo $option; ?>
 			</select>
-			<input type="submit" id="Submit" value="Kiválaszt" onclick="your_team()" />
+			<input type="submit" id="Submit" value="Kiválaszt" onclick="" />
 		</p>
 		<?php
 	}
