@@ -7,7 +7,8 @@
 	function addToTeam(){
 		$smNeptun  = $_SESSION['NEPTUN']; 
 		$SM_TeamID = mysqli_query($con,"SELECT TEAM_ID FROM USER WHERE NEPTUN='$smNeptun'");
-		$addUserToTeam = mysqli_query($con,"UPDATE USER SET TEAM_ID='$SM_TeamID' WHERE NEPTUN='$_POST['addTeammate']'"); //injection védelmet nekem!!!
+		$team = $_POST['addTeammate'];
+		$addUserToTeam = mysqli_query($con,"UPDATE USER SET TEAM_ID='$SM_TeamID' WHERE NEPTUN='$team'"); //injection védelmet nekem!!!
 	}
 	if(isset($_POST['addTeammate'])){
 		addToTeam();
@@ -41,8 +42,7 @@
 				  $option .= '<option value = "'.$row['NEPTUN'].'">'.$row['NEPTUN'].'</option>';
 				}
 
-			?>
-			<?php echo $option; ?>
+				echo $option; ?>
 			</select>
 			<input type="submit" id="Submit" value="Kiválaszt"  />
 			</form>
