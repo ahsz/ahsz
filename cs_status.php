@@ -11,10 +11,10 @@
 		while($row=mysqli_fetch_assoc($SM_TeamID))
 		{
 			$t_id = $row['TEAM_ID'];
-			$team = $_POST['addTeammate'];
-			$addUserToTeam = mysqli_query($con,"UPDATE USER SET TEAM_ID='$t_id' WHERE NEPTUN='$team'"); //injection védelmet nekem!!!
 		}
-		
+		$team = $_POST['addTeammate'];
+		$addUserToTeam = mysqli_query($con,"UPDATE USER SET TEAM_ID='$t_id' WHERE NEPTUN='$team'"); //injection védelmet nekem!!!
+		alert("Sikeresen csapathozadás!"); 
 	}
 	if(isset($_POST['addTeammate'])){
 		addToTeam();
