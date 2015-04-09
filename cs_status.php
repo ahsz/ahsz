@@ -8,8 +8,9 @@
 		require "config.php";
 		$smNeptun  = $_SESSION['NEPTUN']; 
 		$SM_TeamID = mysqli_query($con,"SELECT TEAM_ID FROM USER WHERE NEPTUN='$smNeptun'");
+		$t_id = mysqli_fetch_assoc($SM_TeamID);
 		$team = $_POST['addTeammate'];
-		$addUserToTeam = mysqli_query($con,"UPDATE USER SET TEAM_ID='$SM_TeamID' WHERE NEPTUN='$team'"); //injection védelmet nekem!!!
+		$addUserToTeam = mysqli_query($con,"UPDATE USER SET TEAM_ID='$t_id' WHERE NEPTUN='$team'"); //injection védelmet nekem!!!
 	}
 	if(isset($_POST['addTeammate'])){
 		addToTeam();
