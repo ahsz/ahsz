@@ -2,6 +2,7 @@
 <?php
 	session_start(); 
 	require "config.php";
+	ini_set('display_errors', 'on');
 	
 	function addToTeam(){
 		$smNeptun  = $_SESSION['NEPTUN']; 
