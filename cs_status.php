@@ -5,6 +5,7 @@
 	ini_set('display_errors', 'on');
 	
 	function addToTeam(){
+		require "config.php";
 		$smNeptun  = $_SESSION['NEPTUN']; 
 		$SM_TeamID = mysqli_query($con,"SELECT TEAM_ID FROM USER WHERE NEPTUN='$smNeptun'");
 		$team = $_POST['addTeammate'];
