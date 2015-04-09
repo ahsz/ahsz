@@ -2,8 +2,15 @@
 <?php
 	session_start(); 
 	require "config.php";
-	//$s = mysqli_query($con,"SELECT role.name FROM role, user WHERE user.neptun='$user' and user.password='$pass'" and user.role_id=role.id);
 	
+	function addToTeam(){
+		$smNeptun  = $_SESSION['NEPTUN']; 
+		$SM_TeamID = mysqli_query($con,"SELECT TEAM_ID FROM USER WHERE NEPTUN='$smNeptun'");
+		$addUserToTeam = mysqli_query($con,"UPDATE USER SET TEAM_ID='$SM_TeamID' WHERE NEPTUN='$_POST['addTeammate']'"); //injection védelmet nekem!!!
+	}
+	if(isset($_POST['addTeammate'])){
+		addToTeam();
+	}
 	?>
 <html>
 <head>
@@ -18,14 +25,12 @@
 	</div>
 	
 <?php
-	//require "config.php";
-	//$s = mysqli_query($con,"SELECT role.name FROM role, user WHERE user.neptun='$user' and user.password='$pass'" and user.role_id=role.id);
-	//echo $_SESSION['neptun'];
+	
 	if($_SESSION['ID'] == 2) {
 		?>
 		<b>Csapattag felvétele:</b>
 		</br>
-		<p>
+		<form action="#" method="POST">
 			<select name="addTeammate" id="add">
 			<?php
 				$get=mysqli_query($con,"SELECT NEPTUN FROM USER");
@@ -34,13 +39,12 @@
 				{
 				  $option .= '<option value = "'.$row['NEPTUN'].'">'.$row['NEPTUN'].'</option>';
 				}
-				//$res=mysqli_query($con,"SELECT NEPTUN FROM USER");
-				//$names = mysqli_fetch_assoc($res);
+
 			?>
 			<?php echo $option; ?>
 			</select>
-			<input type="submit" id="Submit" value="Kiválaszt" onclick="" />
-		</p>
+			<input type="submit" id="Submit" value="Kiválaszt"  />
+			</form>
 		<?php
 	}
 	?>
