@@ -14,7 +14,8 @@
 		}
 		$team = $_POST['addTeammate'];
 		$addUserToTeam = mysqli_query($con,"UPDATE USER SET TEAM_ID='$t_id' WHERE NEPTUN='$team'"); //injection védelmet nekem!!!
-		alert("Sikeresen csapathozadás!"); 
+		$message = "Sikeres csapathoz adás!";
+		echo "<script type='text/javascript'>alert('$message');</script>";
 	}
 	if(isset($_POST['addTeammate'])){
 		addToTeam();
