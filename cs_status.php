@@ -17,9 +17,26 @@
 		$message = "Sikeres csapathoz adás!";
 		echo "<script type='text/javascript'>alert('$message');</script>";
 	}
+	function giveRole(){
+		require "config.php";
+		$selected_neptun = $_POST['addRoleToTeammate'];
+		$selected_roleName = $_POST['roleList'];
+		$getRoleID = mysqli_query($con,"SELECT ROLE_ID FROM ROLE WHERE NAME='$selected_roleName'");
+		while($row=mysqli_fetch_assoc($SM_TeamID))
+		{
+			$selected_role_id = $row['ROLE_ID'];
+		}
+		$giveRoleToUser = mysqli_query($con,"UPDATE USER SET ROLE_ID='$selected_role_id' WHERE NEPTUN='$selected_neptun'");
+		$message = "A szerep sikeresen a felhasználóhoz adva!";
+		echo "<script type='text/javascript'>alert('$message');</script>";
+	}
 	if(isset($_POST['addTeammate'])){
 		addToTeam();
 	}
+		if(isset($_POST['addRoleToTeammate']) && isset($_POST['roleList'])){
+		giveRole();
+	}
+	
 	?>
 <html>
 <head>
@@ -86,7 +103,7 @@
 				$roleNames = '';
 				 while($row = mysqli_fetch_assoc($roles))
 				{
-				  $roleNames .= '<option value = "'.$row['NEPTUN'].'">'.$row['NEPTUN'].'</option>';
+				  $roleNames .= '<option value = "'.$row['NAME'].'">'.$row['NAME'].'</option>';
 				}
 
 				echo $roleNames; ?>
