@@ -8,8 +8,8 @@
 		
 		if($email==null)
 		{
-			echo "Üresen hagytad az e-mail cím mezőt! ";
-			echo '<a href="profil.php">'. Vissza . '</a>';
+			$message = "Üresen hagytad az e-mail cím mezőt!"; 
+			echo "<script type='text/javascript'>alert('$message');</script>"; 
 			exit();
 		}
 		
