@@ -104,8 +104,8 @@
 
 				echo $teammates; ?>
 			</select>
-			</form>
 			<input type="submit" id="Submit" value="Törlés"  />
+			</form>
 			
 			</br>
 			</br>
