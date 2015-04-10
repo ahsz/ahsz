@@ -36,6 +36,8 @@
 		$selected_user = $_POST['deleteTeammate'];
 		//A NO_TEAM csapatba kerül akit törölnek
 		$delUser = mysqli_query($con,"UPDATE USER SET TEAM_ID='34' WHERE NEPTUN='$selected_user'");
+		$message = "Felhasználó sikeresen törölve a csapatból!";
+		echo "<script type='text/javascript'>alert('$message');</script>";
 	}
 	if(isset($_POST['addTeammate'])){
 		addToTeam();
@@ -96,13 +98,13 @@
 					$t_id = $row['TEAM_ID'];
 				}
 				$getTeammates=mysqli_query($con,"SELECT NEPTUN FROM USER WHERE TEAM_ID='$t_id'");
-				$teammates = '';
+				$delTeammates = '';
 				 while($row = mysqli_fetch_assoc($getTeammates))
 				{
-				  $teammates .= '<option value = "'.$row['NEPTUN'].'">'.$row['NEPTUN'].'</option>';
+				  $delTeammates .= '<option value = "'.$row['NEPTUN'].'">'.$row['NEPTUN'].'</option>';
 				}
 
-				echo $teammates; ?>
+				echo $delTeammates; ?>
 			</select>
 			<input type="submit" id="Submit" value="Törlés"  />
 			</form>
