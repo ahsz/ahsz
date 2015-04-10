@@ -119,27 +119,25 @@
 	
 	</form><br/>
 	
+	<!-- Csapattagok adatainak listázása-->
 	<table border="1" width="600">
-		<tr>
+	<tr>
         <td>Név</td>
         <td>Szerepkör</td>
         <td>Email</td>
     </tr>
-    <tr>
-        <td>-</td>
-        <td>-</td>
-        <td>-</td>
-    </tr>
-    <tr>
-        <td>-</td>
-        <td>-</td>
-        <td>-</td>
-    </tr>
-    <tr>
-        <td>-</td>
-        <td>-</td>
-        <td>-</td>
-    </tr>
+	<?php
+		$members = mysqli_query($con,"SELECT USER.NAME AS uname, ROLE.NAME AS urole, USER.EMAIL AS uemail FROM USER, ROLE WHERE USER.ROLE_ID=ROLE.ID");
+		//$table = '';
+		 while($row = mysqli_fetch_assoc($members))
+		{
+		  echo "<tr>";
+		  echo "<td>".$row['uname']."</td>";
+		  echo "<td>".$row['urole']."</td>";
+		  echo "<td>".$row['uemail']."</td>";
+		  echo "</tr>";
+		}
+	?>
 </table>
 	
 </body>
