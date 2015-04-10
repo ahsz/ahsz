@@ -2,10 +2,11 @@
 <?php
 	session_start(); 
 	require "config.php";
-	ini_set('display_errors', 'off');
+	ini_set('display_errors', 'on');
 	
 	//csapatnév lekérése, hogy ki legyen írva az oldal tetejére
-	$teamname = mysqli_query($con,"SELECT NAME FROM TEAM WHERE ID='$teamid'");
+	$tid = $_SESSION['TEAM_ID'];
+	$teamname = mysqli_query($con,"SELECT NAME FROM TEAM WHERE ID='$tid'");
 	while($row=mysqli_fetch_assoc($teamname))
 	{
 		$t_name = $row['NAME'];
