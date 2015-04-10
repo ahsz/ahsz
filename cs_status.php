@@ -30,11 +30,21 @@
 		$message = "A szerep sikeresen a felhasználóhoz adva!";
 		echo "<script type='text/javascript'>alert('$message');</script>";
 	}
+	
+	function delTeammate(){
+		require "config.php";
+		$selected_user = $_POST['deleteTeammate'];
+		//A NO_TEAM csapatba kerül akit törölnek
+		$delUser = mysqli_query($con,"UPDATE USER SET TEAM_ID='34' WHERE NEPTUN='$selected_user'");
+	}
 	if(isset($_POST['addTeammate'])){
 		addToTeam();
 	}
-		if(isset($_POST['addRoleToTeammate']) && isset($_POST['roleList'])){
+	if(isset($_POST['addRoleToTeammate']) && isset($_POST['roleList'])){
 		giveRole();
+	}
+	if(isset($_POST['deleteTeammate'])){
+		delTeammate();
 	}
 	
 	?>
@@ -73,12 +83,38 @@
 			
 			</br>
 			</br>
+			<b>Csapattag törlése:</b>
+			</br>
+			<form action="#" method="POST">
+			<select name="deleteTeammate" id="deleteTeammate">
+			<?php
+				//csapat listájának lekérése dbből
+				$smNeptun  = $_SESSION['NEPTUN']; 
+				$SM_TeamID = mysqli_query($con,"SELECT TEAM_ID FROM USER WHERE NEPTUN='$smNeptun'");
+				while($row=mysqli_fetch_assoc($SM_TeamID))
+				{
+					$t_id = $row['TEAM_ID'];
+				}
+				$getTeammates=mysqli_query($con,"SELECT NEPTUN FROM USER WHERE TEAM_ID='$t_id'");
+				$teammates = '';
+				 while($row = mysqli_fetch_assoc($getTeammates))
+				{
+				  $teammates .= '<option value = "'.$row['NEPTUN'].'">'.$row['NEPTUN'].'</option>';
+				}
+
+				echo $teammates; ?>
+			</select>
+			</form>
+			<input type="submit" id="Submit" value="Törlés"  />
+			
+			</br>
+			</br>
 			<b>Szerep adása csapattársnak:</b>
 			</br>
 			<form action="#" method="POST">
 			<select name="addRoleToTeammate" id="addRole">
 			<?php
-				//SM csapatának lekérése dbből
+				//csapat listájának lekérése dbből
 				$smNeptun  = $_SESSION['NEPTUN']; 
 				$SM_TeamID = mysqli_query($con,"SELECT TEAM_ID FROM USER WHERE NEPTUN='$smNeptun'");
 				while($row=mysqli_fetch_assoc($SM_TeamID))
@@ -110,9 +146,7 @@
 			</select>
 			<input type="submit" id="Submit" value="Kiválaszt"  />
 			</form>
-			<?php
-			
-			?>
+
 		<?php
 	}
 	?>
