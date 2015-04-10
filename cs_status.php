@@ -22,7 +22,7 @@
 		$selected_neptun = $_POST['addRoleToTeammate'];
 		$selected_roleName = $_POST['roleList'];
 		$getRoleID = mysqli_query($con,"SELECT ROLE_ID FROM ROLE WHERE NAME='$selected_roleName'");
-		while($row=mysqli_fetch_assoc($SM_TeamID))
+		while($row=mysqli_fetch_assoc($getRoleID))
 		{
 			$selected_role_id = $row['ROLE_ID'];
 		}
