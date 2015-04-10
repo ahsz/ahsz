@@ -21,10 +21,10 @@
 		require "config.php";
 		$selected_neptun = $_POST['addRoleToTeammate'];
 		$selected_roleName = $_POST['roleList'];
-		$getRoleID = mysqli_query($con,"SELECT ROLE_ID FROM ROLE WHERE NAME='$selected_roleName'");
+		$getRoleID = mysqli_query($con,"SELECT ID FROM ROLE WHERE NAME='$selected_roleName'");
 		while($row=mysqli_fetch_assoc($getRoleID))
 		{
-			$selected_role_id = $row['ROLE_ID'];
+			$selected_role_id = $row['ID'];
 		}
 		$giveRoleToUser = mysqli_query($con,"UPDATE USER SET ROLE_ID='$selected_role_id' WHERE NEPTUN='$selected_neptun'");
 		$message = "A szerep sikeresen a felhasználóhoz adva!";
