@@ -2,7 +2,14 @@
 <?php
 	session_start(); 
 	require "config.php";
-	ini_set('display_errors', 'on');
+	ini_set('display_errors', 'off');
+	
+	//csapatnév lekérése, hogy ki legyen írva az oldal tetejére
+	$teamname = mysqli_query($con,"SELECT NAME FROM TEAM WHERE ID='$teamid'");
+	while($row=mysqli_fetch_assoc($teamname))
+	{
+		$t_name = $row['NAME'];
+	}
 	
 	function addToTeam(){
 		require "config.php";
@@ -59,7 +66,7 @@
 <body>
 	<div style="margin-left:200">
 	<h1>Csapatstátusz</h1>
-	<h2>Csapatnév</h2>
+	<h2><?php echo $t_name; ?></h2>
 	</div>
 	
 <?php
