@@ -143,7 +143,6 @@
 				{
 				  $roleNames .= '<option value = "'.$row['NAME'].'">'.$row['NAME'].'</option>';
 				}
-
 				echo $roleNames; ?>
 			</select>
 			<input type="submit" id="Submit" value="Kiválaszt"  />
@@ -163,8 +162,7 @@
         <td>Email</td>
     </tr>
 	<?php
-		$members = mysqli_query($con,"SELECT USER.NAME AS uname, ROLE.NAME AS urole, USER.EMAIL AS uemail FROM USER, ROLE WHERE USER.ROLE_ID=ROLE.ID");
-		//$table = '';
+		$members = mysqli_query($con,"SELECT USER.NAME AS uname, ROLE.NAME AS urole, USER.EMAIL AS uemail FROM USER, ROLE WHERE USER.ROLE_ID=ROLE.ID AND TEAM_ID='$_SESSION['TEAM_ID']'");
 		 while($row = mysqli_fetch_assoc($members))
 		{
 		  echo "<tr>";
