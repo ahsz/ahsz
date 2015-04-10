@@ -53,6 +53,49 @@
 			</select>
 			<input type="submit" id="Submit" value="Kiválaszt"  />
 			</form>
+			
+			</br>
+			</br>
+			<b>Szerep adása csapattársnak:</b>
+			</br>
+			<form action="#" method="POST">
+			<select name="addRoleToTeammate" id="addRole">
+			<?php
+				//SM csapatának lekérése dbből
+				$smNeptun  = $_SESSION['NEPTUN']; 
+				$SM_TeamID = mysqli_query($con,"SELECT TEAM_ID FROM USER WHERE NEPTUN='$smNeptun'");
+				while($row=mysqli_fetch_assoc($SM_TeamID))
+				{
+					$t_id = $row['TEAM_ID'];
+				}
+				$getTeammates=mysqli_query($con,"SELECT NEPTUN FROM USER WHERE TEAM_ID='$t_id'");
+				$teammates = '';
+				 while($row = mysqli_fetch_assoc($getTeammates))
+				{
+				  $teammates .= '<option value = "'.$row['NEPTUN'].'">'.$row['NEPTUN'].'</option>';
+				}
+
+				echo $teammates; ?>
+			</select>
+			
+			<!-- Szerepek legördülő listája-->
+			<select name="roleList" id="roleList">
+			<?php
+				//SM csapatának lekérése dbből
+				$roles = mysqli_query($con,"SELECT NAME FROM ROLE");
+				$roleNames = '';
+				 while($row = mysqli_fetch_assoc($roles))
+				{
+				  $roleNames .= '<option value = "'.$row['NEPTUN'].'">'.$row['NEPTUN'].'</option>';
+				}
+
+				echo $roleNames; ?>
+			</select>
+			<input type="submit" id="Submit" value="Kiválaszt"  />
+			</form>
+			<?php
+			
+			?>
 		<?php
 	}
 	?>
