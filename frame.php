@@ -1,4 +1,4 @@
-<? php
+<?php
 require "check_logged_in.php";
 ?>
 
