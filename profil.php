@@ -1,3 +1,7 @@
+<?php
+	session_start(); 
+	require "check_logged_in.php";		 
+?>
 <!DOCTYPE html>
 <html>
 <head>

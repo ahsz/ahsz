@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <?php
 	session_start(); 
+	require "check_logged_in.php";
 	require "config.php";
 	ini_set('display_errors', 'on');
 	

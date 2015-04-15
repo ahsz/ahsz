@@ -1,5 +1,6 @@
 <?php
 	session_start(); 
+	require "check_logged_in.php";
 	require "config.php";
 	
 	if (isset($_POST['postmessage'])) {
