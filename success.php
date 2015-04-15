@@ -8,7 +8,7 @@ if(isset($_SESSION['username']))
 { 
    echo "Szia ".$_SESSION['username'].", sikeres bejelentkezes!"; 
    echo '<a href="frame.html">'. Kezdolap . '</a>';
-   $redir='frame.html';
+   $redir='frame.php';
 } 
 
 else{ 
