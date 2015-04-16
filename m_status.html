@@ -17,17 +17,20 @@
 		google.setOnLoadCallback(drawChart);
 		// TODO bekért linket a DB-ből ideilleszteni
 		var gitUrl = 'https://api.github.com/repos/ahsz/ahsz/';
-		// hogy a teljes félév benne legyen, szofisztikáltabb kód helyett durva szélső értékek
-		var recentDate = new Date("2020-04-04T14:39:11.000Z");
-		var oldDate = new Date("2010-03-20T00:00:00.000Z");
-		var dataTable;
+		var dataTable_commit;
+		var dataTable_linePerCommit;
 		
 		function initializeChart() {
-			dataTable = new google.visualization.DataTable();
-			dataTable.addColumn({ type: 'date', label: 'Dátum' });
-			dataTable.addColumn({ type: 'number', label: 'Sorok' });
+			dataTable_commit = new google.visualization.DataTable();
+			dataTable_commit.addColumn({ type: 'string', label: 'User' });
+			dataTable_commit.addColumn({ type: 'number', label: 'Commitok' });
+			dataTable_linePerCommit = new google.visualization.DataTable();
+			dataTable_linePerCommit.addColumn({ type: 'string', label: 'User' });
+			dataTable_linePerCommit.addColumn({ type: 'number', label: 'Hozzáadott sorok' });
+			dataTable_linePerCommit.addColumn({ type: 'number', label: 'Törölt sorok' });
+			dataTable_linePerCommit.addColumn({ type: 'number', label: 'Új sorok' });
 			var script = document.createElement('script');  
-			script.src = gitUrl + 'commits?callback=gitRoot&until=' + recentDate.toJSON();
+			script.src = gitUrl + 'stats/contributors?callback=gitRoot';
 			document.getElementsByTagName('head')[0].appendChild(script);
 		}
 		/**
@@ -38,62 +41,28 @@
 			// az egész kapott objektum kiiratásához szedd ki a kommentet
 			//console.log(data);
 			if(data.length > 1) {
-				
-				// Az összes commitról kell részletesebb adat is, amiket a következő
-				// kóddal kérjük le
-				for(i = 0; i < data.length; i++) {
-					// illetve csak azok kellenek, amik még a dátumkorláton belül vannak
-					var commitDate = new Date(data[i].commit.committer.date);
-					if(oldDate.getTime() < commitDate){
-						var script = document.createElement('script');
-						script.src = gitUrl + 'commits/' + data[i].sha + '?callback=gitChild';
-						document.getElementsByTagName('head')[0].appendChild(script);  
+				for (var i = 0; i < data.length; i++) {
+					var user = data[i].author.login;
+					var commits = data[i].total;
+					dataTable_commit.addRow([user,commits]);
+					dataTable_commit.sort([0,1]);
+					
+					var lineA = 0;
+					var lineD = 0;
+					var lineC = 0;
+					for(var j = 0; j < data[i].weeks.length; j++) {
+						lineA += data[i].weeks[j].a;
+						lineD += data[i].weeks[j].d;
+						lineC += data[i].weeks[j].a - data[i].weeks[j].d;
 					}
+					// kerekítés
+					lineA = Math.round( 100 * lineA / commits ) / 100;
+					lineD = Math.round( 100 * lineD / commits ) / 100;
+					lineC = Math.round( 100 * lineC / commits ) / 100;
+					dataTable_linePerCommit.addRow([user,lineA,lineD,lineC]);
+					dataTable_linePerCommit.sort([0,1]);
+					
 				}
-				
-				var dataOldDate = new Date(data[data.length-1].commit.committer.date);
-				// és tovább kell kérdezni a fő gitet
-				if(oldDate.getTime() < dataOldDate.getTime()) {
-					// csökkentem a dátumot, hogy ne legyen 2x ugyanaz a commit benne
-					dataOldDate.setSeconds(dataOldDate.getSeconds() - 1);
-					var script = document.createElement('script');  
-					script.src = gitUrl + 'commits?callback=gitRoot&until=' + dataOldDate.toJSON() + '&from=' + oldDate.toJSON();
-					document.getElementsByTagName('head')[0].appendChild(script);
-				}
-			}
-		}
-		
-		/**
-		 * Git API válaszán keresztül a commitok részleteinek bányászása.
-		 *  Kell a módosított sorok száma miatt.
-		 */
-		function gitChild(response) {			
-			var data = response.data;
-			var stats = data.stats;
-			var date = new Date(data.commit.committer.date);
-			var increased = stats.additions - stats.deletions;
-			// Ez az if csak double check miatt van itt. Nem lenne szabad rossz adatnak megjelennie.
-			if(date < recentDate && date > oldDate) {
-				var index = -1;
-				for (var i = 0; i < dataTable.getNumberOfRows(); i++) {
-					var dateToCheck = date;
-					var actualDate = dataTable.getValue(i,0);
-					if(dateToCheck.getDate() == actualDate.getDate() 
-						&& dateToCheck.getMonth() == actualDate.getMonth()
-						&& dateToCheck.getFullYear() == actualDate.getFullYear()){
-						index = i;
-						break;
-					}
-				}
-			
-				if(index == -1){
-					dataTable.addRow([date,increased]);
-					dataTable.sort([0,1]);
-				}else{
-					dataTable.setValue(index, 1, dataTable.getValue(index,1) + increased)
-				}
-				
-				
 				drawChart();
 			}
 		}
@@ -105,24 +74,22 @@
 		 * Google calendar chart kirajzoltatás
 		 */
 		function drawChart() {
-			var chart = new google.visualization.ColumnChart(document.getElementById('chart_basic'));
-
-			var options = {
-			 title: "Kódsorok számának növekedése",
+			var chart_commit = new google.visualization.PieChart(document.getElementById('chart_commit'));
+			var chart_linePerCommit = new google.visualization.ColumnChart(document.getElementById('chart_linePerCommit'));
+			
+			var options_commit = {
+			 title: "Commitok aránya",
+			 pieHole: 0.4,
 			 height: 350,
 			};
-
-			chart.draw(dataTable, options);
+			var options_linePerCommit = {
+			 title: "Commitonkénti átlagos értékek",
+			 height: 350,
+			};
+			
+			chart_commit.draw(dataTable_commit, options_commit);
+			chart_linePerCommit.draw(dataTable_linePerCommit, options_linePerCommit);
 		}
-		
-		
-		
-		function SetDate(){
-			oldDate = new Date(document.getElementById("begin_date").value);
-			recentDate = new Date(document.getElementById("end_date").value); 
-			initializeChart();
-		}
-
 	</script>
 	
 </head>
@@ -133,17 +100,11 @@
 
 	<div style="margin-left:200">
 	
-	Kezdő Dátum:
-    <input type="date" id="begin_date" value="2015-01-01">
-
-	Végső Dátum:
-    <input type="date" id="end_date" value="2015-01-01">
-	<input type="submit" id="submit_end" value="kiválaszt" onclick="SetDate()"/><br><br>
+	<br><br>
 	<h1>Munka státusz</h1>
 	</div>
-	<div id="chart_basic" style="width: 100%; height: 350px;"></div>
-	</br>
-	</br>
+	<div id="chart_commit" style="width: 600px; height: 350px;"></div> <br>
+	<div id="chart_linePerCommit" style="width: 600px; height: 350px;"></div>
 	
 	<ol class="tree">
 		<li>
