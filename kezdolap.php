@@ -129,10 +129,10 @@
 		var para = document.createElement("p");
 		var node = document.createTextNode("Az általad létrehozott csapat: " + teamname);
 		para.appendChild(node);
-		parent.insertBefore(para,child3);	
+//		parent.insertBefore(para,child3);	
 		parent.removeChild(child1);
 		parent.removeChild(child2);
-		parent.removeChild(child3);
+//		parent.removeChild(child3);
 			
 			
 		//	document.getElementById("Create").disabled = "false";
@@ -155,10 +155,10 @@
 		var para = document.createElement("p");
 		var node = document.createTextNode("Az általad választott csapat: " + teamname);
 		para.appendChild(node);
-		parent.insertBefore(para,child3);	
+//		parent.insertBefore(para,child3);	
 		parent.removeChild(child1);
 		parent.removeChild(child2);
-		parent.removeChild(child3);
+//		parent.removeChild(child3);
 		
 		
 		}
