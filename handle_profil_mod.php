@@ -24,7 +24,7 @@
 		}
 		else
 		{
-			echo "Sikeres e-mail cím módosítás! ";
+			alert( "Sikeres e-mail cím módosítás! ");
 			echo '<a href="profil.php">'. Vissza . '</a>';
 			exit();
 		}
