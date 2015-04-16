@@ -108,7 +108,7 @@
 						echo $row['GITHUB_NAME'];
 				?></textarea>
 						</td><td>
-								<input type="submit" name="submit" value="Módosítás" action="modify_data()";/>
+								<input type="submit" name="submit" value="Módosítás" onclick="modify_data()";/>
 						</td></tr>
 					</form>
 				</div>
