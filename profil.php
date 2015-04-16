@@ -51,7 +51,7 @@
 					require "config.php";
 					
 					$neptun_kod=$_SESSION['NEPTUN'];
-					$result=mysqli_query($con,"SELECT ifnull(U.NAME,'') AS U_NAME, ifnull(U.NEPTUN,'') AS NEPTUN, ifnull(U.EMAIL,'') as EMAIL, ifnull(T.NAME,'') AS T_NAME, ifnull(R.NAME,'') AS R_NAME FROM USER U LEFT JOIN (TEAM T, ROLE R) ON (T.ID=U.TEAM_ID AND R.ID=U.ROLE_ID) WHERE U.NEPTUN='$neptun_kod'");
+					$result=mysqli_query($con,"SELECT ifnull(U.NAME,'') AS U_NAME, ifnull(U.NEPTUN,'') AS NEPTUN, ifnull(U.EMAIL,'') as EMAIL, ifnull(T.NAME,'') AS T_NAME, ifnull(R.NAME,'') AS R_NAME, GITHUB_NAME FROM USER U LEFT JOIN (TEAM T, ROLE R) ON (T.ID=U.TEAM_ID AND R.ID=U.ROLE_ID) WHERE U.NEPTUN='$neptun_kod'");
 				
 					if($result->num_rows>0){
 						$row=mysqli_fetch_assoc($result);
