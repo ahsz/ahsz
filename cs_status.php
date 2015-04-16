@@ -80,7 +80,7 @@
 		<form action="#" method="POST">
 			<select name="addTeammate" id="add">
 			<?php
-				$get=mysqli_query($con,"SELECT NEPTUN FROM USER");
+				$get=mysqli_query($con,"SELECT NEPTUN FROM USER WHERE TEAM_ID=NULL");
 				$option = '';
 				 while($row = mysqli_fetch_assoc($get))
 				{
