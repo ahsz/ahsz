@@ -2,7 +2,7 @@
 	session_start(); 
 	require "config.php";
 	
-		header("Location: http://http://agiliscsapat1.sch.bme.hu:40080/testsite/profil.php"); 
+		header("Location: ../profil.php"); 
 	
 	if (isset($_POST['email_mod'])) {
 		$user=$_SESSION['username'];
