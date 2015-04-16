@@ -2,7 +2,7 @@
 	session_start(); 
 	require "config.php";
 	
-		header("Location: ../profil.php"); 
+		header("Location: ../testsite/profil.php"); 
 	
 	if (isset($_POST['email_mod'])) {
 		$user=$_SESSION['username'];
