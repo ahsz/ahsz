@@ -90,6 +90,21 @@
 					</form>
 				</div>
 				<div class="user_info">
+					<form form id="form" name="form" method="post" action="handle_profil_mod.php">
+						<tr><td>
+				<?php
+						echo "GITHUB felhasználó neved: ";
+				?>
+						</td><td>
+							<textarea id="github_user_mod" name="github_user_mod" rows="1" cols="30"><?php
+						echo $row['GITHUB_NAME'];
+				?></textarea>
+						</td><td>
+								<input type="submit" name="submit" value="Módosítás" />
+						</td></tr>
+					</form>
+				</div>
+				<div class="user_info">
 					<tr><td>
 				<?php
 						echo "Csapatod neve: "; 
