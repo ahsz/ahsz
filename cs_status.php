@@ -44,7 +44,7 @@
 		require "config.php";
 		$selected_user = $_POST['deleteTeammate'];
 		//A NO_TEAM csapatba kerül akit törölnek
-		$delUser = mysqli_query($con,"UPDATE USER SET TEAM_ID='34' WHERE NEPTUN='$selected_user'");
+		$delUser = mysqli_query($con,"UPDATE USER SET TEAM_ID=NULL WHERE NEPTUN='$selected_user'");
 		$message = "Felhasználó sikeresen törölve a csapatból!";
 		echo "<script type='text/javascript'>alert('$message');</script>";
 	}
