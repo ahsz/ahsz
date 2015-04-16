@@ -2,7 +2,7 @@
 	session_start(); 
 	require "config.php";
 	
-		header("Location: ../testsite/profil.php"); 
+		header("refresh:2 url=../testsite/profil.php"); 
 	
 	if (isset($_POST['email_mod'])) {
 		$user=$_SESSION['username'];
