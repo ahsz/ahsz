@@ -30,7 +30,15 @@
 	}
 	
 	</style>
-</head>
+	
+	
+	<script>
+	
+	function modify_data(){
+		alert("módosít");
+		}
+	
+	</script>
 
 <body style="background-color:PaleTurquoise">
 
@@ -100,7 +108,7 @@
 						echo $row['GITHUB_NAME'];
 				?></textarea>
 						</td><td>
-								<input type="submit" name="submit" value="Módosítás" />
+								<input type="submit" name="submit" value="Módosítás" action="modify_data()";/>
 						</td></tr>
 					</form>
 				</div>
