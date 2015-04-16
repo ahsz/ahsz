@@ -1,4 +1,5 @@
 <!DOCTYPE html>
+
 <?php
 	session_start(); 
 	require "check_logged_in.php";
@@ -62,7 +63,11 @@
 <html>
 <head>
 	<meta charset="UTF-8">  </meta>
-<title>Title of the document</title>
+	<title>Title of the document</title>
+	
+	textarea {
+		resize: none;
+	}
 </head>
 
 <body style="background-color:DarkKhaki">
@@ -161,8 +166,7 @@
 	}
 	?>
 	
-	</form><br/>
-	
+	</form>
 	</br>
 	</br>
 	
@@ -170,14 +174,13 @@
 	</br>
 	<form action="#" method="POST">
 	<?php
-		$github_repo_query = mysqli_query($con,"SELECT GITHUB_LINK FROM TEAM");
+		$github_repo_query = mysqli_query($con,"SELECT GITHUB_LINK FROM TEAM WHERE ID='$t_id'");
 		while($row = mysqli_fetch_assoc($github_repo_query))
 		{
 		  $t_ghub = $row['GITHUB_LINK'];
 		}
 	?>
-	<textarea id="github_mod" name="github_mod" rows="1" cols="30">
-	<?php echo $t_ghub; ?> </textarea>
+	<textarea id="github_mod" name="github_mod" rows="1" cols="30"><?php echo $t_ghub; ?></textarea>
 	<input type="submit" name="submit" value="Módosítás" />
 	
 	</form>
