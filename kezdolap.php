@@ -54,21 +54,22 @@
 		document.getElementById("create_team").style.visibility = "hidden";
 		
 	//	document.getElementById("Submit").disabled = "true";
-	document.getElementById("select_team").style.visibility = "hidden";
+	//document.getElementById("select_team").style.visibility = "hidden";
 		
 		
 		}
 		
-	function show_teams () {
+/*	function show_teams () {
 		//document.getElementById("Submit").disabled = "false";
 			
 		if (clicked == false){
-			document.getElementById("select_team").style.visibility = "visible";
+			//document.getElementById("select_team").style.visibility = "visible";
 			clicked = true;
 			document.getElementById("decision").style.visibility = "hidden";
 			}
 		
 		}
+		*/
 		
 	function show_create () {
 		//document.getElementById("Create").disabled = "false";
@@ -82,7 +83,7 @@
 
 		
 		document.getElementById("Create").disabled = "false";
-		document.getElementById("create_team").style.visibility = "visible";
+		//document.getElementById("create_team").style.visibility = "visible";
 		var teamname = document.getElementById("my_team").value;
 		$.ajax({
                               type:"post",
@@ -124,7 +125,7 @@
 		var parent = document.getElementById("main_page");
 		var child1 = document.getElementById("decision");
 		var child2 = document.getElementById("select_team");
-		var child3 = document.getElementById("create_team");
+//		var child3 = document.getElementById("create_team");
 		var para = document.createElement("p");
 		var node = document.createTextNode("Az általad létrehozott csapat: " + teamname);
 		para.appendChild(node);
@@ -150,7 +151,7 @@
 		var parent = document.getElementById("main_page");
 		var child1 = document.getElementById("decision");
 		var child2 = document.getElementById("select_team");
-		var child3 = document.getElementById("create_team");
+//		var child3 = document.getElementById("create_team");
 		var para = document.createElement("p");
 		var node = document.createTextNode("Az általad választott csapat: " + teamname);
 		para.appendChild(node);
@@ -175,44 +176,12 @@
 
 	<div id="decision">
 	<input type="submit" id="join1" value="Új csapat létrehozása!" onclick="show_create()" />
-	<input type="submit" id="join2" value="Csapathoz csatlakozok!" onclick="show_teams()" />
+<!--	<input type="submit" id="join2" value="Csapathoz csatlakozok!" onclick="show_teams()" />  -->
 	
 	
 	</div>
 	
-		<div id="select_team">
-		<!-- csak akkor jelenik meg, ha még nem választott csapatot a felhasználó-->
-		Válassz csapatot!
 		
-		<p>
-			<select name="formCsapat" id="options">
-			   <?php
-	
-			  session_start(); 
-			  require "config.php";
-	
-			  $result=mysqli_query($con,"SELECT NAME FROM TEAM");
-
-			  if(!$result)
-			  {
-				echo "ERROR :" . mysqli_error($con);
-			  }
-				
-			  while($row=mysqli_fetch_assoc($result))
-			  {
-			  ?>
-			  <option value="<? echo $row['NAME']; ?>"><? echo $row['NAME']; ?></option>
-			  <?php
-			  }
-			  ?>
-
-			</select>
-			<input type="submit" id="Submit" value="Kiválaszt" onclick="your_team()" />
-			<input type="submit" id="Cancel2" value="Mégsem" onclick="location.reload()" />
-			<!-- TODO: Ha választott már csapatot a diák akkor többet ne lássa ezt a legördülő menüt -->
-		</p>
-
-		</div>
 		
 		<div id="create_team">
 		<!-- csak akkor jelenik meg, ha még nem választott csapatot a felhasználó-->
