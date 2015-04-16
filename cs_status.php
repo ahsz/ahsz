@@ -52,7 +52,7 @@
 	function modGithubRepo(){
 		require "config.php";
 		$github_repo = $_POST['github_mod'];
-		$updateGithub = mysqli_query($con,"UPDATE TEAM SET GITHUB_LINK='$github_repo' WHERE ID='$t_id'");
+		$updateGithub = mysqli_query($con,"UPDATE TEAM SET GITHUB_LINK='$github_repo' WHERE ID='$tid'");
 		$message = "Github repo sikeresen módosítva!";
 		echo "<script type='text/javascript'>alert('$message');</script>";
 	}
