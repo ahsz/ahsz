@@ -44,11 +44,19 @@
 	function delTeammate(){
 		require "config.php";
 		$selected_user = $_POST['deleteTeammate'];
-		//A NO_TEAM csapatba kerül akit törölnek
 		$delUser = mysqli_query($con,"UPDATE USER SET TEAM_ID=NULL WHERE NEPTUN='$selected_user'");
 		$message = "Felhasználó sikeresen törölve a csapatból!";
 		echo "<script type='text/javascript'>alert('$message');</script>";
 	}
+	
+	function modGithubRepo(){
+		require "config.php";
+		$github_repo = $_POST['github_mod'];
+		$updateGithub = mysqli_query($con,"UPDATE TEAM SET GITHUB_LINK='$github_repo' WHERE ID='$t_id'");
+		$message = "Github repo sikeresen módosítva!";
+		echo "<script type='text/javascript'>alert('$message');</script>";
+	}
+	
 	if(isset($_POST['addTeammate'])){
 		addToTeam();
 	}
@@ -58,6 +66,9 @@
 	if(isset($_POST['deleteTeammate'])){
 		delTeammate();
 	}
+	if(isset($_POST['deleteTeammate'])){
+		modGithubRepo();
+	}
 	
 	?>
 <html>
@@ -65,9 +76,11 @@
 	<meta charset="UTF-8">  </meta>
 	<title>Title of the document</title>
 	
+<style media="screen" type="text/css">
 	textarea {
 		resize: none;
 	}
+</style>
 </head>
 
 <body style="background-color:DarkKhaki">
