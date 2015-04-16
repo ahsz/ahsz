@@ -66,7 +66,7 @@
 	if(isset($_POST['deleteTeammate'])){
 		delTeammate();
 	}
-	if(isset($_POST['deleteTeammate'])){
+	if(isset($_POST['github_mod'])){
 		modGithubRepo();
 	}
 	
