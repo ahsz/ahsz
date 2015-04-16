@@ -65,7 +65,7 @@
 <title>Title of the document</title>
 </head>
 
-<body>
+<body style="background-color:DarkKhaki">
 	<div style="margin-left:200">
 	<h1>Csapatstátusz</h1>
 	<h2><?php echo $t_name; ?></h2>
@@ -163,12 +163,31 @@
 	
 	</form><br/>
 	
+	</br>
+	</br>
+	
+	<b>Github repo:</b>
+	</br>
+	<form action="#" method="POST">
+	<?php
+		$github_repo_query = mysqli_query($con,"SELECT GITHUB_LINK FROM TEAM");
+		while($row = mysqli_fetch_assoc($github_repo_query))
+		{
+		  $t_ghub = $row['GITHUB_LINK'];
+		}
+	?>
+	<textarea id="github_mod" name="github_mod" rows="1" cols="30">
+	<?php echo $t_ghub; ?> </textarea>
+	<input type="submit" name="submit" value="Módosítás" />
+	
+	</form>
+	
 	<!-- Csapattagok adatainak listázása-->
 	<table border="1" width="600">
 	<tr>
-        <td>Neptun</td>
-        <td>Szerepkör</td>
-        <td>Email</td>
+        <td><b>Neptun</b></td>
+        <td><b>Szerepkör</b></td>
+        <td><b>Email</b></td>
     </tr>
 	<?php
 		$teamid = $_SESSION['TEAM_ID'];
