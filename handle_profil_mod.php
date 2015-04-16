@@ -2,6 +2,8 @@
 	session_start(); 
 	require "config.php";
 	
+		header("Location: http://http://agiliscsapat1.sch.bme.hu:40080/testsite/profil.php"); 
+	
 	if (isset($_POST['email_mod'])) {
 		$user=$_SESSION['username'];
 		$email=$_POST['email_mod'];
@@ -123,6 +125,6 @@
 ?>
 
 <?php 
-	header("Location: http://http://agiliscsapat1.sch.bme.hu:40080/testsite/profil.php"); 
+
 ?>
 	
