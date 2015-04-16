@@ -118,6 +118,11 @@
 			exit();
 		}
 	}
-	header("Location: http://http://agiliscsapat1.sch.bme.hu:40080/testsite/profil.php"); 
+
 	
 ?>
+
+<?php 
+	header("Location: http://http://agiliscsapat1.sch.bme.hu:40080/testsite/profil.php"); 
+?>
+	
