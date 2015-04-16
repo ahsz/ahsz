@@ -30,6 +30,33 @@
 		}
 	}
 
+	if (isset($_POST['github_user_mod'])) {
+		$user=$_SESSION['username'];
+		$github_user=$_POST['github_user_mod'];
+		
+		if($github_user==null)
+		{
+			echo "Üresen hagytad a GITHUB felhasználó név mezőt!"; 
+			echo '<a href="profil.php">'. Vissza . '</a>';
+			exit();
+		}
+		
+		$sql="UPDATE USER SET GITHUB_NAME='$github_user', DATE_MOD=sysdate() WHERE NEPTUN='$user'";
+		$res=mysqli_query($con,$sql);	
+		
+		if(!$res)
+		{	
+			echo "HIBA: " . mysqli_error($con) . " ";
+			echo '<a href="profil.php">'. Vissza . '</a>';
+			exit();
+		}
+		else
+		{
+			echo "Sikeres GITHUB felhasználó név módosítás!";
+			echo '<a href="profil.php">'. Vissza . '</a>';
+			exit();
+		}
+	}
 
 	if (isset($_POST['old_pw']) && isset($_POST['new_pw1']) && isset($_POST['new_pw2'])) {
 		$user=$_SESSION['username'];
