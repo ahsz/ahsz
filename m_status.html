@@ -1,24 +1,4 @@
 <!DOCTYPE html> 
-<?php
-	session_start(); 
-	require "check_logged_in.php";
-	require "config.php";
-	ini_set('display_errors', 'on');
-	
-	// Github-os link lekérése a chart adatainak megszerzéséhez
-	$tid = $_SESSION['TEAM_ID'];
-	$teamname = mysqli_query($con,"SELECT GITHUB_URL FROM TEAM WHERE ID='$tid'");
-	while($row = mysqli_fetch_assoc($teamname)) {
-		$link = $row['GITHUB_URL'];
-	}
-	
-	// Névpárok lekérése, hogy a charton rendes név legyen
-	$sth = mysqli_query($con,"SELECT NAME, GITHUB_NAME FROM USER WHERE TEAM_ID='$teamid'");
-	$nevek = array();
-	while($r = mysqli_fetch_assoc($sth)) {
-		$nevek[] = $r;
-	}
-	?>
 <html> 
 <head> 
 	<meta charset="UTF-8">  </meta> 
@@ -35,9 +15,28 @@
 	<script type="text/javascript" src='https://www.google.com/jsapi?autoload={"modules":[{"name":"visualization","version":"1.1","packages":["corechart"]}]}'></script>
 	<script type="text/javascript">
 		google.setOnLoadCallback(drawChart);
-		// A linket és a névpárokat a DB-ből átadjuk a kliens oldalnak
-		var gitUrl = "<?php Print(htmlspecialchars($link)); ?>"; //'https://api.github.com/repos/ahsz/ahsz/';
-		var nevek = "<?php Print(json_encode($nevek)); ?>";
+		
+		var responseData;
+		// A linket és a névpárokat a DB-ből átadjuk a kliens oldalnak.
+		function reqListener () {
+		  console.log(this.responseText);
+		}
+
+		var oReq = new XMLHttpRequest(); //New request object
+		oReq.onload = function() {
+			//This is where you handle what to do with the response.
+			//The actual data is found on this.responseText
+			responseData = this.responseText;
+			alert(this.responseText); //Will alert: url and nevek
+		};
+		oReq.open("get", "m_status_getData.php", false);
+		//                               ^ Block the rest of the execution.
+		//                                 Wait until the request finishes to 
+		//                                 continue.
+		oReq.send();
+		
+		var gitUrl = responseData.url; //'https://api.github.com/repos/ahsz/ahsz/';
+		var nevek = responsedata.nevek;
 		console.log(gitUrl);
 		console.log(nevek);
 		var dataTable_commit;
