@@ -41,7 +41,9 @@
 		oReq.open("get", "m_status_getData.php", true);
 		oReq.send();
 		
-		
+		/**
+		 * Chartok alapbeállítása, oszlopainak megadása, lekérdezés indítása
+		 */
 		function initializeChart() {
 			dataTable_commit = new google.visualization.DataTable();
 			dataTable_commit.addColumn({ type: 'string', label: 'User' });
@@ -56,6 +58,15 @@
 			document.getElementsByTagName('head')[0].appendChild(script);
 		}
 		/**
+		 * Git-es username kicserélése rendes névre
+		 */
+		function getRealName(gitNev) {
+			for (var i = 0; i < nevek.length; i++) 
+				if(nevek[i].GITHUB_NAME == gitNev)
+					return nevek[i].NAME;
+			return gitNev;
+		}
+		/**
 		 * Git API válaszán keresztül a projekt alapinfóinak lekérdezése
 		 */
 		function gitRoot(response) {
@@ -64,7 +75,7 @@
 			//console.log(data);
 			if(data.length > 1) {
 				for (var i = 0; i < data.length; i++) {
-					var user = data[i].author.login;
+					var user = getRealName(data[i].author.login);
 					var commits = data[i].total;
 					dataTable_commit.addRow([user,commits]);
 					dataTable_commit.sort([0,1]);
