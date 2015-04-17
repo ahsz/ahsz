@@ -17,6 +17,10 @@
 		google.setOnLoadCallback(drawChart);
 		
 		var responseData;
+		var gitUrl;
+		var nevek;
+		var dataTable_commit;
+		var dataTable_linePerCommit;
 		// A linket és a névpárokat a DB-ből átadjuk a kliens oldalnak.
 		function reqListener () {
 		  console.log(this.responseText);
@@ -27,20 +31,17 @@
 			//This is where you handle what to do with the response.
 			//The actual data is found on this.responseText
 			responseData = this.responseText;
-			alert(this.responseText); //Will alert: url and nevek
+			gitUrl = responseData.url;
+			nevek = responseData.nevek;
+			console.log(this.responseText); //Will alert: url and nevek
+			console.log(gitUrl);
+			console.log(nevek);
+			
+			initializeChart();
 		};
-		oReq.open("get", "m_status_getData.php", false);
-		//                               ^ Block the rest of the execution.
-		//                                 Wait until the request finishes to 
-		//                                 continue.
+		oReq.open("get", "m_status_getData.php", true);
 		oReq.send();
 		
-		var gitUrl = responseData.url; //'https://api.github.com/repos/ahsz/ahsz/';
-		var nevek = responsedata.nevek;
-		console.log(gitUrl);
-		console.log(nevek);
-		var dataTable_commit;
-		var dataTable_linePerCommit;
 		
 		function initializeChart() {
 			dataTable_commit = new google.visualization.DataTable();
@@ -89,8 +90,7 @@
 			}
 		}
 		
-		// ha nem akarjuk az elején kirajzoltatni a teljes félév adatát, akkor töröljük
-		initializeChart();
+
 
 		/**
 		 * Google calendar chart kirajzoltatás
