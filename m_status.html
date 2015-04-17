@@ -16,7 +16,6 @@
 	<script type="text/javascript">
 		google.setOnLoadCallback(drawChart);
 		
-		var responseData;
 		var gitUrl;
 		var nevek;
 		var dataTable_commit;
@@ -30,10 +29,10 @@
 		oReq.onload = function() {
 			//This is where you handle what to do with the response.
 			//The actual data is found on this.responseText
-			responseData = this.responseText;
+			var responseData = this.responseText;
 			gitUrl = responseData.url;
 			nevek = responseData.nevek;
-			console.log(this.responseText); //Will alert: url and nevek
+			console.log(responseData); //Will alert: url and nevek
 			console.log(gitUrl);
 			console.log(nevek);
 			

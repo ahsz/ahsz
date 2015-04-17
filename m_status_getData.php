@@ -12,7 +12,7 @@
 	}
 
 	// Névpárok lekérése, hogy a charton rendes név legyen
-	$sth = mysqli_query($con,"SELECT NAME, GITHUB_NAME FROM USER WHERE TEAM_ID='$teamid'");
+	$sth = mysqli_query($con,"SELECT NAME, GITHUB_NAME FROM USER WHERE TEAM_ID='$tid'");
 	$nevek = array();
 	while($r = mysqli_fetch_assoc($sth)) {
 		$nevek[] = $r;
