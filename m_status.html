@@ -29,10 +29,10 @@
 		oReq.onload = function() {
 			//This is where you handle what to do with the response.
 			//The actual data is found on this.responseText
-			var responseData = this.responseText;
+			var responseData = JSON.parse(this.responseText);
 			gitUrl = responseData.url;
 			nevek = responseData.nevek;
-			console.log(responseData); //Will alert: url and nevek
+			console.log(responseData);
 			console.log(gitUrl);
 			console.log(nevek);
 			
