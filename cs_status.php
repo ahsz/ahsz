@@ -189,7 +189,8 @@
 	</br>
 	<form action="#" method="POST">
 	<?php
-		$github_repo_query = mysqli_query($con,"SELECT GITHUB_LINK FROM TEAM WHERE ID='$t_id'");
+		$tid = $_SESSION['TEAM_ID'];
+		$github_repo_query = mysqli_query($con,"SELECT GITHUB_LINK FROM TEAM WHERE ID='$tid'");
 		while($row = mysqli_fetch_assoc($github_repo_query))
 		{
 		  $t_ghub = $row['GITHUB_LINK'];
