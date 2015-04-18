@@ -23,7 +23,7 @@ require "check_logged_in.php";
       <li><a href="ertekeles.html" class="link4" target="kezdolap_frame">Értékelés</a></li>
 	  <li><a href="cs_status.php" class="link5" target="kezdolap_frame">Csapat státusz</a></li>
 	  <li><a href="m_status.html" class="link6" target="kezdolap_frame">Munka státusz</a></li>
-      <li><a href="feltoltes.html" class="link7" target="kezdolap_frame">Feltöltés</a></li>
+      <li><a href="feltoltes.php" class="link7" target="kezdolap_frame">Feltöltés</a></li>
 	  <li><a href="logout.php" class="link8">Kijelentkezés</a></li>
 	</ul>
     </div>
