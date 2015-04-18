@@ -5,7 +5,11 @@ require "config.php";
 $target_dir = "uploads/";
 
 $neptun_kod=$_SESSION['NEPTUN'];
+$dirname = bin2hex(openssl_random_pseudo_bytes(16));
+$time = date("Y-m-d H:i:s");
+$shortname = substr(basename($_FILES["fileToUpload"]["name"]),0,30);
 $result=mysqli_query($con,"SELECT ifnull(T.ID,'') AS ID, ifnull(T.UPLOAD_DIR,'') AS DIRECTORY FROM USER U LEFT JOIN (TEAM T, ROLE R) ON (T.ID=U.TEAM_ID AND R.ID=U.ROLE_ID) WHERE U.NEPTUN='$neptun_kod'");
+
 if($result->num_rows>0){
         $row=mysqli_fetch_assoc($result);
 	echo "<br>";
@@ -20,6 +24,7 @@ if($result->num_rows>0){
         }
 	else{
 		$target_dir = $target_dir.$row['DIRECTORY']."/";
+		$dirname = $row['DIRECTORY'];
 	}
 }
 
@@ -50,6 +55,7 @@ if ($uploadOk == 0) {
 } else {
     if (move_uploaded_file($_FILES["fileToUpload"]["tmp_name"], $target_file)) {
         echo "A fájl ". basename( $_FILES["fileToUpload"]["name"]). " fel lett töltve.";
+	mysqli_query("INSERT INTO FILE (NAME, DATE_CRT, CRT_BY, DIRECTORY) VALUES ('$shortname', '$today', '$netpun_kod', '$dirname')");
     } else {
         echo "Sajnálom, hiba történt a feltöltés közben.";
     }
