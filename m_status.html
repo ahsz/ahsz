@@ -1,4 +1,25 @@
 <!DOCTYPE html> 
+<?php
+	session_start(); 
+	require "check_logged_in.php";
+	require "config.php";
+	ini_set('display_errors', 'on');
+	
+	// Github-os link lekérése a chart adatainak megszerzéséhez
+	$tid = $_SESSION['TEAM_ID'];
+	$teamname = mysqli_query($con,"SELECT GITHUB_URL FROM TEAM WHERE ID='$tid'");
+	while($row = mysqli_fetch_assoc($teamname)) {
+		$link = $row['GITHUB_URL'];
+	}
+	
+	// Névpárok lekérése, hogy a charton rendes név legyen
+	$sth = mysqli_query($con,"SELECT NAME, GITHUB_NAME FROM USER WHERE TEAM_ID='$teamid'");
+	$nevek = array();
+	while($r = mysqli_fetch_assoc($sth)) {
+		$nevek[] = $r;
+	}
+	
+	?>
 <html> 
 <head> 
 	<meta charset="UTF-8">  </meta> 
@@ -15,8 +36,11 @@
 	<script type="text/javascript" src='https://www.google.com/jsapi?autoload={"modules":[{"name":"visualization","version":"1.1","packages":["corechart"]}]}'></script>
 	<script type="text/javascript">
 		google.setOnLoadCallback(drawChart);
-		// TODO bekért linket a DB-ből ideilleszteni
-		var gitUrl = 'https://api.github.com/repos/ahsz/ahsz/';
+		// A linket és a névpárokat a DB-ből átadjuk a kliens oldalnak
+		var gitUrl = <?php echo json_encode($link); ?>; //'https://api.github.com/repos/ahsz/ahsz/';
+		var nevek = <?php echo json_encode($nevek); ?>;
+		console.log(gitUrl);
+		console.log(nevek);
 		var dataTable_commit;
 		var dataTable_linePerCommit;
 		
