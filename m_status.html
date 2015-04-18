@@ -18,7 +18,6 @@
 	while($r = mysqli_fetch_assoc($sth)) {
 		$nevek[] = $r;
 	}
-	
 	?>
 <html> 
 <head> 
@@ -37,8 +36,8 @@
 	<script type="text/javascript">
 		google.setOnLoadCallback(drawChart);
 		// A linket és a névpárokat a DB-ből átadjuk a kliens oldalnak
-		var gitUrl = <?php echo json_encode($link); ?>; //'https://api.github.com/repos/ahsz/ahsz/';
-		var nevek = <?php echo json_encode($nevek); ?>;
+		var gitUrl = "<?php Print(htmlspecialchars($link)); ?>"; //'https://api.github.com/repos/ahsz/ahsz/';
+		var nevek = "<?php Print(json_encode($nevek)); ?>";
 		console.log(gitUrl);
 		console.log(nevek);
 		var dataTable_commit;
