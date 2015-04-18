@@ -55,7 +55,7 @@ if ($uploadOk == 0) {
 } else {
     if (move_uploaded_file($_FILES["fileToUpload"]["tmp_name"], $target_file)) {
         echo "A fájl ". basename( $_FILES["fileToUpload"]["name"]). " fel lett töltve.";
-	mysqli_query("INSERT INTO FILE (NAME, DATE_CRT, CRT_BY, DIRECTORY) VALUES ('$shortname', '$time', '$neptun_kod', '$dirname')");
+	mysqli_query($con, "INSERT INTO FILE (NAME, DATE_CRT, CRT_BY, DIRECTORY) VALUES ('$shortname', '$time', '$neptun_kod', '$dirname')");
     } else {
         echo "Sajnálom, hiba történt a feltöltés közben.";
     }
