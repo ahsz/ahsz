@@ -29,7 +29,7 @@
 	
 	$result=mysqli_query($con, "SELECT * FROM FILE WHERE DIRECTORY='$dir'");
 	if($result->num_rows>0){
-        	echo "<table border="1" width="600"><tr><th>Név</th><th>Dátum</th><th>Feltöltő</th><th>Link</th></tr>";
+        	echo "<table border=\"1\" width=\"600\"><tr><th>Név</th><th>Dátum</th><th>Feltöltő</th><th>Link</th></tr>";
         	// output data of each row
         	while($row = $result->fetch_assoc()) {
                 	$neptun = $row["CRT_BY"];
@@ -37,7 +37,7 @@
                 	$row2 = $result2->fetch_assoc();
                 	echo "<tr><td>".$row["NAME"]."</td><td>".$row["DATE_CRT"]."</td><td>".$row2["NAME"]."</td><td><a href=\"uploads/".$dir."/".$row["NAME"]."\">Letöltés</a></td></tr>";
         	}
-        echo "</table>";
+        	echo "</table>";
 	}
 	?>
 </body>
