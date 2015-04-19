@@ -3,6 +3,7 @@ echo "Starting";
 session_start();
 require "config.php";
 $target_dir = "uploads/";
+header(“Content-Type: text/html; charset=utf-8″);
 
 $neptun_kod=$_SESSION['NEPTUN'];
 $dirname = bin2hex(openssl_random_pseudo_bytes(16));
