@@ -39,7 +39,6 @@ License: Creative Commons Attribution
   				<ul>
       <li><a href="kezdolap.php" class="link1" target="kezdolap_frame">Kezdolap</a></li>
       <li><a href="profil.php" class="link2" target="kezdolap_frame">Profil</a></li>
-<<<<<<< HEAD
 	  <li><a href="uzenetek.php" class="link3" target="kezdolap_frame">‹zenetek</a></li>
       <li><a href="ertekeles.html" class="link4" target="kezdolap_frame">…rtÈkelÈs</a></li>
 	  <li><a href="cs_status.php" class="link5" target="kezdolap_frame">Csapat st·tusz</a></li>
@@ -54,21 +53,7 @@ License: Creative Commons Attribution
 			</aside>
 			<section id="content" class="column-right">
                 		<iframe src="kezdolap.php" width="1280" height="1024" style="border:none"  name="kezdolap_frame"></iframe>
-	  
-	
-=======
-	  <li><a href="uzenetek.php" class="link3" target="kezdolap_frame">√úzenetek</a></li>
-      <li><a href="ertekeles.html" class="link4" target="kezdolap_frame">√ârt√©kel√©s</a></li>
-	  <li><a href="cs_status.php" class="link5" target="kezdolap_frame">Csapat st√°tusz</a></li>
-	  <li><a href="m_status.html" class="link6" target="kezdolap_frame">Munka st√°tusz</a></li>
-      <li><a href="feltoltes.php" class="link7" target="kezdolap_frame">Felt√∂lt√©s</a></li>
-	  <li><a href="logout.php" class="link8">Kijelentkez√©s</a></li>
-	</ul>
-    </div>
-<iframe src="kezdolap.php" width="1280" height="1024" style="margin-left:200px; margin-top:50px; border:none"  name="kezdolap_frame"></iframe>
-</body>
->>>>>>> origin/master
-
+	 
 
 			
 			<footer class="clear">
