@@ -24,6 +24,7 @@
 	if($result->num_rows>0){
         	$row=mysqli_fetch_assoc($result);
         	$dir = $row['DIRECTORY'];
+        	echo $dir;
 	}
 	
 	$result=mysqli_query($con, "SELECT * FROM FILE WHERE DIRECTORY='$dir'");
@@ -32,7 +33,7 @@
         	// output data of each row
         	while($row = $result->fetch_assoc()) {
                 	$neptun = $row["CRT_BY"];
-                	$result2 = mysqli_query($con, "SELECT NAME FROM USER WHERE NEPTUN='$neptun'");
+                	$result2 = mysqli_query($con, "SELECT NAME FROM USER WHERE NEPTUN='$neptun_kod'");
                 	$row2 = $result2->fetch_assoc();
                 	echo "<tr><td>".$row["NAME"]."</td><td>".$row["DATE_CRT"]."</td><td>".$row2["NAME"]."</td><td><a href=\"uploads/".$dir."/".$row["NAME"]."\">Letöltés</a></td></tr>";
         	}
