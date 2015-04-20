@@ -4,12 +4,12 @@
 <head profile="http://selenium-ide.openqa.org/profiles/test-case">
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
 <link rel="selenium.base" href="http://agiliscsapat1.sch.bme.hu:40080/" />
-<title>uzenetek</title>
+<title>csapat_del</title>
 </head>
 <body>
 <table cellpadding="1" cellspacing="1" border="1">
 <thead>
-<tr><td rowspan="1" colspan="3">uzenetek</td></tr>
+<tr><td rowspan="1" colspan="3">csapat_del</td></tr>
 </thead><tbody>
 <tr>
 	<td>open</td>
@@ -18,7 +18,7 @@
 </tr>
 <tr>
 	<td>click</td>
-	<td>link=Üzenetek</td>
+	<td>link=Csapat státusz</td>
 	<td></td>
 </tr>
 <tr>
@@ -27,20 +27,16 @@
 	<td></td>
 </tr>
 <tr>
-	<td>type</td>
-	<td>id=postmessage</td>
-	<td>Árvíztűrő tükörfurógép</td>
-</tr>
-<tr>
 	<td>clickAndWait</td>
-	<td>name=submit</td>
+	<td>xpath=(//input[@id='Submit'])[2]</td>
 	<td></td>
 </tr>
 <tr>
-	<td>assertText</td>
-	<td>name=message</td>
-	<td>* test: Árvíztűrő tükörfurógép*</td>
+	<td>assertNotText</td>
+	<td>//tr[2]/td</td>
+	<td>Lorem</td>
 </tr>
+
 </tbody></table>
 </body>
 </html>

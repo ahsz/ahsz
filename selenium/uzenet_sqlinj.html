@@ -4,12 +4,12 @@
 <head profile="http://selenium-ide.openqa.org/profiles/test-case">
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
 <link rel="selenium.base" href="http://agiliscsapat1.sch.bme.hu:40080/" />
-<title>profil</title>
+<title>uzenet_sqlinj</title>
 </head>
 <body>
 <table cellpadding="1" cellspacing="1" border="1">
 <thead>
-<tr><td rowspan="1" colspan="3">profil</td></tr>
+<tr><td rowspan="1" colspan="3">uzenet_sqlinj</td></tr>
 </thead><tbody>
 <tr>
 	<td>open</td>
@@ -18,7 +18,7 @@
 </tr>
 <tr>
 	<td>click</td>
-	<td>link=Profil</td>
+	<td>link=Üzenetek</td>
 	<td></td>
 </tr>
 <tr>
@@ -27,19 +27,9 @@
 	<td></td>
 </tr>
 <tr>
-	<td>assertText</td>
-	<td>//div[@id='profile']/table/tbody/tr[2]/td[2]</td>
-	<td>test</td>
-</tr>
-<tr>
-	<td>verifyText</td>
-	<td>//div[@id='profile']/table/tbody/tr[3]/td[2]</td>
-	<td>test</td>
-</tr>
-<tr>
 	<td>type</td>
-	<td>id=email_mod</td>
-	<td>test2@test.hu</td>
+	<td>id=postmessage</td>
+	<td>\\\\&quot;;':?*</td>
 </tr>
 <tr>
 	<td>clickAndWait</td>
@@ -47,35 +37,11 @@
 	<td></td>
 </tr>
 <tr>
-	<td>assertText</td>
-	<td>css=body</td>
-	<td>Sikeres e-mail c*</td>
+	<td>assertNotText</td>
+	<td>css=html</td>
+	<td>*You have an error in your SQL syntax*</td>
 </tr>
-<tr>
-	<td>waitForTitle</td>
-	<td>Profil</td>
-	<td></td>
-</tr>
-<tr>
-	<td>type</td>
-	<td>id=github_user_mod</td>
-	<td>teszt</td>
-</tr>
-<tr>
-	<td>click</td>
-	<td>xpath=(//input[@name='submit'])[2]</td>
-	<td></td>
-</tr>
-<tr>
-	<td>assertAlert</td>
-	<td>módosít</td>
-	<td></td>
-</tr>
-<tr>
-	<td>waitForTitle</td>
-	<td>Profil</td>
-	<td></td>
-</tr>
+
 </tbody></table>
 </body>
 </html>
