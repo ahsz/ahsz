@@ -20,7 +20,9 @@ textarea {
 	session_start(); 
 	require "config.php";
 	
-	$result=mysqli_query($con,"SELECT M.DATE_CRT, U.NAME, M.MESSAGE FROM MSG_BOARD M, USER U WHERE U.NEPTUN=M.NEPTUN");
+	$t_id=$_SESSION['TEAM_ID'];
+	
+	$result=mysqli_query($con,"SELECT M.DATE_CRT, U.NAME, M.MESSAGE FROM MSG_BOARD M, USER U WHERE U.NEPTUN=M.NEPTUN AND M.TEAM_ID='$t_id'");
 	
 	if(!$result)
 	{
