@@ -98,11 +98,11 @@
 		$new_pw2_p=$_POST['new_pw2'];
 		
 		if(strcmp($old_pw,$old_pw_p)!=0){
-			echo "Nem egyezzik a régi jelszó! ";
+			echo "Nem egyezik a régi jelszó! ";
 			echo '<a href="profil.php">'. Vissza . '</a>';
 			exit();
 		} else if (strcmp($new_pw1_p,$new_pw2_p)!=0) {
-			echo "Nem egyezzik a két új jelszó! ";
+			echo "Nem egyezik a két új jelszó! ";
 			echo '<a href="profil.php">'. Vissza . '</a>';
 			exit();
 		}
