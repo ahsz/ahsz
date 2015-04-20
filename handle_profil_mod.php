@@ -2,7 +2,7 @@
 	session_start(); 
 	require "config.php";
 	
-		header("Refresh:2; url=../testsite/profil.php"); 
+		header("Refresh:3; url=../testsite/profil.php"); 
 	
 	if (isset($_POST['email_mod'])) {
 		$user=$_SESSION['username'];
@@ -10,7 +10,7 @@
 		
 		if($email==null)
 		{
-			echo "Üresen hagytad az e-mail cím mezőt!"; 
+			echo "Uresen hagytad az e-mail cim mezot!"; 
 			echo '<a href="profil.php">'. Vissza . '</a>';
 			exit();
 		}
@@ -26,7 +26,7 @@
 		}
 		else
 		{
-			echo "Sikeres e-mail cím módosítás!";
+			echo "Sikeres e-mail cim modositas!";
 			echo '<a href="profil.php">'. Vissza . '</a>';
 			exit();
 		}
@@ -38,7 +38,7 @@
 		
 		if($github_user==null)
 		{
-			echo "Üresen hagytad a GITHUB felhasználó név mezőt!"; 
+			echo "Uresen hagytad a GITHUB felhasznalo nev mezot!"; 
 			echo '<a href="profil.php">'. Vissza . '</a>';
 			exit();
 		}
@@ -54,7 +54,7 @@
 		}
 		else
 		{
-			echo "Sikeres GITHUB felhasználó név módosítás!";
+			echo "Sikeres GITHUB felhasznalo nev modositas!";
 			echo '<a href="profil.php">'. Vissza . '</a>';
 			exit();
 		}
@@ -77,32 +77,32 @@
 
 
 		if($_POST['old_pw']==null) { 
-			echo "Üresen hagytad a régi jelszó mezőt! "; 
+			echo "Uresen hagytad a regi jelszo mezot! "; 
 			echo '<a href="profil.php">'. Vissza . '</a>';
 			exit(); 
 		} 
 		$old_pw_p=$_POST['old_pw'];
 		
 		if ($_POST['new_pw1']==null) {
-			echo "Üresen hagytad az új jelszó mezőt! ";
+			echo "Uresen hagytad az uj jelszo mezot! ";
 			echo '<a href="profil.php">'. Vissza . '</a>';
 			exit();
 		}
 		$new_pw1_p=$_POST['new_pw1'];
 		
 		if ($_POST['new_pw2']==null) {
-			echo "Üresen hagytad az új jelszó mégegyszer mezőt! ";
+			echo "Uresen hagytad az uj jelszo megegyszer mezot! ";
 			echo '<a href="profil.php">'. Vissza . '</a>';
 			exit();
 		}
 		$new_pw2_p=$_POST['new_pw2'];
 		
 		if(strcmp($old_pw,$old_pw_p)!=0){
-			echo "Nem egyezik a régi jelszó! ";
+			echo "Nem egyezik a regi jelszo! ";
 			echo '<a href="profil.php">'. Vissza . '</a>';
 			exit();
 		} else if (strcmp($new_pw1_p,$new_pw2_p)!=0) {
-			echo "Nem egyezik a két új jelszó! ";
+			echo "Nem egyezik a ket uj jelszo! ";
 			echo '<a href="profil.php">'. Vissza . '</a>';
 			exit();
 		}
@@ -115,7 +115,7 @@
 			echo '<a href="profil.php">'. Vissza . '</a>';
 			exit();
 		} else {
-			echo "Sikeres jelszó módosítás! ";
+			echo "Sikeres jelszo modositas! ";
 			echo '<a href="profil.php">'. Vissza . '</a>';
 			exit();
 		}
