@@ -105,7 +105,7 @@
 	
 <?php
 	
-	if($_SESSION['ID'] == 2 && tid!=null) {
+	if($_SESSION['ID'] == 2 && $tid!=null) {
 		?>
 		<b>Csapattag felvétele:</b>
 		</br>
