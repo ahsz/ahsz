@@ -23,22 +23,20 @@
 			$t_id = $row['TEAM_ID'];
 		}
 		$team = $_POST['addTeammate'];
-		$escapedteam = htmlspecialchars($team, ENT_QUOTES);
-		$addUserToTeam = mysqli_query($con,"UPDATE USER SET TEAM_ID='$t_id' WHERE NEPTUN='$escapedteam'"); //injection védelmet nekem!!!
+		$addUserToTeam = mysqli_query($con,"UPDATE USER SET TEAM_ID='$t_id' WHERE NEPTUN='$team'"); //injection védelmet nekem!!!
 		$message = "Sikeres csapathoz adás!";
 		echo "<script type='text/javascript'>alert('$message');</script>";
 	}
 	function giveRole(){
 		require "config.php";
 		$selected_neptun = $_POST['addRoleToTeammate'];
-		$escapedselected_neptun = htmlspecialchars($selected_neptun, ENT_QUOTES);
 		$selected_roleName = $_POST['roleList'];
 		$getRoleID = mysqli_query($con,"SELECT ID FROM ROLE WHERE NAME='$selected_roleName'");
 		while($row=mysqli_fetch_assoc($getRoleID))
 		{
 			$selected_role_id = $row['ID'];
 		}
-		$giveRoleToUser = mysqli_query($con,"UPDATE USER SET ROLE_ID='$selected_role_id' WHERE NEPTUN='$escapedselected_neptun'");
+		$giveRoleToUser = mysqli_query($con,"UPDATE USER SET ROLE_ID='$selected_role_id' WHERE NEPTUN='$selected_neptun'");
 		$message = "A szerep sikeresen a felhasználóhoz adva!";
 		echo "<script type='text/javascript'>alert('$message');</script>";
 	}
@@ -46,9 +44,8 @@
 	function delTeammate(){
 		require "config.php";
 		$selected_user = $_POST['deleteTeammate'];
-		$escapedselected_user = htmlspecialchars($selected_user, ENT_QUOTES);
-		$delUser = mysqli_query($con,"UPDATE USER SET TEAM_ID=NULL WHERE NEPTUN='$escapedselected_user'");
-		$delRoleID = mysqli_query($con,"UPDATE USER SET ROLE_ID=NULL WHERE NEPTUN='$escapedselected_user'");
+		$delUser = mysqli_query($con,"UPDATE USER SET TEAM_ID=NULL WHERE NEPTUN='$selected_user'");
+		$delRoleID = mysqli_query($con,"UPDATE USER SET ROLE_ID=NULL WHERE NEPTUN='$selected_user'");
 		$message = "Felhasználó sikeresen törölve a csapatból!";
 		echo "<script type='text/javascript'>alert('$message');</script>";
 	}
@@ -56,9 +53,8 @@
 	function modGithubRepo(){
 		require "config.php";
 		$github_repo = $_POST['github_mod'];
-		$escapedgithub_repo = htmlspecialchars($github_repo, ENT_QUOTES);
 		$tid = $_SESSION['TEAM_ID'];
-		$updateGithub = mysqli_query($con,"UPDATE TEAM SET GITHUB_LINK='$escapedgithub_repo' WHERE ID='$tid'");
+		$updateGithub = mysqli_query($con,"UPDATE TEAM SET GITHUB_LINK='$github_repo' WHERE ID='$tid'");
 		$message = "Github repo sikeresen módosítva!";
 		echo "<script type='text/javascript'>alert('$message');</script>";
 	}
@@ -80,7 +76,7 @@
 <html>
 <head>
 	<meta charset="UTF-8">  </meta>
-	<title>Title of the document</title>
+	<title>Csapatstátusz</title>
 	
 <style media="screen" type="text/css">
 	textarea {
@@ -92,12 +88,21 @@
 <body style="background-color:DarkSalmon">
 	<div style="margin-left:200">
 	<h1>Csapatstátusz</h1>
-	<h2><?php echo $t_name; ?></h2>
+	<h2><?php 
+	if(t_name != null){
+			echo $t_name;
+	}
+	else{
+		$noTeamMsg = "Még nincsen csapatod! Kérlek csatlakozz egy csapathoz!";
+		echo "<script type='text/javascript'>alert('$noTeamMsg');</script>";
+	}
+	?>
+	</h2>
 	</div>
 	
 <?php
 	
-	if($_SESSION['ID'] == 2) {
+	if($_SESSION['ID'] == 2 && t_name!=null) {
 		?>
 		<b>Csapattag felvétele:</b>
 		</br>
@@ -188,7 +193,9 @@
 	</form>
 	</br>
 	</br>
-	
+	<?php
+		if(t_name!=null){
+	?>
 	<b>Github repo:</b>
 	</br>
 	<form action="#" method="POST">
@@ -224,6 +231,7 @@
 		  echo "<td>".$row['uemail']."</td>";
 		  echo "</tr>";
 		}
+	} //if nek a bezárása, ami a Github repó előtt nyílik
 	?>
 </table>
 	
