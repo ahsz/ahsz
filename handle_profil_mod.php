@@ -7,7 +7,7 @@
 	if (isset($_POST['email_mod'])) {
 		$user=$_SESSION['username'];
 		$email=$_POST['email_mod'];
-		
+		$escapedemail = htmlspecialchars($email, ENT_QUOTES);
 		if($email==null)
 		{
 			echo "Uresen hagytad az e-mail cim mezot!"; 
@@ -15,7 +15,7 @@
 			exit();
 		}
 		
-		$sql="UPDATE USER SET EMAIL='$email', DATE_MOD=sysdate() WHERE NEPTUN='$user'";
+		$sql="UPDATE USER SET EMAIL='$escapedemail', DATE_MOD=sysdate() WHERE NEPTUN='$user'";
 		$res=mysqli_query($con,$sql);	
 		
 		if(!$res)
