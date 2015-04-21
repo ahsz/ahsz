@@ -1,0 +1,92 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head profile="http://selenium-ide.openqa.org/profiles/test-case">
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<link rel="selenium.base" href="http://agiliscsapat1.sch.bme.hu:40080/" />
+<title>register_new</title>
+</head>
+<body>
+<table cellpadding="1" cellspacing="1" border="1">
+<thead>
+<tr><td rowspan="1" colspan="3">register_new</td></tr>
+</thead><tbody>
+<tr>
+	<td>open</td>
+	<td>/testsite/</td>
+	<td></td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>name=register</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>name=name</td>
+	<td>javascript{&quot;ztest&quot; + Math.floor(Math.random()*10000);}</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>name=neptun</td>
+	<td>javascript{&quot;Z&quot; + Math.floor((Math.random() * 10000) + 10000);}</td>
+</tr>
+<tr>
+	<td>storeValue</td>
+	<td>name=neptun</td>
+	<td>loginname</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>name=email</td>
+	<td>test@test.hu</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>name=password</td>
+	<td>test</td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>name=submit</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>css=html</td>
+	<td>Sikeres regisztracio! Belepes</td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>link=Belepes</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>name=username</td>
+	<td>${loginname}</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>name=password</td>
+	<td>test</td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>name=login</td>
+	<td></td>
+</tr>
+<tr>
+	<td>selectFrame</td>
+	<td>kezdolap_frame</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>css=b</td>
+	<td>Kezdőlap</td>
+</tr>
+
+</tbody></table>
+</body>
+</html>
