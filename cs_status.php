@@ -9,6 +9,7 @@
 	//csapatnév lekérése, hogy ki legyen írva az oldal tetejére
 	$tid = $_SESSION['TEAM_ID'];
 	$teamname = mysqli_query($con,"SELECT NAME FROM TEAM WHERE ID='$tid'");
+	$t_name;
 	while($row=mysqli_fetch_assoc($teamname))
 	{
 		$t_name = $row['NAME'];
