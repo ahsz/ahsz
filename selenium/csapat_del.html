@@ -27,14 +27,29 @@
 	<td></td>
 </tr>
 <tr>
-	<td>clickAndWait</td>
+	<td>select</td>
+	<td>id=deleteTeammate</td>
+	<td>label=TESTER</td>
+</tr>
+<tr>
+	<td>click</td>
 	<td>xpath=(//input[@id='Submit'])[2]</td>
 	<td></td>
 </tr>
 <tr>
+	<td>open</td>
+	<td>/testsite/frame.php</td>
+	<td></td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>link=Csapat státusz</td>
+	<td></td>
+</tr>
+<tr>
 	<td>assertNotText</td>
-	<td>//tr[2]/td</td>
-	<td>Lorem</td>
+	<td>//tr[3]/td</td>
+	<td>TESTER</td>
 </tr>
 </tbody></table>
 </body>
