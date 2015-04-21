@@ -29,22 +29,22 @@
 <tr>
 	<td>type</td>
 	<td>id=email_mod</td>
-	<td>\\&quot;;':?*</td>
+	<td>&quot;;':?*</td>
 </tr>
 <tr>
 	<td>type</td>
 	<td>id=github_user_mod</td>
-	<td>\\&quot;;':?*</td>
+	<td>&quot;;':?*</td>
 </tr>
 <tr>
 	<td>type</td>
 	<td>id=new_pw1</td>
-	<td>\\&quot;;':?*</td>
+	<td>&quot;;':?*</td>
 </tr>
 <tr>
 	<td>type</td>
 	<td>id=new_pw2</td>
-	<td>\\&quot;;':?*</td>
+	<td>&quot;;':?*</td>
 </tr>
 <tr>
 	<td>type</td>
@@ -60,6 +60,36 @@
 	<td>assertNotText</td>
 	<td>css=html</td>
 	<td>*You have an error in your SQL syntax*</td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>css=body</td>
+	<td>Profil <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> Adatok Neved: test Neptun kódod: test E-mail címed: test2@test.hu GITHUB felhasználó neved: teszt2 Csapatod neve: Szerepköröd: <br /><br /> Jelszó módosítás Régi jelszavad: Új jelszavad: Új jelszavad mégegyszer:</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=old_pw</td>
+	<td>&quot;;':?*</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=new_pw1</td>
+	<td>test</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=new_pw2</td>
+	<td>test</td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>name=submit2</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>css=html</td>
+	<td>Sikeres jelszo modositas! Vissza</td>
 </tr>
 </tbody></table>
 </body>
