@@ -84,7 +84,7 @@
 			exit(); 
 		} 
 		$old_pw_p=$_POST['old_pw'];
-		$escapedld_pw_p = htmlspecialchars($old_pw_p, ENT_QUOTES);
+		$escapedold_pw_p = htmlspecialchars($old_pw_p, ENT_QUOTES);
 		
 		if ($_POST['new_pw1']==null) {
 			echo "Uresen hagytad az uj jelszo mezot! ";
@@ -102,7 +102,7 @@
 		$new_pw2_p=$_POST['new_pw2'];
 		$escapednew_pw2_p = htmlspecialchars($new_pw2_p, ENT_QUOTES);
 		
-		if(strcmp($old_pw,$old_pw_p)!=0){
+		if(strcmp($old_pw,$escapedold_pw_p)!=0){
 			echo "Nem egyezik a regi jelszo! ";
 			echo '<a href="profil.php">'. Vissza . '</a>';
 			echo "---old_pw---";
@@ -112,7 +112,7 @@
 			echo "---old_pw_p---";
 			echo $old_pw_p;
 			echo "---escapedld_pw_p---";
-			echo $escapedld_pw_p;
+			echo $escapedold_pw_p;
 			echo "---old_temp---";
 			echo $old_temp;
 			exit();
