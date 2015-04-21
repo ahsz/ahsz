@@ -4,12 +4,13 @@
 
 	
 		$team  = $_POST['team']; 
+		$escapedteam = htmlspecialchars($team, ENT_QUOTES);
 		$user  = $_SESSION['username']; 
 
 		mysql_query("BEGIN");
 		
 		$result=mysqli_query($con,"INSERT INTO TEAM (NAME, MEMBERS, DATE_CRT, CRT_BY) 
-						 VALUES ('$team',1,sysdate(),'$user')");
+						 VALUES ('$escapedteam',1,sysdate(),'$user')");
 		
 		if(!$result){
 			mysql_query("ROLLBACK");
