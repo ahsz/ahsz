@@ -35,7 +35,7 @@
 	if (isset($_POST['github_user_mod'])) {
 		$user=$_SESSION['username'];
 		$github_user=$_POST['github_user_mod'];
-		
+		$escapedgithub_user = htmlspecialchars($github_user, ENT_QUOTES);
 		if($github_user==null)
 		{
 			echo "Uresen hagytad a GITHUB felhasznalo nev mezot!"; 
@@ -43,7 +43,7 @@
 			exit();
 		}
 		
-		$sql="UPDATE USER SET GITHUB_NAME='$github_user', DATE_MOD=sysdate() WHERE NEPTUN='$user'";
+		$sql="UPDATE USER SET GITHUB_NAME='$escapedgithub_user', DATE_MOD=sysdate() WHERE NEPTUN='$user'";
 		$res=mysqli_query($con,$sql);	
 		
 		if(!$res)
@@ -82,6 +82,7 @@
 			exit(); 
 		} 
 		$old_pw_p=$_POST['old_pw'];
+		$escapedld_pw_p = htmlspecialchars($old_pw_p, ENT_QUOTES);
 		
 		if ($_POST['new_pw1']==null) {
 			echo "Uresen hagytad az uj jelszo mezot! ";
@@ -89,6 +90,7 @@
 			exit();
 		}
 		$new_pw1_p=$_POST['new_pw1'];
+		$escapednew_pw1_p = htmlspecialchars($new_pw1_p, ENT_QUOTES);
 		
 		if ($_POST['new_pw2']==null) {
 			echo "Uresen hagytad az uj jelszo megegyszer mezot! ";
@@ -96,18 +98,19 @@
 			exit();
 		}
 		$new_pw2_p=$_POST['new_pw2'];
+		$escapednew_pw2_p = htmlspecialchars($new_pw2_p, ENT_QUOTES);
 		
-		if(strcmp($old_pw,$old_pw_p)!=0){
+		if(strcmp($old_pw,$escapedld_pw_p)!=0){
 			echo "Nem egyezik a regi jelszo! ";
 			echo '<a href="profil.php">'. Vissza . '</a>';
 			exit();
-		} else if (strcmp($new_pw1_p,$new_pw2_p)!=0) {
+		} else if (strcmp($escapednew_pw1_p,$escapednew_pw2_p)!=0) {
 			echo "Nem egyezik a ket uj jelszo! ";
 			echo '<a href="profil.php">'. Vissza . '</a>';
 			exit();
 		}
 		
-		$sql="UPDATE USER SET PASSWORD='$new_pw1_p', DATE_MOD=sysdate() WHERE NEPTUN='$user'";
+		$sql="UPDATE USER SET PASSWORD='$escapednew_pw1_p', DATE_MOD=sysdate() WHERE NEPTUN='$user'";
 		$res2=mysqli_query($con,$sql);	
 		
 		if(!$res2) {	
