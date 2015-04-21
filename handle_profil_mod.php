@@ -69,6 +69,7 @@
 		if($res1->num_rows>0){
 			$row=mysqli_fetch_assoc($res1);
 			$old_pw=$row['PASSWORD'];
+			$old_temp=$old_pw
 			$escapedold_pw = htmlspecialchars($old_pw, ENT_QUOTES);
 		} else 	{
 			echo "HIBA: " . mysqli_error($con);
@@ -112,6 +113,8 @@
 			echo $old_pw_p;
 			echo "---escapedld_pw_p---";
 			echo $escapedld_pw_p;
+			echo "---old_temp---";
+			echo $old_temp;
 			exit();
 		} else if (strcmp($escapednew_pw1_p,$escapednew_pw2_p)!=0) {
 			echo "Nem egyezik a ket uj jelszo! ";
