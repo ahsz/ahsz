@@ -92,7 +92,7 @@
 	
 	
 	
-	if($t_name != null){
+	if($tid != null){
 			echo $t_name;
 	}
 	else{
@@ -105,7 +105,7 @@
 	
 <?php
 	
-	if($_SESSION['ID'] == 2 && t_name!=null) {
+	if($_SESSION['ID'] == 2 && tid!=null) {
 		?>
 		<b>Csapattag felvétele:</b>
 		</br>
@@ -197,7 +197,7 @@
 	</br>
 	</br>
 	<?php
-		if($t_name!=null){
+		if($tid!=null){
 	?>
 	<b>Github repo:</b>
 	</br>
