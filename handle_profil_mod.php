@@ -101,7 +101,7 @@
 		$new_pw2_p=$_POST['new_pw2'];
 		$escapednew_pw2_p = htmlspecialchars($new_pw2_p, ENT_QUOTES);
 		
-		if(strcmp($escapedold_pw,$escapedld_pw_p)!=0){
+		if(strcmp($old_pw,$escapedld_pw_p)!=0){
 			echo "Nem egyezik a regi jelszo! ";
 			echo '<a href="profil.php">'. Vissza . '</a>';
 			echo ------;
