@@ -11,7 +11,10 @@
 	$teamname = mysqli_query($con,"SELECT NAME FROM TEAM WHERE ID='$tid'");
 	while($row=mysqli_fetch_assoc($teamname))
 	{
-		$t_name = $row['NAME'];
+		if ($row['NAME']!=null)
+			$t_name = $row['NAME'];
+		else
+			$t_name = "Nincs csapatod!"
 	}
 	
 	function addToTeam(){
