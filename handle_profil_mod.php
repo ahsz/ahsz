@@ -104,11 +104,11 @@
 		if(strcmp($old_pw,$escapedld_pw_p)!=0){
 			echo "Nem egyezik a regi jelszo! ";
 			echo '<a href="profil.php">'. Vissza . '</a>';
-			echo ------;
+			echo '---escapedold_pw---';
 			echo $escapedold_pw;
-			echo ------;
+			echo '---escapedld_pw_p---';
 			echo $escapedld_pw_p;
-			echo ------;
+			echo '---old_pw---';
 			echo $old_pw;
 			exit();
 		} else if (strcmp($escapednew_pw1_p,$escapednew_pw2_p)!=0) {
