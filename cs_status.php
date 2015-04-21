@@ -14,7 +14,7 @@
 		if ($row['NAME']!=null)
 			$t_name = $row['NAME'];
 		else
-			$t_name = "Nincs csapatod!"
+			$t_name = "Nincs csapatod!";
 	}
 	
 	function addToTeam(){
