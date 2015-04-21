@@ -5,8 +5,10 @@
 	
 	if($_POST["login"])
 	{
-		$user  = $_POST['username']; 
+		$user  = $_POST['username'];
+		$escapeduser = htmlspecialchars($user, ENT_QUOTES);
 		$pass  = $_POST['password']; 
+		$escapedpass = htmlspecialchars($pass, ENT_QUOTES);
 		
 		if($user == "" || $pass == "") 
 		{ 
@@ -14,12 +16,12 @@
 		} 
 		else
 		{
-			$result=mysqli_query($con,"SELECT * FROM USER LEFT JOIN ROLE ON USER.ROLE_ID = ROLE.ID WHERE NEPTUN='$user' and PASSWORD='$pass'");
+			$result=mysqli_query($con,"SELECT * FROM USER LEFT JOIN ROLE ON USER.ROLE_ID = ROLE.ID WHERE NEPTUN='$escapeduser' and PASSWORD='$escapedpass'");
 			$count=mysqli_num_rows($result);
 		
 			if($count==1){
 				$_SESSION = mysqli_fetch_assoc($result);
-				$_SESSION['username'] = $user;
+				$_SESSION['username'] = $escapeduser;
 				header("location:success.php");
 			}
 			 else{ 
