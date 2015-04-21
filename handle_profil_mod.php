@@ -69,7 +69,7 @@
 		if($res1->num_rows>0){
 			$row=mysqli_fetch_assoc($res1);
 			$old_pw=$row['PASSWORD'];
-			$old_temp=$old_pw
+			$old_temp=$old_pw;
 			$escapedold_pw = htmlspecialchars($old_pw, ENT_QUOTES);
 		} else 	{
 			echo "HIBA: " . mysqli_error($con);
