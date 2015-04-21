@@ -69,6 +69,7 @@
 		if($res1->num_rows>0){
 			$row=mysqli_fetch_assoc($res1);
 			$old_pw=$row['PASSWORD'];
+			$escapedold_pw = htmlspecialchars($old_pw, ENT_QUOTES);
 		} else 	{
 			echo "HIBA: " . mysqli_error($con);
 			echo '<a href="profil.php">'. Vissza . '</a>'; 
@@ -100,7 +101,7 @@
 		$new_pw2_p=$_POST['new_pw2'];
 		$escapednew_pw2_p = htmlspecialchars($new_pw2_p, ENT_QUOTES);
 		
-		if(strcmp($old_pw,$escapedld_pw_p)!=0){
+		if(strcmp($escapedold_pw,$escapedld_pw_p)!=0){
 			echo "Nem egyezik a regi jelszo! ";
 			echo '<a href="profil.php">'. Vissza . '</a>';
 			echo ------;
