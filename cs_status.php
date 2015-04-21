@@ -9,7 +9,6 @@
 	//csapatnév lekérése, hogy ki legyen írva az oldal tetejére
 	$tid = $_SESSION['TEAM_ID'];
 	$teamname = mysqli_query($con,"SELECT NAME FROM TEAM WHERE ID='$tid'");
-	$t_name;
 	while($row=mysqli_fetch_assoc($teamname))
 	{
 		$t_name = $row['NAME'];
@@ -90,7 +89,10 @@
 	<div style="margin-left:200">
 	<h1>Csapatstátusz</h1>
 	<h2><?php 
-	if(t_name != null){
+	
+	
+	
+	if($t_name != null){
 			echo $t_name;
 	}
 	else{
@@ -195,7 +197,7 @@
 	</br>
 	</br>
 	<?php
-		if(t_name!=null){
+		if($t_name!=null){
 	?>
 	<b>Github repo:</b>
 	</br>
