@@ -23,20 +23,22 @@
 			$t_id = $row['TEAM_ID'];
 		}
 		$team = $_POST['addTeammate'];
-		$addUserToTeam = mysqli_query($con,"UPDATE USER SET TEAM_ID='$t_id' WHERE NEPTUN='$team'"); //injection védelmet nekem!!!
+		$escapedteam = htmlspecialchars($team, ENT_QUOTES);
+		$addUserToTeam = mysqli_query($con,"UPDATE USER SET TEAM_ID='$t_id' WHERE NEPTUN='$escapedteam'"); //injection védelmet nekem!!!
 		$message = "Sikeres csapathoz adás!";
 		echo "<script type='text/javascript'>alert('$message');</script>";
 	}
 	function giveRole(){
 		require "config.php";
 		$selected_neptun = $_POST['addRoleToTeammate'];
+		$escapedselected_neptun = htmlspecialchars($selected_neptun, ENT_QUOTES);
 		$selected_roleName = $_POST['roleList'];
 		$getRoleID = mysqli_query($con,"SELECT ID FROM ROLE WHERE NAME='$selected_roleName'");
 		while($row=mysqli_fetch_assoc($getRoleID))
 		{
 			$selected_role_id = $row['ID'];
 		}
-		$giveRoleToUser = mysqli_query($con,"UPDATE USER SET ROLE_ID='$selected_role_id' WHERE NEPTUN='$selected_neptun'");
+		$giveRoleToUser = mysqli_query($con,"UPDATE USER SET ROLE_ID='$selected_role_id' WHERE NEPTUN='$escapedselected_neptun'");
 		$message = "A szerep sikeresen a felhasználóhoz adva!";
 		echo "<script type='text/javascript'>alert('$message');</script>";
 	}
@@ -44,8 +46,9 @@
 	function delTeammate(){
 		require "config.php";
 		$selected_user = $_POST['deleteTeammate'];
-		$delUser = mysqli_query($con,"UPDATE USER SET TEAM_ID=NULL WHERE NEPTUN='$selected_user'");
-		$delRoleID = mysqli_query($con,"UPDATE USER SET ROLE_ID=NULL WHERE NEPTUN='$selected_user'");
+		$escapedselected_user = htmlspecialchars($selected_user, ENT_QUOTES);
+		$delUser = mysqli_query($con,"UPDATE USER SET TEAM_ID=NULL WHERE NEPTUN='$escapedselected_user'");
+		$delRoleID = mysqli_query($con,"UPDATE USER SET ROLE_ID=NULL WHERE NEPTUN='$escapedselected_user'");
 		$message = "Felhasználó sikeresen törölve a csapatból!";
 		echo "<script type='text/javascript'>alert('$message');</script>";
 	}
