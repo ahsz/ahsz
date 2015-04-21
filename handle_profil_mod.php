@@ -109,7 +109,7 @@
 			echo "---escapedold_pw---";
 			echo $escapedold_pw;
 			echo "---old_pw_p---";
-			echo $old_pw_p
+			echo $old_pw_p;
 			echo "---escapedld_pw_p---";
 			echo $escapedld_pw_p;
 			exit();
