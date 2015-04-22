@@ -72,6 +72,34 @@
 	window.onload = function () {
 	//	document.getElementById("Create").disabled = "true";
 	//	document.getElementById("create_team").style.visibility = "hidden";
+		document.getElementById("statusz").innerHTML = 
+					<?php
+						session_start(); 
+					require "config.php";
+					ini_set('display_errors', 'on');
+	
+					//csapatnév lekérése, hogy ki legyen írva az oldal tetejére
+					$tid = $_SESSION['TEAM_ID'];
+					$teamname = mysqli_query($con,"SELECT NAME FROM TEAM WHERE ID='$tid'");
+					while($row=mysqli_fetch_assoc($teamname))
+					{
+						$t_name = $row['NAME'];
+					}
+				?>
+					</td><td>
+				<?php
+							if($tid != null){
+								echo $t_name;
+
+
+							}
+							else{
+								echo "még nincs csapatod, létrehozhatsz egyet:";
+								//$noTeamMsg = "Még nincsen csapatod! Kérlek csatlakozz egy csapathoz!";
+								//echo "<script type='text/javascript'>alert('$noTeamMsg');</script>";
+							}
+	?>
+		
 		var parent = document.getElementById("manage_team");
 		var child1 = document.getElementById("create_team");
 		var child2 = document.getElementById("selected_team");
@@ -185,35 +213,7 @@
 		<div id="manage_team">
 		
 			<div id="statusz">
-			<?php
-					session_start(); 
-					require "config.php";
-					ini_set('display_errors', 'on');
-	
-					//csapatnév lekérése, hogy ki legyen írva az oldal tetejére
-					$tid = $_SESSION['TEAM_ID'];
-					$teamname = mysqli_query($con,"SELECT NAME FROM TEAM WHERE ID='$tid'");
-					while($row=mysqli_fetch_assoc($teamname))
-					{
-						$t_name = $row['NAME'];
-					}
-				?>
-					</td><td>
-				<?php
-							if($tid != null){
-								echo $t_name;
-								echo'<script type="text/javascript">
-								var parent = document.getElementById("manage_team"); 		var child1 = document.getElementById("decision"); 		parent.removeChild(child1);
-; 
-									</script>';
 
-							}
-							else{
-								echo "még nincs csapatod, létrehozhatsz egyet:";
-								//$noTeamMsg = "Még nincsen csapatod! Kérlek csatlakozz egy csapathoz!";
-								//echo "<script type='text/javascript'>alert('$noTeamMsg');</script>";
-							}
-	?>
 				
 			
 			</div>
