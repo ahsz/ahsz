@@ -202,7 +202,7 @@
 								echo $t_name;
 							}
 							else{
-								echo "még nincs csapatod"
+								echo "még nincs csapatod";
 								//$noTeamMsg = "Még nincsen csapatod! Kérlek csatlakozz egy csapathoz!";
 								//echo "<script type='text/javascript'>alert('$noTeamMsg');</script>";
 							}
