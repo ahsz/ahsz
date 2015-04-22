@@ -85,7 +85,7 @@
 </style>
 </head>
 
-<body style="background-color:DarkSalmon">
+<body>
 	<div style="margin-left:200">
 	<h1>Csapatstátusz</h1>
 	<h2><?php 

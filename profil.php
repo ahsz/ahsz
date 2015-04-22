@@ -40,7 +40,7 @@
 	
 	</script>
 
-<body style="background-color:PaleTurquoise">
+<body>
 
 	<div id="page_name"> <b>Profil</b> </div>
 

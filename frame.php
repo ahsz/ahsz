@@ -59,7 +59,7 @@ License: Creative Commons Attribution
 
 			
 			<footer class="clear">
-				<p>&copy; 2015 AgilisCsapat. </p>
+				<p>&copy; 2015 Bundáskenyér. </p>
 			</footer>
 
 
