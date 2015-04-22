@@ -106,7 +106,7 @@
 	
 	<?php
 		if($tid != null){
-		echo '		parent.removeChild(child3);'
+		echo '		parent.removeChild(child3);';
 	
 	?>
 		
