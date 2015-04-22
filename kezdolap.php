@@ -207,7 +207,7 @@
 								//echo "<script type='text/javascript'>alert('$noTeamMsg');</script>";
 							}
 	?>
-				?>
+				
 			
 			</div>
 		
