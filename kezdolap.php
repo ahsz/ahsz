@@ -85,9 +85,6 @@
 					{
 						$t_name = $row['NAME'];
 					}
-				?>
-					</td><td>
-				<?php
 							if($tid != null){
 								echo $t_name;
 
