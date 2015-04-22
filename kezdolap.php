@@ -86,7 +86,7 @@
 						$t_name = $row['NAME'];
 					}
 							if($tid != null){
-								echo $t_name;+';'
+								echo $t_name + ';';
 
 
 							}
