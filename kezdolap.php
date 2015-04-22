@@ -47,6 +47,7 @@
 		
 		#statusz{
 			display: inline-block;
+			color: green;
 		}
 		
 		#selected_team{
@@ -93,7 +94,7 @@
 						$t_name = $row['NAME'];
 					}
 							if($tid != null){
-								echo '"A '. $t_name.' csapat tagja vagy"'.';';
+								echo '"<b>A '. $t_name.' csapat tagja vagy"'.'</b>;';
 
 
 							}
