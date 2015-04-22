@@ -203,7 +203,7 @@
 							if($tid != null){
 								echo $t_name;
 								echo'<script type="text/javascript">
-											var parent = document.getElementById("manage_team") 		var child1 = document.getElementById("decision"); 		parent.removeChild(child1);
+								var parent = document.getElementById("manage_team"); 		var child1 = document.getElementById("decision"); 		parent.removeChild(child1);
 ; 
 									</script>';
 
