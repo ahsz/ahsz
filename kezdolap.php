@@ -199,7 +199,7 @@
 						echo $row['T_NAME']; 
 				?>
 			
-			</div
+			</div>
 		
 			<div id="decision">				
 
