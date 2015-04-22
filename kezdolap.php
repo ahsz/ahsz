@@ -33,9 +33,25 @@
 		}
 		
 		p {
+		margin-top: 50px;
 		}
 		
-		#create_team {
+		li {
+		margin-left: 100px;
+		margin-bottom: 50px;
+		}
+		
+		#decision{
+			display: inline-block;
+		}
+		
+		#selected_team{
+			display: inline-block;
+		}
+		
+		
+		#select_team {
+			display: inline-block;
 			margin-left: 200px;
 			text-indent: 50px;
 		}
@@ -51,7 +67,13 @@
 	
 	window.onload = function () {
 	//	document.getElementById("Create").disabled = "true";
-		document.getElementById("create_team").style.visibility = "hidden";
+	//	document.getElementById("create_team").style.visibility = "hidden";
+		var parent = document.getElementById("manage_team");
+		var child1 = document.getElementById("create_team");
+		var child2 = document.getElementById("selected_team");
+		parent.removeChild(child1);
+		parent.removeChild(child2);
+		
 		
 	//	document.getElementById("Submit").disabled = "true";
 	//document.getElementById("select_team").style.visibility = "hidden";
@@ -73,14 +95,15 @@
 		
 	function show_create () {
 		//document.getElementById("Create").disabled = "false";
-				if (clicked == false){
-			document.getElementById("create_team").style.visibility = "visible";
-			clicked = true;
-			document.getElementById("decision").style.visibility = "hidden";
-			}
+	if(document.getElementById('create_team')==null) {
+		$('#manage_team').append('<div id="create_team"> <p> <input type="textfield" id="my_team"></input> <input type="submit" id="Create" value="Létrehoz" onclick="new_team()" /> <input type="submit" id="Cancel1" value="Mégsem" onclick="location.reload()" /> </p></div>');
+		}
+	
 	}
 	function new_team() {
 
+			$('#manage_team').append('<div id="selected_team"> <span id="team_name"> tesztszöveg  </span></div>')
+		
 		
 		document.getElementById("Create").disabled = "false";
 		//document.getElementById("create_team").style.visibility = "visible";
@@ -122,46 +145,22 @@
 				
                           });
 			
-		var parent = document.getElementById("main_page");
-		var child1 = document.getElementById("decision");
-		var child2 = document.getElementById("select_team");
-//		var child3 = document.getElementById("create_team");
+		var parent = document.getElementById("manage_team");
+
+
 		var para = document.createElement("p");
 		var node = document.createTextNode("Az általad létrehozott csapat: " + teamname);
 		para.appendChild(node);
-//		parent.insertBefore(para,child3);	
-		parent.removeChild(child1);
-		parent.removeChild(child2);
-//		parent.removeChild(child3);
+	
+//		parent.removeChild(child1);
+//		parent.removeChild(child2);
+
 			
 			
 		//	document.getElementById("Create").disabled = "false";
 			
 		}
-	
-	
-	function your_team()	{
-		var teamname = document.getElementById("options").value;
-//		document.getElementById("team_name").innerHTML = teamname;
-//		document.getElementById("selected_team").style.visibility = "visible";
-		
-//		document.getElementById("options").disabled = true;
-//		document.getElementById("select_team").style.visibility = "hidden";
-		
-		var parent = document.getElementById("main_page");
-		var child1 = document.getElementById("decision");
-		var child2 = document.getElementById("select_team");
-//		var child3 = document.getElementById("create_team");
-		var para = document.createElement("p");
-		var node = document.createTextNode("Az általad választott csapat: " + teamname);
-		para.appendChild(node);
-//		parent.insertBefore(para,child3);	
-		parent.removeChild(child1);
-		parent.removeChild(child2);
-//		parent.removeChild(child3);
-		
-		
-		}
+
 
 	
 	</script>
@@ -169,63 +168,59 @@
 
 </head>
 
-<body style="background-color:lightgreen">
+<body>
 	
 	<div id="main_page">
+	
+
 		<p id="subpage_title"> <b>Kezdőlap</b>	</p> 
-
-	<div id="decision">
-	<input type="submit" id="join1" value="Új csapat létrehozása!" onclick="show_create()" />
-<!--	<input type="submit" id="join2" value="Csapathoz csatlakozok!" onclick="show_teams()" />  -->
-	
-	
-	</div>
-	
 		
+		<div id="manage_team">
 		
-		<div id="create_team">
-		<!-- csak akkor jelenik meg, ha még nem választott csapatot a felhasználó-->
-		
-		
-		<p>
+			<div id="decision">
+			<input type="submit" id="join1" value="Új csapat létrehozása!" onclick="show_create()" />
+		<!--	<input type="submit" id="join2" value="Csapathoz csatlakozok!" onclick="show_teams()" />  -->
 			
-			<input type="textfield" id="my_team"></input>
-			<input type="submit" id="Create" value="Létrehoz" onclick="new_team()" />
-			<input type="submit" id="Cancel1" value="Mégsem" onclick="location.reload()" />
-			<!-- TODO: Ha választott már csapatot a diák akkor többet ne lássa ezt a legördülő menüt -->
-		</p>
-
-		</div>
-		
-		
-		
-		
-		
-		<div id="selected_team">
-		<span id="team_name"> tesztszöveg  </span>
+			
+			</div>
 		
 			
+			
+			<div id="create_team">
+			<!-- csak akkor jelenik meg, ha új csapatot akar a felhasználó-->
+			
+			
+			<p>
+				
+				<input type="textfield" id="my_team"></input>
+				<input type="submit" id="Create" value="Létrehoz" onclick="new_team()" />
+				<input type="submit" id="Cancel1" value="Mégsem" onclick="location.reload()" />
+				<!-- TODO: Ha választott már csapatot a diák akkor többet ne lássa ezt a legördülő menüt -->
+			</p>
+
+			</div>
+			
+			
+			
+			
+			
+			<div id="selected_team">
+			<span id="team_name"> tesztszöveg  </span>
+			
+				
+			</div>
 		</div>
-		
 			
 		<div class="description">
-		<p>  Ez az Agilis csapat oldala!
-			</br>
-			<br/>Reméljük mindenki elégedett lesz a munkánkkal! :)
-			</br>
-			</br>
-			</p>
-		<p>  A csapattagok:
-		<br/>Tuba
-		</br>Dodi
-		</br>Husi
-		</br>Kerémi
-		</br>Kónya
-		<br>SzMarci
-		</br>Lali
-		</p>
-		<p>  Ide még kérülhet bármilyen  egyéb szöveg
-		</p>
+		<p>	Ezen az oldalon keresztül tudsz csapatot létrehozni, amihez később hozzá tudod adni a csapattagjaidat. </p>
+
+		<p>  Aktuális információk:
+		<ul>
+			<li> A következő Demo időpontja: 2015.05.13	</li>
+			<li> Az utolsó előadás 05.14-én lesz, ekkor lesz a félév értékelése</li>
+
+		</ul>
+
 		</div>
 	
 	</div>
