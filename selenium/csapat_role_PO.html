@@ -4,41 +4,21 @@
 <head profile="http://selenium-ide.openqa.org/profiles/test-case">
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
 <link rel="selenium.base" href="http://agiliscsapat1.sch.bme.hu:40080/" />
-<title>kezdolap</title>
+<title>csapat_role_PO</title>
 </head>
 <body>
 <table cellpadding="1" cellspacing="1" border="1">
 <thead>
-<tr><td rowspan="1" colspan="3">kezdolap</td></tr>
+<tr><td rowspan="1" colspan="3">csapat_role_PO</td></tr>
 </thead><tbody>
 <tr>
 	<td>open</td>
-	<td>/testsite/</td>
-	<td></td>
-</tr>
-<tr>
-	<td>type</td>
-	<td>name=username</td>
-	<td>${loginname}</td>
-</tr>
-<tr>
-	<td>type</td>
-	<td>name=password</td>
-	<td>test</td>
-</tr>
-<tr>
-	<td>clickAndWait</td>
-	<td>name=login</td>
-	<td></td>
-</tr>
-<tr>
-	<td>setSpeed</td>
-	<td>500</td>
-	<td></td>
-</tr>
-<tr>
-	<td>open</td>
 	<td>/testsite/frame.php</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>link=Csapat státusz</td>
 	<td></td>
 </tr>
 <tr>
@@ -47,30 +27,36 @@
 	<td></td>
 </tr>
 <tr>
-	<td>click</td>
-	<td>id=join1</td>
-	<td></td>
+	<td>select</td>
+	<td>id=addRole</td>
+	<td>label=xtest3</td>
 </tr>
 <tr>
-	<td>type</td>
-	<td>id=my_team</td>
-	<td>Test</td>
-</tr>
-<tr>
-	<td>selectWindow</td>
-	<td>name=kezdolap_frame</td>
-	<td></td>
+	<td>select</td>
+	<td>id=roleList</td>
+	<td>label=Product Owner</td>
 </tr>
 <tr>
 	<td>click</td>
-	<td>id=Create</td>
+	<td>xpath=(//input[@id='Submit'])[3]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>/testsite/frame.php</td>
+	<td></td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>link=Csapat státusz</td>
 	<td></td>
 </tr>
 <tr>
 	<td>assertText</td>
-	<td>css=#team_name &gt; b</td>
-	<td>Sikeresen létrehoztad a csapatot!</td>
+	<td>//tr[7]/td[2]</td>
+	<td>Product Owner</td>
 </tr>
+
 </tbody></table>
 </body>
 </html>
