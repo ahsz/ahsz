@@ -86,12 +86,12 @@
 						$t_name = $row['NAME'];
 					}
 							if($tid != null){
-								echo $t_name + ';';
+								echo $t_name.';';
 
 
 							}
 							else{
-								echo "még nincs csapatod, létrehozhatsz egyet:"+';';
+								echo 'még nincs csapatod, létrehozhatsz egyet:'.';';
 								//$noTeamMsg = "Még nincsen csapatod! Kérlek csatlakozz egy csapathoz!";
 								//echo "<script type='text/javascript'>alert('$noTeamMsg');</script>";
 							}
