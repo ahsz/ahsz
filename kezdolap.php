@@ -75,8 +75,10 @@
 		var parent = document.getElementById("manage_team");
 		var child1 = document.getElementById("create_team");
 		var child2 = document.getElementById("selected_team");
+		if(document.getElementById())
 		parent.removeChild(child1);
 		parent.removeChild(child2);
+		
 		
 		
 	//	document.getElementById("Submit").disabled = "true";
@@ -199,10 +201,14 @@
 					</td><td>
 				<?php
 							if($tid != null){
-								echo $t_name;
+								 echo '<script type="text/javascript">
+									document.getElementById("statusz").innerHTML = $t_name;
+								</script>';
 							}
 							else{
-								echo "még nincs csapatod";
+								echo '<script type="text/javascript">
+									document.getElementById("statusz").innerHTML = "még nincs csapatod";
+								</script>';
 								//$noTeamMsg = "Még nincsen csapatod! Kérlek csatlakozz egy csapathoz!";
 								//echo "<script type='text/javascript'>alert('$noTeamMsg');</script>";
 							}
