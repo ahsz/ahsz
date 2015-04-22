@@ -199,25 +199,24 @@
 					}
 				?>
 					</td><td>
-
-				
-			
-			</div>
-			
-							<?php
+				<?php
 							if($tid != null){
-								 echo '<script type="text/javascript">
-									document.getElementById("statusz").innerHTML = $t_name;
-								</script>';
+								echo $t_name;
+								echo'<script type="text/javascript">
+											var parent = document.getElementById("manage_team") 		var child1 = document.getElementById("decision"); 		parent.removeChild(child1);
+; 
+									</script>';
+
 							}
 							else{
-								echo '<script type="text/javascript">
-									document.getElementById("statusz").innerHTML = "még nincs csapatod";
-								</script>';
+								echo "még nincs csapatod, létrehozhatsz egyet:";
 								//$noTeamMsg = "Még nincsen csapatod! Kérlek csatlakozz egy csapathoz!";
 								//echo "<script type='text/javascript'>alert('$noTeamMsg');</script>";
 							}
 	?>
+				
+			
+			</div>
 		
 			<div id="decision">				
 
