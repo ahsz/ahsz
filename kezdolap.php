@@ -45,6 +45,10 @@
 			display: inline-block;
 		}
 		
+		#statusz{
+			display: inline-block;
+		}
+		
 		#selected_team{
 			display: inline-block;
 		}
@@ -178,7 +182,27 @@
 		
 		<div id="manage_team">
 		
-			<div id="decision">
+			<div id="statusz">
+			<?php
+					session_start(); 
+					require "config.php";
+					
+					$neptun_kod=$_SESSION['NEPTUN'];
+					$result=mysqli_query($con,"SELECT ifnull(U.NAME,'') AS U_NAME, ifnull(U.NEPTUN,'') AS NEPTUN, ifnull(U.EMAIL,'') as EMAIL, ifnull(T.NAME,'') AS T_NAME, ifnull(R.NAME,'') AS R_NAME, GITHUB_NAME FROM USER U LEFT JOIN (TEAM T, ROLE R) ON (T.ID=U.TEAM_ID AND R.ID=U.ROLE_ID) WHERE U.NEPTUN='$neptun_kod'");
+				
+					if($result->num_rows>0){
+						$row=mysqli_fetch_assoc($result);
+						echo "Csapatod: "; 
+				?>
+					</td><td>
+				<?php
+						echo $row['T_NAME']; 
+				?>
+			
+			</div
+		
+			<div id="decision">				
+
 			<input type="submit" id="join1" value="Új csapat létrehozása!" onclick="show_create()" />
 		<!--	<input type="submit" id="join2" value="Csapathoz csatlakozok!" onclick="show_teams()" />  -->
 			
