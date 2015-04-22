@@ -199,7 +199,12 @@
 					}
 				?>
 					</td><td>
-				<?php
+
+				
+			
+			</div>
+			
+							<?php
 							if($tid != null){
 								 echo '<script type="text/javascript">
 									document.getElementById("statusz").innerHTML = $t_name;
@@ -213,9 +218,6 @@
 								//echo "<script type='text/javascript'>alert('$noTeamMsg');</script>";
 							}
 	?>
-				
-			
-			</div>
 		
 			<div id="decision">				
 
