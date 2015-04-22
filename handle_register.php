@@ -25,13 +25,19 @@
 							 VALUES ('$escapedneptun','$escapedname',1,'$escapedpass',null,sysdate(),null,'$escapedemail',null)");
 			If($res)
 			{
-				Echo "Sikeres regisztracio! ";
+				Echo "Sikeres regisztracio! Kerlek lepj be. ";
 				Echo '<a href="index.html">'. Belepes . '</a>';
 			}
 			Else
 			{
-				Echo "ERROR volt megint: " . mysqli_error($con);
+				Echo "Hiba, probald ujra!" . mysqli_error($con);
 			}
 		}
 	}
 ?>
+
+<script language="javascript" type="text/javascript">
+
+     window.setTimeout('window.location="index.html"; ',2000);
+
+</script>
