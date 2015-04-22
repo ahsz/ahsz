@@ -137,8 +137,7 @@
 						}
 				
 				/*var child1 = document.getElementById("decision");
-				var child2 = document.getElementById("select_team");
-				var child3 = document.getElementById("create_team");
+
 				parent.removeChild(child1);
 				parent.removeChild(child2);
 				parent.removeChild(child3);*/
@@ -146,14 +145,16 @@
                           });
 			
 		var parent = document.getElementById("manage_team");
+		var child1 = document.getElementById("decision");
+		var child2 = document.getElementById("create_team");
 
 
 		var para = document.createElement("p");
 		var node = document.createTextNode("Az általad létrehozott csapat: " + teamname);
 		para.appendChild(node);
 	
-//		parent.removeChild(child1);
-//		parent.removeChild(child2);
+		parent.removeChild(child1);
+		parent.removeChild(child2);
 
 			
 			
