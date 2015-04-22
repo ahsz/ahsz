@@ -198,7 +198,7 @@
 				?>
 					</td><td>
 				<?php
-						echo $row['T_NAME']; 
+						echo $row['NAME']; 
 				?>
 			
 			</div>
