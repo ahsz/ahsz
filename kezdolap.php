@@ -72,6 +72,13 @@
 	window.onload = function () {
 	//	document.getElementById("Create").disabled = "true";
 	//	document.getElementById("create_team").style.visibility = "hidden";
+		var parent = document.getElementById("manage_team");
+		var child1 = document.getElementById("create_team");
+		var child2 = document.getElementById("selected_team");
+		var child3 = document.getElementById("decision");
+		parent.removeChild(child1);
+		parent.removeChild(child2);
+		
 		document.getElementById("statusz").innerHTML = 
 					<?php
 						session_start(); 
@@ -91,18 +98,20 @@
 
 							}
 							else{
-								echo '"'.'még nincs csapatod, létrehozhatsz egyet:'.'"'.';';
+								echo ';';
 								//$noTeamMsg = "Még nincsen csapatod! Kérlek csatlakozz egy csapathoz!";
 								//echo "<script type='text/javascript'>alert('$noTeamMsg');</script>";
 							}
 	?>
+	
+	<?php
+		if($tid != null){
+		echo '		parent.removeChild(child3);'
+	
+	?>
 		
-		var parent = document.getElementById("manage_team");
-		var child1 = document.getElementById("create_team");
-		var child2 = document.getElementById("selected_team");
-		if(document.getElementById())
-		parent.removeChild(child1);
-		parent.removeChild(child2);
+
+
 		
 		
 		
