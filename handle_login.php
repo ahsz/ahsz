@@ -22,6 +22,11 @@
 			if($count==1){
 				$_SESSION = mysqli_fetch_assoc($result);
 				$_SESSION['username'] = $escapeduser;
+				if($_SESSION['TYPE']==2){
+					$result=mysqli_query($con,"SELECT * FROM TEAM");
+					$row=mysqli_fetch_assoc($result);
+					$_SESSION['TEAM_ID']=$row['ID'];
+				}
 				header("location:success.php");
 			}
 			 else{ 

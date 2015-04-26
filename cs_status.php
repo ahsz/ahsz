@@ -6,14 +6,6 @@
 	require "config.php";
 	ini_set('display_errors', 'on');
 	
-	//csapatnév lekérése, hogy ki legyen írva az oldal tetejére
-	$tid = $_SESSION['TEAM_ID'];
-	$teamname = mysqli_query($con,"SELECT NAME FROM TEAM WHERE ID='$tid'");
-	while($row=mysqli_fetch_assoc($teamname))
-	{
-		$t_name = $row['NAME'];
-	}
-	
 	function addToTeam(){
 		require "config.php";
 		$smNeptun  = $_SESSION['NEPTUN']; 
@@ -59,6 +51,14 @@
 		echo "<script type='text/javascript'>alert('$message');</script>";
 	}
 	
+	function changeTeam(){
+		require "config.php";
+		$newTeam = $_POST['changeTeam'];
+		$result = mysqli_query($con,"SELECT ID FROM TEAM WHERE NAME='$newTeam'");
+		$row=mysqli_fetch_assoc($result);
+		$_SESSION['TEAM_ID']=$row['ID'];
+	}
+	
 	if(isset($_POST['addTeammate'])){
 		addToTeam();
 	}
@@ -70,6 +70,17 @@
 	}
 	if(isset($_POST['github_mod'])){
 		modGithubRepo();
+	}
+	if(isset($_POST['changeTeam'])){
+		changeTeam();
+	}
+	
+	//csapatnév lekérése, hogy ki legyen írva az oldal tetejére
+	$tid = $_SESSION['TEAM_ID'];
+	$teamname = mysqli_query($con,"SELECT NAME FROM TEAM WHERE ID='$tid'");
+	while($row=mysqli_fetch_assoc($teamname))
+	{
+		$t_name = $row['NAME'];
 	}
 	
 	?>
@@ -86,6 +97,24 @@
 </head>
 
 <body>
+<?php
+	if($_SESSION['TYPE']==2){
+?>
+	<form action="#" method="POST">
+	<select name="changeTeam" id="changeTeam">
+	<?php
+		$result = mysqli_query($con,"SELECT NAME FROM TEAM");
+		while($row=mysqli_fetch_assoc($result))
+		{
+		  echo '<option value = "'.$row['NAME'].'">'.$row['NAME'].'</option>';
+		}
+	?>
+	</select>
+	<input type="submit" id="Submit" value="Mehet"  />
+	</form>
+<?php
+	}
+?>
 	<div style="margin-left:200">
 	<h1>Csapatstátusz</h1>
 	<h2><?php 
