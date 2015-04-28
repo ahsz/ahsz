@@ -275,7 +275,7 @@
 		
 		<div id="news_feed">
 		
-			<textarea readonly name="message" rows="10" cols="120">
+			<p>
 				
 				<?php
 					
@@ -311,7 +311,7 @@
 					}*/
 
 				?>
-			</textarea>
+			<p>
 			
 		</div>
 		
