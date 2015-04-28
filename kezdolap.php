@@ -313,8 +313,8 @@
 					
 					
 					if (count($new_array) > $last_messages) {
-						    for ($i = 0; $i < $last_messages; ++$i) {
-								echo $new_array[$i]."</br>";
+						    for ($i = last_messages; $i >= 0; $i--) {
+								echo $new_array[$last_messages - $i]."</br>";
 								}
 						}
 					else{
