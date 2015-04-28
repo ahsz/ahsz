@@ -295,16 +295,20 @@
 						$new_array[] = $result_string; // Inside while loop
 					}	
 					
-					if count($new_array) > $last_messages {
+					    for ($i = 0; $i < count($new_array); ++$i) {
+							echo $array[$i];
+							}
+					
+					/*if count($new_array) > $last_messages {
 						    for ($i = 0; $i < $last_messages; ++$i) {
-								print $new_array[$i];
+								echo $new_array[$i];
 								}
 						}
 					else{
 						    for ($i = 0; $i < count($new_array); ++$i) {
-								print $new_array[$i];
+								echo $new_array[$i];
 							}
-					}
+					}*/
 
 				?>
 			</textarea>
