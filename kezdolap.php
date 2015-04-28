@@ -104,7 +104,7 @@
 					{
 						$t_name = $row['NAME'];
 					}
-							if($tid != null){
+							if($tid){
 								echo '"A '. $t_name.' csapat tagja vagy"'.';';
 
 
