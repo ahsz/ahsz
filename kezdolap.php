@@ -110,7 +110,7 @@
 
 							}
 							else{
-								echo '"'.'"'.';';
+								echo '"";';
 								//$noTeamMsg = "Még nincsen csapatod! Kérlek csatlakozz egy csapathoz!";
 								//echo "<script type='text/javascript'>alert('$noTeamMsg');</script>";
 							}
