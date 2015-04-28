@@ -38,7 +38,7 @@
 		
 		li {
 		margin-left: 100px;
-		margin-bottom: 50px;
+		margin-bottom: 20px;
 		}
 		
 		#decision{
@@ -272,6 +272,35 @@
 		</ul>
 
 		</div>
+		
+		<div id="news_feed">
+		
+			<textarea readonly name="message" rows="10" cols="120">
+				
+				<?php
+				
+					session_start(); 
+					require "config.php";
+					
+					$t_id=$_SESSION['TEAM_ID'];
+					
+					$result=mysqli_query($con,"SELECT M.DATE_CRT, U.NAME, M.MESSAGE FROM MSG_BOARD M, USER U WHERE U.NEPTUN=M.NEPTUN AND M.TEAM_ID='$t_id'");
+					
+					if(!$result)
+					{
+						echo "ERROR :" . mysqli_error($con);
+					}
+					echo "\n";	
+					while($row=mysqli_fetch_assoc($result))
+					{
+					echo $row['DATE_CRT']." ".$row['NAME'].": ".$row['MESSAGE']."\n";
+					}	
+
+				?>
+			</textarea>
+			
+		</div>
+		
 	
 	</div>
 	
