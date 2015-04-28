@@ -309,7 +309,7 @@
 					while($row=mysqli_fetch_assoc($result))
 					{
 						$result_string = $row['DATE_CRT']." ".$row['NAME'].": ".$row['MESSAGE'];
-						array_push($new_array, $result_string; // Inside while loop
+						array_push($new_array, $result_string); // Inside while loop
 					}	
 					
 					
