@@ -311,20 +311,17 @@
 						$new_array[] = $result_string; // Inside while loop
 					}	
 					
-					    for ($i = 0; $i < count($new_array); ++$i) {
-							echo $new_array[$i]."</br>";
-							}
 					
-					/*if count($new_array) > $last_messages {
+					if (count($new_array) > $last_messages) {
 						    for ($i = 0; $i < $last_messages; ++$i) {
-								echo $new_array[$i];
+								echo $new_array[$i]."</br>";
 								}
 						}
 					else{
 						    for ($i = 0; $i < count($new_array); ++$i) {
-								echo $new_array[$i];
+								echo $new_array[$i]."</br>";
 							}
-					}*/
+					}
 
 				?>
 				
