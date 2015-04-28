@@ -253,7 +253,7 @@
         <td><b>Neptun</b></td>
         <td><b>Szerepkör</b></td>
         <td><b>Email</b></td>
-    	</tr>
+    </tr>
 	<?php
 		$teamid = $_SESSION['TEAM_ID'];
 		//$members = mysqli_query($con,"SELECT USER.NAME AS uname, ROLE.NAME AS urole, USER.EMAIL AS uemail FROM USER, ROLE WHERE USER.ROLE_ID=ROLE.ID AND TEAM_ID='$teamid'");
@@ -266,10 +266,10 @@
 		  echo "<td>".$row['uemail']."</td>";
 		  echo "</tr>";
 		}
-	
-	?>
-	</table>
 	} //if nek a bezárása, ami a Github repó előtt nyílik
+	?>
+</table>
+	
 </body>
 
 </html>
