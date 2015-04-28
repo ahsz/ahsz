@@ -92,8 +92,8 @@
 							<!--<textarea id="email_mod" name="email_mod" rows="1" cols="30">-->
 							<input type="text" name="email_mod" class="box"><?php
 						echo $row['EMAIL'];
-						</input>
-				?><!--</textarea>-->
+						
+				?><!--</textarea>--></input>
 						</td><td>
 								<input type="submit" name="submit" value="Módosítás" />
 						</td></tr>
