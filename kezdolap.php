@@ -41,8 +41,8 @@
 		}
 		
 		p {
-			margin-top: 60px;
-			margin-bottom: 30px;
+			margin-top: 80px;
+			margin-bottom: 10px;
 
 		}
 		
@@ -290,9 +290,9 @@
 		
 			<p>
 			<b>Legfrissebb üzenetek:</b>
-			</p>
+			</br></br>
+
 			
-			<p>
 				<?php
 					
 					$t_id=$_SESSION['TEAM_ID'];
