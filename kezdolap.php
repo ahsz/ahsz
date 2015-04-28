@@ -285,13 +285,16 @@
 					
 					if(!$result)
 					{
-						echo "ERROR :" . mysqli_error($con);
+						echo "ERROR :" . mysqli_error($con). "\n";		
 					}
-					echo "\n";	
+						
 					while($row=mysqli_fetch_assoc($result))
 					{
-					echo $row['DATE_CRT']." ".$row['NAME'].": ".$row['MESSAGE']."\n";
+						$result_string = $row['DATE_CRT']." ".$row['NAME'].": ".$row['MESSAGE']."\n";
+						$new_array[] = $result_string; // Inside while loop
 					}	
+					
+					echo $new_array;
 
 				?>
 			</textarea>
