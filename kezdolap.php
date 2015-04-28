@@ -280,6 +280,7 @@
 				<?php
 					
 					$t_id=$_SESSION['TEAM_ID'];
+					$last_messages = 5;
 					
 					$result=mysqli_query($con,"SELECT M.DATE_CRT, U.NAME, M.MESSAGE FROM MSG_BOARD M, USER U WHERE U.NEPTUN=M.NEPTUN AND M.TEAM_ID='$t_id'");
 					
@@ -294,7 +295,16 @@
 						$new_array[] = $result_string; // Inside while loop
 					}	
 					
-					echo $new_array;
+					if count($new_array) > $last_messages {
+						    for ($i = 0; $i < $last_messages; ++$i) {
+								print $new_array[$i];
+								}
+						}
+					else{
+						    for ($i = 0; $i < count($new_array); ++$i) {
+								print $new_array[$i];
+							}
+					}
 
 				?>
 			</textarea>
