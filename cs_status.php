@@ -244,14 +244,16 @@
 	<input type="submit" name="submit" value="Módosítás" />
 	
 	</form>
+	</br></br>
 	
 	<!-- Csapattagok adatainak listázása-->
+	<b>Csapattagok:</b>
 	<table border="1" width="600">
 	<tr>
         <td><b>Neptun</b></td>
         <td><b>Szerepkör</b></td>
         <td><b>Email</b></td>
-    </tr>
+    	</tr>
 	<?php
 		$teamid = $_SESSION['TEAM_ID'];
 		//$members = mysqli_query($con,"SELECT USER.NAME AS uname, ROLE.NAME AS urole, USER.EMAIL AS uemail FROM USER, ROLE WHERE USER.ROLE_ID=ROLE.ID AND TEAM_ID='$teamid'");
@@ -264,10 +266,21 @@
 		  echo "<td>".$row['uemail']."</td>";
 		  echo "</tr>";
 		}
-	} //if nek a bezárása, ami a Github repó előtt nyílik
-	?>
-</table>
 	
+	?>
+	</table>
+	</br></br>
+	<form action="#" method="POST">
+		<select name="deleteTeammate" id="deleteTeammate">
+		<?php
+			$delTeammates .= '<option value = "'.$_SESSION['NEPTUN'].'">'.$_SESSION['NEPTUN'].'</option>';
+			echo $delTeammates; 
+		?>
+		</select>
+		<input type="submit" id="Submit" value="Csapatból kilépés"  />
+	</form>
+	
+	} //if nek a bezárása, ami a Github repó előtt nyílik
 </body>
 
 </html>
