@@ -96,6 +96,7 @@
 						session_start(); 
 					require "config.php";
 					ini_set('display_errors', 'on');
+					$t_name = "";
 	
 					//csapatnév lekérése, hogy ki legyen írva az oldal tetejére
 					$tid = $_SESSION['TEAM_ID'];
@@ -104,7 +105,7 @@
 					{
 						$t_name = $row['NAME'];
 					}
-							if($tid){
+							if($tid != null){
 								echo '"A '. $t_name.' csapat tagja vagy"'.';';
 
 
