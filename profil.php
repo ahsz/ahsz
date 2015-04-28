@@ -32,13 +32,6 @@
 	</style>
 	
 	
-	<script>
-	
-	function modify_data(){
-		alert("módosít");
-		}
-	
-	</script>
 
 <body>
 
@@ -89,8 +82,7 @@
 						echo "E-mail címed: ";
 				?>
 						</td><td>
-							
-							<input type="text" name="email_mod" class="box" size=30 value="<?php echo $row['EMAIL'];?>"/>
+							<input type="text" name="email_mod" class="box" size=30 value="<?php echo $row['EMAIL'];?>" />
 						</td><td>
 							<input type="submit" name="submit" value="Módosítás" />
 						</td></tr>
@@ -103,11 +95,9 @@
 						echo "GITHUB felhasználó neved: ";
 				?>
 						</td><td>
-							<textarea id="github_user_mod" name="github_user_mod" rows="1" cols="30"><?php
-						echo $row['GITHUB_NAME'];
-				?></textarea>
+							<input type="text" name="github_user_mod" class="box" size=30 value="<?php echo $row['GITHUB_NAME'];?>" />
 						</td><td>
-								<input type="submit" name="submit" value="Módosítás" onclick="modify_data()";/>
+							<input type="submit" name="submit" value="Módosítás" />
 						</td></tr>
 					</form>
 				</div>
@@ -149,17 +139,17 @@
 						<tr><td>
 							Régi jelszavad:
 						</td><td>
-							<textarea id="old_pw" name="old_pw" rows="1" cols="20"></textarea>
+							<input type="password" name="old_pw" class="box" size=30 />
 						</td></tr>
 						<tr><td>
 							Új jelszavad:
 						</td><td>
-							<textarea id="new_pw1" name="new_pw1" rows="1" cols="20"></textarea>
+							<input type="password" name="new_pw1" class="box" size=30 />
 						</td></tr>
 						<tr><td>
 							Új jelszavad mégegyszer:
 						</td><td>
-							<textarea id="new_pw2" name="new_pw2" rows="1" cols="20"></textarea>
+							<input type="password" name="new_pw2" class="box" size=30 />
 						</td><tr>
 						<tr><td/><td>
 							<input type="submit" name="submit2" value="Módosítás"/>
