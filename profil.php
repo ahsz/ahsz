@@ -89,13 +89,10 @@
 						echo "E-mail címed: ";
 				?>
 						</td><td>
-							<!--<textarea id="email_mod" name="email_mod" rows="1" cols="30">-->
-							<input type="text" name="email_mod" class="box"><?php
-						echo $row['EMAIL'];
-						
-				?><!--</textarea>--></input>
+							
+							<input type="text" name="email_mod" class="box" size=30 value=<?php echo $row['EMAIL'];?>/>
 						</td><td>
-								<input type="submit" name="submit" value="Módosítás" />
+							<input type="submit" name="submit" value="Módosítás" />
 						</td></tr>
 					</form>
 				</div>
