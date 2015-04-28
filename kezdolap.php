@@ -17,6 +17,9 @@
 			visibility: hidden;
 		}
 		
+		div {
+		}
+		
 		
 		#main_page {
 		
@@ -38,8 +41,9 @@
 		}
 		
 		p {
-		
-		
+			margin-top: 60px;
+			margin-bottom: 30px;
+
 		}
 		
 		li {
@@ -308,7 +312,7 @@
 					}	
 					
 					    for ($i = 0; $i < count($new_array); ++$i) {
-							echo $new_array[$i]."\n";
+							echo $new_array[$i]."</br>";
 							}
 					
 					/*if count($new_array) > $last_messages {
