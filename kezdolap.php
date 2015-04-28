@@ -27,13 +27,19 @@
 			font-size: 200%;
 		}
 		
+		
 		div.description p {
 			text-indent: 50px;
 			padding-left: 30px;
 		}
 		
+		#news {
+		margin-left: 80px;
+		}
+		
 		p {
-		margin-top: 50px;
+		
+		
 		}
 		
 		li {
@@ -270,13 +276,19 @@
 			<li> Az utolsó előadás 05.14-én lesz, ekkor lesz a félév értékelése</li>
 
 		</ul>
+		</p>
+		
+		
 
 		</div>
 		
-		<div id="news_feed">
+		<div id="news">
 		
 			<p>
-				
+			<b>Legfrissebb üzenetek:</b>
+			</p>
+			
+			<p>
 				<?php
 					
 					$t_id=$_SESSION['TEAM_ID'];
@@ -291,12 +303,12 @@
 						
 					while($row=mysqli_fetch_assoc($result))
 					{
-						$result_string = $row['DATE_CRT']." ".$row['NAME'].": ".$row['MESSAGE']."\n";
+						$result_string = $row['DATE_CRT']." ".$row['NAME'].": ".$row['MESSAGE'];
 						$new_array[] = $result_string; // Inside while loop
 					}	
 					
 					    for ($i = 0; $i < count($new_array); ++$i) {
-							echo $new_array[$i];
+							echo $new_array[$i]."\n";
 							}
 					
 					/*if count($new_array) > $last_messages {
@@ -311,7 +323,11 @@
 					}*/
 
 				?>
-			<p>
+				
+				</p>
+				
+				
+
 			
 		</div>
 		
