@@ -269,17 +269,6 @@
 	
 	?>
 	</table>
-	</br></br>
-	<form action="#" method="POST">
-		<select name="deleteTeammate" id="deleteTeammate">
-		<?php
-			$delTeammates .= '<option value = "'.$_SESSION['NEPTUN'].'">'.$_SESSION['NEPTUN'].'</option>';
-			echo $delTeammates; 
-		?>
-		</select>
-		<input type="submit" id="Submit" value="Csapatból kilépés"  />
-	</form>
-	
 	} //if nek a bezárása, ami a Github repó előtt nyílik
 </body>
 
