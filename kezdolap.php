@@ -297,6 +297,7 @@
 					
 					$t_id=$_SESSION['TEAM_ID'];
 					$last_messages = 5;
+					$new_array = array();
 					
 					$result=mysqli_query($con,"SELECT M.DATE_CRT, U.NAME, M.MESSAGE FROM MSG_BOARD M, USER U WHERE U.NEPTUN=M.NEPTUN AND M.TEAM_ID='$t_id'");
 					
@@ -308,7 +309,7 @@
 					while($row=mysqli_fetch_assoc($result))
 					{
 						$result_string = $row['DATE_CRT']." ".$row['NAME'].": ".$row['MESSAGE'];
-						$new_array[] = $result_string; // Inside while loop
+						array_push($new_array, $result_string; // Inside while loop
 					}	
 					
 					
