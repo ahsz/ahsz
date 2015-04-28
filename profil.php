@@ -90,7 +90,7 @@
 				?>
 						</td><td>
 							
-							<input type="text" name="email_mod" class="box" size=30 value=<?php echo $row['EMAIL'];?>/>
+							<input type="text" name="email_mod" class="box" size=30 value="<?php echo $row['EMAIL'];?>"/>
 						</td><td>
 							<input type="submit" name="submit" value="Módosítás" />
 						</td></tr>
