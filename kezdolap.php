@@ -118,7 +118,7 @@
 	?>
 	
 	<?php
-		if($tid != null){
+		if($t_name != null){
 		echo  'parent.removeChild(child3);';
 		}
 	?>
