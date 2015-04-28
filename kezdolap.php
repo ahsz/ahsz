@@ -278,9 +278,6 @@
 			<textarea readonly name="message" rows="10" cols="120">
 				
 				<?php
-				
-					session_start(); 
-					require "config.php";
 					
 					$t_id=$_SESSION['TEAM_ID'];
 					
