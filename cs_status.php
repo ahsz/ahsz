@@ -162,12 +162,13 @@
 			<?php
 				//csapat listájának lekérése dbből
 				$smNeptun  = $_SESSION['NEPTUN']; 
-				$SM_TeamID = mysqli_query($con,"SELECT TEAM_ID FROM USER WHERE NEPTUN='$smNeptun'");
+				$SM_TeamID = mysqli_query($con,"SELECT TEAM_ID, ROLE_ID FROM USER WHERE NEPTUN='$smNeptun'");
 				while($row=mysqli_fetch_assoc($SM_TeamID))
 				{
 					$t_id = $row['TEAM_ID'];
+					$r_id = $row['ROLE_ID'];
 				}
-				$getTeammates=mysqli_query($con,"SELECT NEPTUN FROM USER WHERE TEAM_ID='$t_id'");
+				$getTeammates=mysqli_query($con,"SELECT NEPTUN FROM USER WHERE TEAM_ID='$t_id' and ROLE_ID!='$r_id'");
 				$delTeammates = '';
 				 while($row = mysqli_fetch_assoc($getTeammates))
 				{
