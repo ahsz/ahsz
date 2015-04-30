@@ -258,7 +258,7 @@
 	<?php
 		$teamid = $_SESSION['TEAM_ID'];
 		//$members = mysqli_query($con,"SELECT USER.NAME AS uname, ROLE.NAME AS urole, USER.EMAIL AS uemail FROM USER, ROLE WHERE USER.ROLE_ID=ROLE.ID AND TEAM_ID='$teamid'");
-		$members = mysqli_query($con,"SELECT ifnull(USER.NAME,'') as uname, USER.NEPTUN AS uneptun, ifnull(ROLE.NAME,'') AS urole, ifnull(USER.EMAIL,'') AS uemail FROM USER LEFT JOIN (ROLE) ON (ROLE.ID=USER.ROLE_ID) WHERE TEAM_ID='$teamid'");
+		$members = mysqli_query($con,"SELECT ifnull(USER.NAME,'') as uname, USER.NEPTUN AS uneptun, ifnull(ROLE.NAME,'') AS urole, ifnull(USER.EMAIL,'') AS uemail FROM USER LEFT JOIN (ROLE) ON (ROLE.ID=USER.ROLE_ID) WHERE TEAM_ID='$teamid' ORDER BY ROLE.ID");
 		 while($row = mysqli_fetch_assoc($members))
 		{
 		  echo "<tr>";
