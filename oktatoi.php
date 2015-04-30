@@ -5,6 +5,7 @@
     require "config.php"; 
     
     header("Refresh:5; url=../testsite/oktatoi.php"); 
+    
     ini_set('display_errors', 'on');
 
 	function delUser(){ 
@@ -13,7 +14,7 @@
         	$delUser = mysqli_query($con,"DELETE FROM USER WHERE NEPTUN='$user'"); 
         	if($delUser){
         		$message = "Sikeres felhasználó törlés!"; 
-        		echo "<script type='text/javascript'>alert('$message');
+        		echo "<script type='text/javascript'>alert('$message');</script>";
         	}
         	else{
         		echo "Hiba, probald ujra!" . mysqli_error($delUser);
@@ -26,7 +27,7 @@
         	$setAdmin = mysqli_query($con,"UPDATE USER SET TYPE=2 WHERE NEPTUN='$admin'"); 
         	if($setAdmin){
         		$message = "Sikeres oktató hozzáadás!"; 
-        		echo "<script type='text/javascript'>alert('$message');
+        		echo "<script type='text/javascript'>alert('$message');</script>";
         	}
         	else{
         		echo "Hiba, probald ujra!" . mysqli_error($setAdmin);
@@ -39,7 +40,7 @@
         	$delAdmin = mysqli_query($con,"UPDATE USER SET TYPE=1 WHERE NEPTUN='$admin'"); 
         	if($delAdmin){
         		$message = "Sikeres oktató elvétel!"; 
-			echo "<script type='text/javascript'>alert('$message');
+			echo "<script type='text/javascript'>alert('$message');</script>";
         	}
 		else{
         		echo "Hiba, probald ujra!" . mysqli_error($delAdmin);
@@ -49,10 +50,10 @@
 	function addRole(){
         	require "config.php"; 
         	$role = $_POST['addRole'];
-		$addRole = mysqli_query($con,"INSERT INTO ROLE (NAME) VALUES('$role')"); 
+		$addRole = mysqli_query($con,"INSERT INTO ROLE VALUES (null,'$role')");
 		if($addRole){
 			$message = "Szerepkör sikeresen felvéve!"; 
-			echo "<script type='text/javascript'>alert('$message');
+			echo "<script type='text/javascript'>alert('$message');</script>";
 		}
 		else{
         		echo "Hiba, probald ujra!" . mysqli_error($addRole);
