@@ -9,15 +9,9 @@
 	<title>Profil</title>
 	<style media="screen" type="text/css">
 	
-	#page_name {
-		font-size:150%;
-		margin-top : 100px;
-		margin-left : 200px	
-	}
+
 	
 	#profile {
-		margin-top : 100px;
-		margin-left : 200px;	
 		font-size:120%
 	}
 	
@@ -34,8 +28,8 @@
 	
 
 <body>
+	<h1>Profil</h1>
 
-	<div id="page_name"> <b>Profil</b> </div>
 
 		<div id="profile">
 			<!-- Név --> 
