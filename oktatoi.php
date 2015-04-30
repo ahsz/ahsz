@@ -3,21 +3,38 @@
     session_start();  
     require "check_logged_in.php"; 
     require "config.php"; 
+    ini_set('display_errors', 'on');
+
+	function delUser(){ 
+        require "config.php"; 
+        $user = $_POST['delUser'];
+        $delUser = mysqli_query($con,"DELETE FROM USER WHERE NEPTUN='$user'"); 
+        $message = "Sikeres felhasználó törlés!"; 
+        echo "<script type='text/javascript'>alert('$message');</script>"; 
+	} 
+    
+    
+    
+    if(isset($_POST['delUser'])){
+        delUser();
+    }
+    
 ?>
 <html>
 <head>
     <meta charset="UTF-8"></meta>
     <title>Oktatói felület</title>
     <style media="screen" type="text/css"> 
-
+        #profile { font-size:120% }
     </style>
 </head>
 <body>
     <h1>Oktatói felület</h1>
     <br/>
     <?php
+        //nem oktató
         if($_SESSION['TYPE']==1){
-            echo "Oktatói jogosultság szükséges a megtekintéshez!<br/>Jelenlegi oktatók és elérhetőségük:";
+            echo "Oktatói jogosultság szükséges a megtekintéshez!<br/><br/>Jelenlegi oktatók és elérhetőségük:";
     ?>
     <table border="1">
         <tr>
@@ -33,6 +50,27 @@
                 echo "<td>".$row['EMAIL']."</td>";
                 echo "</tr>";
             }
+        }
+        //oktató
+        if($_SESSION['TYPE']==2){
+    ?>
+        <b>Felhasználó törlése:</b></br>
+    	<form action="#" method="POST"> 
+            <select name="delUser" id="del"> 
+    <?php 
+                $get=mysqli_query($con,"SELECT NEPTUN FROM USER"); 
+                $option = ''; 
+                while($row = mysqli_fetch_assoc($get)) 
+                { 
+                    $option .= '<option value = "'.$row['NEPTUN'].'">'.$row['NEPTUN'].'</option>'; 
+                } 
+
+                echo $option; 
+    ?> 
+            </select> 
+        <input type="submit" id="Submit" value="Törlés"  /> 
+        </form> 
+    <?php
         }
     ?>
     </table>
