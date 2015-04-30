@@ -21,12 +21,24 @@
         echo "<script type='text/javascript'>alert('$message');</script>"; 	
 	}
 
+	function delAdmin(){
+        require "config.php"; 
+        $admin = $_POST['delAdmin'];
+        $delUser = mysqli_query($con,"UPDATE USER SET TYPE=1 WHERE NEPTUN='$admin'"); 
+        $message = "Sikeres oktató elvétel!"; 
+        echo "<script type='text/javascript'>alert('$message');</script>"; 	
+	}
+
     if(isset($_POST['delUser'])){
         delUser();
     }
     
     if(isset($_POST['setAdmin'])){
     	setAdmin();
+    }
+    
+    if(isset($_POST['delAdmin'])){
+    	delAdmin();
     }
     
 ?>
@@ -95,8 +107,25 @@
         		        echo $option;
 	?>
 			</select>
-			<input type="submit" id="Submit" value="Törlés"  /> 
+			<input type="submit" id="Submit" value="Beállítás"  /> 
 		</form>
+	
+        <b>Oktatói jogosultság elvétele:</b>
+		<form action="#" method="POST"> 
+			<select name="delAdmin" id="del"> 
+	<?php 
+				$get=mysqli_query($con,"SELECT NEPTUN FROM USER WHERE TYPE=2"); 
+				$option = ''; 
+				while($row = mysqli_fetch_assoc($get)) 
+				{ 
+					$option .= '<option value = "'.$row['NEPTUN'].'">'.$row['NEPTUN'].'</option>'; 
+				} 
+        		        echo $option;
+	?>
+			</select>
+			<input type="submit" id="Submit" value="Elvétel"  /> 
+		</form>	
+	
 	
     <?php
         }
