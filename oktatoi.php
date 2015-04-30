@@ -182,14 +182,14 @@
 		</select>
 		<input type="submit" id="Submit" value="Beállítás"  /> 
 	</form>	
-	</br</br></br>
+	</br</br></br></br>
 	
         <b>Új szerepkör felvétele:</b>
 	<form action="#" method="POST"> 
 		<input type="text" name="addRole" class="box" size="30"/>
 		<input type="submit" id="Submit" value="Hozzáadás" /> 
 	</form>	
-	</br>
+	</br></br>
 	
         <b>Szerepkör törlése:</b></br>
     	<form action="#" method="POST"> 
