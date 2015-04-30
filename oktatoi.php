@@ -13,11 +13,13 @@
     </style>
 </head>
 <body>
+    <h1>Oktatói felület</h1>
+    <br/>
     <?php
         if($_SESSION['TYPE']==1){
-            echo "Oktatói jogosultság szükséges a megtekintéshez! Jelenlegi oktatók és elérhetőségük:";
+            echo "Oktatói jogosultság szükséges a megtekintéshez!<br/>Jelenlegi oktatók és elérhetőségük:";
     ?>
-    <table border="0">
+    <table border="1">
         <tr>
             <td><b>Név</b></td>
             <td><b>E-mail cím</b></td>
