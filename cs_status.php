@@ -250,6 +250,7 @@
 	<b>Csapattagok:</b>
 	<table border="1" width="600">
 	<tr>
+	<td><b>Név</b></td>
         <td><b>Neptun</b></td>
         <td><b>Szerepkör</b></td>
         <td><b>Email</b></td>
