@@ -120,7 +120,7 @@
             <td><b>E-mail cím</b></td>
         </tr>
 	<?php
-            $result=mysqli_query($con,"SELECT ifnull(U.NAME,'') as NAME, ifnull(U.EMAIL,'') as EMAIL FROM USER U WHERE U.TYPE=2");
+            $result=mysqli_query($con,"SELECT ifnull(U.NAME,'') as NAME, ifnull(U.EMAIL,'') as EMAIL FROM USER U WHERE U.TYPE=2 ORDER BY NAME");
             while($row = mysqli_fetch_assoc($result))
             {
                 echo "<tr>";
@@ -136,7 +136,7 @@
     	<form action="#" method="POST"> 
 			<select name="delUser" id="del"> 
 	<?php 
-                $get=mysqli_query($con,"SELECT NEPTUN FROM USER"); 
+                $get=mysqli_query($con,"SELECT NEPTUN FROM USER ORDER BY NEPTUN"); 
                 $option = ''; 
                 while($row = mysqli_fetch_assoc($get)) 
                 { 
@@ -154,7 +154,7 @@
 	<form action="#" method="POST"> 
 		<select name="setAdmin" id="set"> 
 	<?php 
-			$get=mysqli_query($con,"SELECT NEPTUN FROM USER WHERE TYPE=1"); 
+			$get=mysqli_query($con,"SELECT NEPTUN FROM USER WHERE TYPE=1 ORDER BY NEPTUN"); 
 			$option = ''; 
 			while($row = mysqli_fetch_assoc($get)) 
 			{ 
@@ -171,7 +171,7 @@
 	<form action="#" method="POST"> 
 		<select name="delAdmin" id="del"> 
 	<?php 
-			$get=mysqli_query($con,"SELECT NEPTUN FROM USER WHERE TYPE=2"); 
+			$get=mysqli_query($con,"SELECT NEPTUN FROM USER WHERE TYPE=2 ORDER BY NEPTUN"); 
 			$option = ''; 
 			while($row = mysqli_fetch_assoc($get)) 
 			{ 
@@ -195,7 +195,7 @@
     	<form action="#" method="POST"> 
 		<select name="delRole" id="del"> 
 	<?php 
-                $get=mysqli_query($con,"SELECT NAME FROM ROLE"); 
+                $get=mysqli_query($con,"SELECT NAME FROM ROLE ORDER BY NAME"); 
                 $option = ''; 
                 while($row = mysqli_fetch_assoc($get)) 
                 { 
