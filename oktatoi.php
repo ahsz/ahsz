@@ -3,30 +3,60 @@
     session_start();  
     require "check_logged_in.php"; 
     require "config.php"; 
+    
+    header("Refresh:5; url=../testsite/oktatoi.php"); 
     ini_set('display_errors', 'on');
 
 	function delUser(){ 
-        require "config.php"; 
-        $user = $_POST['delUser'];
-        $delUser = mysqli_query($con,"DELETE FROM USER WHERE NEPTUN='$user'"); 
-        $message = "Sikeres felhasználó törlés!"; 
-        echo "<script type='text/javascript'>alert('$message');</script>"; 
+        	require "config.php"; 
+        	$user = $_POST['delUser'];
+        	$delUser = mysqli_query($con,"DELETE FROM USER WHERE NEPTUN='$user'"); 
+        	if($delUser){
+        		$message = "Sikeres felhasználó törlés!"; 
+        		echo "<script type='text/javascript'>alert('$message');
+        	}
+        	else{
+        		echo "Hiba, probald ujra!" . mysqli_error($delUser);
+        	}
 	} 
 
 	function setAdmin(){
-        require "config.php"; 
-        $admin = $_POST['setAdmin'];
-        $delUser = mysqli_query($con,"UPDATE USER SET TYPE=2 WHERE NEPTUN='$admin'"); 
-        $message = "Sikeres oktató hozzáadás!"; 
-        echo "<script type='text/javascript'>alert('$message');</script>"; 	
+        	require "config.php"; 
+        	$admin = $_POST['setAdmin'];
+        	$setAdmin = mysqli_query($con,"UPDATE USER SET TYPE=2 WHERE NEPTUN='$admin'"); 
+        	if($setAdmin){
+        		$message = "Sikeres oktató hozzáadás!"; 
+        		echo "<script type='text/javascript'>alert('$message');
+        	}
+        	else{
+        		echo "Hiba, probald ujra!" . mysqli_error($setAdmin);
+        	}
 	}
 
 	function delAdmin(){
-        require "config.php"; 
-        $admin = $_POST['delAdmin'];
-        $delUser = mysqli_query($con,"UPDATE USER SET TYPE=1 WHERE NEPTUN='$admin'"); 
-        $message = "Sikeres oktató elvétel!"; 
-        echo "<script type='text/javascript'>alert('$message');</script>"; 	
+        	require "config.php"; 
+        	$admin = $_POST['delAdmin'];
+        	$delAdmin = mysqli_query($con,"UPDATE USER SET TYPE=1 WHERE NEPTUN='$admin'"); 
+        	if($delAdmin){
+        		$message = "Sikeres oktató elvétel!"; 
+			echo "<script type='text/javascript'>alert('$message');
+        	}
+		else{
+        		echo "Hiba, probald ujra!" . mysqli_error($delAdmin);
+		}
+	}
+
+	function addRole(){
+        	require "config.php"; 
+        	$role = $_POST['addRole'];
+		$addRole = mysqli_query($con,"INSERT INTO ROLE (NAME) VALUES('$role')"); 
+		if($addRole){
+			$message = "Szerepkör sikeresen felvéve!"; 
+			echo "<script type='text/javascript'>alert('$message');
+		}
+		else{
+        		echo "Hiba, probald ujra!" . mysqli_error($addRole);
+		}
 	}
 
     if(isset($_POST['delUser'])){
@@ -39,6 +69,10 @@
     
     if(isset($_POST['delAdmin'])){
     	delAdmin();
+    }
+    
+    if(isset($_POST['addRole'])){
+    	addRole();
     }
     
 ?>
@@ -109,6 +143,7 @@
 			</select>
 			<input type="submit" id="Submit" value="Beállítás"  /> 
 		</form>
+	</br></br>
 	
         <b>Oktatói jogosultság elvétele:</b>
 		<form action="#" method="POST"> 
@@ -125,12 +160,19 @@
 			</select>
 			<input type="submit" id="Submit" value="Elvétel"  /> 
 		</form>	
+	</br</br>
 	
-	
+        <b>Új szerepkör felvétele:</b>
+		<form action="#" method="POST"> 
+			<input type="text" name="addRole" class="box" size="30"/>
+			<input type="submit" id="Submit" value="Hozzáadás" /> 
+		</form>	
+		
     <?php
         }
     ?>
     </table>
 </body>
 </html>
+
 
