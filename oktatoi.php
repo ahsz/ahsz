@@ -4,8 +4,6 @@
     require "check_logged_in.php"; 
     require "config.php"; 
     
-    header("Refresh:5; url=../testsite/oktatoi.php"); 
-    
     ini_set('display_errors', 'on');
 
 	function delUser(){ 
@@ -18,6 +16,7 @@
         	}
         	else{
         		echo "Hiba, probald ujra!" . mysqli_error($delUser);
+        		echo '<a href="oktatoi.php">'. Vissza . '</a>';
         	}
 	} 
 
@@ -31,6 +30,7 @@
         	}
         	else{
         		echo "Hiba, probald ujra!" . mysqli_error($setAdmin);
+        		echo '<a href="oktatoi.php">'. Vissza . '</a>';
         	}
 	}
 
@@ -44,6 +44,7 @@
         	}
 		else{
         		echo "Hiba, probald ujra!" . mysqli_error($delAdmin);
+        		echo '<a href="oktatoi.php">'. Vissza . '</a>';
 		}
 	}
 
@@ -57,6 +58,7 @@
 		}
 		else{
         		echo "Hiba, probald ujra!" . mysqli_error($addRole);
+        		echo '<a href="oktatoi.php">'. Vissza . '</a>';
 		}
 	}
 
@@ -159,9 +161,9 @@
         		        echo $option;
 	?>
 			</select>
-			<input type="submit" id="Submit" value="Elvétel"  /> 
+			<input type="submit" id="Submit" value="Beállítás"  /> 
 		</form>	
-	</br</br>
+	</br</br></br>
 	
         <b>Új szerepkör felvétele:</b>
 		<form action="#" method="POST"> 
