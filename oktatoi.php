@@ -62,7 +62,7 @@
 		}
 	}
 
-	function delRoler(){ 
+	function delRole(){ 
         	require "config.php"; 
         	$role = $_POST['delRole'];
         	$delRole = mysqli_query($con,"DELETE FROM ROLE WHERE NAME='$role'"); 
