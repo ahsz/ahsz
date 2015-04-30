@@ -62,6 +62,21 @@
 		}
 	}
 
+	function delRoler(){ 
+        	require "config.php"; 
+        	$role = $_POST['delRole'];
+        	$delRole = mysqli_query($con,"DELETE FROM ROLE WHERE NAME='$role'"); 
+        	if($delRole){
+        		$message = "Sikeres szerepkör törlés!"; 
+        		echo "<script type='text/javascript'>alert('$message');</script>";
+        	}
+        	else{
+        		echo "Hiba, probald ujra!" . mysqli_error($delRole);
+        		echo '<a href="oktatoi.php">'. Vissza . '</a>';
+        	}
+	} 
+	
+
     if(isset($_POST['delUser'])){
         delUser();
     }
@@ -76,6 +91,10 @@
     
     if(isset($_POST['addRole'])){
     	addRole();
+    }
+    
+    if(isset($_POST['delRole'])){
+    	delRole();
     }
     
 ?>
@@ -132,44 +151,63 @@
         </br></br>
         
         <b>Oktatói jogosultság beállítása:</b>
-		<form action="#" method="POST"> 
-			<select name="setAdmin" id="set"> 
+	<form action="#" method="POST"> 
+		<select name="setAdmin" id="set"> 
 	<?php 
-				$get=mysqli_query($con,"SELECT NEPTUN FROM USER WHERE TYPE=1"); 
-				$option = ''; 
-				while($row = mysqli_fetch_assoc($get)) 
-				{ 
-					$option .= '<option value = "'.$row['NEPTUN'].'">'.$row['NEPTUN'].'</option>'; 
-				} 
-        		        echo $option;
+			$get=mysqli_query($con,"SELECT NEPTUN FROM USER WHERE TYPE=1"); 
+			$option = ''; 
+			while($row = mysqli_fetch_assoc($get)) 
+			{ 
+				$option .= '<option value = "'.$row['NEPTUN'].'">'.$row['NEPTUN'].'</option>'; 
+			} 
+			echo $option;
 	?>
-			</select>
-			<input type="submit" id="Submit" value="Beállítás"  /> 
-		</form>
+		</select>
+		<input type="submit" id="Submit" value="Beállítás"  /> 
+	</form>
 	</br></br>
 	
         <b>Oktatói jogosultság elvétele:</b>
-		<form action="#" method="POST"> 
-			<select name="delAdmin" id="del"> 
+	<form action="#" method="POST"> 
+		<select name="delAdmin" id="del"> 
 	<?php 
-				$get=mysqli_query($con,"SELECT NEPTUN FROM USER WHERE TYPE=2"); 
-				$option = ''; 
-				while($row = mysqli_fetch_assoc($get)) 
-				{ 
-					$option .= '<option value = "'.$row['NEPTUN'].'">'.$row['NEPTUN'].'</option>'; 
-				} 
-        		        echo $option;
+			$get=mysqli_query($con,"SELECT NEPTUN FROM USER WHERE TYPE=2"); 
+			$option = ''; 
+			while($row = mysqli_fetch_assoc($get)) 
+			{ 
+				$option .= '<option value = "'.$row['NEPTUN'].'">'.$row['NEPTUN'].'</option>'; 
+			} 
+			echo $option;
 	?>
-			</select>
-			<input type="submit" id="Submit" value="Beállítás"  /> 
-		</form>	
+		</select>
+		<input type="submit" id="Submit" value="Beállítás"  /> 
+	</form>	
 	</br</br></br>
 	
         <b>Új szerepkör felvétele:</b>
-		<form action="#" method="POST"> 
-			<input type="text" name="addRole" class="box" size="30"/>
-			<input type="submit" id="Submit" value="Hozzáadás" /> 
-		</form>	
+	<form action="#" method="POST"> 
+		<input type="text" name="addRole" class="box" size="30"/>
+		<input type="submit" id="Submit" value="Hozzáadás" /> 
+	</form>	
+	</br></br>
+	
+        <b>Szerepkör törlése:</b></br>
+    	<form action="#" method="POST"> 
+		<select name="delRole" id="del"> 
+	<?php 
+                $get=mysqli_query($con,"SELECT NAME FROM ROLE"); 
+                $option = ''; 
+                while($row = mysqli_fetch_assoc($get)) 
+                { 
+                    $option .= '<option value = "'.$row['NAME'].'">'.$row['NAME'].'</option>'; 
+                } 
+
+                echo $option; 
+	?> 
+        	</select> 
+        	<input type="submit" id="Submit" value="Törlés"  /> 
+        </form> 
+        </br></br>
 		
     <?php
         }
