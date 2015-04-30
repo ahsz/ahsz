@@ -1,15 +1,15 @@
 <!DOCTYPE html>
-    <?php 
-        session_start();  
-        require "check_logged_in.php"; 
-        require "config.php"; 
-    ?>
+<?php 
+    session_start();  
+    require "check_logged_in.php"; 
+    require "config.php"; 
+?>
 <html>
 <head>
     <meta charset="UTF-8"></meta>
     <title>Oktatói felület</title>
     <style media="screen" type="text/css"> 
-    textarea { resize: none; } 
+        textarea { resize: none; } 
     </style>
 </head>
 <body>
@@ -23,7 +23,7 @@
             <td><b>E-mail cím</b></td>
         </tr>
         <?php
-            $result=mysqli_query($con,"SELECT ifnull(U.NAME,'') as NAME, ifnull(U.EMAIL,'') as EMAIL FROM USER U WHERE U.TYPE=2);
+            $result=mysqli_query($con,"SELECT ifnull(U.NAME,'') as NAME, ifnull(U.EMAIL,'') as EMAIL FROM USER U WHERE U.TYPE=2");
             while($row = mysqli_fetch_assoc($result))
             {
                 echo "<tr>";
