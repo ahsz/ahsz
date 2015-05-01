@@ -158,7 +158,7 @@
                 $option = ''; 
                 while($row = mysqli_fetch_assoc($get)) 
                 { 
-                    $option .= '<option value = "'.$row['NAME'] $row['DATE_CRT']'">'.$row['NAME'].'</option>'; 
+                    $option .= '<option value = "'.$row['NAME'].'">'.$row['NAME'].'</option>'; 
                 } 
 
                 echo $option; 
