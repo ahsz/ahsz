@@ -93,8 +93,29 @@
 	
 	</style>
 	
-	
+	<script type="text/javascript" src="https://www.google.com/jsapi"></script>
+    <script type="text/javascript">
+      google.load("visualization", "1", {packages:["corechart"]});
+      google.setOnLoadCallback(drawChart);
+      function drawChart() {
 
+        var data = google.visualization.arrayToDataTable([
+          ['Result', 'Count'],
+          ['Passed',     $row['NPASS']],
+          ['Failed',      $row['NFAILED'],
+          ['Inconclusive',  $row['NINC']]
+        ]);
+
+        var options = {
+          title: 'My Daily Activities'
+        };
+
+        var chart = new google.visualization.PieChart(document.getElementById('piechart'));
+
+        chart.draw(data, options);
+      }
+    </script>
+</head>
 <body>
 	<h1>Teszt eredmények</h1>
 
@@ -144,29 +165,7 @@
 				
 		</div>
 	</div>
-	
-	<script type="text/javascript" src="https://www.google.com/jsapi"></script>
-    <script type="text/javascript">
-      google.load("visualization", "1", {packages:["corechart"]});
-      google.setOnLoadCallback(drawChart);
-      function drawChart() {
-
-        var data = google.visualization.arrayToDataTable([
-          ['Result', 'Count'],
-          ['Passed',     $row['NPASS']],
-          ['Failed',      $row['NFAILED'],
-          ['Inconclusive',  $row['NINC']]
-        ]);
-
-        var options = {
-          title: 'My Daily Activities'
-        };
-
-        var chart = new google.visualization.PieChart(document.getElementById('piechart'));
-
-        chart.draw(data, options);
-      }
-    </script>
+	<div id="piechart" style="width: 900px; height: 500px;"></div>
 </body>
 
 </html>
