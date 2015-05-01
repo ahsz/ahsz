@@ -89,7 +89,7 @@
 		var child2 = document.getElementById("selected_team");
 		var child3 = document.getElementById("decision");
 		var child4 = document.getElementById("news");
-		var team_id = <?php	echo $_SESSION['def_tid'];?>
+		var team_id = <?php	echo $_SESSION['def_tid'];?>;
 		
 		parent.removeChild(child1);
 		parent.removeChild(child2);
