@@ -94,7 +94,7 @@
 		var child3 = document.getElementById("decision");
 		var child4 = document.getElementById("news");	
 		var team_id = <?php	
-			if($_SESSION['def_tid']){
+			if($_SESSION['def_tid']== -1){
 			echo $_SESSION['def_tid'];
 			}
 			else{
@@ -134,7 +134,7 @@
 									//echo "<script type='text/javascript'>alert('$noTeamMsg');</script>";
 								}
 						}
-						else if($tid==0){
+						else if($tid==-1){
 							echo '"Oktatói jogosultsággal rendelkezel!";';
 						}
 						else{
