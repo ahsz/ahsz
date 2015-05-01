@@ -274,7 +274,23 @@
 		  echo "</tr>";
 		}
 	} //if nek a bezárása, ami a Github repó mögött nyílik
+	
+	if($_SESSION['ROLE_ID'] != 2 && $tid!=null && $_SESSION['TYPE'] == 1) {
 	?>
+	
+	<form action="#" method="POST">  
+		<select name="leaveTeam" id="del">  
+		</select> 
+		<input type="submit" id="Submit" value="Kilépek"  />  
+	</form>	 
+	
+	<?php
+	}
+	?>
+
+	
+	
+	
 </table>
 	
 </body>
