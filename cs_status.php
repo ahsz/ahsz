@@ -232,7 +232,7 @@
 					$t_ghub = $row['GITHUB_LINK'];
 				}
 			?>
-				<input type="text" name="github_mod" class="box" size="30" value="<?php echo $t_ghub; ?>"/>
+				<input type="text" name="github_mod" class="box" size="50" value="<?php echo $t_ghub; ?>"/>
 				<!--<textarea id="github_mod" name="github_mod" rows="1" cols="30"><?php echo $t_ghub; ?></textarea>-->
 				<input type="submit" name="submit" value="Módosítás" />
 	
