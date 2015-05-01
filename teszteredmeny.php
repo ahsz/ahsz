@@ -25,14 +25,14 @@
 				}
 			
 			$failed = $_POST['failed'];
-			if (!preg_match('/\d+/',$passed)){
+			if (!preg_match('/\d+/',$failed)){
 				echo "HIBA: nem számot adtál meg Failednek";
 				echo '<a href="profil.php">'. Vissza . '</a>'; 
 				exit();
 				}		
 
 			$inconclusive = $_POST['inconclusive'];	
-			if (!preg_match('/\d+/',$passed)){
+			if (!preg_match('/\d+/',$inconclusive)){
 				echo "HIBA: nem számot adtál meg Inconclusivenak";
 				echo '<a href="profil.php">'. Vissza . '</a>'; 
 				exit();
@@ -42,7 +42,7 @@
 			
 			$neptun_kod=$_SESSION['NEPTUN'];
 			$t_id=$_SESSION['TEAM_ID'];
-			//TODO: regexp
+
 		$saveentry	 = mysqli_query($con,"INSERT INTO TEST VALUES (null,$t_id, STR_TO_DATE('$time ', '%Y-%m-%d %H:%i:%s') , $sum,$passed,$failed,$inconclusive, sysdate(),'$neptun_kod')");
 		if($saveentry){
 			$message = "Szerepkör sikeresen felvéve!"; 
