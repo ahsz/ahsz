@@ -62,15 +62,22 @@
 	function leaveTeam(){ 
 		require "config.php";  
 		$smNeptun  = $_SESSION['NEPTUN']; 
-		$leaveTeam = mysqli_query($con,"UPDATE USER SET TEAM_ID=null WHERE NEPTUN='$smNeptun'");  
-		if($leaveTeam){ 
-			$message = "Sikeres oktató elvétel!";  
-			echo "<script type='text/javascript'>alert('$message');</script>"; 
-		} 
-		else{ 
-			echo "Hiba, probald ujra!" . mysqli_error($delAdmin); 
-			echo '<a href="oktatoi.php">'. Vissza . '</a>'; 
-		} 
+		$igen = $_POST['leaveTeam'];
+		if($igen=='igen') {
+			$leaveTeam = mysqli_query($con,"UPDATE USER SET TEAM_ID=null WHERE NEPTUN='$smNeptun'");  
+			if($leaveTeam){ 
+				$message = "Sikeres oktató elvétel!";  
+				echo "<script type='text/javascript'>alert('$message');</script>"; 
+			} 
+			else{ 
+				echo "Hiba, probald ujra!" . mysqli_error($delAdmin); 
+				echo '<a href="oktatoi.php">'. Vissza . '</a>'; 
+			} 
+		}
+		else {
+				echo "Csak az igen szó megadásával tudsz kilépni a csapatodból!"; 
+				echo '<a href="oktatoi.php">'. Vissza . '</a>'; 
+		}
 	} 
 
 	
@@ -269,11 +276,11 @@
 	<?php
 		if($_SESSION['ROLE_ID'] != 2 && $tid!=null && $_SESSION['TYPE'] == 1) {
 	?>
-
+		<b>Ki akarsz lépni a csapatból? (igen):</b>
+		</br>
 		<form action="#" method="POST">  
-			<select name="leaveTeam" id="del">  
-			</select> 
-			<input type="submit" id="Submit" value="Csapatból kilépes"  />  
+			<input type="test" name="leaveTeam" class="box" size="10"/>
+			<input type="submit" id="Submit" value="Mehet"  />  
 		</form>	 
 		</br></br>
 	
