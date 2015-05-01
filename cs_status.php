@@ -294,7 +294,8 @@
 		  echo "</tr>";
 		}
 	} //if nek a bezárása, ami a Github repó mögött nyílik
-	
+	?>
+	<!--
 	if($_SESSION['ROLE_ID'] != 2 && $tid!=null && $_SESSION['TYPE'] == 1) {
 	?>
 	</br>
@@ -304,10 +305,8 @@
 		<input type="submit" id="Submit" value="Csapatból kilépes"  />  
 	</form>	 
 	
-	<?php
-	}
-	?>
 
+	-->
 	
 	
 	
