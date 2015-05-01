@@ -117,7 +117,10 @@
 		
 						//csapatnév lekérése, hogy ki legyen írva az oldal tetejére
 						$tid = $_SESSION['def_tid'];
-						if($tid!=0){
+						if($tid==-1){
+							echo '"Oktatói jogosultsággal rendelkezel!";';
+						}
+						elseif($tid!=0){
 						$teamname = mysqli_query($con,"SELECT NAME FROM TEAM WHERE ID='$tid'");
 						while($row=mysqli_fetch_assoc($teamname))
 						{
@@ -128,10 +131,11 @@
 
 
 								}
-
-						}
-						elseif($tid==-1){
-							echo '"Oktatói jogosultsággal rendelkezel!";';
+								else{
+									echo '"";';
+									//$noTeamMsg = "Még nincsen csapatod! Kérlek csatlakozz egy csapathoz!";
+									//echo "<script type='text/javascript'>alert('$noTeamMsg');</script>";
+								}
 						}
 						else{
 							echo '"";';
