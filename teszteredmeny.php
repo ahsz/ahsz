@@ -56,7 +56,7 @@
 	
 	function draw(){
 			require "config.php";
-			$result=mysqli_query($con,"SELECT ifnull(NUM_OF_TEST,'') AS NPASS, ifnull(NUM_OF_FAIL,'') AS NFAILED, ifnull(NUM_OF_INC,'') as NINC FROM TEST WHERE DATE=STR_TO_DATE('2010-10-10 10:10:10', '%Y-%m-%d %H:%i:%s')");
+			$result=mysqli_query($con,"SELECT ifnull(NUM_OF_TEST,'') AS NPASS, ifnull(NUM_OF_FAIL,'') AS NFAILED, ifnull(NUM_OF_INC,'') as NINC FROM TEST WHERE DATE=STR_TO_DATE('2010-10-10', '%Y-%m-%d')");
 			if($result->num_rows>0){
 				$row=mysqli_fetch_assoc($result);				
 			} else {
