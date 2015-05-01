@@ -66,8 +66,9 @@
 		if($igen=='igen') {
 			$leaveTeam = mysqli_query($con,"UPDATE USER SET TEAM_ID=null WHERE NEPTUN='$smNeptun'");  
 			if($leaveTeam){ 
-				$message = "Sikeres oktató elvétel!";  
+				$message = "Sikeres kilépés a csapatból!";  
 				echo "<script type='text/javascript'>alert('$message');</script>"; 
+				$_SESSION['TEAM_ID']=null;
 			} 
 			else{ 
 				echo "Hiba, probald ujra!" . mysqli_error($delAdmin); 
