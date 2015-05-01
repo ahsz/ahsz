@@ -273,7 +273,11 @@
 		  echo "<td>".$row['uemail']."</td>";
 		  echo "</tr>";
 		}
-	} //if nek a bezárása, ami a Github repó előtt nyílik
+	} //if nek a bezárása, ami a Github repó mögött nyílik
+	
+	if($_SESSION['ROLE_ID']!=2)
+		echo ezt nem látom;
+	
 	?>
 </table>
 	
