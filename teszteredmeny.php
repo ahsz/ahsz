@@ -118,12 +118,12 @@
 
 		var columnChart, tableChart;
 		document.getElementById('change-btn').onclick=function() {
-			/*data.removeRow(0);
+			data.removeRow(0);
 			data.removeRow(1);
 			data.removeRow(2);
-			data.insertRows(0, [['Passed', <?$row['NPASS']?>]]);
-			data.insertRows(1, [['Failed', <?$row['NFAILED']?>]]);
-			data.insertRows(2, [['Inconclusive', <?$row['NINC']?>]]);*/
+			data.insertRows(0, [['Passed', <?php echo $row['NPASS'];?>]]);
+			data.insertRows(1, [['Failed', <?php echo $row['NFAILED'];?>]]);
+			data.insertRows(2, [['Inconclusive', <?php echo $row['NINC'];?>]]);
 			columnChart.draw(data);
 			pieChart.draw(data);
 		}
@@ -163,6 +163,7 @@
 <?php
 	draw();
 ?>
+ <?php echo $row['NPASS'];?>
 				<tr><td><br><br></td></tr>
 				<div class="user_info">
 					<tr><td>
