@@ -173,11 +173,11 @@
     	<form action="#" method="POST"> 
 			<select name="delTeam" id="del"> 
 	<?php 
-                $get=mysqli_query($con,"SELECT NAME FROM TEAM ORDER BY NAME"); 
+                $get=mysqli_query($con,"SELECT NAME, DATE_CRT FROM TEAM ORDER BY NAME"); 
                 $option = ''; 
                 while($row = mysqli_fetch_assoc($get)) 
                 { 
-                    $option .= '<option value = "'.$row['NAME'].'">'.$row['NAME'].'</option>'; 
+                    $option .= '<option value = "'.$row['NAME'].$row['DATE_CRT'].'">'.$row['NAME'].'</option>'; 
                 } 
 
                 echo $option; 
