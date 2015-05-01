@@ -1,6 +1,4 @@
-<?php
-	session_start(); 
-?>
+
 
 <!DOCTYPE html>
 <html>
@@ -86,6 +84,10 @@
 	
 	
 	window.onload = function () {
+	
+		<?php
+		session_start(); 
+		?>
 	//	document.getElementById("Create").disabled = "true";
 	//	document.getElementById("create_team").style.visibility = "hidden";
 		var parent = document.getElementById("manage_team");
