@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 
 <?php
-	/*session_start();  
+	session_start();  
     require "check_logged_in.php"; 
     require "config.php"; 
     
@@ -20,14 +20,14 @@
 			echo "<script type='text/javascript'>alert('$message');</script>";
 		}
 		else{
-        		echo "Hiba, probald ujra!" . /*mysqli_error($saveentry)*/;
+        		/*echo "Hiba, probald ujra!" . mysqli_error($saveentry);*/
         		echo '<a href="oktatoi.php">'. Vissza . '</a>';
 		}
 	}
 	
     if(isset($_POST['time']) && isset($_POST['passed']) && isset($_POST['failed']) && isset($_POST['inconclusive'])){
     	save();
-    }*/
+    }
 ?>
 
 <html>
