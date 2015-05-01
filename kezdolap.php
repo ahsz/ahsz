@@ -99,7 +99,7 @@
 					$t_name = "";
 	
 					//csapatnév lekérése, hogy ki legyen írva az oldal tetejére
-					$tid = $default_tid;
+					$tid = $def_tid;
 					$teamname = mysqli_query($con,"SELECT NAME FROM TEAM WHERE ID='$tid'");
 					while($row=mysqli_fetch_assoc($teamname))
 					{
@@ -295,7 +295,7 @@
 
 			
 				<?php
-					$t_id=default_tid;
+					$t_id=$def_tid;
 					$last_messages = 5;
 					$new_array = array();
 					
