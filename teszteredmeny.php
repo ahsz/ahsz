@@ -119,7 +119,11 @@
 		var columnChart, tableChart;
 		document.getElementById('change-btn').onclick=function() {
 			data.removeRow(0);
-
+			data.removeRow(1);
+			data.removeRow(2);
+			data.insertRows(0, [['Passed', <?$row['NPASS']?>]]);
+			data.insertRows(1, [['Failed', <?$row['NFAILED']?>]]);
+			data.insertRows(2, [['Inconclusive', <?$row['NINC']?>]]);
 			columnChart.draw(data);
 			pieChart.draw(data);
 		}
@@ -196,6 +200,7 @@
 				
 		</div>
 	</div>
+	<button id="change-btn">Draw</button>
 	<div id="div_id_1" style="width: 900px; height: 500px;"></div>
 	<div id="div_id_2"></div>
 </body>
