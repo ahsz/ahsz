@@ -93,13 +93,13 @@
 		
 		document.getElementById("statusz").innerHTML = 
 					<?php
-						session_start(); 
+					session_start(); 
 					require "config.php";
 					ini_set('display_errors', 'on');
 					$t_name = "";
 	
 					//csapatnév lekérése, hogy ki legyen írva az oldal tetejére
-					$tid = $def_tid;
+					$tid = $_SESSION['def_tid'];
 					$teamname = mysqli_query($con,"SELECT NAME FROM TEAM WHERE ID='$tid'");
 					while($row=mysqli_fetch_assoc($teamname))
 					{
@@ -115,7 +115,7 @@
 								//$noTeamMsg = "Még nincsen csapatod! Kérlek csatlakozz egy csapathoz!";
 								//echo "<script type='text/javascript'>alert('$noTeamMsg');</script>";
 							}
-	?>
+					?>
 	
 	<?php
 		if($t_name != null){

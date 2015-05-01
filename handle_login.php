@@ -21,7 +21,7 @@
 		
 			if($count==1){
 				$_SESSION = mysqli_fetch_assoc($result);
-				$def_tid = $_SESSION['TEAM_ID'];
+				$_SESSION['def_tid'] = $_SESSION['TEAM_ID'];
 				$_SESSION['username'] = $escapeduser;
 				if($_SESSION['TYPE']==2){
 					$result=mysqli_query($con,"SELECT * FROM TEAM");
