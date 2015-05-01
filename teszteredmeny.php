@@ -54,6 +54,18 @@
 		}
 	}
 	
+	function draw(){
+			require "config.php";
+			$result=mysqli_query($con,"SELECT ifnull(NUM_OF_TEST,'') AS NPASS, ifnull(NUM_OF_FAIL,'') AS NFAILED, ifnull(NUM_OF_INC,'') as NINC FROM TEST WHERE DATE=STR_TO_DATE('2010-10-10 10:10:10', '%Y-%m-%d %H:%i:%s')");
+			if($result->num_rows>0){
+				$row=mysqli_fetch_assoc($result);				
+			} else {
+				echo "HIBA: " . mysqli_error($con);
+				echo '<a href="profil.php">'. Vissza . '</a>'; 
+				exit(); 	
+			}
+	
+	
     if(isset($_POST['time']) && isset($_POST['passed']) && isset($_POST['failed']) && isset($_POST['inconclusive'])){
     	save();
     }
@@ -91,6 +103,10 @@
 			<table style="width:50%">
 				<div class="user_info">
 					<tr><td>
+					
+<?php
+	draw();
+?>
 				<tr><td><br><br></td></tr>
 				<div class="user_info">
 					<tr><td>
@@ -128,6 +144,29 @@
 				
 		</div>
 	</div>
+	
+	<script type="text/javascript" src="https://www.google.com/jsapi"></script>
+    <script type="text/javascript">
+      google.load("visualization", "1", {packages:["corechart"]});
+      google.setOnLoadCallback(drawChart);
+      function drawChart() {
+
+        var data = google.visualization.arrayToDataTable([
+          ['Result', 'Count'],
+          ['Passed',     $row['NPASS']],
+          ['Failed',      $row['NFAILED'],
+          ['Inconclusive',  $row['NINC']]
+        ]);
+
+        var options = {
+          title: 'My Daily Activities'
+        };
+
+        var chart = new google.visualization.PieChart(document.getElementById('piechart'));
+
+        chart.draw(data, options);
+      }
+    </script>
 </body>
 
 </html>
