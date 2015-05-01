@@ -134,9 +134,12 @@
 									//echo "<script type='text/javascript'>alert('$noTeamMsg');</script>";
 								}
 						}
-						else{
+						else if($tid==0){
 							echo '"Oktatói jogosultsággal rendelkezel!";';
 						}
+						else{
+							echo '"";';
+							}
 					?>
 	
 	<?php
