@@ -59,6 +59,22 @@
 		$_SESSION['TEAM_ID']=$row['ID'];
 	}
 	
+	function leaveTeam(){ 
+		require "config.php";  
+		$smNeptun  = $_SESSION['NEPTUN']; 
+		$leaveTeam = mysqli_query($con,"UPDATE USER SET TEAM_ID=null WHERE NEPTUN='$smNeptun'");  
+		if($leaveTeam){ 
+			$message = "Sikeres oktató elvétel!";  
+			echo "<script type='text/javascript'>alert('$message');</script>"; 
+		} 
+		else{ 
+			echo "Hiba, probald ujra!" . mysqli_error($delAdmin); 
+			echo '<a href="oktatoi.php">'. Vissza . '</a>'; 
+		} 
+	} 
+
+	
+	
 	if(isset($_POST['addTeammate'])){
 		addToTeam();
 	}
@@ -73,6 +89,10 @@
 	}
 	if(isset($_POST['changeTeam'])){
 		changeTeam();
+	}
+	
+	if(isset($_POST['leaveTeam'])){
+		leaveTeam();
 	}
 	
 	//csapatnév lekérése, hogy ki legyen írva az oldal tetejére
@@ -277,11 +297,11 @@
 	
 	if($_SESSION['ROLE_ID'] != 2 && $tid!=null && $_SESSION['TYPE'] == 1) {
 	?>
-	
+	</br>
 	<form action="#" method="POST">  
 		<select name="leaveTeam" id="del">  
 		</select> 
-		<input type="submit" id="Submit" value="Kilépek"  />  
+		<input type="submit" id="Submit" value="Csapatból kilépes"  />  
 	</form>	 
 	
 	<?php
