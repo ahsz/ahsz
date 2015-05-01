@@ -23,7 +23,7 @@
 	function setAdmin(){
         	require "config.php"; 
         	$admin = $_POST['setAdmin'];
-        	$setAdmin = mysqli_query($con,"UPDATE USER SET TYPE=2 WHERE NEPTUN='$admin'"); 
+        	$setAdmin = mysqli_query($con,"UPDATE USER SET TYPE=2, TEAM_ID=0 WHERE NEPTUN='$admin'"); 
         	if($setAdmin){
         		$message = "Sikeres oktató hozzáadás!"; 
         		echo "<script type='text/javascript'>alert('$message');</script>";
@@ -37,7 +37,7 @@
 	function delAdmin(){
         	require "config.php"; 
         	$admin = $_POST['delAdmin'];
-        	$delAdmin = mysqli_query($con,"UPDATE USER SET TYPE=1 WHERE NEPTUN='$admin'"); 
+        	$delAdmin = mysqli_query($con,"UPDATE USER SET TYPE=1, TEAM_ID=null WHERE NEPTUN='$admin'"); 
         	if($delAdmin){
         		$message = "Sikeres oktató elvétel!"; 
 			echo "<script type='text/javascript'>alert('$message');</script>";
