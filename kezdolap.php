@@ -88,14 +88,19 @@
 	window.onload = function () {
 	//	document.getElementById("Create").disabled = "true";
 	//	document.getElementById("create_team").style.visibility = "hidden";
-		var team_id = -1;
 		var parent = document.getElementById("manage_team");
 		var child1 = document.getElementById("create_team");
 		var child2 = document.getElementById("selected_team");
 		var child3 = document.getElementById("decision");
-		var child4 = document.getElementById("news");
-		
-		team_id = <?php	echo $_SESSION['def_tid'];?>;
+		var child4 = document.getElementById("news");	
+		var team_id = <?php	
+			if($_SESSION['def_tid']){
+			echo $_SESSION['def_tid'];
+			}
+			else{
+			echo "empty";	
+			}
+			?>;
 		
 		parent.removeChild(child1);
 		parent.removeChild(child2);
