@@ -118,12 +118,12 @@
 
 		var columnChart, tableChart;
 		document.getElementById('change-btn').onclick=function() {
-			data.removeRow(0);
+			/*data.removeRow(0);
 			data.removeRow(1);
 			data.removeRow(2);
 			data.insertRows(0, [['Passed', <?$row['NPASS']?>]]);
 			data.insertRows(1, [['Failed', <?$row['NFAILED']?>]]);
-			data.insertRows(2, [['Inconclusive', <?$row['NINC']?>]]);
+			data.insertRows(2, [['Inconclusive', <?$row['NINC']?>]]);*/
 			columnChart.draw(data);
 			pieChart.draw(data);
 		}
