@@ -20,6 +20,7 @@
 			$count=mysqli_num_rows($result);
 		
 			if($count==1){
+				$_SESSION['default_tid'] = $_SESSION['TEAM_ID'];
 				$_SESSION = mysqli_fetch_assoc($result);
 				$_SESSION['username'] = $escapeduser;
 				if($_SESSION['TYPE']==2){

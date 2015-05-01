@@ -39,7 +39,7 @@ License: Creative Commons Attribution
 
 			<nav id="mainnav">
   				<ul>
-      <li><a href="kezdolap.php" class="link1" target="kezdolap_frame">Kezdolap</a></li>
+      <li><a href="kezdolap.php" class="link1" target="kezdolap_frame">Kezdőlap</a></li>
       <li><a href="profil.php" class="link2" target="kezdolap_frame">Profil</a></li>
 	  <li><a href="uzenetek.php" class="link3" target="kezdolap_frame">Üzenetek</a></li>
       <li><a href="ertekeles.html" class="link4" target="kezdolap_frame">Értékelés</a></li>
