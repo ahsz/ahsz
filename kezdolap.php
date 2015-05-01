@@ -143,7 +143,7 @@
 					?>
 	
 	<?php
-		if($t_name != null || $tid == 0){
+		if($t_name != null || $tid == -1){
 		echo  'parent.removeChild(child3);';
 		}
 	?>
