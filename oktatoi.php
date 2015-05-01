@@ -100,7 +100,7 @@
 ?>
 <html>
 <head>
-    <meta charset="iso-8859-2"></meta>
+    <meta charset="utf-8"></meta>
     <title>Oktatói felület</title>
     <style media="screen" type="text/css"> 
         #profile { font-size:120% }
