@@ -134,7 +134,7 @@
 	
 <?php
 	
-	if($_SESSION['ID'] == 2 && $tid!=null) {
+	if($_SESSION['ROLE_ID'] == 2 && $tid!=null && $_SESSION['TYPE'] == 1) {
 		?>
 		<b>Csapattag felvétele:</b>
 		</br>
@@ -276,13 +276,12 @@
 	} //if nek a bezárása, ami a Github repó mögött nyílik
 	
 	?>
-	</br>/br>
-	<input type="submit" name="submit" value="Módosítás" />
+	</br>
 	<?php
 	
-	if($_SESSION['ROLE_ID'] != 2 && $tid!=null) {
+	if($_SESSION['ROLE_ID'] != 2 && $tid!=null &_SESSION['TYPE'] == 1) {
 	?>
-	<input type="submit" name="submit" value="Módosítás" />
+		<input type="submit" name="submit" value="Módosítás" />
 	<?php
 	}
 	?>
