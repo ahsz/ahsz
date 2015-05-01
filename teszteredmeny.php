@@ -9,32 +9,32 @@
 
 	function save(){
         	require "config.php"; 
-			
-			$passed = $_POST['passed'];
-			if (!preg_match('/\d+/',$passed)){
-				echo "HIBA: nem számot adtál meg Passednak";
-				echo '<a href="profil.php">'. Vissza . '</a>'; 
-				exit();
-				}		
 				
 			$time = $_POST['time'];
 			if (!preg_match('/(\d{4}-\d{2}-\d{2} \d{2}:\d{2}:\d{2})/',$time)){
 				echo "HIBA: rossz dátumformátum";
-				echo '<a href="profil.php">'. Vissza . '</a>'; 
+				echo '<a href="teszteredmeny.php">'. Vissza . '</a>'; 
 				exit();
 				}
+				
+			$passed = $_POST['passed'];
+			if (!preg_match('/\d+/',$passed)){
+				echo "HIBA: nem számot adtál meg Passednak";
+				echo '<a href="teszteredmeny.php">'. Vissza . '</a>'; 
+				exit();
+				}		
 			
 			$failed = $_POST['failed'];
 			if (!preg_match('/\d+/',$failed)){
 				echo "HIBA: nem számot adtál meg Failednek";
-				echo '<a href="profil.php">'. Vissza . '</a>'; 
+				echo '<a href="teszteredmeny.php">'. Vissza . '</a>'; 
 				exit();
 				}		
 
 			$inconclusive = $_POST['inconclusive'];	
 			if (!preg_match('/\d+/',$inconclusive)){
 				echo "HIBA: nem számot adtál meg Inconclusivenak";
-				echo '<a href="profil.php">'. Vissza . '</a>'; 
+				echo '<a href="teszteredmeny.php">'. Vissza . '</a>'; 
 				exit();
 				}		
 				
