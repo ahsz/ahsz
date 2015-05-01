@@ -20,8 +20,8 @@
 			$count=mysqli_num_rows($result);
 		
 			if($count==1){
-				$_SESSION['default_tid'] = $_SESSION['TEAM_ID'];
 				$_SESSION = mysqli_fetch_assoc($result);
+				$_SESSION['default_tid'] = $_SESSION['TEAM_ID'];
 				$_SESSION['username'] = $escapeduser;
 				if($_SESSION['TYPE']==2){
 					$result=mysqli_query($con,"SELECT * FROM TEAM");
