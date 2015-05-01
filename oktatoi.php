@@ -38,7 +38,7 @@
 	function setAdmin(){
         	require "config.php"; 
         	$admin = $_POST['setAdmin'];
-        	$setAdmin = mysqli_query($con,"UPDATE USER SET TYPE=2, TEAM_ID=0 WHERE NEPTUN='$admin'"); 
+        	$setAdmin = mysqli_query($con,"UPDATE USER SET TYPE=2, TEAM_ID=-1 WHERE NEPTUN='$admin'"); 
         	if($setAdmin){
         		$message = "Sikeres oktató hozzáadás!"; 
         		echo "<script type='text/javascript'>alert('$message');</script>";
