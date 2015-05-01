@@ -295,7 +295,6 @@
 
 			
 				<?php
-					session_start();
 					$t_id=$_SESSION['default_tid'];
 					$last_messages = 5;
 					$new_array = array();
