@@ -1,3 +1,7 @@
+<?php
+	session_start(); 
+?>
+
 <!DOCTYPE html>
 <html>
 <head>
@@ -75,7 +79,7 @@
 
 		
 	</style>
-	
+
 	<script>
 	var clicked = false;
 
@@ -100,7 +104,6 @@
 		
 		document.getElementById("statusz").innerHTML = 
 					<?php
-						session_start(); 
 						require "config.php";
 						ini_set('display_errors', 'on');
 						$t_name = "";
