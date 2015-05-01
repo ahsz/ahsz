@@ -150,6 +150,24 @@
         </form> 
         </br></br>
         
+        <b>Csapat törlése:</b></br>
+    	<form action="#" method="POST"> 
+			<select name="delUser" id="del"> 
+	<?php 
+                $get=mysqli_query($con,"SELECT NAME, DATE_CRT FROM TEAM ORDER BY NAME"); 
+                $option = ''; 
+                while($row = mysqli_fetch_assoc($get)) 
+                { 
+                    $option .= '<option value = "'.$row['NAME'].$row['DATE_CRT']'">'.$row['NAME'].'</option>'; 
+                } 
+
+                echo $option; 
+	?> 
+        	</select> 
+        	<input type="submit" id="Submit" value="Törlés"  /> 
+        </form> 
+        </br></br>
+        
         <b>Oktatói jogosultság beállítása:</b>
 	<form action="#" method="POST"> 
 		<select name="setAdmin" id="set"> 
