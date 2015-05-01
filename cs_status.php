@@ -275,7 +275,7 @@
 		}
 	} //if nek a bezárása, ami a Github repó mögött nyílik
 	
-	if($_SESSION['ID'] != 2 && $tid!=null) {
+	if($_SESSION['ROLE_ID'] != 2 && $tid!=null) {
 		echo "ezt nem látom";
 	}
 	?>
