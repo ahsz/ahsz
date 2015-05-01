@@ -1,13 +1,12 @@
 <!DOCTYPE html>
+
 <?php
-	session_start();  
+	/*session_start();  
     require "check_logged_in.php"; 
     require "config.php"; 
     
 	ini_set('display_errors', 'on');
-	
-	
-	
+
 	function save(){
         	require "config.php"; 
 			$time = $_POST['time'];
@@ -28,9 +27,9 @@
 	
     if(isset($_POST['time']) && isset($_POST['passed']) && isset($_POST['failed']) && isset($_POST['inconclusive'])){
     	save();
-    }
-	
+    }*/
 ?>
+
 <html>
 <head>
 	<meta charset="UTF-8">  </meta>
@@ -56,17 +55,11 @@
 	
 
 <body>
-	<h1>Profil</h1>
+	<h1>Teszt eredmények</h1>
 
 
 		<div id="profile">
-			<!-- Név --> 
 			<table style="width:50%">
-				<div class="user_info">
-					<tr><td>
-						<b>Adatok</b>
-					</td></tr>
-				</div>
 				<div class="user_info">
 					<tr><td>
 				<tr><td><br><br></td></tr>
