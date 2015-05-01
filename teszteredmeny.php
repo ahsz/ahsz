@@ -12,7 +12,7 @@
 			
 			$passed = $_POST['passed'];
 			if (!preg_match('/\d+/',$passed)){
-				echo "HIBA: nem számot adtál meg";
+				echo "HIBA: nem számot adtál meg Passednak";
 				echo '<a href="profil.php">'. Vissza . '</a>'; 
 				exit();
 				}		
@@ -24,13 +24,20 @@
 				exit();
 				}
 			
-	
-			
 			$failed = $_POST['failed'];
+			if (!preg_match('/\d+/',$passed)){
+				echo "HIBA: nem számot adtál meg Failednek";
+				echo '<a href="profil.php">'. Vissza . '</a>'; 
+				exit();
+				}		
 
 			$inconclusive = $_POST['inconclusive'];	
-
-			
+			if (!preg_match('/\d+/',$passed)){
+				echo "HIBA: nem számot adtál meg Inconclusivenak";
+				echo '<a href="profil.php">'. Vissza . '</a>'; 
+				exit();
+				}		
+				
 			$sum= $passed + $failed + $inconclusive;
 			
 			$neptun_kod=$_SESSION['NEPTUN'];
