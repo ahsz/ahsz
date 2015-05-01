@@ -99,7 +99,7 @@
 		parent.removeChild(child2);
 		
 		if (team_id == 0) {
-			parent.removeChild(child4);
+			document.getElementById("main_page").removeChild(child4);
 		}
 		
 		document.getElementById("statusz").innerHTML = 
