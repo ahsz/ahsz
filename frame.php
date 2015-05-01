@@ -46,6 +46,7 @@ License: Creative Commons Attribution
 	  <li><a href="cs_status.php" class="link5" target="kezdolap_frame">Csapat státusz</a></li>
 	  <li><a href="m_status.html" class="link6" target="kezdolap_frame">Munka státusz</a></li>
       <li><a href="feltoltes.php" class="link7" target="kezdolap_frame">Feltöltés</a></li>
+	  <li><a href="teszteredmeny.php" class="link7" target="kezdolap_frame">Teszt eredmények</a></li>
       <li><a href="oktatoi.php" class="link8" target="kezdolap_frame">Oktatói felület</a></li>
 	  <li><a href="logout.php" class="link9">Kijelentkezés</a></li>
                         	</ul>
