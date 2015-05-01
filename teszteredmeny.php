@@ -93,27 +93,65 @@
 	
 	</style>
 	
-	<script type="text/javascript" src="https://www.google.com/jsapi"></script>
+<script>
+function myFunction() {var dataoriginale = document.getElementById("passed").value;
+document.getElementById("myText").value = dataoriginale;}</script>
+
+	<button id="change-btn">Try it</button>
+<script type="text/javascript" src="https://www.google.com/jsapi"></script>
     <script type="text/javascript">
-      google.load("visualization", "1", {packages:["corechart"]});
-      google.setOnLoadCallback(drawChart);
-      function drawChart() {
+      var testRows = [
+    ['Passed', 4,],
+    ['Failed', 1],
+    ['Inconclusive', 3],
+];
 
-        var data = google.visualization.arrayToDataTable([
-          ['Result', 'Count'],
-          ['Passed',     1],
-          ['Failed',      2],
-          ['Inconclusive', 3]
-        ]);
+var data = null;
 
-        var options = {
-          title: 'My Daily Activities'
-        };
+google.load("visualization", "1", {
+    packages: ["corechart", 'table']
+});
 
-        var chart = new google.visualization.PieChart(document.getElementById('piechart'));
+google.setOnLoadCallback(function () {
+    data = new google.visualization.DataTable();
+    data.addColumn('string', 'Result');
+    data.addColumn('number', 'Count');
+    data.addRows(testRows);
+    drawChart('piechart', 'div_id_1', data, null);
+    drawChart('columnChart', 'div_id_2', data, null);
+});
 
-        chart.draw(data, options);
-      }
+var columnChart, tableChart;
+document.getElementById('change-btn').onclick=function() {
+    data.removeRow(0);
+
+    columnChart.draw(data);
+    pieChart.draw(data);
+}
+        
+function drawChart(chartType, containerID, dataTablo, options) {
+    var containerDiv = document.getElementById(containerID);
+    var chart = false;
+    if (chartType.toUpperCase() == 'BARCHART') {
+        chart = new google.visualization.BarChart(containerDiv);
+    } else if (chartType.toUpperCase() == 'COLUMNCHART') {
+        chart = new google.visualization.ColumnChart(containerDiv);
+        columnChart = chart;
+    } else if (chartType.toUpperCase() == 'PIECHART') {
+        chart = new google.visualization.PieChart(containerDiv);
+		pieChart = chart;
+    } else if (chartType.toUpperCase() == 'TABLECHART') {
+        chart = new google.visualization.Table(containerDiv);
+        tableChart = chart;
+    }
+
+    if (chart == false) {
+        return false;
+    }
+    chart.draw(dataTablo, options);
+}
+
+
     </script>
 </head>
 <body>
@@ -165,7 +203,8 @@
 				
 		</div>
 	</div>
-	<div id="piechart" style="width: 900px; height: 500px;"></div>
+	<div id="div_id_1 style="width: 900px; height: 500px;"></div>
+	<div id="div_id_2"></div>
 </body>
 
 </html>
