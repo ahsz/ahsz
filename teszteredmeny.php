@@ -101,9 +101,9 @@
 
         var data = google.visualization.arrayToDataTable([
           ['Result', 'Count'],
-          ['Passed',     $row['NPASS']],
-          ['Failed',      $row['NFAILED'],
-          ['Inconclusive',  $row['NINC']]
+          ['Passed',     1],
+          ['Failed',      2],
+          ['Inconclusive', 3]
         ]);
 
         var options = {
