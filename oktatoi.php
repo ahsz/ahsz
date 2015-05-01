@@ -20,6 +20,21 @@
         	}
 	} 
 
+	function delTeam(){ 
+        	require "config.php"; 
+        	$team = $_POST['delTeam'];
+        	$delTeam = mysqli_query($con,"DELETE FROM TEAM WHERE NAME='$team'"); 
+        	if($delTeam){
+        		$message = "Sikeres felhasználó törlés!"; 
+        		echo "<script type='text/javascript'>alert('$message');</script>";
+        	}
+        	else{
+        		echo "Hiba, probald ujra!" . mysqli_error($delTeam);
+        		echo '<a href="oktatoi.php">'. Vissza . '</a>';
+        	}
+	} 
+
+
 	function setAdmin(){
         	require "config.php"; 
         	$admin = $_POST['setAdmin'];
@@ -79,6 +94,10 @@
 
     if(isset($_POST['delUser'])){
         delUser();
+    }
+    
+    if(isset($_POST['delTeam'])){
+        delTeam();
     }
     
     if(isset($_POST['setAdmin'])){
@@ -152,13 +171,13 @@
         
         <b>Csapat törlése:</b></br>
     	<form action="#" method="POST"> 
-			<select name="delUser" id="del"> 
+			<select name="delTeam" id="del"> 
 	<?php 
-                $get=mysqli_query($con,"SELECT NAME, DATE_CRT FROM TEAM ORDER BY NAME"); 
+                $get=mysqli_query($con,"SELECT NAME FROM TEAM ORDER BY NAME"); 
                 $option = ''; 
                 while($row = mysqli_fetch_assoc($get)) 
                 { 
-                    $option .= '<option value = "'.$row['NAME']$row['DATE_CRT'].'">'.$row['NAME']$row['DATE_CRT'].'</option>'; 
+                    $option .= '<option value = "'.$row['NAME'].'">'.$row['NAME'].'</option>'; 
                 } 
 
                 echo $option; 
