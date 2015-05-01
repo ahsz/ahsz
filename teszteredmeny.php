@@ -92,61 +92,59 @@
 	}
 	
 	</style>
-	
-<script type="text/javascript" src="https://www.google.com/jsapi"></script>
-    <script type="text/javascript">
-      var testRows = [
-    ['Passed', 4,],
-    ['Failed', 1],
-    ['Inconclusive', 3],
-];
+		
+	<script type="text/javascript" src="https://www.google.com/jsapi"></script>
+	<script type="text/javascript">
+			  var testRows = [
+			['Passed', 4,],
+			['Failed', 1],
+			['Inconclusive', 3],
+		];
 
-var data = null;
+		var data = null;
 
-google.load("visualization", "1", {
-    packages: ["corechart", 'table']
-});
+		google.load("visualization", "1", {
+			packages: ["corechart", 'table']
+		});
 
-google.setOnLoadCallback(function () {
-    data = new google.visualization.DataTable();
-    data.addColumn('string', 'Result');
-    data.addColumn('number', 'Count');
-    data.addRows(testRows);
-    drawChart('piechart', 'div_id_1', data, null);
-    drawChart('columnChart', 'div_id_2', data, null);
-});
+		google.setOnLoadCallback(function () {
+			data = new google.visualization.DataTable();
+			data.addColumn('string', 'Result');
+			data.addColumn('number', 'Count');
+			data.addRows(testRows);
+			drawChart('piechart', 'div_id_1', data, null);
+			drawChart('columnChart', 'div_id_2', data, null);
+		});
 
-var columnChart, tableChart;
-document.getElementById('change-btn').onclick=function() {
-    data.removeRow(0);
+		var columnChart, tableChart;
+		document.getElementById('change-btn').onclick=function() {
+			data.removeRow(0);
 
-    columnChart.draw(data);
-    pieChart.draw(data);
-}
-        
-function drawChart(chartType, containerID, dataTablo, options) {
-    var containerDiv = document.getElementById(containerID);
-    var chart = false;
-    if (chartType.toUpperCase() == 'BARCHART') {
-        chart = new google.visualization.BarChart(containerDiv);
-    } else if (chartType.toUpperCase() == 'COLUMNCHART') {
-        chart = new google.visualization.ColumnChart(containerDiv);
-        columnChart = chart;
-    } else if (chartType.toUpperCase() == 'PIECHART') {
-        chart = new google.visualization.PieChart(containerDiv);
-		pieChart = chart;
-    } else if (chartType.toUpperCase() == 'TABLECHART') {
-        chart = new google.visualization.Table(containerDiv);
-        tableChart = chart;
-    }
+			columnChart.draw(data);
+			pieChart.draw(data);
+		}
+				
+		function drawChart(chartType, containerID, dataTablo, options) {
+			var containerDiv = document.getElementById(containerID);
+			var chart = false;
+			if (chartType.toUpperCase() == 'BARCHART') {
+				chart = new google.visualization.BarChart(containerDiv);
+			} else if (chartType.toUpperCase() == 'COLUMNCHART') {
+				chart = new google.visualization.ColumnChart(containerDiv);
+				columnChart = chart;
+			} else if (chartType.toUpperCase() == 'PIECHART') {
+				chart = new google.visualization.PieChart(containerDiv);
+				pieChart = chart;
+			} else if (chartType.toUpperCase() == 'TABLECHART') {
+				chart = new google.visualization.Table(containerDiv);
+				tableChart = chart;
+			}
 
-    if (chart == false) {
-        return false;
-    }
-    chart.draw(dataTablo, options);
-}
-
-
+			if (chart == false) {
+				return false;
+			}
+			chart.draw(dataTablo, options);
+		}
     </script>
 </head>
 <body>
@@ -198,7 +196,7 @@ function drawChart(chartType, containerID, dataTablo, options) {
 				
 		</div>
 	</div>
-	<div id="div_id_1 style="width: 900px; height: 500px;"></div>
+	<div id="div_id_1" style="width: 900px; height: 500px;"></div>
 	<div id="div_id_2"></div>
 </body>
 
