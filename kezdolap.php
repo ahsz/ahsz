@@ -98,7 +98,7 @@
 			echo $_SESSION['def_tid'];
 			}
 			else{
-			echo "still_empty";	
+			echo '"still_empty"';	
 			}
 			?>;
 		
