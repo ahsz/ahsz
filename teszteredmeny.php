@@ -9,20 +9,22 @@
 
 	function save(){
         	require "config.php"; 
-			$pattern = '/(\d{4}-\d{2}-\d{2} \d{2}:\d{2}:\d{2})/';
-			$time = $_POST['time'];
-			if (!preg_match($pattern,'$time')){
-				echo "HIBA: rossz dátumformátum";
-				echo '<a href="profil.php">'. Vissza . '</a>'; 
-				exit();
-				}
 			
 			$passed = $_POST['passed'];
 			if (!preg_match('/\d+/','$passed')){
 				echo "HIBA: nem számot adtál meg";
 				echo '<a href="profil.php">'. Vissza . '</a>'; 
 				exit();
-				}			
+				}		
+				
+			$time = $_POST['time'];
+			if (!preg_match(/(\d{4}-\d{2}-\d{2} \d{2}:\d{2}:\d{2})/,'$time')){
+				echo "HIBA: rossz dátumformátum";
+				echo '<a href="profil.php">'. Vissza . '</a>'; 
+				exit();
+				}
+			
+	
 			
 			$failed = $_POST['failed'];
 
