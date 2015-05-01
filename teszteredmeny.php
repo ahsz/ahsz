@@ -93,11 +93,6 @@
 	
 	</style>
 	
-<script>
-function myFunction() {var dataoriginale = document.getElementById("passed").value;
-document.getElementById("myText").value = dataoriginale;}</script>
-
-	<button id="change-btn">Try it</button>
 <script type="text/javascript" src="https://www.google.com/jsapi"></script>
     <script type="text/javascript">
       var testRows = [
