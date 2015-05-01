@@ -6,7 +6,12 @@
     require "config.php"; 
     
 	ini_set('display_errors', 'on');
-
+	$passedcount=0;
+	$failedcount=0;
+	$inconclusivecount=0;
+	
+	
+	
 	function save(){
         	require "config.php"; 
 				
@@ -58,7 +63,10 @@
 			require "config.php";
 			$result=mysqli_query($con,"SELECT ifnull(NUM_OF_TEST,'') AS NPASS, ifnull(NUM_OF_FAIL,'') AS NFAILED, ifnull(NUM_OF_INC,'') as NINC FROM TEST WHERE DATE=STR_TO_DATE('2010-10-10', '%Y-%m-%d')");
 			if($result->num_rows>0){
-				$row=mysqli_fetch_assoc($result);				
+				$row=mysqli_fetch_assoc($result);
+				$passedcount=$row['NPASS'];
+				$failedcount=$row['NFAILED'];
+				$inconclusivecount=$row['NINC'];
 			} else {
 				echo "HIBA: " . mysqli_error($con);
 				echo '<a href="profil.php">'. Vissza . '</a>'; 
@@ -121,9 +129,9 @@
 			data.removeRow(0);
 			data.removeRow(1);
 			data.removeRow(2);
-			data.insertRows(0, [['Passed', <?php echo $row['NPASS'];?>]]);
-			data.insertRows(1, [['Failed', <?php echo $row['NFAILED'];?>]]);
-			data.insertRows(2, [['Inconclusive', <?php echo $row['NINC'];?>]]);
+			data.insertRows(0, [['Passed', <?php echo $passedcount;?>]]);
+			data.insertRows(1, [['Failed', <?php echo $failedcount;?>]]);
+			data.insertRows(2, [['Inconclusive', <?php echo $inconclusivecount;?>]]);
 			columnChart.draw(data);
 			pieChart.draw(data);
 		}
@@ -163,7 +171,7 @@
 <?php
 	draw();
 ?>
- <?php echo $row['NPASS'];?>
+ <?php echo $passedcount;?>
 				<tr><td><br><br></td></tr>
 				<div class="user_info">
 					<tr><td>
