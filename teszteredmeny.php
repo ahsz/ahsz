@@ -12,15 +12,20 @@
 			$time = $_POST['time'];
 			$passed = $_POST['passed'];
 			$failed = $_POST['failed'];
-			$inconclusive = $_POST['inconclusive'];
-
-		/*$saveentry	 = mysqli_query($con,"INSERT INTO ROLE VALUES (null,'$role')");*/
-		if($time){
+			$inconclusive = $_POST['inconclusive'];			
+			
+			$sum= $passed + $failed + $inconclusive;
+			
+			$neptun_kod=$_SESSION['NEPTUN'];
+			$t_id=$_SESSION['TEAM_ID'];
+			//TODO: regexp
+		$saveentry	 = mysqli_query($con,"INSERT INTO TEST VALUES (null,$t_id, STR_TO_DATE(''$time'', '%Y-%m-%d %H:%i:%s') ,$ sum,$passed,$failed,$inconclusive, sysdate(),'$neptun_kod')");
+		if($saveentry){
 			$message = "Szerepkör sikeresen felvéve!"; 
 			echo "<script type='text/javascript'>alert('$message');</script>";
 		}
 		else{
-        		/*echo "Hiba, probald ujra!" . mysqli_error($saveentry);*/
+        		echo "Hiba, probald ujra!" . mysqli_error($saveentry);
         		echo '<a href="oktatoi.php">'. Vissza . '</a>';
 		}
 	}
@@ -71,7 +76,7 @@
 				<div class="user_info">
 					<form form id="form" name="form" method="post" action="#">
 						<tr><td>
-							Futtatás időpontja(YYYY/MM/DD HH:MM): :
+							Futtatás időpontja(YYYY-MM-DD HH:MM:SS):
 						</td><td>
 							<input type="text" name="time" class="box" size=30 />
 						</td></tr>
