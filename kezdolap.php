@@ -93,28 +93,33 @@
 		
 		document.getElementById("statusz").innerHTML = 
 					<?php
-					session_start(); 
-					require "config.php";
-					ini_set('display_errors', 'on');
-					$t_name = "";
-	
-					//csapatnév lekérése, hogy ki legyen írva az oldal tetejére
-					$tid = $_SESSION['def_tid'];
-					$teamname = mysqli_query($con,"SELECT NAME FROM TEAM WHERE ID='$tid'");
-					while($row=mysqli_fetch_assoc($teamname))
-					{
-						$t_name = $row['NAME'];
-					}
-							if($t_name != null){
-								echo '"A '. $t_name.' csapat tagja vagy"'.';';
+						session_start(); 
+						require "config.php";
+						ini_set('display_errors', 'on');
+						$t_name = "";
+		
+						//csapatnév lekérése, hogy ki legyen írva az oldal tetejére
+						$tid = $_SESSION['def_tid'];
+						if($tid!=0){
+						$teamname = mysqli_query($con,"SELECT NAME FROM TEAM WHERE ID='$tid'");
+						while($row=mysqli_fetch_assoc($teamname))
+						{
+							$t_name = $row['NAME'];
+						}
+								if($t_name != null){
+									echo '"A '. $t_name.' csapat tagja vagy"'.';';
 
 
-							}
-							else{
-								echo '"";';
-								//$noTeamMsg = "Még nincsen csapatod! Kérlek csatlakozz egy csapathoz!";
-								//echo "<script type='text/javascript'>alert('$noTeamMsg');</script>";
-							}
+								}
+								else{
+									echo '"";';
+									//$noTeamMsg = "Még nincsen csapatod! Kérlek csatlakozz egy csapathoz!";
+									//echo "<script type='text/javascript'>alert('$noTeamMsg');</script>";
+								}
+						}
+						else{
+							echo '"Oktatói jogosultsággal rendelkezel!";';
+						}
 					?>
 	
 	<?php
@@ -295,7 +300,7 @@
 
 			
 				<?php
-					$t_id=$_SESSION['def_tid'];
+					$t_id=$def_tid;
 					$last_messages = 5;
 					$new_array = array();
 					
