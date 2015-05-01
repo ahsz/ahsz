@@ -56,6 +56,9 @@
         	if($delAdmin){
         		$message = "Sikeres oktató elvétel!"; 
 			echo "<script type='text/javascript'>alert('$message');</script>";
+			if($admin == $_SESSION['NEPTUN']){
+				$_SESSION['TYPE']=1;
+			}
         	}
 		else{
         		echo "Hiba, probald ujra!" . mysqli_error($delAdmin);
@@ -155,7 +158,7 @@
     	<form action="#" method="POST"> 
 			<select name="delUser" id="del"> 
 	<?php 
-                $get=mysqli_query($con,"SELECT NEPTUN FROM USER ORDER BY NEPTUN"); 
+                $get=mysqli_query($con,"SELECT NEPTUN FROM USER WHERE TYPE=1 ORDER BY NEPTUN"); 
                 $option = ''; 
                 while($row = mysqli_fetch_assoc($get)) 
                 { 
