@@ -105,7 +105,8 @@
 		parent.removeChild(child1);
 		parent.removeChild(child2);
 		
-		if (team_id == 0) {
+		
+		if (team_id == -1) {
 			document.getElementById("main_page").removeChild(child4);
 		}
 		
