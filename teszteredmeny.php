@@ -64,7 +64,7 @@
 				echo '<a href="profil.php">'. Vissza . '</a>'; 
 				exit(); 	
 			}
-	
+	}
 	
     if(isset($_POST['time']) && isset($_POST['passed']) && isset($_POST['failed']) && isset($_POST['inconclusive'])){
     	save();
