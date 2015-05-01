@@ -8,7 +8,7 @@ require "check_logged_in.php";
 <html>
 <head>
 
-<meta charset="iso-8859-2">  </meta>
+<meta charset="UTF-8">  </meta>
 <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-2" />
 <title>Agilis csapat</title>
 <link rel="stylesheet" href="styles.css" type="text/css" />
