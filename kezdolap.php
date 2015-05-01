@@ -128,11 +128,7 @@
 
 
 								}
-								else{
-									echo '"";';
-									//$noTeamMsg = "Még nincsen csapatod! Kérlek csatlakozz egy csapathoz!";
-									//echo "<script type='text/javascript'>alert('$noTeamMsg');</script>";
-								}
+
 						}
 						elseif($tid==-1){
 							echo '"Oktatói jogosultsággal rendelkezel!";';
