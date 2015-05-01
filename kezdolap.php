@@ -88,8 +88,15 @@
 		var child1 = document.getElementById("create_team");
 		var child2 = document.getElementById("selected_team");
 		var child3 = document.getElementById("decision");
+		var child4 = document.getElementById("news");
+		var team_id = <?php	echo $_SESSION['def_tid'];?>
+		
 		parent.removeChild(child1);
 		parent.removeChild(child2);
+		
+		if (team_id == 0) {
+			parent.removeChild(child4);
+		}
 		
 		document.getElementById("statusz").innerHTML = 
 					<?php
@@ -129,27 +136,9 @@
 	?>
 		
 
+		}
+		
 
-		
-		
-		
-	//	document.getElementById("Submit").disabled = "true";
-	//document.getElementById("select_team").style.visibility = "hidden";
-		
-		
-		}
-		
-/*	function show_teams () {
-		//document.getElementById("Submit").disabled = "false";
-			
-		if (clicked == false){
-			//document.getElementById("select_team").style.visibility = "visible";
-			clicked = true;
-			document.getElementById("decision").style.visibility = "hidden";
-			}
-		
-		}
-		*/
 		
 	function show_create () {
 		//document.getElementById("Create").disabled = "false";
@@ -205,6 +194,8 @@
 		var parent = document.getElementById("manage_team");
 		var child1 = document.getElementById("decision");
 		var child2 = document.getElementById("create_team");
+
+		
 
 
 		var para = document.createElement("p");
