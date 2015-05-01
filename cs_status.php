@@ -218,8 +218,28 @@
 			</select>
 			<input type="submit" id="Submit" value="Kiválaszt"  />
 			</form>
-
-		<?php
+			</br></br>
+			
+			<!-- GITHUB repo módosítása -->
+			<b>Github repo:</b>
+			</br>
+			<form action="#" method="POST">
+			<?php
+				$tid = $_SESSION['TEAM_ID'];
+				$github_repo_query = mysqli_query($con,"SELECT GITHUB_LINK FROM TEAM WHERE ID='$tid'");
+				while($row = mysqli_fetch_assoc($github_repo_query))
+				{
+					$t_ghub = $row['GITHUB_LINK'];
+				}
+			?>
+				<input type="text" name="github_mod" class="box" size="30" value="<?php echo $t_ghub; ?>"/>
+				<!--<textarea id="github_mod" name="github_mod" rows="1" cols="30"><?php echo $t_ghub; ?></textarea>-->
+				<input type="submit" name="submit" value="Módosítás" />
+	
+			</form>
+		</br></br>
+	
+	<?php
 	}
 	?>
 	
@@ -229,22 +249,7 @@
 	<?php
 		if($tid!=null){
 	?>
-	<b>Github repo:</b>
-	</br>
-	<form action="#" method="POST">
-	<?php
-		$tid = $_SESSION['TEAM_ID'];
-		$github_repo_query = mysqli_query($con,"SELECT GITHUB_LINK FROM TEAM WHERE ID='$tid'");
-		while($row = mysqli_fetch_assoc($github_repo_query))
-		{
-		  $t_ghub = $row['GITHUB_LINK'];
-		}
-	?>
-	<textarea id="github_mod" name="github_mod" rows="1" cols="30"><?php echo $t_ghub; ?></textarea>
-	<input type="submit" name="submit" value="Módosítás" />
-	
-	</form>
-	</br></br>
+
 	
 	<!-- Csapattagok adatainak listázása-->
 	<b>Csapattagok:</b>
