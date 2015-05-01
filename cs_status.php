@@ -275,8 +275,15 @@
 		}
 	} //if nek a bezárása, ami a Github repó mögött nyílik
 	
+	?>
+	</br>/br>
+	<input type="submit" name="submit" value="Módosítás" />
+	<?php
+	
 	if($_SESSION['ROLE_ID'] != 2 && $tid!=null) {
-		echo "ezt nem látom";
+	?>
+	<input type="submit" name="submit" value="Módosítás" />
+	<?php
 	}
 	?>
 </table>
