@@ -123,7 +123,7 @@
 					?>
 	
 	<?php
-		if($t_name != null){
+		if($t_name != null || $tid == 0){
 		echo  'parent.removeChild(child3);';
 		}
 	?>
