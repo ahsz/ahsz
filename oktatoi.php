@@ -169,11 +169,11 @@
         </form> 
         </br></br>
         
-        <b>Csapat törlése:</b></br>
+        <b>Csapat törlése (létrehozás év-hónap):</b></br>
     	<form action="#" method="POST"> 
 			<select name="delTeam" id="del"> 
 	<?php 
-                $get=mysqli_query($con,"SELECT ID, NAME, LEFT(DATE_CRT,10) as DATE_CRT FROM TEAM ORDER BY NAME"); 
+                $get=mysqli_query($con,"SELECT ID, NAME, LEFT(DATE_CRT,7) as DATE_CRT FROM TEAM ORDER BY NAME"); 
                 $option = ''; 
                 while($row = mysqli_fetch_assoc($get)) 
                 { 
