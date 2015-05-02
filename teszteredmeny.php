@@ -124,7 +124,7 @@
 		});
 
 		var columnChart, tableChart;
-		document.getElementById('change-btn').onclick=function() {
+		/*document.getElementById('change-btn').onclick=function() {
 			data.removeRow(0);
 			data.removeRow(0);
 			data.removeRow(0);
@@ -134,9 +134,9 @@
 
 			columnChart.draw(data);
 			pieChart.draw(data);
-		}
+		}*/
 		
-				document.getElementById('change-btn2').onclick=function() {
+			document.getElementById('change-btn2').onclick=function() {
 			data.removeRow(0);
 			data.removeRow(0);
 			data.removeRow(0);
