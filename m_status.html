@@ -22,7 +22,7 @@
 		  console.log(this.responseText);
 		}
 
-		var oReq = new XMLHttpRequest(); //New request object
+		var oReq = new XMLHttpRequest();
 		oReq.onload = function() {
 			//This is where you handle what to do with the response.
 			//The actual data is found on this.responseText
@@ -73,8 +73,6 @@
 		 */
 		function gitRoot(response) {
 			var data = response.data;
-			// az egész kapott objektum kiiratásához szedd ki a kommentet
-			//console.log(data);
 			if(data.length > 1) {
 				// bejegyzések felhasználónként
 				for (var i = 0; i < data.length; i++) {
@@ -128,6 +126,9 @@
 				}
 				drawChart();
 			}
+			// debug info kiiratás
+			console.log(data);
+			console.log(dT);
 		}
 		
 
