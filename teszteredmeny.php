@@ -104,7 +104,61 @@
 </head>
 <body>
 	
-		<script type="text/javascript" src="https://www.google.com/jsapi"></script>
+
+	
+	<h1>Teszt eredmények</h1>
+
+
+		<div id="profile">
+			<table style="width:50%">
+				<div class="user_info">
+					<tr><td>
+					
+<?php
+	mydraw();
+?>
+ <?php echo $passedcount;?>
+				<tr><td><br><br></td></tr>
+				<div class="user_info">
+					<tr><td>
+						<b>Utolsó futtatás eredményei</b>
+					</td></tr>
+				</div>
+				<div class="user_info">
+					<form form id="form" name="form" method="post" action="#">
+						<tr><td>
+							Futtatás időpontja(YYYY-MM-DD HH:MM:SS):
+						</td><td>
+							<input type="text" name="time" class="box" size=30 />
+						</td></tr>
+						<tr><td>
+							Passed:
+						</td><td>
+							<input type="text" name="passed" class="box" size=30 />
+						</td></tr>
+						<tr><td>
+							Failed:
+						</td><td>
+							<input type="text" name="failed" class="box" size=30 />
+						</td></tr>
+						<tr><td>
+							Inconclusive:
+						</td><td>
+							<input type="text" name="inconclusive" class="box" size=30 />
+						</td><tr>
+						<tr><td/><td>
+							<input type="submit" name="Submit" value="Mentés"/>
+						</td></tr>
+					</form>
+				</div>
+			</table>
+				
+		</div>
+	</div>
+	<button id="change-btn">Draw</button>
+	<div id="div_id_1" style="width: 900px; height: 500px;"></div>
+	<div id="div_id_2"></div>
+			<script type="text/javascript" src="https://www.google.com/jsapi"></script>
 	<script type="text/javascript">
 			  var testRows = [
 			['Passed', 4,],
@@ -166,58 +220,6 @@
 		}
     </script>
 	
-	<h1>Teszt eredmények</h1>
-
-
-		<div id="profile">
-			<table style="width:50%">
-				<div class="user_info">
-					<tr><td>
-					
-<?php
-	mydraw();
-?>
- <?php echo $passedcount;?>
-				<tr><td><br><br></td></tr>
-				<div class="user_info">
-					<tr><td>
-						<b>Utolsó futtatás eredményei</b>
-					</td></tr>
-				</div>
-				<div class="user_info">
-					<form form id="form" name="form" method="post" action="#">
-						<tr><td>
-							Futtatás időpontja(YYYY-MM-DD HH:MM:SS):
-						</td><td>
-							<input type="text" name="time" class="box" size=30 />
-						</td></tr>
-						<tr><td>
-							Passed:
-						</td><td>
-							<input type="text" name="passed" class="box" size=30 />
-						</td></tr>
-						<tr><td>
-							Failed:
-						</td><td>
-							<input type="text" name="failed" class="box" size=30 />
-						</td></tr>
-						<tr><td>
-							Inconclusive:
-						</td><td>
-							<input type="text" name="inconclusive" class="box" size=30 />
-						</td><tr>
-						<tr><td/><td>
-							<input type="submit" name="Submit" value="Mentés"/>
-						</td></tr>
-					</form>
-				</div>
-			</table>
-				
-		</div>
-	</div>
-	<button id="change-btn">Draw</button>
-	<div id="div_id_1" style="width: 900px; height: 500px;"></div>
-	<div id="div_id_2"></div>
 </body>
 
 </html>
