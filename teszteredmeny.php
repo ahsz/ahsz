@@ -100,7 +100,11 @@
 	
 	</style>
 		
-	<script type="text/javascript" src="https://www.google.com/jsapi"></script>
+
+</head>
+<body>
+	
+		<script type="text/javascript" src="https://www.google.com/jsapi"></script>
 	<script type="text/javascript">
 			  var testRows = [
 			['Passed', 4,],
@@ -161,8 +165,7 @@
 			chart.draw(dataTablo, options);
 		}
     </script>
-</head>
-<body>
+	
 	<h1>Teszt eredmények</h1>
 
 
