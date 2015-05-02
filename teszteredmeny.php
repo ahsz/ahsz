@@ -9,9 +9,7 @@
 	$passedcount=0;
 	$failedcount=0;
 	$inconclusivecount=0;
-	
-	
-	
+
 	function save(){
         	require "config.php"; 
 				
@@ -59,7 +57,7 @@
 		}
 	}
 	
-	function draw(){
+	function mydraw(){
 			require "config.php";
 			$result=mysqli_query($con,"SELECT ifnull(NUM_OF_TEST,'') AS NPASS, ifnull(NUM_OF_FAIL,'') AS NFAILED, ifnull(NUM_OF_INC,'') as NINC FROM TEST WHERE DATE=STR_TO_DATE('2010-10-10', '%Y-%m-%d')");
 			if($result->num_rows>0){
@@ -67,6 +65,7 @@
 				$passedcount=$row['NPASS'];
 				$failedcount=$row['NFAILED'];
 				$inconclusivecount=$row['NINC'];
+				echo $failedcount;
 			} else {
 				echo "HIBA: " . mysqli_error($con);
 				echo '<a href="profil.php">'. Vissza . '</a>'; 
@@ -169,7 +168,7 @@
 					<tr><td>
 					
 <?php
-	draw();
+	mydraw();
 ?>
  <?php echo $passedcount;?>
 				<tr><td><br><br></td></tr>
