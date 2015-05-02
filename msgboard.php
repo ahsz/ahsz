@@ -10,7 +10,7 @@
 		$escapedmessage = htmlspecialchars($message, ENT_QUOTES);
 		$date=date('Y-m-d h:i:s',time());
 		
-		$t_id=$_SESSION['TEAM_ID'];
+		$t_id=$_SESSION['def_tid'];
 		
 		$sql="INSERT INTO MSG_BOARD (TEAM_ID, NEPTUN, MESSAGE, DATE_CRT) VALUES($t_id,'$user','$escapedmessage',sysdate())";
 		$res=mysqli_query($con,$sql);	
