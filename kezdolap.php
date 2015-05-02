@@ -287,7 +287,8 @@
 		<div class="description">
 		<p>	Ezen az oldalon keresztül tudsz csapatot létrehozni, amihez később hozzá tudod adni a csapattagjaidat. </p>
 
-		<p>  Aktuális információk:
+		<p>  <font size="5"><b><u>Aktuális információk:</u></b></font>
+		</br>
 		<ul>
 				<?php
 					$t_id= -1;
