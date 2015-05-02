@@ -289,8 +289,41 @@
 
 		<p>  Aktuális információk:
 		<ul>
-			<li> A következő Demo időpontja: 2015.05.13	</li>
-			<li> Az utolsó előadás 05.14-én lesz, ekkor lesz a félév értékelése</li>
+				<?php
+					$t_id= -1;
+			//		$last_messages = 5;
+					$new_teacher_array = array();
+					
+					$result=mysqli_query($con,"SELECT M.DATE_CRT, U.NAME, M.MESSAGE FROM MSG_BOARD M, USER U WHERE U.NEPTUN=M.NEPTUN AND M.TEAM_ID='$t_id'");
+					
+					if(!$result)
+					{
+						echo "ERROR :" . mysqli_error($con). "\n";		
+					}
+						
+					while($row=mysqli_fetch_assoc($result))
+					{
+						$result_string = $row['DATE_CRT']." ".$row['NAME'].": ".$row['MESSAGE'];
+						array_push($new_teacher_array, $result_string); // Inside while loop
+					}	
+					
+					for($i=count(new_teacher_array); i>0 i--){
+						echo "<li>".$new_array[count($new_array)-($i)]."</li>";
+					}
+					
+				/*	if (count($new_array) > $last_messages) {
+						    for ($i = $last_messages; $i > 0; $i--) {
+								echo $new_array[count($new_array)-($i)]."</br>";
+								}
+						}
+						
+					else{
+						    for ($i = 0; $i < count($new_array); ++$i) {
+								echo $new_array[$i]."</br>";
+							}
+					}
+*/
+				?>
 
 		</ul>
 		</p>
