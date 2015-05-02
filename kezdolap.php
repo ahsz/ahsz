@@ -85,7 +85,7 @@
 	
 	window.onload = function () {
 	
-		<?php
+	<?php
 		session_start(); 
 		?>
 	//	document.getElementById("Create").disabled = "true";
@@ -303,7 +303,7 @@
 						
 					while($row=mysqli_fetch_assoc($result))
 					{
-						$result_string = "<b>".$row['DATE_CRT'].":"."</b>".$row['MESSAGE'];
+						$result_string = "<b>".$row['DATE_CRT'].":	"."</b>".$row['MESSAGE'];
 						array_push($new_teacher_array, $result_string); // Inside while loop
 					}	
 					
