@@ -6,7 +6,7 @@
     require "config.php"; 
     
 	ini_set('display_errors', 'on');
-	global $passedcount,$failedcount,$inconclusivecount;
+	global $passedcount,$failedcount,$inconclusivecount, $defdate;
 	$passedcount=1;
 	$failedcount=1;
 	$inconclusivecount=1;
@@ -60,13 +60,15 @@
 	
 	function mydraw(){
 			require "config.php";
-			$result=mysqli_query($con,"SELECT ifnull(NUM_OF_TEST,'') AS NPASS, ifnull(NUM_OF_FAIL,'') AS NFAILED, ifnull(NUM_OF_INC,'') as NINC FROM TEST WHERE DATE=STR_TO_DATE('2010-10-10', '%Y-%m-%d')");
+			$result=mysqli_query($con,"SELECT ifnull(NUM_OF_TEST,'') AS NPASS, ifnull(NUM_OF_FAIL,'') AS NFAILED, ifnull(NUM_OF_INC,'') as NINC, ifnull(DATE,'') AS DDATE FROM TEST order by DATE DESC LIMIT 1");
 			if($result->num_rows>0){
 				$row=mysqli_fetch_assoc($result);
-				global $passedcount,$failedcount,$inconclusivecount;
+				global $passedcount,$failedcount,$inconclusivecount, $defdate;
 				$passedcount=$row['NPASS'];
 				$failedcount=$row['NFAILED'];
 				$inconclusivecount=$row['NINC'];
+				$defdate=$row['DDATE'];
+				
 			} else {
 				echo "HIBA: " . mysqli_error($con);
 				echo '<a href="profil.php">'. Vissza . '</a>'; 
@@ -156,7 +158,7 @@
 					<tr><td>
 							Teszt eredményeinek lekérdezése:
 						</td><td>
-							<input type="text" name="time" class="box" size=30 />
+							<input type="text" name="time" class="box" size=30 value="<?php echo $defdate;?>" />
 						</td></tr>				
 					</form>
 				</div>
