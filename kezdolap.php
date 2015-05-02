@@ -307,8 +307,8 @@
 						array_push($new_teacher_array, $result_string); // Inside while loop
 					}	
 					
-					for($i=count(new_teacher_array); i>0 i--){
-						echo "<li>".$new_array[count($new_array)-($i)]."</li>";
+					for($i = count(new_teacher_array); i>0 i--){
+						echo "<li>".$new_teacher_array[count($new_teacher_array)-($i)]."</li>";
 					}
 					
 				/*	if (count($new_array) > $last_messages) {
