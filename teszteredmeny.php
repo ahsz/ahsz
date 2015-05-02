@@ -170,12 +170,9 @@
 			<script type="text/javascript" src="https://www.google.com/jsapi"></script>
 	<script type="text/javascript">
 			  var testRows = [
-			/*['Passed', 4,],
-			['Failed', 1],
-			['Inconclusive', 3],*/
-			['Passed', <?php echo $passedcount;?>]);
-			['Failed', <?php echo $failedcount;?>]);
-			['Inconclusive', <?php echo $inconclusivecount;?>]);
+			['Passed', <?php echo $passedcount;?>],
+			['Failed', <?php echo $failedcount;?>],
+			['Inconclusive', <?php echo $inconclusivecount;?>]
 		];
 
 		var data = null;
