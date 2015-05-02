@@ -6,6 +6,7 @@
     require "config.php"; 
     
 	ini_set('display_errors', 'on');
+	global $passedcount,$failedcount,$inconclusivecount;
 	$passedcount=1;
 	$failedcount=1;
 	$inconclusivecount=1;
@@ -62,9 +63,10 @@
 			$result=mysqli_query($con,"SELECT ifnull(NUM_OF_TEST,'') AS NPASS, ifnull(NUM_OF_FAIL,'') AS NFAILED, ifnull(NUM_OF_INC,'') as NINC FROM TEST WHERE DATE=STR_TO_DATE('2010-10-10', '%Y-%m-%d')");
 			if($result->num_rows>0){
 				$row=mysqli_fetch_assoc($result);
-				global $passedcount=$row['NPASS'];
-				global $failedcount=$row['NFAILED'];
-				global $inconclusivecount=$row['NINC'];
+				global $passedcount,$failedcount,$inconclusivecount;
+				$passedcount=$row['NPASS'];
+				$failedcount=$row['NFAILED'];
+				$inconclusivecount=$row['NINC'];
 				echo $failedcount;
 			} else {
 				echo "HIBA: " . mysqli_error($con);
