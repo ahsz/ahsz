@@ -109,6 +109,7 @@
 					var columnIndex = dT[2].addColumn({ type: 'number', label: user });
 					
 					for(var j = 0; j < data[i].weeks.length; j++) {
+						// ne legyen negatív, mert esztétikailag elrontja az egészet
 						var newLines = data[i].weeks[j].a - data[i].weeks[j].d;
 						if(newLines < 0) newLines = 0;
 						dT[2].setValue(j, columnIndex, newLines);
@@ -167,7 +168,6 @@
 			};
 			
 			for(var i = 0; i < charts.length; i++)
-				if(dT[i] != null && options[i] != null)
 					charts[i].draw(dT[i], options[i]);
 			
 		}
