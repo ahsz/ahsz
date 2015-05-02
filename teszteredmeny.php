@@ -126,11 +126,26 @@
 		var columnChart, tableChart;
 		document.getElementById('change-btn').onclick=function() {
 			data.removeRow(0);
-			data.removeRow(1);
-			data.removeRow(2);
+			data.removeRow(0);
+			data.removeRow(0);
 			data.insertRows(0, [['Passed', <?php echo $passedcount;?>]]);
 			data.insertRows(1, [['Failed', <?php echo $failedcount;?>]]);
 			data.insertRows(2, [['Inconclusive', <?php echo $inconclusivecount;?>]]);
+
+			columnChart.draw(data);
+			pieChart.draw(data);
+		}
+		
+				document.getElementById('change-btn2').onclick=function() {
+			data.removeRow(0);
+			data.removeRow(0);
+			data.removeRow(0);
+			
+			data.insertRows(0, [['Passed', 9]]);
+			data.insertRows(1, [['Failed', 9]]);
+			data.insertRows(2, [['Inconclusive', 9]]);
+			
+			
 			columnChart.draw(data);
 			pieChart.draw(data);
 		}
@@ -209,6 +224,7 @@
 		</div>
 	</div>
 	<button id="change-btn">Draw</button>
+		<button id="change-btn2">Draw2</button>
 	<div id="div_id_1" style="width: 900px; height: 500px;"></div>
 	<div id="div_id_2"></div>
 </body>
