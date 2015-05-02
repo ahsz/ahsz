@@ -67,7 +67,6 @@
 				$passedcount=$row['NPASS'];
 				$failedcount=$row['NFAILED'];
 				$inconclusivecount=$row['NINC'];
-				echo $failedcount;
 			} else {
 				echo "HIBA: " . mysqli_error($con);
 				echo '<a href="profil.php">'. Vissza . '</a>'; 
@@ -119,7 +118,6 @@
 <?php
 	mydraw();
 ?>
- <?php echo $passedcount;?>
 				<tr><td><br><br></td></tr>
 				<div class="user_info">
 					<tr><td>
@@ -153,19 +151,31 @@
 						</td></tr>
 					</form>
 				</div>
-			</table>
+			<div class="user_info">
+				<form form id="form" name="form" method="post" action="#">				
+					<tr><td>
+							Teszt eredményeinek lekérdezése:
+						</td><td>
+							<input type="text" name="time" class="box" size=30 />
+						</td></tr>				
+					</form>
+				</div>
+						</table>
 				
 		</div>
 	</div>
-	<button id="change-btn">Draw</button>
+	<button id="change-btn">Lekérdez</button>
 	<div id="div_id_1" style="width: 900px; height: 500px;"></div>
 	<div id="div_id_2"></div>
 			<script type="text/javascript" src="https://www.google.com/jsapi"></script>
 	<script type="text/javascript">
 			  var testRows = [
-			['Passed', 4,],
+			/*['Passed', 4,],
 			['Failed', 1],
-			['Inconclusive', 3],
+			['Inconclusive', 3],*/
+			['Passed', <?php echo $passedcount;?>]);
+			['Failed', <?php echo $failedcount;?>]);
+			['Inconclusive', <?php echo $inconclusivecount;?>]);
 		];
 
 		var data = null;
@@ -191,9 +201,6 @@
 			data.insertRows(0, [['Passed', <?php echo $passedcount;?>]]);
 			data.insertRows(1, [['Failed', <?php echo $failedcount;?>]]);
 			data.insertRows(2, [['Inconclusive', <?php echo $inconclusivecount;?>]]);
-			data.insertRows(0, [['Pate', 9]]);
-			/*data.insertRows(1, [['Failed', 9]]);
-			data.insertRows(2, [['Inconclusive', 9]]);*/
 			columnChart.draw(data);
 			pieChart.draw(data);
 		}
