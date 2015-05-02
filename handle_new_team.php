@@ -44,6 +44,7 @@
 
 		$_SESSION['ROLE_ID'] = $id;
 		$_SESSION['TEAM_ID'] = $teamid;
+		$_SESSION['def_tid'] = $teamid;
 		
 		echo "OK";		
 ?>
