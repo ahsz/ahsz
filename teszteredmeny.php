@@ -186,10 +186,10 @@
 			data.removeRow(0);
 			data.removeRow(0);
 			data.removeRow(0);
-			/*data.insertRows(0, [['Passed', <?php echo $passedcount;?>]]);
+			data.insertRows(0, [['Passed', <?php echo $passedcount;?>]]);
 			data.insertRows(1, [['Failed', <?php echo $failedcount;?>]]);
-			data.insertRows(2, [['Inconclusive', <?php echo $inconclusivecount;?>]]);*/
-			data.insertRows(0, [['Passed', 9]]);
+			data.insertRows(2, [['Inconclusive', <?php echo $inconclusivecount;?>]]);
+			data.insertRows(0, [['Pate', 9]]);
 			/*data.insertRows(1, [['Failed', 9]]);
 			data.insertRows(2, [['Inconclusive', 9]]);*/
 			columnChart.draw(data);
