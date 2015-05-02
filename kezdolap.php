@@ -308,7 +308,7 @@
 					}	
 					
 					for($i = count($new_teacher_array); $i>0; $i--){
-						echo "<li>".$new_teacher_array[$i]."</li>";
+						echo "<li>".$new_teacher_array[$i-1]."</li>";
 					}
 					
 				/*	if (count($new_array) > $last_messages) {
