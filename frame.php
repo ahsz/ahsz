@@ -39,16 +39,20 @@ License: Creative Commons Attribution
 
 			<nav id="mainnav">
   				<ul>
-      <li><a href="kezdolap.php" class="link1" target="kezdolap_frame">Kezdőlap</a></li>
-      <li><a href="profil.php" class="link2" target="kezdolap_frame">Profil</a></li>
-	  <li><a href="uzenetek.php" class="link3" target="kezdolap_frame">Üzenetek</a></li>
-      <li><a href="ertekeles.html" class="link4" target="kezdolap_frame">Értékelés</a></li>
-	  <li><a href="cs_status.php" class="link5" target="kezdolap_frame">Csapat státusz</a></li>
-	  <li><a href="m_status.html" class="link6" target="kezdolap_frame">Munka státusz</a></li>
-      <li><a href="feltoltes.php" class="link7" target="kezdolap_frame">Feltöltés</a></li>
-	  <li><a href="teszteredmeny.php" class="link10" target="kezdolap_frame">Teszt eredmények</a></li>
-      <li><a href="oktatoi.php" class="link8" target="kezdolap_frame">Oktatói felület</a></li>
-	  <li><a href="logout.php" class="link9">Kijelentkezés</a></li>
+	<li><a href="kezdolap.php" class="link1" target="kezdolap_frame">Kezdőlap</a></li>
+	<li><a href="profil.php" class="link2" target="kezdolap_frame">Profil</a></li>
+	<?php	if($_SESSION['TYPE']==1){	?>
+		<li><a href="uzenetek.php" class="link3" target="kezdolap_frame">Üzenetek</a></li>
+	<?php	}	if($_SESSION['TYPE']==2){	?>
+		<li><a href="uzenetek.php" class="link3" target="kezdolap_frame">Hírfal</a></li>
+	<?php	}	?>
+	<li><a href="ertekeles.html" class="link4" target="kezdolap_frame">Értékelés</a></li>
+	<li><a href="cs_status.php" class="link5" target="kezdolap_frame">Csapat státusz</a></li>
+	<li><a href="m_status.html" class="link6" target="kezdolap_frame">Munka státusz</a></li>
+	<li><a href="feltoltes.php" class="link7" target="kezdolap_frame">Feltöltés</a></li>
+	<li><a href="teszteredmeny.php" class="link10" target="kezdolap_frame">Teszt eredmények</a></li>
+	<li><a href="oktatoi.php" class="link8" target="kezdolap_frame">Oktatói felület</a></li>
+	<li><a href="logout.php" class="link9">Kijelentkezés</a></li>
                         	</ul>
 			</nav>
 
