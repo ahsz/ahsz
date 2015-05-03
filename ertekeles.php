@@ -149,7 +149,7 @@
 			<div class="user_info">
 			Értékelt személy:
 			<span id="members">
-			<select name="userWho" id="options">
+			<select name="userWho" id="userWho">
 			  <?php
 				$neptun = $_SESSION['NEPTUN'];
 				$get=mysqli_query($con,"SELECT NAME FROM USER WHERE TEAM_ID='$tid' AND NEPTUN!='$neptun'");
@@ -166,7 +166,7 @@
 			</br>
 			Osztályzat:	
 			<span id="spinner">
-			<select name="EvaluateTeammateGrade" id="options">
+			<select name="EvaluateTeammateGrade" id="EvaluateTeammateGrade">
 			  <option value="1">1</option>
 			  <option value="2">2</option>
 			  <option value="3">3</option>
