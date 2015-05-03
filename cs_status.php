@@ -280,7 +280,7 @@
 		<b>Ki akarsz lépni a csapatból? (igen):</b>
 		</br>
 		<form action="#" method="POST">  
-			<input type="test" name="leaveTeam" class="box" size="10"/>
+			<input type="text" name="leaveTeam" class="box" size="10"/>
 			<input type="submit" id="Submit" value="Mehet"  />  
 		</form>	 
 		</br></br>
