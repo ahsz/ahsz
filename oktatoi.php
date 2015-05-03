@@ -94,6 +94,27 @@
         	}
 	} 
 	
+	function delMsg(){  
+		require "config.php";   
+		$igen = $_POST['delMsg']; 
+		if($igen=='igen') { 
+			$delMsg = mysqli_query($con,"DELETE FROM MSG_BOARD WHERE TEAM_ID=-1");   
+			if($delMsg){  
+				$message = "Hírek sikeresen törölve!";   
+				echo "<script type='text/javascript'>alert('$message');</script>";  
+72 			}  
+73 			else{  
+74 				echo "Hiba, probald ujra!" . mysqli_error($delMsg);  
+75 				echo '<a href="oktatoi.php">'. Vissza . '</a>';  
+76 			}  
+77 		} 
+78 		else { 
+79 				echo "Csak az igen szó megadásával tudod törölni a híreket!";  
+80 				echo '<a href="oktatoi.php">'. Vissza . '</a>';  
+81 		} 
+82 	}  
+
+	
 
     if(isset($_POST['delUser'])){
         delUser();
@@ -118,7 +139,12 @@
     if(isset($_POST['delRole'])){
     	delRole();
     }
-    
+
+	if(isset($_POST['delMsg'])){ 
+		delMsg(); 
+	} 
+
+   
 ?>
 <html>
 <head>
@@ -248,11 +274,19 @@
         	<input type="submit" id="Submit" value="Törlés"  /> 
         </form> 
         </br></br>
-		
+
+
+	<b>Aktuális információk törlése</b> 
+	</br> 
+	<form action="#" method="POST">   
+		Biztos törölni akarod az összes aktuális információt? (igen)</br> 
+		<input type="text" name="delMsg" class="box" size="10"/> 
+		<input type="submit" id="Submit" value="Mehet"  />   
+	</form>	  
+	
     <?php
         }
     ?>
-    </table>
 </body>
 </html>
 
