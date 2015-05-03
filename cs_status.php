@@ -71,7 +71,7 @@
 				$_SESSION['TEAM_ID']=null;
 			} 
 			else{ 
-				echo "Hiba, probald ujra!" . mysqli_error($delAdmin); 
+				echo "Hiba, probald ujra!" . mysqli_error($leaveTeam); 
 				echo '<a href="oktatoi.php">'. Vissza . '</a>'; 
 			} 
 		}
