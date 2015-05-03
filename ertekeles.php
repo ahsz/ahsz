@@ -18,7 +18,7 @@
 		$who=$_SESSION['NEPTUN'];
 		$whom=$_POST['userWho'];
 		$grade=$_POST['EvaluateTeammateGrade'];
-		$evaluateMsg=$_POST['EvaluateTeammateMessage'];
+		$evaluateMsg= document.getElementById("EvaluateTeammateMessage").value;
 		
 		$getNeptunForName = mysqli_query($con,"SELECT NEPTUN FROM USER WHERE NAME='$whom'");
 		while($row=mysqli_fetch_assoc($getNeptunForName))
@@ -179,7 +179,7 @@
 			
 			Szöveges értékelés:
 			</br>
-			<textarea name="EvaluateTeammateMessage" id="input" rows="2" cols="20"></textarea>
+			<textarea name="EvaluateTeammateMessage" id="EvaluateTeammateMessage" rows="2" cols="20"></textarea>
 			</div>
 			<input id="submit" type="button" value="Küldés"> </input>
 			</form>
