@@ -26,7 +26,7 @@
 			$selectedNeptun = $row['NEPTUN'];
 		}
 		
-		$insertEvaluateTeammate = mysqli_query($con,"INSERT RATE SET NEPTUN_WHO='$who', NEPTUN_WHOM='$selectedNeptun', GRADE='$grade', MESSAGE='$evaluateMsg'");
+		$insertEvaluateTeammate = mysqli_query($con,"INSERT RATE SET NEPTUN_WHO='$who', NEPTUN_WHOM='$selectedNeptun', GRADE=$grade, MESSAGE='$evaluateMsg'");
 		$message = "Értékelés sikeresen elküldve!";
 		echo "<script type='text/javascript'>alert('$message');</script>";
 		
