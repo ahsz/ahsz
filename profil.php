@@ -50,7 +50,12 @@
 				
 					if($result->num_rows>0){
 						$row=mysqli_fetch_assoc($result);
-						echo "Neved: "; 
+						echo "Neved: ";
+					} else {
+						echo "HIBA: " . mysqli_error($con);
+						echo '<a href="profil.php">'. Vissza . '</a>'; 
+						exit(); 
+					}
 				?>
 					</td><td>
 				<?php
@@ -115,11 +120,7 @@
 					</td><td>
 				<?php
 						echo $row['R_NAME'];
-					} else {
-						echo "HIBA: " . mysqli_error($con);
-						echo '<a href="profil.php">'. Vissza . '</a>'; 
-						exit(); 
-					}
+
 					}
 				?>
 					</td></tr>
