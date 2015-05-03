@@ -183,6 +183,22 @@
 			</div>
 			<input type="submit" id="Submit" value="Küldés"  />
 			</form>
+			
+			<br/>
+			<br/>
+			<b>Csapat értékelés:</b>
+			<div class="user_info">
+			</br>
+			<textarea name="TeamEvaluation" id="input" rows="2" cols="20" readonly></textarea>
+			</div>
+			
+			<br/>
+			<br/>
+			<b>Oktató értékelése rólad:</b>
+			<div class="user_info">
+			</br>
+			<textarea name="TeammateEvaluation" id="input" rows="2" cols="20" readonly></textarea>
+			</div>
 	
 	</div>
 	
