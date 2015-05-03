@@ -86,6 +86,7 @@
 					<form form id="form" name="form" method="post" action="handle_profil_mod.php">
 						<tr><td>
 				<?php
+						if($_SESSION['TYPE']==1){
 						echo "GITHUB felhasználó neved: ";
 				?>
 						</td><td>
@@ -118,6 +119,7 @@
 						echo "HIBA: " . mysqli_error($con);
 						echo '<a href="profil.php">'. Vissza . '</a>'; 
 						exit(); 
+					}
 					}
 				?>
 					</td></tr>
