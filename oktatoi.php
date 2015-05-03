@@ -100,7 +100,7 @@
 		if($igen=='igen') { 
 			$delMsg = mysqli_query($con,"DELETE FROM MSG_BOARD WHERE TEAM_ID=-1");   
 			if($delMsg){  
-				$message = "Hírek sikeresen törölve!";   
+				$message = "Aktuális információk sikeresen törölve!";   
 				echo "<script type='text/javascript'>alert('$message');</script>";  
 			}  
 			else{  
