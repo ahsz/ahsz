@@ -13,7 +13,11 @@ textarea {
 
 <body>
 	<div style="margin-left:200">
-	<?php	if($_SESSION['TYPE']==1){	?> 
+	<?php	
+		session_start(); 
+		require "config.php";
+		if($_SESSION['TYPE']==1){	
+	?> 
 	<h1>Üzenetek</h1></br>
 	Az itt megadott üzenetek csak Te és a csapattársaid látjátok.
 	<?php	} if($_SESSION['TYPE']==2){	?> 
@@ -25,8 +29,7 @@ textarea {
 	</div>
 	<textarea readonly name="message" rows="40" cols="80"><?php
 	
-	session_start(); 
-	require "config.php";
+
 	
 	$t_id=$_SESSION['def_tid'];
 	
