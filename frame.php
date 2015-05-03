@@ -48,7 +48,7 @@ License: Creative Commons Attribution
 		<li><a href="uzenetek.php" class="link3" target="kezdolap_frame">Aktuális információk</a></li>
 	<?php	}	?>
 	
-	<li><a href="ertekeles.html" class="link4" target="kezdolap_frame">Értékelés</a></li>
+	<li><a href="ertekeles.php" class="link4" target="kezdolap_frame">Értékelés</a></li>
 	<li><a href="cs_status.php" class="link5" target="kezdolap_frame">Csapat státusz</a></li>
 	<li><a href="m_status.html" class="link6" target="kezdolap_frame">Munka státusz</a></li>
 	<li><a href="feltoltes.php" class="link7" target="kezdolap_frame">Feltöltés</a></li>
