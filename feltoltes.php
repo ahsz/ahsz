@@ -34,25 +34,35 @@
 		<input type="submit" id="Submit" value="Mehet"  />
 		</form>
 	<?php
-		}
+			$team = $_SESSION['TEAM_ID'];
+			$result = mysqli_query($con,"SELECT UPLOAD_DIR FROM TEAM WHERE ID=$team");
+			$row = mysqli_fetch_assoc($result);
+			$dir = $row['UPLOAD_DIR'];
+		}	
 	?>
-	<form action="upload.php" method="post" enctype="multipart/form-data">
-		Feltöltendő fájl (max 20MB): <br/><br/>
-		<input type="file" name="fileToUpload" id="fileToUpload"><br/><br/>
-		<input type="submit" value="Feltöltés" name="submit">
-	</form><br/><br/>
+	
 	
 	<!-- Ezen az oldalon van kód, ami mysql táblából csinál html táblázatot
 		http://www.anyexample.com/programming/php/php_mysql_example__display_table_as_html.xml -->
 	<?php
-	$dir = "";
+	if($_SESSION['TYPE']!=2){
+	?>
+		<form action="upload.php" method="post" enctype="multipart/form-data">
+		Feltöltendő fájl (max 20MB): <br/><br/>
+		<input type="file" name="fileToUpload" id="fileToUpload"><br/><br/>
+		<input type="submit" value="Feltöltés" name="submit">
+		</form><br/><br/>
+	<?php
+		$dir = "";
+		
+		$neptun_kod=$_SESSION['NEPTUN'];
+		$result=mysqli_query($con,"SELECT ifnull(T.UPLOAD_DIR,'') AS DIRECTORY FROM USER U LEFT JOIN (TEAM T, ROLE R) ON (T.ID=U.TEAM_ID AND R.ID=U.ROLE_ID) WHERE U.NEPTUN='$neptun_kod'");
+		if($result->num_rows>0){
+				$row=mysqli_fetch_assoc($result);
+				$dir = $row['DIRECTORY'];
+				echo $dir;
+		}
 	
-	$neptun_kod=$_SESSION['NEPTUN'];
-	$result=mysqli_query($con,"SELECT ifnull(T.UPLOAD_DIR,'') AS DIRECTORY FROM USER U LEFT JOIN (TEAM T, ROLE R) ON (T.ID=U.TEAM_ID AND R.ID=U.ROLE_ID) WHERE U.NEPTUN='$neptun_kod'");
-	if($result->num_rows>0){
-        	$row=mysqli_fetch_assoc($result);
-        	$dir = $row['DIRECTORY'];
-        	echo $dir;
 	}
 	
 	$result=mysqli_query($con, "SELECT * FROM FILE WHERE DIRECTORY='$dir'");
