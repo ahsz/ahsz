@@ -19,7 +19,7 @@
 		$whom=$_POST['userWho'];
 		$grade=$_POST['EvaluateTeammateGrade'];
 		$evaluateMsg=$_POST['EvaluateTeammateMessage'];
-		$updateEvaluateTeammate = mysqli_query($con,"UPDATE RATE SET NEPTUN_WHO='$who' NEPTUN_WHOM='$whom' GRADE='$grade' MESSAGE='$evaluateMsg'");
+		$updateEvaluateTeammate = mysqli_query($con,"INSERT RATE SET NEPTUN_WHO='$who', NEPTUN_WHOM='$whom', GRADE='$grade', MESSAGE='$evaluateMsg'");
 		$message = "Értékelés sikeresen elküldve!";
 		echo "<script type='text/javascript'>alert('$message');</script>";
 		
