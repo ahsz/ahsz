@@ -154,13 +154,21 @@
     </style>
 </head>
 <body>
+	<?php	if($_SESSION['TYPE']==1){	?>
+	<h1>Oktatók</h1>
+	<br/>
+	
+	<?php	} if($_SESSION['TYPE']==2){	?>
 	<h1>Oktatói felület</h1>
 	<br/>
+   
     <?php
+		}
         //nem oktató
         if($_SESSION['TYPE']==1){
             echo "Jelenlegi oktatók és elérhetőségük:";
     ?>
+
     <table border="1">
         <tr>
 		<td><b>Név</b></td>
