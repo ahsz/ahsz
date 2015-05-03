@@ -159,11 +159,11 @@
     <?php
         //nem oktató
         if($_SESSION['TYPE']==1){
-            echo "Oktatói jogosultság szükséges a megtekintéshez!<br/><br/>Jelenlegi oktatók és elérhetőségük:";
+            echo "Jelenlegi oktatók és elérhetőségük:";
     ?>
     <table border="1">
         <tr>
-			<td><b>Név</b></td>
+		<td><b>Név</b></td>
             <td><b>E-mail cím</b></td>
         </tr>
 	<?php
