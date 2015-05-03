@@ -102,18 +102,17 @@
 			if($delMsg){  
 				$message = "Hírek sikeresen törölve!";   
 				echo "<script type='text/javascript'>alert('$message');</script>";  
-72 			}  
-73 			else{  
-74 				echo "Hiba, probald ujra!" . mysqli_error($delMsg);  
-75 				echo '<a href="oktatoi.php">'. Vissza . '</a>';  
-76 			}  
-77 		} 
-78 		else { 
-79 				echo "Csak az igen szó megadásával tudod törölni a híreket!";  
-80 				echo '<a href="oktatoi.php">'. Vissza . '</a>';  
-81 		} 
-82 	}  
-
+			}  
+			else{  
+				echo "Hiba, probald ujra!" . mysqli_error($delMsg);  
+				echo '<a href="oktatoi.php">'. Vissza . '</a>';  
+			}  
+		} 
+		else { 
+			echo "Csak az igen szó megadásával tudod törölni a híreket!";  
+			echo '<a href="oktatoi.php">'. Vissza . '</a>';  
+		} 
+	}  
 	
 
     if(isset($_POST['delUser'])){
