@@ -19,7 +19,14 @@
 		$whom=$_POST['userWho'];
 		$grade=$_POST['EvaluateTeammateGrade'];
 		$evaluateMsg=$_POST['EvaluateTeammateMessage'];
-		$updateEvaluateTeammate = mysqli_query($con,"INSERT RATE SET NEPTUN_WHO='$who', NEPTUN_WHOM='$whom', GRADE='$grade', MESSAGE='$evaluateMsg'");
+		
+		$getNeptunForName = mysqli_query($con,"SELECT NEPTUN FROM USER WHERE NAME='$who'");
+		while($row=mysqli_fetch_assoc($getNeptunForName))
+		{
+			$selectedNeptun = $row['NEPTUN'];
+		}
+		
+		$updateEvaluateTeammate = mysqli_query($con,"INSERT RATE SET NEPTUN_WHO='$who', NEPTUN_WHOM='$selectedNeptun', GRADE='$grade', MESSAGE='$evaluateMsg'");
 		$message = "Értékelés sikeresen elküldve!";
 		echo "<script type='text/javascript'>alert('$message');</script>";
 		
