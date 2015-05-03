@@ -1,3 +1,15 @@
+<?php
+	session_start(); 
+	require "check_logged_in.php";
+	require "config.php";
+	
+	if(isset($_POST['changeTeam'])){
+		$newTeam = $_POST['changeTeam'];
+		$result = mysqli_query($con,"SELECT ID FROM TEAM WHERE NAME='$newTeam'");
+		$row=mysqli_fetch_assoc($result);
+		$_SESSION['TEAM_ID']=$row['ID'];
+	}
+?>
 <!DOCTYPE html> 
 <html> 
 <head> 
@@ -177,7 +189,24 @@
 </head>
 
 <body>
-
+	<?php
+		if($_SESSION['TYPE']==2){
+	?>
+		<form action="#" method="POST">
+		<select name="changeTeam" id="changeTeam">
+		<?php
+			$result = mysqli_query($con,"SELECT NAME FROM TEAM");
+			while($row=mysqli_fetch_assoc($result))
+			{
+			  echo '<option value = "'.$row['NAME'].'">'.$row['NAME'].'</option>';
+			}
+		?>
+		</select>
+		<input type="submit" id="Submit" value="Mehet"  />
+		</form>
+	<?php
+		}
+	?>
 
 
 	<div style="margin-left:200">

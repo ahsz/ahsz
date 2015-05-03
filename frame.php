@@ -50,7 +50,7 @@ License: Creative Commons Attribution
 	
 	<li><a href="ertekeles.php" class="link4" target="kezdolap_frame">Értékelés</a></li>
 	<li><a href="cs_status.php" class="link5" target="kezdolap_frame">Csapat státusz</a></li>
-	<li><a href="m_status.html" class="link6" target="kezdolap_frame">Munka státusz</a></li>
+	<li><a href="m_status.php" class="link6" target="kezdolap_frame">Munka státusz</a></li>
 	<li><a href="feltoltes.php" class="link7" target="kezdolap_frame">Feltöltés</a></li>
 	<li><a href="teszteredmeny.php" class="link10" target="kezdolap_frame">Teszt eredmények</a></li>
 	
