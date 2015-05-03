@@ -13,7 +13,15 @@ textarea {
 
 <body>
 	<div style="margin-left:200">
-	<h1>Üzenetek</h1>
+	<?php	if($_SESSION['TYPE']==1){	?> 
+	<h1>Üzenetek</h1></br>
+	Az itt megadott üzenetek csak Te és a csapattársaid látjátok.
+	<?php	} if($_SESSION['TYPE']==2){	?> 
+	<h1>Aktuális információk</h1></br>
+	Az itt megadott információk kikerülnek a kezdőlapra, az "Aktuális információk" blokkhoz. </br>
+	Az itt megadott információk az oktatói felületen törölhetőek.
+	<?php } ?>
+	
 	</div>
 	<textarea readonly name="message" rows="40" cols="80"><?php
 	
