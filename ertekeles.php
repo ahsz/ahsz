@@ -181,7 +181,7 @@
 			</br>
 			<textarea name="EvaluateTeammateMessage" id="input" rows="2" cols="20"></textarea>
 			</div>
-			<input id="submit" type="button" value="Küldés"> </input>
+			<input type="submit" id="Submit" value="Küldés"  />
 			</form>
 	
 	</div>
