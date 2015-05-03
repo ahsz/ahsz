@@ -44,14 +44,19 @@ License: Creative Commons Attribution
 	<?php	if($_SESSION['TYPE']==1){	?>
 		<li><a href="uzenetek.php" class="link3" target="kezdolap_frame">Üzenetek</a></li>
 	<?php	}	if($_SESSION['TYPE']==2){	?>
-		<li><a href="uzenetek.php" class="link3" target="kezdolap_frame">Hírfal</a></li>
+		<li><a href="uzenetek.php" class="link3" target="kezdolap_frame">Aktuális információk</a></li>
 	<?php	}	?>
 	<li><a href="ertekeles.html" class="link4" target="kezdolap_frame">Értékelés</a></li>
 	<li><a href="cs_status.php" class="link5" target="kezdolap_frame">Csapat státusz</a></li>
 	<li><a href="m_status.html" class="link6" target="kezdolap_frame">Munka státusz</a></li>
 	<li><a href="feltoltes.php" class="link7" target="kezdolap_frame">Feltöltés</a></li>
 	<li><a href="teszteredmeny.php" class="link10" target="kezdolap_frame">Teszt eredmények</a></li>
+	<?php	if($_SESSION['TYPE']==1){	?>
 	<li><a href="oktatoi.php" class="link8" target="kezdolap_frame">Oktatói felület</a></li>
+	<?php	}	if($_SESSION['TYPE']==2){	?>
+	<li><a href="oktatoi.php" class="link8" target="kezdolap_frame">Oktatók</a></li>
+	<?php	}	?>	
+
 	<li><a href="logout.php" class="link9">Kijelentkezés</a></li>
                         	</ul>
 			</nav>
