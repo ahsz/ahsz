@@ -32,7 +32,7 @@
 		
 	}
 	
-	if(isset($_POST['EvaluateTeammateGrade']) && isset($_POST['EvaluateTeammateMessage']) && isset($_POST['userWho'])){
+	if(isset($_POST['EvaluateTeammateGrade'], $_POST['EvaluateTeammateMessage'], $_POST['userWho'])){
 		evaluateTeammate();
 	}
 ?>
