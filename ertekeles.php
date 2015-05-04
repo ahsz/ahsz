@@ -314,18 +314,14 @@
 			<textarea name="TeamEvaluation" id="input" rows="2" cols="20" readonly>Jegy: <?php 
 			$tid = $_SESSION['TEAM_ID'];
 			$getTeamGradeQuery = mysqli_query($con,"SELECT GRADE FROM TEAM WHERE TEAM_ID=$tid");
-			while($row = mysqli_fetch_assoc($getTeamGradeQuery))
-				{
-				  $getTeamGrade = $row['GRADE'];
-				}
+			$row = mysqli_fetch_assoc($getTeamGradeQuery);
+			$getTeamGrade = $row['GRADE'];
 			if($getTeamGrade!=null){echo $getTeamGrade;} ?>
 			Szöveges értékelés: <?php
 			$tid = $_SESSION['TEAM_ID'];
 			$getTeamMessageQuery = mysqli_query($con,"SELECT MESSAGE FROM TEAM WHERE TEAM_ID=$tid");
-			while($row1 = mysqli_fetch_assoc($getTeamMessageQuery))
-				{
-				  $getTeamMessage = $row1['MESSAGE'];
-				}
+			$row1 = mysqli_fetch_assoc($getTeamMessageQuery);
+			$getTeamMessage = $row1['MESSAGE'];
 			if($getTeamMessage!=null){ echo getTeamMessage;} ?></textarea>
 			</div>
 			
