@@ -316,7 +316,8 @@
 			$getTeamGradeQuery = mysqli_query($con,"SELECT GRADE FROM TEAM WHERE ID=$tid");
 			$row = mysqli_fetch_assoc($getTeamGradeQuery);
 			$getTeamGrade = $row['GRADE'];
-			if($getTeamGrade!=null){echo $getTeamGrade;} ?>&#13;&#10;Szöveges értékelés: <?php
+			if($getTeamGrade!=null){echo $getTeamGrade;}
+			?>&#13;&#10;Szöveges értékelés: <?php
 			$tid = $_SESSION['TEAM_ID'];
 			$getTeamMessageQuery = mysqli_query($con,"SELECT MESSAGE FROM TEAM WHERE ID=$tid");
 			$row1 = mysqli_fetch_assoc($getTeamMessageQuery);
@@ -329,7 +330,18 @@
 			<b>Oktató értékelése rólad:</b>
 			<div class="user_info">
 			</br>
-			<textarea name="TeammateEvaluation" id="input" rows="2" cols="20" readonly></textarea>
+			<textarea name="TeammateEvaluation" id="input" rows="2" cols="20" readonly>Jegy: <?php 
+			$myNeptun = $_SESSION['NEPTUN'];
+			$getMyGradeQuery = mysqli_query($con,"SELECT RATE.GRADE FROM RATE, USER WHERE USER.TYPE=2 AND RATE.NEPTUN_WHO=USER.NEPTUN AND RATE.NEPTUN_WHOM='$myNeptun'");
+			$row = mysqli_fetch_assoc($getMyGradeQuery);
+			$getMyGrade = $row['GRADE'];
+			if($getTeamGrade!=null){echo $getMyGrade;}
+			?>&#13;&#10;Szöveges értékelés: <?php
+			$myNeptun = $_SESSION['NEPTUN'];
+			$getMyMessageQuery = mysqli_query($con,"SELECT RATE.MESSAGE FROM RATE, USER WHERE USER.TYPE=2 AND RATE.NEPTUN_WHO=USER.NEPTUN AND RATE.NEPTUN_WHOM='$myNeptun'");
+			$row1 = mysqli_fetch_assoc($getMyMessageQuery);
+			$getMyMessage = $row1['MESSAGE'];
+			if($getMyMessage!=null){ echo $getMyMessage;} ?></textarea>
 			</div>
 			
 			<?php
