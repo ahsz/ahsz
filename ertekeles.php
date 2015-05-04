@@ -122,6 +122,11 @@
 				?></span>
 			</div>
 			</br>
+			
+			<?php
+				if($_SESSION['TYPE']==2){
+			?>
+			
 			<b>Tanári értékelés: (csak tanár látja)</b>
 			<div class="user_info">
 			Osztályzat:	
@@ -145,6 +150,10 @@
 			<br/>
 			</div>
 			<form action="#" method="POST">
+			
+			<?php
+				}else if($_SESSION['TYPE']==1){
+			?>
 			<b>Csapattag értékelése:</b>
 			<div class="user_info">
 			Értékelt személy:
@@ -199,6 +208,10 @@
 			</br>
 			<textarea name="TeammateEvaluation" id="input" rows="2" cols="20" readonly></textarea>
 			</div>
+			
+			<?php
+				}
+			?>
 	
 	</div>
 	
