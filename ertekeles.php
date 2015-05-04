@@ -264,7 +264,7 @@
 
 				echo $option; ?>
 			</select>
-			<input type="submit" id="Submit" value="OK"  />
+			<input type="submit" id="Submit" value="OK"/>
 			</br>
 			</form>
 			<?php if(isset($_POST['whichTeamToList'])){?>
@@ -278,7 +278,7 @@
 			
 			<?php
 			$team = $_POST['whichTeamToList'];
-			$listTeam = mysqli_query($con,"SELECT RATE.WHOM as whom, RATE.WHO AS who, RATE.GRADE as grade, RATE.MESSAGE as msg FROM RATE, USER WHERE USER.TEAM_ID='$team' AND USER.NEPTUN=RATE.WHOM");
+			$listTeam = mysqli_query($con,"SELECT RATE.NEPTUN_WHOM as whom, RATE.NEPTUN_WHO AS who, RATE.GRADE as grade, RATE.MESSAGE as msg FROM RATE, USER WHERE USER.TYPE=1 AND USER.TEAM_ID='$team' AND USER.NEPTUN=RATE.NEPTUN_WHO");
 			 while($row = mysqli_fetch_assoc($listTeam))
 			{
 			  echo "<tr>";
