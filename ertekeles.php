@@ -50,7 +50,7 @@
 		$whom=$_POST['whichStudent'];
 		$grade=$_POST['studentGrade'];
 		$evaluateMsg=$_POST['studentMessage'];
-		$insertEvaluateStudent = mysqli_query($con,"INSERT RATE SET NEPTUN_WHO='$who', NEPTUN_WHOM='$whom', GRADE=$grade, MESSAGE='$evaluateMsg'");
+		$insertEvaluateStudent = mysqli_query($con,"INSERT RATE SET WHO='$who', WHOM='$whom', GRADE=$grade, MESSAGE='$evaluateMsg'");
 		$message = "Diák sikeresen értékelve";
 		echo "<script type='text/javascript'>alert('$message');</script>";	
 	}
