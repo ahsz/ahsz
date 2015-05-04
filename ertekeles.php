@@ -247,6 +247,52 @@
 			</form>
 			</div>
 			
+			</br>
+			</br>
+			<b>Diákok értékelése egymásról:</b>
+			
+			<form action="#" method="POST">
+			Csapat kiválasztása:
+			<select name="whichTeamToList" id="whichTeamToList">
+			  <?php
+				$get=mysqli_query($con,"SELECT NAME FROM TEAM");
+				$option = '';
+				 while($row = mysqli_fetch_assoc($get))
+				{
+				  $option .= '<option value = "'.$row['NAME'].'">'.$row['NAME'].'</option>';
+				}
+
+				echo $option; ?>
+			</select>
+			<input type="submit" id="Submit" value="OK"  />
+			</br>
+			</form>
+			<?php if(isset($_POST['whichTeamToList'])){?>
+				<table border="1" width="600">
+				<tr>
+					<td><b>Értékelt</b></td>
+					<td><b>Értékelő</b></td>
+					<td><b>Jegy</b></td>
+					<td><b>Értékelés</b></td>
+				</tr>
+			
+			<?php
+			$team = $_POST['whichTeamToList'];
+			$listTeam = mysqli_query($con,"SELECT RATE.WHOM as whom, RATE.WHO AS who, RATE.GRADE as grade, RATE.MESSAGE as msg FROM RATE, USER WHERE USER.TEAM_ID='$team' AND USER.NEPTUN=RATE.WHOM");
+			 while($row = mysqli_fetch_assoc($listTeam))
+			{
+			  echo "<tr>";
+				  echo "<td>".$row['whom']."</td>";
+				  echo "<td>".$row['who']."</td>";
+				  echo "<td>".$row['grade']."</td>";
+				  echo "<td>".$row['msg']."</td>";
+			  echo "</tr>";
+			}
+			}//if bezárása?>
+			
+			</br>
+			</br>
+			<b>Oktatói értékelések diákokról:</b>
 			<?php
 				}else if($_SESSION['TYPE']==1){
 			?>
