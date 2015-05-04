@@ -322,7 +322,7 @@
 			$getTeamMessageQuery = mysqli_query($con,"SELECT MESSAGE FROM TEAM WHERE ID=$tid");
 			$row1 = mysqli_fetch_assoc($getTeamMessageQuery);
 			$getTeamMessage = $row1['MESSAGE'];
-			if($getTeamMessage!=null){ echo getTeamMessage;} ?></textarea>
+			if($getTeamMessage!=null){ echo $getTeamMessage;} ?></textarea>
 			</div>
 			
 			<br/>
