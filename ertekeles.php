@@ -38,8 +38,20 @@
 		$evaluateMsg=$_POST['teamMessage'];
 		$teamname=$_POST['whichTeam'];
 		
-		$insertEvaluateTeam = mysqli_query($con,"UPDATE TEAM SET GRADE=$grade, MESSAGE='$evaluateMsg' WHERE NAME='$teamname'");
+		$updateEvaluateTeam = mysqli_query($con,"UPDATE TEAM SET GRADE=$grade, MESSAGE='$evaluateMsg' WHERE NAME='$teamname'");
 		$message = "Csapat sikeresen értékelve";
+		echo "<script type='text/javascript'>alert('$message');</script>";	
+	}
+	
+	function evaluateStudent(){
+		require "config.php";
+		
+		$who=$_SESSION['NEPTUN'];
+		$whom=$_POST['whichStudent'];
+		$grade=$_POST['studentGrade'];
+		$evaluateMsg=$_POST['studentMessage'];
+		$insertEvaluateStudent = mysqli_query($con,"INSERT RATE SET WHO='$who', WHOM='$whom', GRADE=$grade, MESSAGE='$evaluateMsg'");
+		$message = "Diák sikeresen értékelve";
 		echo "<script type='text/javascript'>alert('$message');</script>";	
 	}
 	
@@ -49,6 +61,10 @@
 	
 	if(isset($_POST['whichTeam'], $_POST['teamGrade'], $_POST['teamMessage'])){
 		evaluateTeam();
+	}
+	
+	if(isset($_POST['whichStudent'], $_POST['studentGrade'], $_POST['studentMessage'])){
+		evaluateStudent();
 	}
 ?>
 <html>
@@ -171,6 +187,7 @@
 			<b>Diák értékelése</b>
 			<div class="user_info">
 			</br>
+			<form action="#" method="POST">
 			Csapat kiválasztása:
 			<select name="whichTeamForStudent" id="whichTeamForStudent">
 			  <?php
@@ -185,6 +202,7 @@
 			</select>
 			<input type="submit" id="Submit" value="OK"  />
 			</br>
+			</form>
 			Diák kiválasztása:
 			<select name="whichStudent" id="whichStudent">
 			  <?php
@@ -196,16 +214,16 @@
 						$teamIdForStudent = $row['TEAM_ID'];
 					}
 					
-					$get=mysqli_query($con,"SELECT NAME FROM USER WHERE TEAM_ID='$teamIdForStudent'");
+					$get=mysqli_query($con,"SELECT NEPTUN FROM USER WHERE TEAM_ID='$teamIdForStudent'");
 					$option = '';
 					 while($row = mysqli_fetch_assoc($get))
 					{
-					  $option .= '<option value = "'.$row['NAME'].'">'.$row['NAME'].'</option>';
+					  $option .= '<option value = "'.$row['NEPTUN'].'">'.$row['NEPTUN'].'</option>';
 					}
 
 					echo $option;
 				}?>
-					
+			
 			</select>
 			</br>
 			Osztályzat:	
