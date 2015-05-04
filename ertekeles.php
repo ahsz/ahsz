@@ -160,6 +160,7 @@
 			Szöveges értékelés:
 			</br>
 			<textarea name="teamMessage" id="input" rows="2" cols="20"></textarea>
+			</br>
 			<input type="submit" id="Submit" value="Küldés"  />
 			</form>
 			</div>
@@ -186,21 +187,24 @@
 			Diák kiválasztása:
 			<select name="whichStudent" id="whichStudent">
 			  <?php
-				$teamNameOfStudent = $_POST['whichTeamForStudent'];
-				$teamIdQuery = mysqli_query($con,"SELECT ID FROM TEAM WHERE NAME='$teamNameOfStudent'");
-				while($row=mysqli_fetch_assoc($teamIdQuery))
-				{
-					$teamIdForStudent = $row['TEAM_ID'];
-				}
-				
-				$get=mysqli_query($con,"SELECT NAME FROM USER WHERE TEAM_ID='$teamIdForStudent'");
-				$option = '';
-				 while($row = mysqli_fetch_assoc($get))
-				{
-				  $option .= '<option value = "'.$row['NAME'].'">'.$row['NAME'].'</option>';
-				}
+				if(isset($_POST['whichTeamForStudent'])){
+					$teamNameOfStudent = $_POST['whichTeamForStudent'];
+					$teamIdQuery = mysqli_query($con,"SELECT ID FROM TEAM WHERE NAME='$teamNameOfStudent'");
+					while($row=mysqli_fetch_assoc($teamIdQuery))
+					{
+						$teamIdForStudent = $row['TEAM_ID'];
+					}
+					
+					$get=mysqli_query($con,"SELECT NAME FROM USER WHERE TEAM_ID='$teamIdForStudent'");
+					$option = '';
+					 while($row = mysqli_fetch_assoc($get))
+					{
+					  $option .= '<option value = "'.$row['NAME'].'">'.$row['NAME'].'</option>';
+					}
 
-				echo $option; ?>
+					echo $option;
+				}?>
+					
 			</select>
 			</br>
 			Osztályzat:	
@@ -219,6 +223,7 @@
 			Szöveges értékelés:
 			</br>
 			<textarea name="studentMessage" id="input" rows="2" cols="20"></textarea>
+			</br>
 			<input type="submit" id="Submit" value="Küldés"  />
 			</form>
 			</div>
