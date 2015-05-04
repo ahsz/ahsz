@@ -186,7 +186,7 @@
 			Diák kiválasztása:
 			<select name="whichStudent" id="whichStudent">
 			  <?php
-				$teamNameOfStudent = _POST['whichTeamForStudent'];
+				$teamNameOfStudent = $_POST['whichTeamForStudent'];
 				$teamIdQuery = mysqli_query($con,"SELECT ID FROM TEAM WHERE NAME='$teamNameOfStudent'");
 				while($row=mysqli_fetch_assoc($teamIdQuery))
 				{
