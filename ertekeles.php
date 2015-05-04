@@ -183,7 +183,6 @@
 			<br/>
 			<br/>
 			
-			<form action="#" method="POST">
 			<b>Diák értékelése</b>
 			<div class="user_info">
 			</br>
@@ -203,6 +202,7 @@
 			<input type="submit" id="Submit" value="OK"  />
 			</br>
 			</form>
+			<form action="#" method="POST">
 			Diák kiválasztása:
 			<select name="whichStudent" id="whichStudent">
 			  <?php
