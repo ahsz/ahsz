@@ -129,7 +129,8 @@
 			<form action="#" method="POST">
 			<b>Csapat értékelése</b>
 			<div class="user_info">
-			
+			</br>
+			Csapat:
 			<select name="whichTeam" id="whichTeam">
 			  <?php
 				
@@ -142,7 +143,7 @@
 
 				echo $option; ?>
 			</select>
-			
+			</br>
 			Osztályzat:	
 			<span id="teamGrade">
 			<select name="teamGrade" id="options">
@@ -161,15 +162,71 @@
 			<textarea name="teamMessage" id="input" rows="2" cols="20"></textarea>
 			<input type="submit" id="Submit" value="Küldés"  />
 			</form>
-			<br/>
-			<br/>
 			</div>
+			<br/>
+			<br/>
+			
 			<form action="#" method="POST">
+			<b>Diák értékelése</b>
+			<div class="user_info">
+			</br>
+			Csapat kiválasztása:
+			<select name="whichTeamForStudent" id="whichTeamForStudent">
+			  <?php
+				$get=mysqli_query($con,"SELECT NAME FROM TEAM");
+				$option = '';
+				 while($row = mysqli_fetch_assoc($get))
+				{
+				  $option .= '<option value = "'.$row['NAME'].'">'.$row['NAME'].'</option>';
+				}
+
+				echo $option; ?>
+			</select>
+			</br>
+			Diák kiválasztása:
+			<select name="whichStudent" id="whichStudent">
+			  <?php
+				$teamNameOfStudent = _POST['whichTeamForStudent'];
+				$teamIdQuery = mysqli_query($con,"SELECT ID FROM TEAM WHERE NAME='$teamNameOfStudent'");
+				while($row=mysqli_fetch_assoc($teamIdQuery))
+				{
+					$teamIdForStudent = $row['TEAM_ID'];
+				}
+				
+				$get=mysqli_query($con,"SELECT NAME FROM USER WHERE TEAM_ID='$teamIdForStudent'");
+				$option = '';
+				 while($row = mysqli_fetch_assoc($get))
+				{
+				  $option .= '<option value = "'.$row['NAME'].'">'.$row['NAME'].'</option>';
+				}
+
+				echo $option; ?>
+			</select>
+			</br>
+			Osztályzat:	
+			<span id="studentGrade">
+			<select name="studentGrade" id="options">
+			  <option value="1">1</option>
+			  <option value="2">2</option>
+			  <option value="3">3</option>
+			  <option value="4">4</option>
+			  <option value="5">5</option>
+			</select>
+			</span>
+			<br/>
+			<br/>
+			
+			Szöveges értékelés:
+			</br>
+			<textarea name="studentMessage" id="input" rows="2" cols="20"></textarea>
+			<input type="submit" id="Submit" value="Küldés"  />
+			</form>
+			</div>
 			
 			<?php
 				}else if($_SESSION['TYPE']==1){
 			?>
-			
+			<form action="#" method="POST">
 			<div class="user_info" >
 				Csapatod:
 				<span id="team_name">	
