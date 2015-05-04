@@ -211,7 +211,7 @@
 					$teamIdQuery = mysqli_query($con,"SELECT ID FROM TEAM WHERE NAME='$teamNameOfStudent'");
 					while($row=mysqli_fetch_assoc($teamIdQuery))
 					{
-						$teamIdForStudent = $row['TEAM_ID'];
+						$teamIdForStudent = $row['ID'];
 					}
 					
 					$get=mysqli_query($con,"SELECT NEPTUN FROM USER WHERE TEAM_ID='$teamIdForStudent'");
