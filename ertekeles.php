@@ -324,8 +324,7 @@
 				  $getTeamMessage = $row1['MESSAGE'];
 				}
 			?>
-			<textarea name="TeamEvaluation" id="input" rows="2" cols="20" readonly>Jegy: <?php if($getTeamGrade!=null){echo $getTeamGrade;} ?>
-			Szöveges értékelés: <?php if($getTeamMessage!=null){ echo getTeamMessage} ?></textarea>
+			<textarea name="TeamEvaluation" id="input" rows="2" cols="20" readonly></textarea>
 			</div>
 			
 			<br/>
