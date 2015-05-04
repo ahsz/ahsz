@@ -38,7 +38,7 @@
 		$evaluateMsg=$_POST['teamMessage'];
 		$teamname=$_POST['whichTeam'];
 		
-		$insertEvaluateTeam = mysqli_query($con,"INSERT TEAM SET GRADE=$grade, MESSAGE='$evaluateMsg' WHERE NAME='$teamname'");
+		$insertEvaluateTeam = mysqli_query($con,"UPDATE TEAM SET GRADE=$grade, MESSAGE='$evaluateMsg' WHERE NAME='$teamname'");
 		$message = "Csapat sikeresen értékelve";
 		echo "<script type='text/javascript'>alert('$message');</script>";	
 	}
