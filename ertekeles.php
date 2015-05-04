@@ -267,8 +267,8 @@
 			<input type="submit" id="Submit" value="OK"/>
 			</br>
 			</form>
-			<?php if(isset($_POST['whichTeamToList'])){?>
-				<table border="1" width="600">
+			<?php if(isset($_POST['whichTeamToList'])){ ?>
+				<table border="1" width="800">
 				<tr>
 					<td><b>Értékelt</b></td>
 					<td><b>Értékelő</b></td>
@@ -288,11 +288,8 @@
 				  echo "<td>".$row['msg']."</td>";
 			  echo "</tr>";
 			}
-			}//if bezárása?>
+			} ?>
 			
-			</br>
-			</br>
-			<b>Oktatói értékelések diákokról:</b>
 			<?php
 				}else if($_SESSION['TYPE']==1){
 			?>
