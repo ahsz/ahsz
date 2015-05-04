@@ -316,8 +316,7 @@
 			$getTeamGradeQuery = mysqli_query($con,"SELECT GRADE FROM TEAM WHERE ID=$tid");
 			$row = mysqli_fetch_assoc($getTeamGradeQuery);
 			$getTeamGrade = $row['GRADE'];
-			if($getTeamGrade!=null){echo $getTeamGrade;} ?>
-Szöveges értékelés: <?php
+			if($getTeamGrade!=null){echo $getTeamGrade;} ?>&#13;&#10;Szöveges értékelés: <?php
 			$tid = $_SESSION['TEAM_ID'];
 			$getTeamMessageQuery = mysqli_query($con,"SELECT MESSAGE FROM TEAM WHERE ID=$tid");
 			$row1 = mysqli_fetch_assoc($getTeamMessageQuery);
