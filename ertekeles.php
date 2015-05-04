@@ -183,6 +183,7 @@
 
 				echo $option; ?>
 			</select>
+			<input type="submit" id="Submit" value="OK"  />
 			</br>
 			Diák kiválasztása:
 			<select name="whichStudent" id="whichStudent">
