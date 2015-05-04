@@ -28,12 +28,27 @@
 		
 		$insertEvaluateTeammate = mysqli_query($con,"INSERT RATE SET NEPTUN_WHO='$who', NEPTUN_WHOM='$selectedNeptun', GRADE=$grade, MESSAGE='$evaluateMsg'");
 		$message = "Értékelés sikeresen elküldve!";
-		echo "<script type='text/javascript'>alert('$message');</script>";
+		echo "<script type='text/javascript'>alert('$message');</script>";	
+	}
+	
+	function evaluateTeam(){
+		require "config.php";
 		
+		$grade=$_POST['teamGrade'];
+		$evaluateMsg=$_POST['teamMessage'];
+		$teamname=$_POST['whichTeam'];
+		
+		$insertEvaluateTeam = mysqli_query($con,"INSERT TEAM SET GRADE=$grade, MESSAGE='$evaluateMsg' WHERE NAME='$teamname'");
+		$message = "Csapat sikeresen értékelve";
+		echo "<script type='text/javascript'>alert('$message');</script>";	
 	}
 	
 	if(isset($_POST['EvaluateTeammateGrade'], $_POST['EvaluateTeammateMessage'], $_POST['userWho'])){
 		evaluateTeammate();
+	}
+	
+	if(isset($_POST['whichTeam'], $_POST['teamGrade'], $_POST['teamMessage'])){
+		evaluateTeam();
 	}
 ?>
 <html>
@@ -107,6 +122,54 @@
 <div id="page_name"> <b>Értékelés:</b> </div>
 
 		<div id="grade">
+			
+			<?php
+				if($_SESSION['TYPE']==2){
+			?>
+			<form action="#" method="POST">
+			<b>Csapat értékelése</b>
+			<div class="user_info">
+			
+			<select name="whichTeam" id="whichTeam">
+			  <?php
+				
+				$get=mysqli_query($con,"SELECT NAME FROM TEAM");
+				$option = '';
+				 while($row = mysqli_fetch_assoc($get))
+				{
+				  $option .= '<option value = "'.$row['NAME'].'">'.$row['NAME'].'</option>';
+				}
+
+				echo $option; ?>
+			</select>
+			
+			Osztályzat:	
+			<span id="teamGrade">
+			<select name="teamGrade" id="options">
+			  <option value="1">1</option>
+			  <option value="2">2</option>
+			  <option value="3">3</option>
+			  <option value="4">4</option>
+			  <option value="5">5</option>
+			</select>
+			</span>
+			<br/>
+			<br/>
+			
+			Szöveges értékelés:
+			</br>
+			<textarea name="teamMessage" id="input" rows="2" cols="20"></textarea>
+			<input type="submit" id="Submit" value="Küldés"  />
+			</form>
+			<br/>
+			<br/>
+			</div>
+			<form action="#" method="POST">
+			
+			<?php
+				}else if($_SESSION['TYPE']==1){
+			?>
+			
 			<div class="user_info" >
 				Csapatod:
 				<span id="team_name">	
@@ -123,37 +186,6 @@
 			</div>
 			</br>
 			
-			<?php
-				if($_SESSION['TYPE']==2){
-			?>
-			
-			<b>Tanári értékelés: (csak tanár látja)</b>
-			<div class="user_info">
-			Osztályzat:	
-			<span id="spinner">
-			<select name="adminJegy" id="options">
-			  <option value="1">1</option>
-			  <option value="2">2</option>
-			  <option value="3">3</option>
-			  <option value="4">4</option>
-			  <option value="5">5</option>
-			</select>
-			</span>
-			<br/>
-			<br/>
-			
-			Szöveges értékelés:
-			</br>
-			<textarea name="message" id="input" rows="2" cols="20"></textarea>
-				
-			<br/>
-			<br/>
-			</div>
-			<form action="#" method="POST">
-			
-			<?php
-				}else if($_SESSION['TYPE']==1){
-			?>
 			<b>Csapattag értékelése:</b>
 			<div class="user_info">
 			Értékelt személy:
