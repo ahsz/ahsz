@@ -214,7 +214,7 @@
 						$teamIdForStudent = $row['ID'];
 					}
 					
-					$get=mysqli_query($con,"SELECT NEPTUN FROM USER WHERE TEAM_ID='$teamIdForStudent'");
+					$get=mysqli_query($con,"SELECT NEPTUN FROM USER WHERE TEAM_ID=$teamIdForStudent");
 					$option = '';
 					 while($row = mysqli_fetch_assoc($get))
 					{
