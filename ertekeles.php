@@ -143,7 +143,7 @@
 				if($_SESSION['TYPE']==2){
 			?>
 			<form action="#" method="POST">
-			<b>Csapat értékelése</b>
+			<b>Csapat értékelése:</b>
 			<div class="user_info">
 			</br>
 			Csapat:
@@ -183,7 +183,7 @@
 			<br/>
 			<br/>
 			
-			<b>Diák értékelése</b>
+			<b>Diák értékelése:</b>
 			<div class="user_info">
 			</br>
 			<form action="#" method="POST">
@@ -250,7 +250,7 @@
 			</br>
 			</br>
 			<b>Diákok értékelése egymásról:</b>
-			
+			</b>
 			<form action="#" method="POST">
 			Csapat kiválasztása:
 			<select name="whichTeamToList" id="whichTeamToList">
@@ -268,6 +268,7 @@
 			</br>
 			</form>
 			<?php if(isset($_POST['whichTeamToList'])){ ?>
+			</b>
 				<table border="1" width="800">
 				<tr>
 					<td><b>Értékelt</b></td>
@@ -298,7 +299,7 @@
 			</br>
 			</br>
 			<b>Elküldött értékelések:</b>
-			
+			</b>
 			<form action="#" method="POST">
 			Csapat kiválasztása:
 			<select name="whichTeamToListSent" id="whichTeamToListSent">
@@ -316,6 +317,7 @@
 			</br>
 			</form>
 			<?php if(isset($_POST['whichTeamToListSent'])){ ?>
+			</b>
 				<table border="1" width="800">
 				<tr>
 					<td><b>Értékelt</b></td>
