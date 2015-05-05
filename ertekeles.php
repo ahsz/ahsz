@@ -283,7 +283,7 @@
 			{
 				$teamId = $row['ID'];
 			}
-			$listTeam = mysqli_query($con,"SELECT RATE.NEPTUN_WHOM as whom, RATE.NEPTUN_WHO AS who, RATE.GRADE as grade, RATE.MESSAGE as msg FROM RATE, USER WHERE USER.TYPE=1 AND USER.TEAM_ID='$teamId' AND USER.NEPTUN=RATE.NEPTUN_WHO");
+			$listTeam = mysqli_query($con,"SELECT RATE.NEPTUN_WHOM as whom, RATE.NEPTUN_WHO AS who, RATE.GRADE as grade, RATE.MESSAGE as msg FROM RATE, USER WHERE USER.TYPE=1 AND USER.TEAM_ID=$teamId AND USER.NEPTUN=RATE.NEPTUN_WHO");
 			 while($row = mysqli_fetch_assoc($listTeam))
 			{
 			  echo "<tr>";
