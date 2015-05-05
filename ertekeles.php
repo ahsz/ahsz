@@ -252,7 +252,6 @@
 			<b>Diákok értékelése egymásról:</b>
 			</br>
 			</br>
-			<span>
 			<form action="#" method="POST">
 			Csapat kiválasztása:
 			<select name="whichTeamToList" id="whichTeamToList">
@@ -298,13 +297,12 @@
 			  echo "</tr>";
 			}
 			} ?>
-			</span>
+			
 			</br>
 			</br>
 			<b>Elküldött értékelések:</b>
 			</br>
 			</br>
-			<span>
 			<form action="#" method="POST">
 			Csapat kiválasztása:
 			<select name="whichTeamToListSent" id="whichTeamToListSent">
@@ -350,7 +348,7 @@
 			  echo "</tr>";
 			}
 			} ?>
-			</span>
+			
 			<?php
 				}else if($_SESSION['TYPE']==1){
 			?>
