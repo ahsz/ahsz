@@ -133,7 +133,7 @@
 <title>Értékelés</title>
 </head>
 
-<body">
+<body>
 
 <div id="page_name"> <b>Értékelés:</b> </div>
 
