@@ -295,9 +295,10 @@
 				  echo "<td>".$row['grade']."</td>";
 				  echo "<td>".$row['msg']."</td>";
 			  echo "</tr>";
-			}
 			} ?>
 			</table>
+			<?php } ?>
+			
 			</br>
 			</br>
 			<b>Elküldött értékelések:</b>
@@ -346,9 +347,10 @@
 				  echo "<td>".$row['grade']."</td>";
 				  echo "<td>".$row['msg']."</td>";
 			  echo "</tr>";
-			}
 			} ?>
 			</table>
+			<?php } ?>
+			
 			<?php
 				}else if($_SESSION['TYPE']==1){
 			?>
