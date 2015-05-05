@@ -295,6 +295,54 @@
 			}
 			} ?>
 			
+			</br>
+			</br>
+			<b>Elküldött értékelések:</b>
+			
+			<form action="#" method="POST">
+			Csapat kiválasztása:
+			<select name="whichTeamToListSent" id="whichTeamToListSent">
+			  <?php
+				$get=mysqli_query($con,"SELECT NAME FROM TEAM");
+				$option = '';
+				 while($row = mysqli_fetch_assoc($get))
+				{
+				  $option .= '<option value = "'.$row['NAME'].'">'.$row['NAME'].'</option>';
+				}
+
+				echo $option; ?>
+			</select>
+			<input type="submit" id="Submit" value="OK"/>
+			</br>
+			</form>
+			<?php if(isset($_POST['whichTeamToListSent'])){ ?>
+				<table border="1" width="800">
+				<tr>
+					<td><b>Értékelt</b></td>
+					<td><b>Értékelő</b></td>
+					<td><b>Jegy</b></td>
+					<td><b>Értékelés</b></td>
+				</tr>
+			
+			<?php
+			$team = $_POST['whichTeamToListSent'];
+			$teamIdQuery = mysqli_query($con,"SELECT ID FROM TEAM WHERE NAME='$team'");
+			while($row2=mysqli_fetch_assoc($teamIdQuery))
+			{
+				$teamId = $row2['ID'];
+			}
+			$listTeam = mysqli_query($con,"SELECT RATE.NEPTUN_WHOM as whom, RATE.NEPTUN_WHO AS who, RATE.GRADE as grade, RATE.MESSAGE as msg FROM RATE, USER a, USER b WHERE a.TYPE=2 AND a.NEPTUN=RATE.NEPTUN_WHO AND RATE.NEPTUN_WHOM=b.NEPTUN AND b.TEAM_ID='$teamId'");
+			 while($row = mysqli_fetch_assoc($listTeam))
+			{
+			  echo "<tr>";
+				  echo "<td>".$row['whom']."</td>";
+				  echo "<td>".$row['who']."</td>";
+				  echo "<td>".$row['grade']."</td>";
+				  echo "<td>".$row['msg']."</td>";
+			  echo "</tr>";
+			}
+			} ?>
+			
 			<?php
 				}else if($_SESSION['TYPE']==1){
 			?>
