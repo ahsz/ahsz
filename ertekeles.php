@@ -297,7 +297,7 @@
 			  echo "</tr>";
 			}
 			} ?>
-			
+			</table>
 			</br>
 			</br>
 			<b>Elküldött értékelések:</b>
@@ -348,7 +348,7 @@
 			  echo "</tr>";
 			}
 			} ?>
-			
+			</table>
 			<?php
 				}else if($_SESSION['TYPE']==1){
 			?>
