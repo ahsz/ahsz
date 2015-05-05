@@ -251,6 +251,7 @@
 			</br>
 			<b>Diákok értékelése egymásról:</b>
 			</br>
+			</br>
 			<form action="#" method="POST">
 			Csapat kiválasztása:
 			<select name="whichTeamToList" id="whichTeamToList">
@@ -267,6 +268,7 @@
 			<input type="submit" id="Submit" value="OK"/>
 			</br>
 			</form>
+			</br>
 			<?php if(isset($_POST['whichTeamToList'])){ ?>
 			</br>
 				<table border="1" width="800">
@@ -300,6 +302,7 @@
 			</br>
 			<b>Elküldött értékelések:</b>
 			</br>
+			</br>
 			<form action="#" method="POST">
 			Csapat kiválasztása:
 			<select name="whichTeamToListSent" id="whichTeamToListSent">
@@ -316,6 +319,7 @@
 			<input type="submit" id="Submit" value="OK"/>
 			</br>
 			</form>
+			</br>
 			<?php if(isset($_POST['whichTeamToListSent'])){ ?>
 			</br>
 				<table border="1" width="800">
