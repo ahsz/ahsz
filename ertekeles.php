@@ -84,13 +84,11 @@
 	
 	#page_name {
 		font-size:150%;
-		margin-top : 100px;
-		margin-left : 200px	
+	
 	}
 	
 	#grade {
-		margin-top : 100px;
-		margin-left : 200px;	
+	
 		font-size:120%
 	}
 	
@@ -100,28 +98,27 @@
 	}
 	
 	#modify {
-		margin-top : 20px;
-		margin-left : 125px;
+
 	
 	}
 	
 	#team_name {
-		margin-left : 150px;
+
 	}
 		
 	#spinner {
 		position: absolute;
-		margin-left : 140px;
+
 	}
 	
 	#members {
 		position: absolute;
-		margin-left : 92px;
+
 	}
 	
 	#yourRating {
 		position: absolute;
-		margin-left : 130px;
+
 	}
 	
 	textarea#input {
@@ -422,7 +419,7 @@
 			
 			<br/>
 			<br/>
-			<b>Csapat értékelés:</b>
+			<b>Oktató értékelése a csapatodról:</b>
 			<div class="user_info">
 			</br>
 			<textarea name="TeamEvaluation" id="input" rows="2" cols="20" readonly>Jegy: <?php 
