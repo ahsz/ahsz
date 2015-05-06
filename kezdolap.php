@@ -333,52 +333,53 @@
 
 		</div>
 		
-		<div id="news">
 		
-			<p>
-			<b>Legfrissebb üzenetek:</b>
-			</br></br>
-
+			<div id="news">
 			
-				<?php
-					$t_id=$_SESSION['def_tid'];
-					$last_messages = 5;
-					$new_array = array();
-					
-					$result=mysqli_query($con,"SELECT M.DATE_CRT, U.NAME, M.MESSAGE FROM MSG_BOARD M, USER U WHERE U.NEPTUN=M.NEPTUN AND M.TEAM_ID='$t_id'");
-					
-					if(!$result)
-					{
-						echo "ERROR :" . mysqli_error($con). "\n";		
-					}
+				<p>
+				<b>Legfrissebb üzenetek:</b>
+				</br></br>
+
+				
+					<?php
+						$t_id=$_SESSION['def_tid'];
+						$last_messages = 5;
+						$new_array = array();
 						
-					while($row=mysqli_fetch_assoc($result))
-					{
-						$result_string = $row['DATE_CRT']." ".$row['NAME'].": ".$row['MESSAGE'];
-						array_push($new_array, $result_string); // Inside while loop
-					}	
-					
-					
-					if (count($new_array) > $last_messages) {
-						    for ($i = $last_messages; $i > 0; $i--) {
-								echo $new_array[count($new_array)-($i)]."</br>";
+						$result=mysqli_query($con,"SELECT M.DATE_CRT, U.NAME, M.MESSAGE FROM MSG_BOARD M, USER U WHERE U.NEPTUN=M.NEPTUN AND M.TEAM_ID='$t_id'");
+						
+						if(!$result)
+						{
+							echo "ERROR :" . mysqli_error($con). "\n";		
+						}
+							
+						while($row=mysqli_fetch_assoc($result))
+						{
+							$result_string = $row['DATE_CRT']." ".$row['NAME'].": ".$row['MESSAGE'];
+							array_push($new_array, $result_string); // Inside while loop
+						}	
+						
+						
+						if (count($new_array) > $last_messages) {
+								for ($i = $last_messages; $i > 0; $i--) {
+									echo $new_array[count($new_array)-($i)]."</br>";
+									}
+							}
+						else{
+								for ($i = 0; $i < count($new_array); ++$i) {
+									echo $new_array[$i]."</br>";
 								}
 						}
-					else{
-						    for ($i = 0; $i < count($new_array); ++$i) {
-								echo $new_array[$i]."</br>";
-							}
-					}
 
-				?>
-				
-				</p>
-				
-				
+					?>
+					
+					</p>
+					
+					
 
-			
-		</div>
-		
+				
+			</div>
+		</a>
 	
 	</div>
 	
