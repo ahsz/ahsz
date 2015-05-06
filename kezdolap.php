@@ -333,6 +333,7 @@
 
 		</div>
 		
+		<a a href="uzenetek.php" style="text-decoration:none; color: black;" target="_self" >
 		
 			<div id="news">
 			
