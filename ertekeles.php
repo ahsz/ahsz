@@ -141,8 +141,8 @@
 </head>
 
 <body>
-
-<div id="page_name"> <b>Értékelés:</b> </div>
+	
+<div id="page_name"> <h1>Értékelés</h1> </div>
 
 		<div id="grade">
 			
