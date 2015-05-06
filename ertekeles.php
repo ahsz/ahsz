@@ -83,17 +83,17 @@
 	<style>
 	
 	#page_name {
-		font-size:150%;
+
 	
 	}
 	
 	#grade {
 	
-		font-size:120%
+
 	}
 	
 	div.user_info {
-			margin-top : 15px;
+
 
 	}
 	
@@ -107,17 +107,17 @@
 	}
 		
 	#spinner {
-		position: absolute;
+
 
 	}
 	
 	#members {
-		position: absolute;
+
 
 	}
 	
 	#yourRating {
-		position: absolute;
+
 
 	}
 	
