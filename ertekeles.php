@@ -470,6 +470,33 @@
 			if($getMyMessage!=null){ echo $getMyMessage;} ?></textarea>
 			</div>
 			
+			<br/>
+			<br/>
+			<b>Általad elküldött értékelések:</b>
+			<div class="user_info">
+			</br>
+			
+			<table border="1" width="800">
+				<tr>
+					<td><b>Értékelt</b></td>
+					<td><b>Jegy</b></td>
+					<td><b>Értékelés</b></td>
+				</tr>
+			
+			<?php
+			$userNeptun = $_SESSION['NEPTUN'];
+			$listSentEvaluations = mysqli_query($con,"SELECT RATE.NEPTUN_WHOM as whom, RATE.GRADE as grade, RATE.MESSAGE as msg FROM RATE, USER WHERE USER.NEPTUN='$userNeptun'");
+			 while($row = mysqli_fetch_assoc($listSentEvaluations))
+			{
+			  echo "<tr>";
+				  echo "<td>".$row['whom']."</td>";
+				  echo "<td>".$row['grade']."</td>";
+				  echo "<td>".$row['msg']."</td>";
+			  echo "</tr>";
+			} ?>
+			</table>
+			
+			</div>
 			<?php
 				}
 			?>
