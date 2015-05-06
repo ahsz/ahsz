@@ -10,6 +10,14 @@
 	$passedcount=1;
 	$failedcount=1;
 	$inconclusivecount=1;
+	
+	function changeTeam(){
+		require "config.php";
+		$newTeam = $_POST['changeTeam'];
+		$result = mysqli_query($con,"SELECT ID FROM TEAM WHERE NAME='$newTeam'");
+		$row=mysqli_fetch_assoc($result);
+		$_SESSION['TEAM_ID']=$row['ID'];
+	}
 
 	function save(){
         	require "config.php"; 
@@ -79,6 +87,10 @@
     if(isset($_POST['time']) && isset($_POST['passed']) && isset($_POST['failed']) && isset($_POST['inconclusive'])){
     	save();
     }
+	
+	if(isset($_POST['changeTeam'])){
+		changeTeam();
+	}
 ?>
 
 <html>
@@ -106,8 +118,26 @@
 
 </head>
 <body>
+<?php
+	if($_SESSION['TYPE']==2){
+?>
+	<form action="#" method="POST">
+	<select name="changeTeam" id="changeTeam">
+	<?php
+		$result = mysqli_query($con,"SELECT NAME FROM TEAM");
+		while($row=mysqli_fetch_assoc($result))
+		{
+		  echo '<option value = "'.$row['NAME'].'">'.$row['NAME'].'</option>';
+		}
+	?>
+	</select>
+	<input type="submit" id="Submit" value="Mehet"  />
+	</form>
+<?php
+	}
+?>
 	
-
+	
 	
 	<h1>Teszt eredmények</h1>
 
@@ -119,6 +149,8 @@
 					
 <?php
 	mydraw();
+	if($_SESSION['ROLE_ID'] != 2)
+	{
 ?>
 				<tr><td><br><br></td></tr>
 				<div class="user_info">
@@ -153,6 +185,9 @@
 						</td></tr>
 					</form>
 				</div>
+<?php
+	}
+?>	
 			<div class="user_info">
 				<form form id="form" name="form" method="post" action="#">				
 					<tr><td>
