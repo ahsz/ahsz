@@ -29,7 +29,7 @@
 		
 		//ellenőrzöm, hogy van-e már értékelés az adott diákhoz az adott diáktól, mivel, ha igen, akkor UPDATE kell, ha nem akkor INSERT
 		$getRowCount = mysqli_query($con,"SELECT COUNT(*) as cnt FROM RATE WHERE  NEPTUN_WHO='$who' AND NEPTUN_WHOM='$selectedNeptun'");
-		$row=mysqli_fetch_assoc($getRowCount))
+		$row=mysqli_fetch_assoc($getRowCount);
 		$count = $row['cnt'];
 		
 		if($cnt == 0){
