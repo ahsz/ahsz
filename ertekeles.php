@@ -32,7 +32,7 @@
 		$row=mysqli_fetch_assoc($getRowCount);
 		$count = $row['cnt'];
 		
-		if($cnt == 0){
+		if($count == 0){
 			$insertEvaluateTeammate = mysqli_query($con,"INSERT RATE SET NEPTUN_WHO='$who', NEPTUN_WHOM='$selectedNeptun', GRADE=$grade, MESSAGE='$evaluateMsg'");
 			echo "<script type='text/javascript'>alert('$message');</script>";
 		}else{
