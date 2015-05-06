@@ -10,8 +10,8 @@
 		$escapedemail = htmlspecialchars($email, ENT_QUOTES);
 		if($email==null)
 		{
-			echo "Uresen hagytad az e-mail cim mezot!"; 
-			echo '<a href="profil.php">'. Vissza . '</a>';
+			echo "<script type='text/javascript'>alert('Uresen hagytad az e-mail cim mezot!');</script>"; 
+/*			echo '<a href="profil.php">'. Vissza . '</a>';*/
 			exit();
 		}
 		
@@ -20,14 +20,14 @@
 		
 		if(!$res)
 		{	
-			echo "HIBA: " . mysqli_error($con) . " ";
+			echo "<script type='text/javascript'>alert('Hiba:  mysqli_error($con)');</script>";
 			echo '<a href="profil.php">'. Vissza . '</a>';
 			exit();
 		}
 		else
 		{
-			echo "Sikeres e-mail cim modositas!";
-			echo '<a href="profil.php">'. Vissza . '</a>';
+			echo "<script type='text/javascript'>alert('Sikeres e-mail cim modositas!');</script>";
+/*			echo '<a href="profil.php">'. Vissza . '</a>';*/
 			exit();
 		}
 	}
