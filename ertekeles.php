@@ -60,9 +60,21 @@
 		$whom=$_POST['whichStudent'];
 		$grade=$_POST['studentGrade'];
 		$evaluateMsg=$_POST['studentMessage'];
-		$insertEvaluateStudent = mysqli_query($con,"INSERT RATE SET NEPTUN_WHO='$who', NEPTUN_WHOM='$whom', GRADE=$grade, MESSAGE='$evaluateMsg'");
 		$message = "Diák sikeresen értékelve";
-		echo "<script type='text/javascript'>alert('$message');</script>";	
+		
+		
+		//ellenőrzöm, hogy van-e már értékelés az adott diákhoz az adott oktatótól, mivel, ha igen, akkor UPDATE kell, ha nem akkor INSERT
+		$getRowCount = mysqli_query($con,"SELECT COUNT(*) as cnt FROM RATE WHERE  NEPTUN_WHO='$who' AND NEPTUN_WHOM='$whom'");
+		$row=mysqli_fetch_assoc($getRowCount);
+		$count = $row['cnt'];
+		
+		if($count == 0){
+			$insertEvaluateStudent = mysqli_query($con,"INSERT RATE SET NEPTUN_WHO='$who', NEPTUN_WHOM='$whom', GRADE=$grade, MESSAGE='$evaluateMsg'");
+			echo "<script type='text/javascript'>alert('$message');</script>";
+		}else{
+			$updateEvaluateStudent = mysqli_query($con,"UPDATE RATE SET GRADE=$grade, MESSAGE='$evaluateMsg' WHERE NEPTUN_WHO='$who' AND NEPTUN_WHOM='$whom'");
+			echo "<script type='text/javascript'>alert('$message');</script>";
+		}
 	}
 	
 	if(isset($_POST['EvaluateTeammateGrade'], $_POST['EvaluateTeammateMessage'], $_POST['userWho'])){
