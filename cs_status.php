@@ -45,8 +45,9 @@
 	function modGithubRepo(){
 		require "config.php";
 		$github_repo = $_POST['github_mod'];
+		$escaped_github_repo=htmlspecialchars($github_repo, ENT_QUOTES);
 		$tid = $_SESSION['TEAM_ID'];
-		$updateGithub = mysqli_query($con,"UPDATE TEAM SET GITHUB_LINK='$github_repo' WHERE ID='$tid'");
+		$updateGithub = mysqli_query($con,"UPDATE TEAM SET GITHUB_LINK='$escaped_github_repo' WHERE ID='$tid'");
 		$message = "Github repo sikeresen módosítva!";
 		echo "<script type='text/javascript'>alert('$message');</script>";
 	}
