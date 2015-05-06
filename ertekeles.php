@@ -25,10 +25,20 @@
 		{
 			$selectedNeptun = $row['NEPTUN'];
 		}
-		
-		$insertEvaluateTeammate = mysqli_query($con,"INSERT RATE SET NEPTUN_WHO='$who', NEPTUN_WHOM='$selectedNeptun', GRADE=$grade, MESSAGE='$evaluateMsg'");
 		$message = "Értékelés sikeresen elküldve!";
-		echo "<script type='text/javascript'>alert('$message');</script>";	
+		
+		//ellenőrzöm, hogy van-e már értékelés az adott diákhoz az adott diáktól, mivel, ha igen, akkor UPDATE kell, ha nem akkor INSERT
+		$getRowCount = mysqli_query($con,"SELECT COUNT(*) as cnt FROM RATE WHERE  NEPTUN_WHO='$who' AND NEPTUN_WHOM='$selectedNeptun'");
+		$row=mysqli_fetch_assoc($getRowCount))
+		$count = $row['cnt'];
+		
+		if($cnt == 0){
+			$insertEvaluateTeammate = mysqli_query($con,"INSERT RATE SET NEPTUN_WHO='$who', NEPTUN_WHOM='$selectedNeptun', GRADE=$grade, MESSAGE='$evaluateMsg'");
+			echo "<script type='text/javascript'>alert('$message');</script>";
+		}else{
+			$updateEvaluateTeammate = mysqli_query($con,"UPDATE RATE SET GRADE=$grade, MESSAGE='$evaluateMsg' WHERE NEPTUN_WHO='$who' AND NEPTUN_WHOM='$selectedNeptun'");
+			echo "<script type='text/javascript'>alert('$message');</script>";
+		}
 	}
 	
 	function evaluateTeam(){
