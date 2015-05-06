@@ -289,44 +289,44 @@
 
 		<p>  <font size="5"><b><u>Aktuális információk:</u></b></font>
 		</br>
-		<ul>
-				<?php
-					$t_id= -1;
-			//		$last_messages = 5;
-					$new_teacher_array = array();
-					
-					$result=mysqli_query($con,"SELECT M.DATE_CRT, U.NAME, M.MESSAGE FROM MSG_BOARD M, USER U WHERE U.NEPTUN=M.NEPTUN AND M.TEAM_ID='$t_id'");
-					
-					if(!$result)
-					{
-						echo "ERROR :" . mysqli_error($con). "\n";		
-					}
+			<ul>
+					<?php
+						$t_id= -1;
+				//		$last_messages = 5;
+						$new_teacher_array = array();
 						
-					while($row=mysqli_fetch_assoc($result))
-					{
-						$result_string = "<b>".$row['DATE_CRT'].":	"."</b>".$row['MESSAGE'];
-						array_push($new_teacher_array, $result_string); // Inside while loop
-					}	
-					
-					for($i = count($new_teacher_array); $i>0; $i--){
-						echo "<li>".$new_teacher_array[$i-1]."</li>";
-					}
-					
-				/*	if (count($new_array) > $last_messages) {
-						    for ($i = $last_messages; $i > 0; $i--) {
-								echo $new_array[count($new_array)-($i)]."</br>";
-								}
+						$result=mysqli_query($con,"SELECT M.DATE_CRT, U.NAME, M.MESSAGE FROM MSG_BOARD M, USER U WHERE U.NEPTUN=M.NEPTUN AND M.TEAM_ID='$t_id'");
+						
+						if(!$result)
+						{
+							echo "ERROR :" . mysqli_error($con). "\n";		
+						}
+							
+						while($row=mysqli_fetch_assoc($result))
+						{
+							$result_string = "<b>".$row['DATE_CRT'].":	"."</b>".$row['MESSAGE'];
+							array_push($new_teacher_array, $result_string); // Inside while loop
+						}	
+						
+						for($i = count($new_teacher_array); $i>0; $i--){
+							echo "<li>".$new_teacher_array[$i-1]."</li>";
 						}
 						
-					else{
-						    for ($i = 0; $i < count($new_array); ++$i) {
-								echo $new_array[$i]."</br>";
+					/*	if (count($new_array) > $last_messages) {
+								for ($i = $last_messages; $i > 0; $i--) {
+									echo $new_array[count($new_array)-($i)]."</br>";
+									}
 							}
-					}
-*/
-				?>
+							
+						else{
+								for ($i = 0; $i < count($new_array); ++$i) {
+									echo $new_array[$i]."</br>";
+								}
+						}
+	*/
+					?>
 
-		</ul>
+			</ul>
 		</p>
 		
 		
