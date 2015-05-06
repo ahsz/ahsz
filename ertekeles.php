@@ -19,6 +19,7 @@
 		$whom=$_POST['userWho'];
 		$grade=$_POST['EvaluateTeammateGrade'];
 		$evaluateMsg=$_POST['EvaluateTeammateMessage'];
+		$escaped_evaluateMsg=htmlspecialchars($evaluateMsg, ENT_QUOTES);
 		
 		$getNeptunForName = mysqli_query($con,"SELECT NEPTUN FROM USER WHERE NAME='$whom'");
 		while($row=mysqli_fetch_assoc($getNeptunForName))
@@ -33,10 +34,10 @@
 		$count = $row['cnt'];
 		
 		if($count == 0){
-			$insertEvaluateTeammate = mysqli_query($con,"INSERT RATE SET NEPTUN_WHO='$who', NEPTUN_WHOM='$selectedNeptun', GRADE=$grade, MESSAGE='$evaluateMsg'");
+			$insertEvaluateTeammate = mysqli_query($con,"INSERT RATE SET NEPTUN_WHO='$who', NEPTUN_WHOM='$selectedNeptun', GRADE=$grade, MESSAGE='$escaped_evaluateMsg'");
 			echo "<script type='text/javascript'>alert('$message');</script>";
 		}else{
-			$updateEvaluateTeammate = mysqli_query($con,"UPDATE RATE SET GRADE=$grade, MESSAGE='$evaluateMsg' WHERE NEPTUN_WHO='$who' AND NEPTUN_WHOM='$selectedNeptun'");
+			$updateEvaluateTeammate = mysqli_query($con,"UPDATE RATE SET GRADE=$grade, MESSAGE='$escaped_evaluateMsg' WHERE NEPTUN_WHO='$who' AND NEPTUN_WHOM='$selectedNeptun'");
 			echo "<script type='text/javascript'>alert('$message');</script>";
 		}
 	}
@@ -46,9 +47,10 @@
 		
 		$grade=$_POST['teamGrade'];
 		$evaluateMsg=$_POST['teamMessage'];
+		$escaped_evaluateMsg=htmlspecialchars($evaluateMsg, ENT_QUOTES);
 		$teamname=$_POST['whichTeam'];
 		
-		$updateEvaluateTeam = mysqli_query($con,"UPDATE TEAM SET GRADE=$grade, MESSAGE='$evaluateMsg' WHERE NAME='$teamname'");
+		$updateEvaluateTeam = mysqli_query($con,"UPDATE TEAM SET GRADE=$grade, MESSAGE='$escaped_evaluateMsg' WHERE NAME='$teamname'");
 		$message = "Csapat sikeresen értékelve";
 		echo "<script type='text/javascript'>alert('$message');</script>";	
 	}
@@ -60,6 +62,7 @@
 		$whom=$_POST['whichStudent'];
 		$grade=$_POST['studentGrade'];
 		$evaluateMsg=$_POST['studentMessage'];
+		$escaped_evaluateMsg=htmlspecialchars($evaluateMsg, ENT_QUOTES);
 		$message = "Diák sikeresen értékelve";
 		
 		
@@ -69,10 +72,10 @@
 		$count = $row['cnt'];
 		
 		if($count == 0){
-			$insertEvaluateStudent = mysqli_query($con,"INSERT RATE SET NEPTUN_WHO='$who', NEPTUN_WHOM='$whom', GRADE=$grade, MESSAGE='$evaluateMsg'");
+			$insertEvaluateStudent = mysqli_query($con,"INSERT RATE SET NEPTUN_WHO='$who', NEPTUN_WHOM='$whom', GRADE=$grade, MESSAGE='$escaped_evaluateMsg'");
 			echo "<script type='text/javascript'>alert('$message');</script>";
 		}else{
-			$updateEvaluateStudent = mysqli_query($con,"UPDATE RATE SET GRADE=$grade, MESSAGE='$evaluateMsg' WHERE NEPTUN_WHO='$who' AND NEPTUN_WHOM='$whom'");
+			$updateEvaluateStudent = mysqli_query($con,"UPDATE RATE SET GRADE=$grade, MESSAGE='$escaped_evaluateMsg' WHERE NEPTUN_WHO='$who' AND NEPTUN_WHOM='$whom'");
 			echo "<script type='text/javascript'>alert('$message');</script>";
 		}
 	}
