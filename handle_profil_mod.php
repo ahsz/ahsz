@@ -21,7 +21,7 @@
 		if(!$res)
 		{	
 			echo "<script type='text/javascript'>alert('Hiba:  mysqli_error($con)');</script>";
-			echo '<a href="profil.php">'. Vissza . '</a>';
+/*			echo '<a href="profil.php">'. Vissza . '</a>';	*/
 			exit();
 		}
 		else
@@ -38,8 +38,8 @@
 		$escapedgithub_user = htmlspecialchars($github_user, ENT_QUOTES);
 		if($github_user==null)
 		{
-			echo "Uresen hagytad a GITHUB felhasznalo nev mezot!"; 
-			echo '<a href="profil.php">'. Vissza . '</a>';
+			echo "<script type='text/javascript'>alert('Uresen hagytad a GITHUB felhasznalo nev mezot!');</script>"; 
+/*			echo '<a href="profil.php">'. Vissza . '</a>';	*/
 			exit();
 		}
 		
@@ -48,14 +48,14 @@
 		
 		if(!$res)
 		{	
-			echo "HIBA: " . mysqli_error($con) . " ";
-			echo '<a href="profil.php">'. Vissza . '</a>';
+			echo "<script type='text/javascript'>alert('Hiba: mysqli_error($con)');</script>";
+/*			echo '<a href="profil.php">'. Vissza . '</a>';	*/
 			exit();
 		}
 		else
 		{
-			echo "Sikeres GITHUB felhasznalo nev modositas!";
-			echo '<a href="profil.php">'. Vissza . '</a>';
+			echo "<script type='text/javascript'>alert('Sikeres GITHUB felhasznalo nev modositas!');</script>";
+/*			echo '<a href="profil.php">'. Vissza . '</a>';	*/
 			exit();
 		}
 	}
@@ -70,43 +70,43 @@
 			$row=mysqli_fetch_assoc($res1);
 			$old_pw=$row['PASSWORD'];
 		} else 	{
-			echo "HIBA: " . mysqli_error($con);
-			echo '<a href="profil.php">'. Vissza . '</a>'; 
+			echo "<script type='text/javascript'>alert('Hiba: mysqli_error($con)');</script>";
+/*			echo '<a href="profil.php">'. Vissza . '</a>';	*/
 			exit(); 
 		}
 
 
 		if($_POST['old_pw']==null) { 
-			echo "Uresen hagytad a regi jelszo mezot! "; 
-			echo '<a href="profil.php">'. Vissza . '</a>';
+			echo "<script type='text/javascript'>alert('Uresen hagytad a regi jelszo mezot!');</script>"; 
+/*			echo '<a href="profil.php">'. Vissza . '</a>';	*/
 			exit(); 
 		} 
 		$old_pw_p=$_POST['old_pw'];
 		$escapedold_pw_p = htmlspecialchars($old_pw_p, ENT_QUOTES);
 		
 		if ($_POST['new_pw1']==null) {
-			echo "Uresen hagytad az uj jelszo mezot! ";
-			echo '<a href="profil.php">'. Vissza . '</a>';
+			echo "<script type='text/javascript'>alert('Uresen hagytad az uj jelszo mezot!');</script>" ;
+/*			echo '<a href="profil.php">'. Vissza . '</a>';	*/
 			exit();
 		}
 		$new_pw1_p=$_POST['new_pw1'];
 		$escapednew_pw1_p = htmlspecialchars($new_pw1_p, ENT_QUOTES);
 		
 		if ($_POST['new_pw2']==null) {
-			echo "Uresen hagytad az uj jelszo megegyszer mezot! ";
-			echo '<a href="profil.php">'. Vissza . '</a>';
+			echo "<script type='text/javascript'>alert('Uresen hagytad az uj jelszo megegyszer mezot!');</script>" ;
+/*			echo '<a href="profil.php">'. Vissza . '</a>';	*/
 			exit();
 		}
 		$new_pw2_p=$_POST['new_pw2'];
 		$escapednew_pw2_p = htmlspecialchars($new_pw2_p, ENT_QUOTES);
 		
 		if(strcmp($old_pw,$escapedold_pw_p)!=0){
-			echo "Nem egyezik a regi jelszo! ";
-			echo '<a href="profil.php">'. Vissza . '</a>';
+			echo "<script type='text/javascript'>alert('Nem egyezik a regi jelszo!');</script>" ;
+/*			echo '<a href="profil.php">'. Vissza . '</a>';	*/
 			exit();
 		} else if (strcmp($escapednew_pw1_p,$escapednew_pw2_p)!=0) {
-			echo "Nem egyezik a ket uj jelszo! ";
-			echo '<a href="profil.php">'. Vissza . '</a>';
+			echo "<script type='text/javascript'>alert('Nem egyezik a ket uj jelszo!');</script>";
+/*			echo '<a href="profil.php">'. Vissza . '</a>';	*/
 			exit();
 		}
 		
@@ -114,12 +114,12 @@
 		$res2=mysqli_query($con,$sql);	
 		
 		if(!$res2) {	
-			echo "HIBA: " . mysqli_error($con) . " ";
-			echo '<a href="profil.php">'. Vissza . '</a>';
+			echo "<script type='text/javascript'>alert('Hiba: mysqli_error($con)');</script>";
+/*			echo '<a href="profil.php">'. Vissza . '</a>';	*/
 			exit();
 		} else {
-			echo "Sikeres jelszo modositas! ";
-			echo '<a href="profil.php">'. Vissza . '</a>';
+			echo "<script type='text/javascript'>alert('Sikeres jelszo modositas!');</script>";
+/*			echo '<a href="profil.php">'. Vissza . '</a>';	*/
 			exit();
 		}
 	}
