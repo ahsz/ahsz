@@ -18,6 +18,7 @@
 </head>
 
 <body>
+	<h1>Feltöltés</h1></br></br>
 	<?php
 		if($_SESSION['TYPE']==2){
 	?>
@@ -60,7 +61,7 @@
 		if($result->num_rows>0){
 				$row=mysqli_fetch_assoc($result);
 				$dir = $row['DIRECTORY'];
-				echo $dir;
+				//echo $dir;
 		}
 	
 	}
