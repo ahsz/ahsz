@@ -10,7 +10,7 @@
 		$escapedemail = htmlspecialchars($email, ENT_QUOTES);
 		if($email==null)
 		{
-			echo "<script type='text/javascript'>alert('Uresen hagytad az e-mail cim mezot!');</script>"; 
+			echo "<script type='text/javascript'>alert('Üresen hagytad az e-mail cím mezőt!');</script>"; 
 /*			echo '<a href="profil.php">'. Vissza . '</a>';*/
 			exit();
 		}
@@ -26,7 +26,7 @@
 		}
 		else
 		{
-			echo "<script type='text/javascript'>alert('Sikeres e-mail cim modositas!');</script>";
+			echo "<script type='text/javascript'>alert('Sikeres e-mail cím módosítás!');</script>";
 /*			echo '<a href="profil.php">'. Vissza . '</a>';*/
 			exit();
 		}
@@ -38,7 +38,7 @@
 		$escapedgithub_user = htmlspecialchars($github_user, ENT_QUOTES);
 		if($github_user==null)
 		{
-			echo "<script type='text/javascript'>alert('Uresen hagytad a GITHUB felhasznalo nev mezot!');</script>"; 
+			echo "<script type='text/javascript'>alert('Üresen hagytad a GITHUB felhasználó név mezőt!');</script>"; 
 /*			echo '<a href="profil.php">'. Vissza . '</a>';	*/
 			exit();
 		}
@@ -54,7 +54,7 @@
 		}
 		else
 		{
-			echo "<script type='text/javascript'>alert('Sikeres GITHUB felhasznalo nev modositas!');</script>";
+			echo "<script type='text/javascript'>alert('Sikeres GITHUB felhasználó név módosítás!');</script>";
 /*			echo '<a href="profil.php">'. Vissza . '</a>';	*/
 			exit();
 		}
@@ -77,7 +77,7 @@
 
 
 		if($_POST['old_pw']==null) { 
-			echo "<script type='text/javascript'>alert('Uresen hagytad a regi jelszo mezot!');</script>"; 
+			echo "<script type='text/javascript'>alert('Üresen hagytad a régi jelszó mezőt!');</script>"; 
 /*			echo '<a href="profil.php">'. Vissza . '</a>';	*/
 			exit(); 
 		} 
@@ -85,7 +85,7 @@
 		$escapedold_pw_p = htmlspecialchars($old_pw_p, ENT_QUOTES);
 		
 		if ($_POST['new_pw1']==null) {
-			echo "<script type='text/javascript'>alert('Uresen hagytad az uj jelszo mezot!');</script>" ;
+			echo "<script type='text/javascript'>alert('Üresen hagytad az új jelszo mezőt!');</script>" ;
 /*			echo '<a href="profil.php">'. Vissza . '</a>';	*/
 			exit();
 		}
@@ -93,7 +93,7 @@
 		$escapednew_pw1_p = htmlspecialchars($new_pw1_p, ENT_QUOTES);
 		
 		if ($_POST['new_pw2']==null) {
-			echo "<script type='text/javascript'>alert('Uresen hagytad az uj jelszo megegyszer mezot!');</script>" ;
+			echo "<script type='text/javascript'>alert('Üresen hagytad az új jelszó mégegyszer mezőt!');</script>" ;
 /*			echo '<a href="profil.php">'. Vissza . '</a>';	*/
 			exit();
 		}
@@ -101,11 +101,11 @@
 		$escapednew_pw2_p = htmlspecialchars($new_pw2_p, ENT_QUOTES);
 		
 		if(strcmp($old_pw,$escapedold_pw_p)!=0){
-			echo "<script type='text/javascript'>alert('Nem egyezik a regi jelszo!');</script>" ;
+			echo "<script type='text/javascript'>alert('Nem egyezik a régi jelszó!');</script>" ;
 /*			echo '<a href="profil.php">'. Vissza . '</a>';	*/
 			exit();
 		} else if (strcmp($escapednew_pw1_p,$escapednew_pw2_p)!=0) {
-			echo "<script type='text/javascript'>alert('Nem egyezik a ket uj jelszo!');</script>";
+			echo "<script type='text/javascript'>alert('Nem egyezik a két új jelszó!');</script>";
 /*			echo '<a href="profil.php">'. Vissza . '</a>';	*/
 			exit();
 		}
@@ -118,7 +118,7 @@
 /*			echo '<a href="profil.php">'. Vissza . '</a>';	*/
 			exit();
 		} else {
-			echo "<script type='text/javascript'>alert('Sikeres jelszo modositas!');</script>";
+			echo "<script type='text/javascript'>alert('Sikeres jelszó módosítás!');</script>";
 /*			echo '<a href="profil.php">'. Vissza . '</a>';	*/
 			exit();
 		}
