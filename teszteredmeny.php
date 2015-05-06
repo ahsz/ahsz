@@ -149,7 +149,7 @@
 					
 <?php
 	mydraw();
-	if($_SESSION['ROLE_ID'] != 2)
+	if($_SESSION['TYPE'] != 2)
 	{
 ?>
 				<tr><td><br><br></td></tr>
