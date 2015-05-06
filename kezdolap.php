@@ -243,7 +243,7 @@
 		
 		<div id="manage_team">
 		
-			<a a href="uzenetek.php" style="text-decoration:none; color: black;" target="_self" >
+			<a a href="cs_status.php" style="text-decoration:none; color: black;" target="_self" >
 				<div id="statusz">
 
 					
