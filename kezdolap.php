@@ -243,12 +243,14 @@
 		
 		<div id="manage_team">
 		
-			<div id="statusz">
+			<a a href="uzenetek.php" style="text-decoration:none; color: black;" target="_self" >
+				<div id="statusz">
 
+					
 				
+				</div>
+			</a>
 			
-			</div>
-		
 			<div id="decision">				
 
 			<input type="submit" id="join1" value="Új csapat létrehozása!" onclick="show_create()" />
