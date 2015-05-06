@@ -296,7 +296,7 @@
 			{
 				$teamId = $row2['ID'];
 			}
-			$listTeam = mysqli_query($con,"SELECT RATE.NEPTUN_WHOM as whom, RATE.NEPTUN_WHO AS who, RATE.GRADE as grade, RATE.MESSAGE as msg FROM RATE, USER WHERE USER.TYPE=1 AND USER.TEAM_ID=$teamId AND USER.NEPTUN=RATE.NEPTUN_WHO");
+			$listTeam = mysqli_query($con,"SELECT RATE.NEPTUN_WHOM as whom, RATE.NEPTUN_WHO AS who, RATE.GRADE as grade, RATE.MESSAGE as msg FROM RATE, USER WHERE USER.TYPE=1 AND USER.TEAM_ID=$teamId AND USER.NEPTUN=RATE.NEPTUN_WHO ORDER BY RATE.NEPTUN_WHOM");
 			 while($row = mysqli_fetch_assoc($listTeam))
 			{
 			  echo "<tr>";
@@ -348,7 +348,7 @@
 			{
 				$teamId = $row2['ID'];
 			}
-			$listTeam = mysqli_query($con,"SELECT RATE.NEPTUN_WHOM as whom, RATE.NEPTUN_WHO AS who, RATE.GRADE as grade, RATE.MESSAGE as msg FROM RATE, USER a, USER b WHERE a.TYPE=2 AND a.NEPTUN=RATE.NEPTUN_WHO AND RATE.NEPTUN_WHOM=b.NEPTUN AND b.TEAM_ID='$teamId'");
+			$listTeam = mysqli_query($con,"SELECT RATE.NEPTUN_WHOM as whom, RATE.NEPTUN_WHO AS who, RATE.GRADE as grade, RATE.MESSAGE as msg FROM RATE, USER a, USER b WHERE a.TYPE=2 AND a.NEPTUN=RATE.NEPTUN_WHO AND RATE.NEPTUN_WHOM=b.NEPTUN AND b.TEAM_ID='$teamId' ORDER BY RATE.NEPTUN_WHOM");
 			 while($row = mysqli_fetch_assoc($listTeam))
 			{
 			  echo "<tr>";
