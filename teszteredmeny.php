@@ -70,7 +70,7 @@
 
 			require "config.php";
 			$t_id=$_SESSION['TEAM_ID'];			
-			/*$result=mysqli_query($con,"SELECT ifnull(NUM_OF_TEST,'') AS NPASS, ifnull(NUM_OF_FAIL,'') AS NFAILED, ifnull(NUM_OF_INC,'') as NINC, ifnull(DATE,'') AS DDATE FROM TEST where TEAM_ID=$t_id order by DATE DESC LIMIT 1");
+			$result=mysqli_query($con,"SELECT ifnull(NUM_OF_TEST,'') AS NPASS, ifnull(NUM_OF_FAIL,'') AS NFAILED, ifnull(NUM_OF_INC,'') as NINC, ifnull(DATE,'') AS DDATE FROM TEST where TEAM_ID=$t_id order by DATE DESC LIMIT 1");
 			if($result->num_rows>0){
 				$row=mysqli_fetch_assoc($result);
 				global $passedcount,$failedcount,$inconclusivecount, $defdate;
@@ -83,7 +83,7 @@
 				echo "HIBA: " . mysqli_error($con);
 				echo '<a href="teszteredmeny.php">'. Vissza . '</a>'; 
 				exit(); 	
-			}*/
+			}
 	}
 	
     if(isset($_POST['time']) && isset($_POST['passed']) && isset($_POST['failed']) && isset($_POST['inconclusive'])){
