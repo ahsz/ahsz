@@ -242,9 +242,9 @@
 	</div>
 				<div class="user_info">
 	<?php
-    if(isset($_POST['selectDate']))) {
+
         echo "test";
-    }
+
 ?>
 	</div>
 	<div id="div_id_1" style="width: 900px; height: 500px;"></div>
