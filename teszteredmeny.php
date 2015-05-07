@@ -195,11 +195,10 @@
 					<tr><td>
 							Teszt eredményeinek lekérdezése:
 						</td><td>
-			<span id="members">
 			<select name="userWho" id="userWho">
 			  <?php
 				$neptun = $_SESSION['NEPTUN'];
-				$get=mysqli_query($con,"SELECT NAME FROM USER WHERE TEAM_ID='$tid' AND NEPTUN!='$neptun'");
+				$get=mysqli_query($con,"SELECT NAME FROM USER WHERE TEAM_ID='$tid'");
 				$option = '';
 				while($row = mysqli_fetch_assoc($get))
 				{
@@ -207,11 +206,8 @@
 				}
 
 				echo $option; ?>
-			</select>
-			</span>		
-					</td></tr>			
-							<input type="text" name="time" class="box" size=30 value="<?php echo $defdate;?>" />
-						</td></tr>				
+			</select>	
+					</td></tr>				
 					</form>
 				</div>
 						</table>
