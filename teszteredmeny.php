@@ -191,20 +191,20 @@
 ?>	
 			<div class="user_info">
 				<form form id="form" name="form" method="post" action="#">				
-					<tr><td>
-							Teszt eredményeinek lekérdezése:
-						</td><td>
-			<select name="whichTeamToList" id="whichTeamToList">
-			  <?php
-				$get=mysqli_query($con,"SELECT NAME FROM TEAM");
-				$option = '';
-				 while($row = mysqli_fetch_assoc($get))
-				{
-				  $option .= '<option value = "'.$row['NAME'].'">'.$row['NAME'].'</option>';
-				}
+						<tr><td>
+								Teszt eredményeinek lekérdezése:
+							</td><td>
+				<select name="whichTeamToList" id="whichTeamToList">
+				  <?php
+					$get=mysqli_query($con,"ifnull(DATE,'') AS DDATE FROM TEST where TEAM_ID=1 order by DATE");
+					$option = '';
+					 while($row = mysqli_fetch_assoc($get))
+					{
+					  $option .= '<option value = "'.$row['DATE'].'">'.$row['DATE'].'</option>';
+					}
 
-				echo $option; ?>
-			</select>
+					echo $option; ?>
+				</select>
 					</td></tr>				
 					</form>
 				</div>
