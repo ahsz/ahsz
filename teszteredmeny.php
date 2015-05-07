@@ -200,7 +200,7 @@
 					$option = '';
 					 while($row = mysqli_fetch_assoc($get))
 					{
-					  $option .= '<option value = "'.$row['DATE'].'">'.$row['DATE'].'</option>';
+					  $option .= '<option value = "'.$row['DDATE'].'">'.$row['DDATE'].'</option>';
 					}
 
 					echo $option; ?>
