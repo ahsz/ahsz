@@ -83,7 +83,7 @@
 					$defdate=$row['DDATE'];
 					
 				} else {
-					echo "HIBA: " . mysqli_error($con);
+					echo "HIBA: Nincs tesztadat feltöltve ";
 					echo '<a href="teszteredmeny.php">'. Vissza . '</a>'; 
 					exit(); 
 
@@ -239,6 +239,13 @@
 			
 
 		</div>
+	</div>
+				<div class="user_info">
+	<?php
+    if(isset($_POST['selectDate']))) {
+        echo "test";
+    }
+?>
 	</div>
 	<div id="div_id_1" style="width: 900px; height: 500px;"></div>
 	<div id="div_id_2"></div>
