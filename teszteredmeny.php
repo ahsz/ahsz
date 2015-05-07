@@ -219,7 +219,8 @@
 							</td><td>
 				<select name="selectDate" id="selectDate">
 				  <?php
-					$get=mysqli_query($con,"SELECT ifnull(DATE,'') AS DDATE FROM TEST where TEAM_ID=1 order by DATE DESC");
+					$t_id=$_SESSION['TEAM_ID'];	
+					$get=mysqli_query($con,"SELECT ifnull(DATE,'') AS DDATE FROM TEST where TEAM_ID=$t_id order by DATE DESC");
 					$option = '';
 					 while($row = mysqli_fetch_assoc($get))
 					{
