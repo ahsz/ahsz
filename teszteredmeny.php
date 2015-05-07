@@ -194,20 +194,17 @@
 					<tr><td>
 							Teszt eredményeinek lekérdezése:
 						</td><td>
-			<select name="userWho" id="userWho">
+			<select name="whichTeamToList" id="whichTeamToList">
 			  <?php
-				require "config.php";
-				$t_id=$_SESSION['TEAM_ID'];	
-				echo '$t_id';
-				$result=mysqli_query($con,"SELECT ifnull(DATE,'') AS DDATE FROM TEST where TEAM_ID=1 order by DATE");
+				$get=mysqli_query($con,"SELECT NAME FROM TEAM");
 				$option = '';
-				while($row = mysqli_fetch_assoc($get))
+				 while($row = mysqli_fetch_assoc($get))
 				{
-				  $option .= '<option value = "'.$row['DDATE'].'">'.$row['DATE'].'</option>';
+				  $option .= '<option value = "'.$row['NAME'].'">'.$row['NAME'].'</option>';
 				}
 
 				echo $option; ?>
-			</select>	
+			</select>
 					</td></tr>				
 					</form>
 				</div>
