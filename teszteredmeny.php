@@ -70,22 +70,7 @@
 
 			require "config.php";
 			if(isset($_POST['selectDate'])){
-				$t_id=$_SESSION['TEAM_ID'];			
-				$result=mysqli_query($con,"SELECT ifnull(NUM_OF_PASS,'') AS NPASS, ifnull(NUM_OF_FAIL,'') AS NFAILED, ifnull(NUM_OF_INC,'') as NINC, ifnull(DATE,'') AS DDATE FROM TEST where TEAM_ID=$t_id order by DATE DESC LIMIT 1");
-				if($result->num_rows>0){
-					$row=mysqli_fetch_assoc($result);
-					global $passedcount,$failedcount,$inconclusivecount, $defdate;
-					$passedcount=$row['NPASS'];
-					$failedcount=$row['NFAILED'];
-					$inconclusivecount=$row['NINC'];
-					$defdate=$row['DDATE'];
-					
-				} else {
-					echo "HIBA: " . mysqli_error($con);
-					echo '<a href="teszteredmeny.php">'. Vissza . '</a>'; 
-					exit(); 	
-				}
-			} else{
+				
 				$t_id=$_SESSION['TEAM_ID'];	
 				$selecteddate=$_POST['selectDate'];
 				$result=mysqli_query($con,"SELECT ifnull(NUM_OF_PASS,'') AS NPASS, ifnull(NUM_OF_FAIL,'') AS NFAILED, ifnull(NUM_OF_INC,'') as NINC, ifnull(DATE,'') AS DDATE FROM TEST where TEAM_ID=$t_id and DATE=STR_TO_DATE('2010-10-10', '%Y-%m-%d %H:%i:%s')");
@@ -101,7 +86,23 @@
 					echo "HIBA: " . mysqli_error($con);
 					echo '<a href="teszteredmeny.php">'. Vissza . '</a>'; 
 					exit(); 	
+			}else{
+				$t_id=$_SESSION['TEAM_ID'];			
+				$result=mysqli_query($con,"SELECT ifnull(NUM_OF_PASS,'') AS NPASS, ifnull(NUM_OF_FAIL,'') AS NFAILED, ifnull(NUM_OF_INC,'') as NINC, ifnull(DATE,'') AS DDATE FROM TEST where TEAM_ID=$t_id order by DATE DESC LIMIT 1");
+				if($result->num_rows>0){
+					$row=mysqli_fetch_assoc($result);
+					global $passedcount,$failedcount,$inconclusivecount, $defdate;
+					$passedcount=$row['NPASS'];
+					$failedcount=$row['NFAILED'];
+					$inconclusivecount=$row['NINC'];
+					$defdate=$row['DDATE'];
+					
+				} else {
+					echo "HIBA: " . mysqli_error($con);
+					echo '<a href="teszteredmeny.php">'. Vissza . '</a>'; 
+					exit(); 	
 				}
+			} 
 			}
 	}
 	
