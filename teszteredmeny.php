@@ -69,9 +69,8 @@
 	function mydraw(){
 
 			require "config.php";
-			$date = $_POST['selectDate'];
 			$t_id=$_SESSION['TEAM_ID'];			
-			$result=mysqli_query($con,"SELECT ifnull(NUM_OF_PASS,'') AS NPASS, ifnull(NUM_OF_FAIL,'') AS NFAILED, ifnull(NUM_OF_INC,'') as NINC, ifnull(DATE,'') AS DDATE FROM TEST where TEAM_ID=$t_id and DATE=STR_TO_DATE('$date ', '%Y-%m-%d %H:%i:%s') order by DATE DESC LIMIT 1");
+			$result=mysqli_query($con,"SELECT ifnull(NUM_OF_PASS,'') AS NPASS, ifnull(NUM_OF_FAIL,'') AS NFAILED, ifnull(NUM_OF_INC,'') as NINC, ifnull(DATE,'') AS DDATE FROM TEST where TEAM_ID=$t_id order by DATE DESC LIMIT 1");
 			if($result->num_rows>0){
 				$row=mysqli_fetch_assoc($result);
 				global $passedcount,$failedcount,$inconclusivecount, $defdate;
