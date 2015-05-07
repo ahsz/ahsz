@@ -120,13 +120,16 @@
 
 </head>
 <body>
+<?php
+	if($_SESSION['TYPE']==2){
+?>
 	<form action="#" method="POST">
-	<select name="selectDate" id="selectDate">
+	<select name="changeTeam" id="changeTeam">
 	<?php
-		$result2=mysqli_query($con,"SELECT ifnull(DATE,'') AS DDATE FROM TEST where TEAM_ID=$t_id order by DATE DESC");
-		while($row=mysqli_fetch_assoc($result2))
+		$result = mysqli_query($con,"SELECT NAME FROM TEAM");
+		while($row=mysqli_fetch_assoc($result))
 		{
-		  echo '<option value = "'.$row['DDATE'].'">'.$row['DDATE'].'</option>';
+		  echo '<option value = "'.$row['NAME'].'">'.$row['NAME'].'</option>';
 		}
 	?>
 	</select>
@@ -135,7 +138,6 @@
 <?php
 	}
 ?>
-	
 	
 	
 	<h1>Teszt eredmények</h1>
@@ -194,12 +196,13 @@
 						</td><td>
 			<select name="userWho" id="userWho">
 			  <?php
-				$neptun = $_SESSION['NEPTUN'];
-				$get=mysqli_query($con,"SELECT NAME FROM USER WHERE TEAM_ID='$tid'");
+				//require "config.php";
+				$t_id=$_SESSION['TEAM_ID'];		
+				$result=mysqli_query($con,"SELECT ifnull(DATE,'') AS DDATE FROM TEST where TEAM_ID=$t_id order by DATE");
 				$option = '';
 				while($row = mysqli_fetch_assoc($get))
 				{
-				  $option .= '<option value = "'.$row['NAME'].'">'.$row['NAME'].'</option>';
+				  $option .= '<option value = "'.$row['DDATE'].'">'.$row['DATE'].'</option>';
 				}
 
 				echo $option; ?>
