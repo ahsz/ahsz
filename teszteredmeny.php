@@ -124,10 +124,10 @@
 	<form action="#" method="POST">
 	<select name="changeTeam" id="changeTeam">
 	<?php
-		$result = mysqli_query($con,"SELECT NAME FROM TEAM");
-		while($row=mysqli_fetch_assoc($result))
+		$result2=mysqli_query($con,"SELECT ifnull(DATE,'') AS DDATE FROM TEST where TEAM_ID=$t_id order by DATE DESC");
+		while($row=mysqli_fetch_assoc($result2))
 		{
-		  echo '<option value = "'.$row['NAME'].'">'.$row['NAME'].'</option>';
+		  echo '<option value = "'.$row['DDATE'].'">'.$row['DDATE'].'</option>';
 		}
 	?>
 	</select>
@@ -193,6 +193,21 @@
 					<tr><td>
 							Teszt eredményeinek lekérdezése:
 						</td><td>
+			<span id="members">
+			<select name="userWho" id="userWho">
+			  <?php
+				$neptun = $_SESSION['NEPTUN'];
+				$get=mysqli_query($con,"SELECT NAME FROM USER WHERE TEAM_ID='$tid' AND NEPTUN!='$neptun'");
+				$option = '';
+				while($row = mysqli_fetch_assoc($get))
+				{
+				  $option .= '<option value = "'.$row['NAME'].'">'.$row['NAME'].'</option>';
+				}
+
+				echo $option; ?>
+			</select>
+			</span>		
+					</td></tr>			
 							<input type="text" name="time" class="box" size=30 value="<?php echo $defdate;?>" />
 						</td></tr>				
 					</form>
