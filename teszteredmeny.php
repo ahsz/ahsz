@@ -110,13 +110,13 @@
 			} 
 	}
 	
-	function writeDate($defdate){
+	function writeDate(){
 		if(isset($_POST['selectDate'])){
 			$currentTestDate=$_POST['selectDate'];;
 
 			echo "A kiválsztott teszt dátuma: " . $currentTestDate ;
 		}  else{
-			echo "A kiválsztott teszt dátuma:". $defdate;
+			echo "A legutolsó teszt eredménye:";
 		}
 	}
 	
