@@ -112,7 +112,7 @@
 	function writeDate(){
 		if(isset($_POST['selectDate'])){
 			$currentTestDate=$_POST['selectDate'];;
-			echo "A kiválsztott teszt dátuma:";
+			echo "A kiválsztott teszt dátuma:" . $currentTestDate ;
 		}  else{
 			echo "2010-10-10";
 		}
