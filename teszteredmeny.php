@@ -10,6 +10,7 @@
 	$passedcount=1;
 	$failedcount=1;
 	$inconclusivecount=1;
+	$defdate='1900-00-00';
 	
 	function changeTeam(){
 		require "config.php";
@@ -112,9 +113,9 @@
 	function writeDate(){
 		if(isset($_POST['selectDate'])){
 			$currentTestDate=$_POST['selectDate'];;
-			echo "A kiválsztott teszt dátuma:" . $currentTestDate ;
+			echo "A kiválsztott teszt dátuma: " . $currentTestDate ;
 		}  else{
-			echo "2010-10-10";
+			echo "A kiválsztott teszt dátuma:". $defdate;
 		}
 	}
 	
