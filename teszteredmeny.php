@@ -109,6 +109,15 @@
 			} 
 	}
 	
+	function writeDate(){
+		if(isset($_POST['selectDate'])){
+			$currentTestDate=$_POST['selectDate'];;
+			echo "A kiválsztott teszt dátuma:"'$currentTestDate';
+		}  else{
+			echo "2010-10-10";
+		}
+	}
+	
     if(isset($_POST['time']) && isset($_POST['passed']) && isset($_POST['failed']) && isset($_POST['inconclusive'])){
     	save();
     }
@@ -242,10 +251,8 @@
 	</div>
 				<div class="user_info">
 	<?php
-
-        echo "test";
-
-?>
+		writeDate();
+	?>
 	</div>
 	<div id="div_id_1" style="width: 900px; height: 500px;"></div>
 	<div id="div_id_2"></div>
