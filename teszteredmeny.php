@@ -232,6 +232,11 @@
 					</form>
 				</div>
 						</table>
+<?php>			
+	if(isset($_POST['selectDate'])){
+		echo "A lekérdezett időszak:" $_POST['selectDate'];
+	}								
+?>				
 				
 		</div>
 	</div>
