@@ -70,7 +70,7 @@
 
 			require "config.php";
 			$t_id=$_SESSION['TEAM_ID'];			
-			$result=mysqli_query($con,"SELECT ifnull(NUM_OF_TEST,'') AS NPASS, ifnull(NUM_OF_FAIL,'') AS NFAILED, ifnull(NUM_OF_INC,'') as NINC, ifnull(DATE,'') AS DDATE FROM TEST where TEAM_ID=$t_id order by DATE DESC LIMIT 1");
+			$result=mysqli_query($con,"SELECT ifnull(NUM_OF_PASS,'') AS NPASS, ifnull(NUM_OF_FAIL,'') AS NFAILED, ifnull(NUM_OF_INC,'') as NINC, ifnull(DATE,'') AS DDATE FROM TEST where TEAM_ID=$t_id order by DATE DESC LIMIT 1");
 			if($result->num_rows>0){
 				$row=mysqli_fetch_assoc($result);
 				global $passedcount,$failedcount,$inconclusivecount, $defdate;
@@ -120,11 +120,8 @@
 
 </head>
 <body>
-<?php
-	if($_SESSION['TYPE']==2){
-?>
 	<form action="#" method="POST">
-	<select name="changeTeam" id="changeTeam">
+	<select name="selectDate" id="selectDate">
 	<?php
 		$result2=mysqli_query($con,"SELECT ifnull(DATE,'') AS DDATE FROM TEST where TEAM_ID=$t_id order by DATE DESC");
 		while($row=mysqli_fetch_assoc($result2))
