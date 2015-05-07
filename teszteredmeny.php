@@ -236,11 +236,6 @@
 
 		</div>
 	</div>
-<?php			
-	if(isset($_POST['selectDate'])){
-		echo "A lekérdezett időszak:" '$_POST['selectDate']';
-	}								
-?>	
 	<div id="div_id_1" style="width: 900px; height: 500px;"></div>
 	<div id="div_id_2"></div>
 			<script type="text/javascript" src="https://www.google.com/jsapi"></script>
