@@ -85,7 +85,8 @@
 				} else {
 					echo "HIBA: " . mysqli_error($con);
 					echo '<a href="teszteredmeny.php">'. Vissza . '</a>'; 
-					exit(); 	
+					exit(); 
+				}					
 			}else{
 				$t_id=$_SESSION['TEAM_ID'];			
 				$result=mysqli_query($con,"SELECT ifnull(NUM_OF_PASS,'') AS NPASS, ifnull(NUM_OF_FAIL,'') AS NFAILED, ifnull(NUM_OF_INC,'') as NINC, ifnull(DATE,'') AS DDATE FROM TEST where TEAM_ID=$t_id order by DATE DESC LIMIT 1");
@@ -103,7 +104,6 @@
 					exit(); 	
 				}
 			} 
-			}
 	}
 	
     if(isset($_POST['time']) && isset($_POST['passed']) && isset($_POST['failed']) && isset($_POST['inconclusive'])){
