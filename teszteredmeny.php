@@ -99,9 +99,11 @@
 					$defdate=$row['DDATE'];
 					
 				} else {
-					echo "HIBA: " . mysqli_error($con);
-					echo '<a href="teszteredmeny.php">'. Vissza . '</a>'; 
-					exit(); 	
+					global $passedcount,$failedcount,$inconclusivecount, $defdate;
+					$passedcount=0;
+					$failedcount=0;
+					$inconclusivecount=0;
+					$defdate='2010-10-10'; 
 				}
 			} 
 	}
@@ -216,7 +218,7 @@
 							</td><td>
 				<select name="selectDate" id="selectDate">
 				  <?php
-					$get=mysqli_query($con,"SELECT ifnull(DATE,'') AS DDATE FROM TEST where TEAM_ID=1 order by DATE");
+					$get=mysqli_query($con,"SELECT ifnull(DATE,'') AS DDATE FROM TEST where TEAM_ID=1 order by DATE DESC");
 					$option = '';
 					 while($row = mysqli_fetch_assoc($get))
 					{
