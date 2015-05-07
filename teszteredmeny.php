@@ -196,8 +196,9 @@
 						</td><td>
 			<select name="userWho" id="userWho">
 			  <?php
-				//require "config.php";
-				$t_id=$_SESSION['TEAM_ID'];		
+				require "config.php";
+				$t_id=$_SESSION['TEAM_ID'];	
+				echo '$t_id';
 				$result=mysqli_query($con,"SELECT ifnull(DATE,'') AS DDATE FROM TEST where TEAM_ID=$t_id order by DATE");
 				$option = '';
 				while($row = mysqli_fetch_assoc($get))
