@@ -69,8 +69,9 @@
 	function mydraw(){
 
 			require "config.php";
+			$date = $_POST['selectDate'];
 			$t_id=$_SESSION['TEAM_ID'];			
-			$result=mysqli_query($con,"SELECT ifnull(NUM_OF_PASS,'') AS NPASS, ifnull(NUM_OF_FAIL,'') AS NFAILED, ifnull(NUM_OF_INC,'') as NINC, ifnull(DATE,'') AS DDATE FROM TEST where TEAM_ID=$t_id order by DATE DESC LIMIT 1");
+			$result=mysqli_query($con,"SELECT ifnull(NUM_OF_PASS,'') AS NPASS, ifnull(NUM_OF_FAIL,'') AS NFAILED, ifnull(NUM_OF_INC,'') as NINC, ifnull(DATE,'') AS DDATE FROM TEST where TEAM_ID=$t_id and DATE=STR_TO_DATE('$date ', '%Y-%m-%d %H:%i:%s') order by DATE DESC LIMIT 1");
 			if($result->num_rows>0){
 				$row=mysqli_fetch_assoc($result);
 				global $passedcount,$failedcount,$inconclusivecount, $defdate;
@@ -194,7 +195,7 @@
 						<tr><td>
 								Teszt eredményeinek lekérdezése:
 							</td><td>
-				<select name="whichTeamToList" id="whichTeamToList">
+				<select name="selectDate" id="selectDate">
 				  <?php
 					$get=mysqli_query($con,"SELECT ifnull(DATE,'') AS DDATE FROM TEST where TEAM_ID=1 order by DATE");
 					$option = '';
@@ -205,14 +206,17 @@
 
 					echo $option; ?>
 				</select>
-					</td></tr>				
+					</td><td>
+						<button type="submit" id="change-btn">Lekérdez</button>
+					</td></tr>		
+					
 					</form>
 				</div>
 						</table>
 				
 		</div>
 	</div>
-	<button id="change-btn">Lekérdez</button>
+
 	<div id="div_id_1" style="width: 900px; height: 500px;"></div>
 	<div id="div_id_2"></div>
 			<script type="text/javascript" src="https://www.google.com/jsapi"></script>
