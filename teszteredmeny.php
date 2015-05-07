@@ -83,9 +83,12 @@
 					$defdate=$row['DDATE'];
 					
 				} else {
-					echo "HIBA: " . mysqli_error($con);
-					echo '<a href="teszteredmeny.php">'. Vissza . '</a>'; 
-					exit(); 
+					global $passedcount,$failedcount,$inconclusivecount, $defdate;
+					$passedcount=0;
+					$failedcount=0;
+					$inconclusivecount=0;
+					$defdate='2010-10-10'; 
+
 				}					
 			}else{
 				$t_id=$_SESSION['TEAM_ID'];			
@@ -99,11 +102,10 @@
 					$defdate=$row['DDATE'];
 					
 				} else {
-					global $passedcount,$failedcount,$inconclusivecount, $defdate;
-					$passedcount=0;
-					$failedcount=0;
-					$inconclusivecount=0;
-					$defdate='2010-10-10'; 
+					echo "HIBA: " . mysqli_error($con);
+					echo '<a href="teszteredmeny.php">'. Vissza . '</a>'; 
+					exit(); 
+					
 				}
 			} 
 	}
