@@ -485,7 +485,7 @@
 			
 			<?php
 			$userNeptun = $_SESSION['NEPTUN'];
-			$listSentEvaluations = mysqli_query($con,"SELECT USER2.NAME as whom, RATE.GRADE as grade, RATE.MESSAGE as msg FROM RATE, USER, USER2 WHERE RATE.NEPTUN_WHO='$userNeptun' AND USER.NEPTUN='$userNeptun' AND USER2.NEPTUN=RATE.NEPTUN_WHOM");
+			$listSentEvaluations = mysqli_query($con,"SELECT U2.NAME as whom, RATE.GRADE as grade, RATE.MESSAGE as msg FROM RATE, USER U, USER U2 WHERE RATE.NEPTUN_WHO='$userNeptun' AND U.NEPTUN='$userNeptun' AND U2.NEPTUN=RATE.NEPTUN_WHOM");
 			 while($row = mysqli_fetch_assoc($listSentEvaluations))
 			{
 			  echo "<tr>";
