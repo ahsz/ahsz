@@ -122,7 +122,11 @@
 
 			
 		}  else{
-			echo "A legutolsó teszt eredménye:";
+			echo "A legutolsó teszt eredménye:"."\r\n";
+			global $passedcount,$failedcount,$inconclusivecount;
+			echo  "Passed:"	. $passedcount ."\r\n";
+			echo	"Failed" .	$failedcount."\r\n";
+			echo	"Inconclusive"	. $inconclusivecount."\r\n";
 		}
 	}
 	
