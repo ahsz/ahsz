@@ -4,12 +4,12 @@
 <head profile="http://selenium-ide.openqa.org/profiles/test-case">
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
 <link rel="selenium.base" href="http://agiliscsapat1.sch.bme.hu:40080/" />
-<title>profil_change_pwd_ures_regi</title>
+<title>ertekeles_tanari_csapatrol</title>
 </head>
 <body>
 <table cellpadding="1" cellspacing="1" border="1">
 <thead>
-<tr><td rowspan="1" colspan="3">profil_change_pwd_ures_regi</td></tr>
+<tr><td rowspan="1" colspan="3">ertekeles_tanari_csapatrol</td></tr>
 </thead><tbody>
 <tr>
 	<td>open</td>
@@ -18,7 +18,7 @@
 </tr>
 <tr>
 	<td>click</td>
-	<td>link=Profil</td>
+	<td>link=Értékelés</td>
 	<td></td>
 </tr>
 <tr>
@@ -27,20 +27,11 @@
 	<td></td>
 </tr>
 <tr>
-	<td>click</td>
-	<td>name=submit2</td>
-	<td></td>
+	<td>assertText</td>
+	<td>name=TeamEvaluation</td>
+	<td>exact:Jegy: 3 Szöveges értékelés: Nem volt rossz</td>
 </tr>
-<tr>
-	<td>open</td>
-	<td>/testsite/frame.php</td>
-	<td></td>
-</tr>
-<tr>
-	<td>click</td>
-	<td>link=Profil</td>
-	<td></td>
-</tr>
+
 </tbody></table>
 </body>
 </html>
