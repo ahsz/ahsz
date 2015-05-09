@@ -25,7 +25,7 @@
         	$team = $_POST['delTeam'];
         	$delTeam = mysqli_query($con,"DELETE FROM TEAM WHERE ID='$team'"); 
         	if($delTeam){
-        		$message = "Sikeres felhasználó törlés!"; 
+        		$message = "Sikeres csapat törlés!"; 
         		echo "<script type='text/javascript'>alert('$message');</script>";
         	}
         	else{
