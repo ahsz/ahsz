@@ -58,7 +58,7 @@
 
 		$saveentry	 = mysqli_query($con,"INSERT INTO TEST VALUES (null,$t_id, STR_TO_DATE('$time ', '%Y-%m-%d %H:%i:%s') , $sum,$passed,$failed,$inconclusive, sysdate(),'$neptun_kod')");
 		if($saveentry){
-			$message = "Szerepkör sikeresen felvéve!"; 
+			$message = "Teszteredmény sikeresen felvéve!"; 
 			echo "<script type='text/javascript'>alert('$message');</script>";
 		}
 		else{
