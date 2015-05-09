@@ -116,9 +116,9 @@
 
 			echo "A kiválsztott teszt dátuma: " . $currentTestDate ;
 			global $passedcount,$failedcount,$inconclusivecount;
-			echo		$passedcount;
-			echo		$failedcount;
-			echo		$inconclusivecount;
+			echo  "Passed:"	. $passedcount;
+			echo	"Failed" .	$failedcount;
+			echo	"Inconclusive"	. $inconclusivecount;
 
 			
 		}  else{
