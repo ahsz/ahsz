@@ -114,19 +114,25 @@
 		if(isset($_POST['selectDate'])){
 			$currentTestDate=$_POST['selectDate'];;
 
-			echo "A kiválsztott teszt dátuma: " . $currentTestDate ;
+			echo "A kiválsztott teszt dátuma: " . $currentTestDate . "\r\n";
 			global $passedcount,$failedcount,$inconclusivecount;
-			echo  "Passed:"	. $passedcount;
-			echo	"Failed" .	$failedcount;
-			echo	"Inconclusive"	. $inconclusivecount;
+			echo  "
+			Passed: "	. $passedcount;
+			echo  "
+			Failed: " .	$failedcount;
+			echo  "
+			Inconclusive: "	. $inconclusivecount;
 
 			
 		}  else{
-			echo "A legutolsó teszt eredménye:"."\r\n";
+			echo "A legutolsó teszt eredménye:" . "\r\n";
 			global $passedcount,$failedcount,$inconclusivecount;
-			echo  "Passed:"	. $passedcount ."\r\n";
-			echo	"Failed" .	$failedcount."\r\n";
-			echo	"Inconclusive"	. $inconclusivecount."\r\n";
+			echo  "
+			Passed: " . $passedcount . "\r\n";
+			echo  "
+			Failed: " .	$failedcount . "\r\n";
+			echo  "
+			Inconclusive: "	. $inconclusivecount . "\r\n";
 		}
 	}
 	
