@@ -246,8 +246,36 @@
 	<div id="chart_commitPerWeek" style="width: 1000px; height: 400px;"></div>
 	
 	<h1>Commit log</h1>
-	<iframe src="commit_tree.php" width="500" height="400" frameBorder="0"></iframe>	
-	
+	<script type="text/javascript"> 
+  	function toggleElement(id){ 
+    	var e = document.getElementById(id); 
+    	e.style.display = e.style.display != 'block' ? 'block' : 'none'; 
+  	}; 
+	</script> 
+
+	<?php $options = array('http' => array('user_agent'=> $_SERVER['HTTP_USER_AGENT']));
+session_start();
+require "check_logged_in.php";
+require "config.php";
+
+$tid = $_SESSION['TEAM_ID'];
+$github_repo_query = mysqli_query($con,"SELECT GITHUB_LINK FROM TEAM WHERE ID='$tid'");
+while($row = mysqli_fetch_assoc($github_repo_query)) {
+    $link = $row['GITHUB_LINK'];
+}
+
+$context = stream_context_create($options);
+$json_string = file_get_contents($link."commits", false, $context);
+$parsed_json = json_decode($json_string, false);
+$i = 0;
+foreach($parsed_json as $commit)
+{
+   echo '<p>' . $commit->commit->author->date . "    " .  "<input type=\"button\" value=\"megnyit\" onclick=\"toggleElement('husielementje" .++$i . "')\"/>" .'</p>';
+   echo "<p id=\"husielementje" .$i. "\" style=\"display:none;\">Név: " . $commit->commit->author->name . '<br>';
+   echo "Üzenet: " . $commit->commit->message . '</p>';
+}
+?>
+
 </body>
 
 </html>
