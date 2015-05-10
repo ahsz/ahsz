@@ -1,14 +1,14 @@
 <!DOCTYPE html>
-<?php 
+<?php  // Session ellenőrzés
     session_start();  
     require "check_logged_in.php"; 
     require "config.php"; 
     
     ini_set('display_errors', 'on');
-
-	function delUser(){ 
+	// Függvények
+	function delUser(){ // Felhasználó törlését megvalósító függvény
         	require "config.php"; 
-        	$user = $_POST['delUser'];
+        	$user = $_POST['delUser']; // HTML-ből átadott neptun kód
         	$delUser = mysqli_query($con,"DELETE FROM USER WHERE NEPTUN='$user'"); 
         	if($delUser){
         		$message = "Sikeres felhasználó törlés!"; 
@@ -20,9 +20,9 @@
         	}
 	} 
 
-	function delTeam(){ 
+	function delTeam(){ // Csapat törlését megvalósító függvény
         	require "config.php"; 
-        	$team = $_POST['delTeam'];
+        	$team = $_POST['delTeam']; // HTML-ből átadott csapat id
         	$delTeam = mysqli_query($con,"DELETE FROM TEAM WHERE ID='$team'"); 
         	if($delTeam){
         		$message = "Sikeres csapat törlés!"; 
@@ -35,9 +35,9 @@
 	} 
 
 
-	function setAdmin(){
+	function setAdmin(){ // Oktatói jogosultság beállítását megvalósító függvény
         	require "config.php"; 
-        	$admin = $_POST['setAdmin'];
+        	$admin = $_POST['setAdmin']; // HTML-ből átadott neptun kód
         	$setAdmin = mysqli_query($con,"UPDATE USER SET TYPE=2, TEAM_ID=-1 WHERE NEPTUN='$admin'"); 
         	if($setAdmin){
         		$message = "Sikeres oktató hozzáadás!"; 
@@ -49,9 +49,9 @@
         	}
 	}
 
-	function delAdmin(){
+	function delAdmin(){ // Oktatói jogosultság törlését megvalósító függvény
         	require "config.php"; 
-        	$admin = $_POST['delAdmin'];
+        	$admin = $_POST['delAdmin']; // HTML-ből átadott neptun kód
         	$delAdmin = mysqli_query($con,"UPDATE USER SET TYPE=1, TEAM_ID=null WHERE NEPTUN='$admin'"); 
         	if($delAdmin){
         		$message = "Sikeres oktató elvétel!"; 
@@ -66,9 +66,9 @@
 		}
 	}
 
-	function addRole(){
+	function addRole(){ // Szerepkör felvételét megvalósító függvény
         	require "config.php"; 
-        	$role = $_POST['addRole'];
+        	$role = $_POST['addRole']; // HTML-ből átadott szerepkör név
 		$addRole = mysqli_query($con,"INSERT INTO ROLE VALUES (null,'$role')");
 		if($addRole){
 			$message = "Szerepkör sikeresen felvéve!"; 
@@ -80,9 +80,9 @@
 		}
 	}
 
-	function delRole(){ 
+	function delRole(){ // Szerepkör törlését megvalósító függvény
         	require "config.php"; 
-        	$role = $_POST['delRole'];
+        	$role = $_POST['delRole']; // HTML-ből átadott szerepkör név
         	$delRole = mysqli_query($con,"DELETE FROM ROLE WHERE NAME='$role'"); 
         	if($delRole){
         		$message = "Sikeres szerepkör törlés!"; 
@@ -94,9 +94,9 @@
         	}
 	} 
 	
-	function delMsg(){  
+	function delMsg(){  // Aktuális információk törlését megvalósító függvény
 		require "config.php";   
-		$igen = $_POST['delMsg']; 
+		$igen = $_POST['delMsg']; // HTML-ből átadott igen/nem
 		if($igen=='igen') { 
 			$delMsg = mysqli_query($con,"DELETE FROM MSG_BOARD WHERE TEAM_ID=-1");   
 			if($delMsg){  
@@ -112,38 +112,29 @@
 			echo "Csak az igen szó megadásával tudod törölni a híreket!";  
 			echo '<a href="oktatoi.php">'. Vissza . '</a>';  
 		} 
-	}  
-	
-
-    if(isset($_POST['delUser'])){
-        delUser();
-    }
-    
-    if(isset($_POST['delTeam'])){
-        delTeam();
-    }
-    
-    if(isset($_POST['setAdmin'])){
-    	setAdmin();
-    }
-    
-    if(isset($_POST['delAdmin'])){
-    	delAdmin();
-    }
-    
-    if(isset($_POST['addRole'])){
-    	addRole();
-    }
-    
-    if(isset($_POST['delRole'])){
-    	delRole();
-    }
-
-	if(isset($_POST['delMsg'])){ 
-		delMsg(); 
 	} 
-
-   
+	
+	if(isset($_POST['delUser'])){ // html adatátvétel - felhasználó
+		delUser(); // felhasználó törlés függvény meghívása
+	}
+	if(isset($_POST['delTeam'])){ // html adatátvétel - csapat
+		delTeam(); // csapat törlés függvény meghívása
+	}
+	if(isset($_POST['setAdmin'])){ // html adatátvétel - felhasználó
+		setAdmin(); // oktatói jogosultság beállítás függvény meghívása
+	}
+	if(isset($_POST['delAdmin'])){ // html adatátvétel - felhasználó
+		delAdmin(); // oktató jogosultság megvonása függvény meghívása
+	}
+	if(isset($_POST['addRole'])){ // html adatátvétel - szerepkör
+		addRole(); // szerepkör felvétele függvény meghívása
+	}
+	if(isset($_POST['delRole'])){ // html adatátvétel - szerepkör
+		delRole(); // szerepkör törlése függvény meghívása
+	}
+	if(isset($_POST['delMsg'])){ // html adatátvétel igen/nem érték
+		delMsg();  // aktuális információk törlése függvény meghívása
+	} 
 ?>
 <html>
 <head>
