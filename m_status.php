@@ -24,55 +24,78 @@
 
 	</style>
 	<link rel="stylesheet" type="text/css" href="m_status.css">
+	<!-- Chart API betöltése -->
 	<script type="text/javascript" src='https://www.google.com/jsapi?autoload={"modules":[{"name":"visualization","version":"1.1","packages":["corechart"]}]}'></script>
 	<script type="text/javascript">
-		var gitUrl;
-		var nevek = [];
+		/** string Git URL. 
+		 * Egy szöveg, amiben a GIT API elérhetősége van https://api.github.com/repos/ahsz/ahsz/ típusú formában. 
+		 */
+		var gitUrl; 
+		/** string pair array. 
+		 * Tömb, amiben Git-es username és Rendes név párok vannak. 
+		 */
+		var nevek = []; 
+		/** string pair array. 
+		 * Tömb, amiben a chartok adatai vannak. 
+		 */
 		var dT = [];
+		
 		// A linket és a névpárokat a DB-ből átadjuk a kliens oldalnak.
 		function reqListener () {
 		  console.log(this.responseText);
 		}
-
+		
 		var oReq = new XMLHttpRequest();
 		oReq.onload = function() {
-			//This is where you handle what to do with the response.
-			//The actual data is found on this.responseText
+			// Itt van lekezelve a válaszüzenet
+			// A benne lévő adat elérése: this.responseText
+			// Az adatokat json formátumra kódolva kapjuk meg
 			var responseData = JSON.parse(this.responseText);
 			gitUrl = responseData.url;
 			nevek = responseData.nevek;
-			console.log(responseData);
-			console.log(gitUrl);
-			console.log(nevek);
 			
+			// Az URL megszerzése után inicializálom a chartokat,
+			// és elindítom a lekérdezést.
 			initializeChart();
 		};
+		/**
+		 * A lap betöltésekor ez fut le először. Lekérdezés az adatbázisunkból.
+		 * (csapat git URL, és névpárok)
+		 */
 		oReq.open("get", "m_status_getData.php", true);
 		oReq.send();
 		
 		/**
-		 * Chartok alapbeállítása, oszlopainak megadása, lekérdezés indítása
+		 * Chartok alapbeállítása, oszlopainak megadása, 
+		 * Git API-s lekérdezés indítása
 		 */
 		function initializeChart() {
+			// Commitok eloszlása a felhasználók között. (fánk chart)
 			dT[0] = new google.visualization.DataTable();
 			dT[0].addColumn({ type: 'string', label: 'User' });
 			dT[0].addColumn({ type: 'number', label: 'Commitok' });
+			// Átlagos sorváltozások egy commitra nézve. (oszlop chart, userenként külön-külön)
 			dT[1] = new google.visualization.DataTable();
 			dT[1].addColumn({ type: 'string', label: 'User' });
 			dT[1].addColumn({ type: 'number', label: 'Hozzáadott sorok' });
 			dT[1].addColumn({ type: 'number', label: 'Törölt sorok' });
 			dT[1].addColumn({ type: 'number', label: 'Új sorok' });
+			// Új sorok számának eloszlása adott kezdődátumú héten. (bar chart, db módosított sor)
 			dT[2] = new google.visualization.DataTable();
 			dT[2].addColumn({ type: 'date', label: 'Hét' });
+			// Commitok számának eloszlása adott kezdődátumú héten. (bar chart, db commit)
 			dT[3] = new google.visualization.DataTable();
 			dT[3].addColumn({ type: 'date', label: 'Hét' });
 			
+			// Git API lekérdezés indítása
 			var script = document.createElement('script');  
 			script.src = gitUrl + 'stats/contributors?callback=gitRoot';
 			document.getElementsByTagName('head')[0].appendChild(script);
 		}
 		/**
 		 * Git-es username kicserélése rendes névre
+		 * @param gitNev név, amit az API válaszból kapunk
+		 * @return Rendes neve a felhasználónak. Ha nincs találat, akkor gitNev.
 		 */
 		function getRealName(gitNev) {
 			for (var i = 0; i < nevek.length; i++) 
@@ -81,13 +104,17 @@
 			return gitNev;
 		}
 		/**
-		 * Git API válaszán keresztül a projekt alapinfóinak lekérdezése
+		 * Git API válaszát lekezelő függvény
+		 * @param response API-tól kapott válasz tömb
+		 * Feldolgozom az adatokat, azaz feltöltöm a chart adatokat tartalmazó tömböt
 		 */
 		function gitRoot(response) {
 			var data = response.data;
-			if(data.length > 1) {
-				// bejegyzések felhasználónként
+			if(data.length > 0) {
+				// Az API felhasználónként ad vissza információkat, így az összesen végigmegyek 
 				for (var i = 0; i < data.length; i++) {
+					// Kicseréljük a nevet a valódi nevére a felhasználónak, amennyiben megadta
+					// már a profilján a Git-es nevét.
 					var user = getRealName(data[i].author.login);
 					
 					// commit eloszlásos adatok
@@ -104,14 +131,14 @@
 						lineD += data[i].weeks[j].d;
 						lineC += data[i].weeks[j].a - data[i].weeks[j].d;
 					}
-					// kerekítés
+					// kerekítés, hogy szebb output legyen
 					lineA = Math.round( 100 * lineA / commits ) / 100;
 					lineD = Math.round( 100 * lineD / commits ) / 100;
 					lineC = Math.round( 100 * lineC / commits ) / 100;
 					dT[1].addRow([user,lineA,lineD,lineC]);
 					dT[1].sort([0,1]);
 					
-					// sormódosítások hetente
+					// sormódosítások heti eloszlása
 					if(dT[2].getNumberOfRows() == 0)
 						for(var j = 0; j < data[i].weeks.length; j++) 
 							dT[2].addRow([new Date(data[i].weeks[j].w * 1000)]);
@@ -125,7 +152,9 @@
 						dT[2].setValue(j, columnIndex, newLines);
 					}
 					
-					// commitok hetente
+					// commitok heti eloszlása
+					// Az első felhasználót vizsgálva tudjuk meg, hogy hány hete él a projekt,
+					//  így akkor hozzuk létre a heteket jelentő sorokat.
 					if(dT[3].getNumberOfRows() == 0)
 						for(var j = 0; j < data[i].weeks.length; j++) 
 							dT[3].addRow([new Date(data[i].weeks[j].w * 1000)]);
@@ -138,9 +167,6 @@
 				}
 				drawChart();
 			}
-			// debug info kiiratás
-			console.log(data);
-			console.log(dT);
 		}
 		
 

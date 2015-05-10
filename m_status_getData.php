@@ -18,6 +18,7 @@
 		$nevek[] = $r;
 	}
 	
+	// Válasz kódolása JSON formátumra
 	echo json_encode( array('url' => $link, 'nevek' => $nevek) );
 	
 ?>
