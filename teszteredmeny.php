@@ -3,15 +3,17 @@
 <?php
 	session_start();  
     require "check_logged_in.php"; 
-    require "config.php"; 
-    
+    require "config.php";    
 	ini_set('display_errors', 'on');
+
+	//Globális változók inicializálása
 	global $passedcount,$failedcount,$inconclusivecount, $defdate;
 	$passedcount=1;
 	$failedcount=1;
 	$inconclusivecount=1;
 	$defdate='1900-00-00';
 	
+	//Okatató számára csapatválasztás
 	function changeTeam(){
 		require "config.php";
 		$newTeam = $_POST['changeTeam'];
@@ -20,9 +22,11 @@
 		$_SESSION['TEAM_ID']=$row['ID'];
 	}
 
+	//Tesztadatok mentése
 	function save(){
         	require "config.php"; 
 				
+			//Beviteli mező ellenőrzése	
 			$time = $_POST['time'];
 			if (!preg_match('/(\d{4}-\d{2}-\d{2} \d{2}:\d{2}:\d{2})/',$time)){
 				echo "HIBA: rossz dátumformátum";
@@ -30,6 +34,7 @@
 				exit();
 				}
 				
+			//Beviteli mező ellenőrzése
 			$passed = $_POST['passed'];
 			if (!preg_match('/\d+/',$passed)){
 				echo "HIBA: nem számot adtál meg Passednak";
@@ -37,25 +42,30 @@
 				exit();
 				}		
 			
+			//Beviteli mező ellenőrzése
 			$failed = $_POST['failed'];
 			if (!preg_match('/\d+/',$failed)){
 				echo "HIBA: nem számot adtál meg Failednek";
 				echo '<a href="teszteredmeny.php">'. 'Vissza' . '</a>'; 
 				exit();
 				}		
-
+			
+			//Beviteli mező ellenőrzése
 			$inconclusive = $_POST['inconclusive'];	
 			if (!preg_match('/\d+/',$inconclusive)){
 				echo "HIBA: nem számot adtál meg Inconclusivenak";
 				echo '<a href="teszteredmeny.php">'. 'Vissza' . '</a>'; 
 				exit();
 				}		
-				
+			
+			//Szumma számolás
 			$sum= $passed + $failed + $inconclusive;
+			
 			
 			$neptun_kod=$_SESSION['NEPTUN'];
 			$t_id=$_SESSION['TEAM_ID'];
-
+		
+		//Adatbázis query felépítése és elküldése
 		$saveentry	 = mysqli_query($con,"INSERT INTO TEST VALUES (null,$t_id, STR_TO_DATE('$time ', '%Y-%m-%d %H:%i:%s') , $sum,$passed,$failed,$inconclusive, sysdate(),'$neptun_kod')");
 		if($saveentry){
 			$message = "Teszteredmény sikeresen felvéve!"; 
@@ -67,39 +77,49 @@
 		}
 	}
 	
+	//Grafikon inicializálás él update
 	function mydraw(){
-
 			require "config.php";
+			
+			//Ha adott időpontot kér le
 			if(isset($_POST['selectDate'])){
 				
 				$t_id=$_SESSION['TEAM_ID'];	
 				$selecteddate=$_POST['selectDate'];
+				//Query összerakás
 				$result=mysqli_query($con,"SELECT ifnull(NUM_OF_PASS,'') AS NPASS, ifnull(NUM_OF_FAIL,'') AS NFAILED, ifnull(NUM_OF_INC,'') as NINC, ifnull(DATE,'') AS DDATE FROM TEST where TEAM_ID=$t_id and DATE=STR_TO_DATE('$selecteddate', '%Y-%m-%d %H:%i:%s') order by DATE DESC LIMIT 1");
 				if($result->num_rows>0){
 					$row=mysqli_fetch_assoc($result);
+					//Globális változók beállítása, a grafikon ezeket használja
 					global $passedcount,$failedcount,$inconclusivecount, $defdate;
 					$passedcount=$row['NPASS'];
 					$failedcount=$row['NFAILED'];
 					$inconclusivecount=$row['NINC'];
 					$defdate=$row['DDATE'];
 					
+				//Ha nincs tesztadat	
 				} else {
 					echo "HIBA: Nincs tesztadat feltöltve ";
 					echo '<a href="teszteredmeny.php">'. 'Vissza' . '</a>'; 
 					exit(); 
 
-				}					
+				}
+			
+			//Default dátum (legutolsó) lekérés
 			}else{
-				$t_id=$_SESSION['TEAM_ID'];			
+				$t_id=$_SESSION['TEAM_ID'];		
+				//Query összerakás
 				$result=mysqli_query($con,"SELECT ifnull(NUM_OF_PASS,'') AS NPASS, ifnull(NUM_OF_FAIL,'') AS NFAILED, ifnull(NUM_OF_INC,'') as NINC, ifnull(DATE,'') AS DDATE FROM TEST where TEAM_ID=$t_id order by DATE DESC LIMIT 1");
 				if($result->num_rows>0){
 					$row=mysqli_fetch_assoc($result);
+					//Globális változók beállítása, a grafikon ezeket használja
 					global $passedcount,$failedcount,$inconclusivecount, $defdate;
 					$passedcount=$row['NPASS'];
 					$failedcount=$row['NFAILED'];
 					$inconclusivecount=$row['NINC'];
 					$defdate=$row['DDATE'];
-					
+				
+				//Ha nincs tesztadat
 				} else {
 					global $passedcount,$failedcount,$inconclusivecount, $defdate;
 					$passedcount=0;
@@ -110,7 +130,9 @@
 			} 
 	}
 	
+	//Lekért tesztadatok szöveges kiírása
 	function writeDate(){
+		//Ha adott időpontot kért le
 		if(isset($_POST['selectDate'])){
 			$currentTestDate=$_POST['selectDate'];;
 
@@ -120,7 +142,7 @@
 			echo  "Failed: " .	$failedcount . nl2br("\n");
 			echo  "Inconclusive: "	. $inconclusivecount . nl2br("\n");
 
-			
+		//Default időpont(legutolsó) lekérése
 		}  else{
 			echo "A legutolsó teszt eredménye:" . nl2br("\n");
 			global $passedcount,$failedcount,$inconclusivecount;
@@ -130,10 +152,12 @@
 		}
 	}
 	
+	//Beviteli mezők megadásának ellenőrzése
     if(isset($_POST['time']) && isset($_POST['passed']) && isset($_POST['failed']) && isset($_POST['inconclusive'])){
     	save();
     }
 	
+	//Csapat választás kezelése oktató számára
 	if(isset($_POST['changeTeam'])){
 		changeTeam();
 	}
@@ -165,11 +189,13 @@
 </head>
 <body>
 <?php
+	//Okatató számára csapatválasztás
 	if($_SESSION['TYPE']==2){
 ?>
 	<form action="#" method="POST">
 	<select name="changeTeam" id="changeTeam">
 	<?php
+		//legördülő feltöltése adattal
 		$result = mysqli_query($con,"SELECT NAME FROM TEAM");
 		while($row=mysqli_fetch_assoc($result))
 		{
@@ -193,7 +219,9 @@
 					<tr><td>
 					
 <?php
+	//Grafikon feltöltése adattal
 	mydraw();
+	//Nem oktató számára az elérhető beviteli mezők
 	if($_SESSION['TYPE'] != 2)
 	{
 ?>
@@ -204,6 +232,7 @@
 					</td></tr>
 				</div>
 				<div class="user_info">
+				<!--Beviteli mezők-->
 					<form form id="form" name="form" method="post" action="#">
 						<tr><td>
 							Futtatás időpontja(YYYY-MM-DD HH:MM:SS):
@@ -233,6 +262,7 @@
 <?php
 	}
 ?>	
+			<!--Teszteredmény lekérdezés-->
 			<div class="user_info">
 				<form form id="form" name="form" method="post" action="#">				
 						<tr><td>
@@ -240,6 +270,7 @@
 							</td><td>
 				<select name="selectDate" id="selectDate">
 				  <?php
+				  //legördülő feltöltése
 					$t_id=$_SESSION['TEAM_ID'];	
 					$get=mysqli_query($con,"SELECT ifnull(DATE,'') AS DDATE FROM TEST where TEAM_ID=$t_id order by DATE DESC");
 					$option = '';
@@ -263,12 +294,14 @@
 	</div>
 				<div class="user_info">
 	<?php
+		//Teszteredmények szöveges kiírása
 		writeDate();
 	?>
 	</div>
+	<!--Grafikon kirajzolás-->
 	<div id="div_id_1" style="width: 900px; height: 500px;"></div>
-	
-			<script type="text/javascript" src="https://www.google.com/jsapi"></script>
+	<!--Grafikon rajzoló google script-->
+	<script type="text/javascript" src="https://www.google.com/jsapi"></script>
 	<script type="text/javascript">
 			  var testRows = [
 			['Passed', <?php echo $passedcount;?>],
