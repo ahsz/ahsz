@@ -19,7 +19,7 @@
 			<table style="width:50%"> <!-- Adatok táblázatos megjelenítése -->
 				<div class="user_info"><tr><td><b>Adatok</b></td></tr></div> <!-- Táblázat első sora -->
 				<div class="user_info"><tr><td>  <!-- Táblázat új sor: név -->
-				<?php <!-- Session NEPTUN kód alapján szükséges adatok lekérdezése adatbázisból -->
+				<?php // Session NEPTUN kód alapján szükséges adatok lekérdezése adatbázisból
 					// Adatbázis kapcsolat felépítése
 					session_start(); 
 					require "config.php";
