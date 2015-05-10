@@ -5,7 +5,7 @@
 	require "config.php";
 	ini_set('display_errors', 'on');
 	
-	//csapatnév lekérése, hogy ki legyen írva a csapatnév a megfelelő mezőbe
+	//csapatnév lekérése, hogy ki legyen írva a csapatnév a megfelelő mezőbe az oldal tetéjén, ha diák van bejelentkezva
 	$tid = $_SESSION['TEAM_ID'];
 	$teamname = mysqli_query($con,"SELECT NAME FROM TEAM WHERE ID='$tid'");
 	while($row=mysqli_fetch_assoc($teamname))
@@ -13,6 +13,7 @@
 		$t_name = $row['NAME'];
 	}
 	
+	//függvény melyben meg van valósítva, hogy az adatbázisba beírásra kerüljön a diákok értékelése a többi diákról
 	function evaluateTeammate(){
 		require "config.php";
 		$who=$_SESSION['NEPTUN'];
@@ -42,6 +43,7 @@
 		}
 	}
 	
+	//függvény melyben meg van valósítva, hogy az adatbázisba beírásra kerüljön a tanárok értékelése a csapatokról
 	function evaluateTeam(){
 		require "config.php";
 		
@@ -55,6 +57,7 @@
 		echo "<script type='text/javascript'>alert('$message');</script>";	
 	}
 	
+	//függvény melyben meg van valósítva, hogy az adatbázisba beírásra kerüljön a tanárok értékelése a diákokról
 	function evaluateStudent(){
 		require "config.php";
 		
@@ -162,7 +165,7 @@
 		<div id="grade">
 			
 			<?php
-				if($_SESSION['TYPE']==2){
+				if($_SESSION['TYPE']==2){ //Csak az oktatók számára jelenik meg
 			?>
 			<form action="#" method="POST">
 			<b>Csapat értékelése:</b>
@@ -374,7 +377,7 @@
 			<?php } ?>
 			
 			<?php
-				}else if($_SESSION['TYPE']==1){
+				}else if($_SESSION['TYPE']==1){ //csak a diákok látják
 			?>
 			<form action="#" method="POST">
 			<div class="user_info" >

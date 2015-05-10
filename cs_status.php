@@ -6,6 +6,7 @@
 	require "config.php";
 	ini_set('display_errors', 'on');
 	
+	//függvény, melben az adatbázisba vissza van vezetve az egyes diákok csapathoz adása
 	function addToTeam(){
 		require "config.php";
 		$smNeptun  = $_SESSION['NEPTUN']; 
@@ -15,10 +16,12 @@
 			$t_id = $row['TEAM_ID'];
 		}
 		$team = $_POST['addTeammate'];
-		$addUserToTeam = mysqli_query($con,"UPDATE USER SET TEAM_ID='$t_id' WHERE NEPTUN='$team'"); //injection védelmet nekem!!!
+		$addUserToTeam = mysqli_query($con,"UPDATE USER SET TEAM_ID='$t_id' WHERE NEPTUN='$team'");
 		$message = "Sikeres csapathoz adás!";
 		echo "<script type='text/javascript'>alert('$message');</script>";
 	}
+	
+	//függvény, melyben az adatbázisba vissza van vezetve az egyes diákokhoz rendelt szerep módosítása
 	function giveRole(){
 		require "config.php";
 		$selected_neptun = $_POST['addRoleToTeammate'];
@@ -33,6 +36,7 @@
 		echo "<script type='text/javascript'>alert('$message');</script>";
 	}
 	
+	//függvény, melyben az adatbázisba vissza van vezetve az egyes diákok törlése a csapatukból
 	function delTeammate(){
 		require "config.php";
 		$selected_user = $_POST['deleteTeammate'];
@@ -42,6 +46,7 @@
 		echo "<script type='text/javascript'>alert('$message');</script>";
 	}
 	
+	//függvény, melyben az adatbázisba vissza van vezetve a a github repo módosítása
 	function modGithubRepo(){
 		require "config.php";
 		$github_repo = $_POST['github_mod'];
@@ -52,6 +57,7 @@
 		echo "<script type='text/javascript'>alert('$message');</script>";
 	}
 	
+	//függvény, melyben az adatbázisba vissza van vezetve a diákok esetleges csapathoz tartozásának módosítása
 	function changeTeam(){
 		require "config.php";
 		$newTeam = $_POST['changeTeam'];
@@ -60,6 +66,7 @@
 		$_SESSION['TEAM_ID']=$row['ID'];
 	}
 	
+	//függvény, melyben az adatbázisba vissza van vezetve, ha egy diák ki szeretne lépni a csapatából
 	function leaveTeam(){ 
 		require "config.php";  
 		$smNeptun  = $_SESSION['NEPTUN']; 
@@ -127,7 +134,7 @@
 
 <body>
 <?php
-	if($_SESSION['TYPE']==2){
+	if($_SESSION['TYPE']==2){ //oktató kiválaszthatja, hogy mely csapat adatait kívánja listázni
 ?>
 	<form action="#" method="POST">
 	<select name="changeTeam" id="changeTeam">
@@ -142,7 +149,7 @@
 	<input type="submit" id="Submit" value="Mehet"  />
 	</form>
 <?php
-	}
+	}//innentől már a diákok (beleértve az SM-et is) látják az itt implementált funkciókat
 ?>
 	<div style="margin-left:200">
 	<h1>Csapatstátusz</h1>
@@ -163,7 +170,7 @@
 	
 <?php
 	
-	if($_SESSION['ROLE_ID'] == 2 && $tid!=null && $_SESSION['TYPE'] == 1) {
+	if($_SESSION['ROLE_ID'] == 2 && $tid!=null && $_SESSION['TYPE'] == 1) { //a csapatból a scrum  master látja csak ezen mezőket
 		?>
 		<b>Csapattag felvétele:</b>
 		</br>
@@ -262,7 +269,6 @@
 				}
 			?>
 				<input type="text" name="github_mod" class="box" size="50" value="<?php echo $t_ghub; ?>"/>
-				<!--<textarea id="github_mod" name="github_mod" rows="1" cols="30"><?php echo $t_ghub; ?></textarea>-->
 				<input type="submit" name="submit" value="Módosítás" />
 	
 			</form>
@@ -276,7 +282,7 @@
 	</br>
 	</br>
 	<?php
-		if($_SESSION['ROLE_ID'] != 2 && $tid!=null && $_SESSION['TYPE'] == 1) {
+		if($_SESSION['ROLE_ID'] != 2 && $tid!=null && $_SESSION['TYPE'] == 1) { //diákok (az SM kivételével) kiléphetnek a csapatból
 	?>
 		<b>Ki akarsz lépni a csapatból? (igen):</b>
 		</br>
@@ -304,7 +310,6 @@
     </tr>
 	<?php
 		$teamid = $_SESSION['TEAM_ID'];
-		//$members = mysqli_query($con,"SELECT USER.NAME AS uname, ROLE.NAME AS urole, USER.EMAIL AS uemail FROM USER, ROLE WHERE USER.ROLE_ID=ROLE.ID AND TEAM_ID='$teamid'");
 		$members = mysqli_query($con,"SELECT ifnull(USER.NAME,'') as uname, USER.NEPTUN AS uneptun, ifnull(ROLE.NAME,'') AS urole, ifnull(USER.EMAIL,'') AS uemail FROM USER LEFT JOIN (ROLE) ON (ROLE.ID=USER.ROLE_ID) WHERE TEAM_ID='$teamid' ORDER BY ROLE.ID");
 		 while($row = mysqli_fetch_assoc($members))
 		{
