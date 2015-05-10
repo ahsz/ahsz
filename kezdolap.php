@@ -252,7 +252,9 @@
 			</a>
 			
 			<div id="decision">				
-
+<?php
+	if ($_SESSION['TYPE']==1) { 
+?>
 			<input type="submit" id="join1" value="Új csapat létrehozása!" onclick="show_create()" />
 		<!--	<input type="submit" id="join2" value="Csapathoz csatlakozok!" onclick="show_teams()" />  -->
 			
@@ -334,7 +336,7 @@
 		
 
 		</div>
-		
+<?php } ?> 		
 		<a a href="uzenetek.php" style="text-decoration:none; color: black;" target="_self" >
 		
 			<div id="news">
