@@ -3,6 +3,7 @@
 	require "check_logged_in.php";
 	require "config.php";
 	
+	//Üzenet kiolvasása.
 	if (isset($_POST['postmessage'])) {
 		$user=$_SESSION['username'];
 		$team_id=1;
@@ -12,6 +13,7 @@
 		
 		$t_id=$_SESSION['def_tid'];
 		
+		//Üzenet elmentése az adatbázisba.
 		$sql="INSERT INTO MSG_BOARD (TEAM_ID, NEPTUN, MESSAGE, DATE_CRT) VALUES($t_id,'$user','$escapedmessage',sysdate())";
 		$res=mysqli_query($con,$sql);	
 		

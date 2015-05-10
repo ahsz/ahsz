@@ -3,8 +3,10 @@
 	session_start(); 
 	require "config.php";
 
+	//Ha a felhasználó regisztrálni szeretne.
 	If($_POST["submit"])
 	{
+		//Adatok beolvasása a HTML formból.
 		$name = $_POST["name"];
 		$escapedname = htmlspecialchars($name, ENT_QUOTES);
 		$neptun = $_POST["neptun"];
@@ -15,10 +17,12 @@
 		$escapedpass = htmlspecialchars($pass, ENT_QUOTES);
 		$date=date('Y-m-d',time());
 		
+		//Ha nem töltött ki valamit, akkor hibaüzenet.
 		If($name=="" || $neptun=="" || $email=="" || $pass=="")
 		{
 			Echo "Kerlek toltsd ki az uresen maradt mezoket!";
 		}
+		//Egyébként új felhasználó felvétele az adatbázisba, és átirányítás a kezdőoldalra.
 		Else
 		{
 			$res=mysqli_query($con,"INSERT INTO USER (NEPTUN, NAME, TYPE, PASSWORD, TEAM_ID, DATE_CRT, DATE_MOD, EMAIL, ROLE_ID) 
