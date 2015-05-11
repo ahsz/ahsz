@@ -275,7 +275,7 @@
 			
 		<div class="description">	<!-- Ez a mező csak az alábbi szöveget tartalmazza, nem hajtódik végre rajta művelet  -->
 		<p>	Ezen az oldalon keresztül tudsz csapatot létrehozni, amihez később hozzá tudod adni a csapattagjaidat. </p>
-
+<?php } ?> 
 		<p>  <font size="5"><b><u>Aktuális információk:</u></b></font>		<!-- Ebbe a mezőbe kerülnek az OKTATÓI üzenetek, listaszerűen, egymás alá. -->
 		</br>
 			<ul>
@@ -321,7 +321,7 @@
 		
 
 		</div>
-<?php } ?> 		
+		
 		<a a href="uzenetek.php" style="text-decoration:none; color: black;" target="_self" >		
 		
 			<div id="news">			<!-- Ebben a mezőben a csapattagok üzenetei találhatóak. Kattintásra az uzenetek.php-ra navigál a fenti sornak köszönhetően  -->	
