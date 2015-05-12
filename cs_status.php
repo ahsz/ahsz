@@ -123,7 +123,7 @@
 <html>
 <head>
 	<meta charset="UTF-8">  </meta>
-	<title>Csapatstátusz</title>
+	<title>Csapat státusz</title>
 	
 <style media="screen" type="text/css">
 	textarea {
